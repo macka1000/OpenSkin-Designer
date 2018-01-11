@@ -1427,6 +1427,11 @@ namespace OpenSkinDesigner.Frames
             isResize = false;
             this.Cursor = Cursors.Default;
         }
+ 
+        private void pictureBox1_MouseLeave(object s, EventArgs e)
+        {
+            this.Cursor = Cursors.Default;
+        }
 
         private bool isCTRL(KeyEventArgs e)
         {
