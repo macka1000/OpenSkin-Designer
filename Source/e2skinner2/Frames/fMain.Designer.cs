@@ -984,7 +984,7 @@ namespace OpenSkinDesigner.Frames
             this.tbxTreeFilter.Name = "tbxTreeFilter";
             this.tbxTreeFilter.Size = new System.Drawing.Size(274, 24);
             this.tbxTreeFilter.TabIndex = 0;
-            this.tbxTreeFilter.Text = "Suchen...";
+            this.tbxTreeFilter.Text = "Search...";
             this.tbxTreeFilter.TextChanged += new System.EventHandler(this.tbxTreeFilter_TextChanged);
             this.tbxTreeFilter.Enter += new System.EventHandler(this.tbxTreeFilter_Enter);
             // 

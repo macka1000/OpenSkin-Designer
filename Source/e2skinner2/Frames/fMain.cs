@@ -255,7 +255,7 @@ namespace OpenSkinDesigner.Frames
         {
             lbxSearch.Visible = false;
             refreshEditor();
-            tbxTreeFilter.Text = "Suchen...";
+            tbxTreeFilter.Text = "Search...";
             propertyGrid1.SelectedObject = null;
 
             TreeNode selectedNode = treeView1.SelectedNode;
@@ -1561,7 +1561,7 @@ namespace OpenSkinDesigner.Frames
         private void tabControl1_Enter(object sender, EventArgs e)
         {
             lbxSearch.Visible = false;
-            tbxTreeFilter.Text = "Suchen...";
+            tbxTreeFilter.Text = "Search...";
             if (sender is TabControl)
             {
                 if (((TabControl)sender).SelectedIndex == 0)
@@ -1715,7 +1715,7 @@ namespace OpenSkinDesigner.Frames
 
         private void tbxTreeFilter_Enter(object sender, EventArgs e)
         {
-            if (tbxTreeFilter.Text == "Suchen...")
+            if (tbxTreeFilter.Text == "Search...")
             {
                 tbxTreeFilter.Text = "";
 
@@ -1770,7 +1770,7 @@ namespace OpenSkinDesigner.Frames
 
         private void tbxTreeFilter_TextChanged(object sender, EventArgs e)
         {
-            if (tbxTreeFilter.Text != "" && tbxTreeFilter.Text != "Suchen..." && tbxTreeFilter.Text.Length >= 3)
+            if (tbxTreeFilter.Text != "" && tbxTreeFilter.Text != "Search..." && tbxTreeFilter.Text.Length >= 3)
             {
                 lbxSearch.Width = treeView1.Width-4;
                 lbxSearch.Height = 4;
