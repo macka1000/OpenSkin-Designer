@@ -55,9 +55,9 @@ namespace OpenSkinDesigner.Logic
             xmlDocument.Save(cProperties.getProperty("path") + "/" + cProperties.getProperty("path_skin_xml"));
         }
 
-        private String XmlElementStringLookup(String element)
+        private String[] XmlElementStringLookup(String element)
         {
-            String stmp = "";
+            String stmp = null;
             switch (element)
             {
                 case "#comment":
@@ -72,57 +72,63 @@ namespace OpenSkinDesigner.Logic
                 case "ePixmap":
                     stmp = "pixmap";
                     break;
-                //case "widget":
-                //    stmp = "name";
-                //    break;
+                case "widget":
+                    return new String[2]{"pixmap", "text"};
                 default:
                     break;
             }
 
-            return stmp;
+            return stmp == null ? null : new String[1]{stmp};
+        }
+
+        private String getTreeName(XmlNode node)
+        {
+            String name = node.Name;
+
+            if (node.Attributes != null && node.Attributes["name"] != null)
+                name += " - " + node.Attributes["name"].Value;
+
+            String[] exts = XmlElementStringLookup(node.Name);
+            if (exts != null)
+            {
+                bool attr = false;
+                foreach (String ext in exts)
+                {
+                    if (node.Attributes != null && node.Attributes[ext] != null)
+                    {
+                        name += " : " + node.Attributes[ext].Value;
+                        attr = true;
+                    }
+                }
+                if (!attr)
+                    name += " " + node.Value;
+            }
+
+            return name;
         }
 
         private void XmlRekursivImport(TreeNodeCollection elem, XmlNodeList xmlNodeList) {
             TreeNode treeNode;
-            foreach (XmlNode myXmlNode in xmlNodeList) {
-                //if (myXmlNode.Attributes != null)
+            foreach (XmlNode myXmlNode in xmlNodeList)
+            {
+                if (myXmlNode.Name == "output" ||
+                    myXmlNode.Name == "windowstyle" ||
+                    myXmlNode.Name == "#whitespace")
+                    continue;
+                //MessageBox.Show(myXmlNode.Name);
+
+                String name = getTreeName(myXmlNode);
+
+                treeNode = new TreeNode(name/*Attributes["value"].Value*/);
+                setImageIndex(myXmlNode,  treeNode);
+
+                if (myXmlNode.ChildNodes.Count > 0)
                 {
-                    if (myXmlNode.Name == "output" || myXmlNode.Name == "windowstyle")
-                      continue;
-
-                    if(myXmlNode.Name == "#whitespace")
-                        continue;
-                    //MessageBox.Show(myXmlNode.Name);
-                    
-                    
-
-                    String name = myXmlNode.Name;
-
-                    if (myXmlNode.Attributes != null && myXmlNode.Attributes["name"] != null)
-                        name += " - " + myXmlNode.Attributes["name"].Value;
-
-                    String ext = XmlElementStringLookup(myXmlNode.Name);
-                    if (ext.Length > 0)
-                    {
-                        if (myXmlNode.Attributes != null && myXmlNode.Attributes[ext] != null)
-                            name += " : " + myXmlNode.Attributes[ext].Value;
-                        else
-                            name += " " + myXmlNode.Value;
-                    }
-                    treeNode = new TreeNode(name/*Attributes["value"].Value*/);
-                   setImageIndex(myXmlNode,  treeNode);
-                    
-                    
-                    
-                    
-                    if (myXmlNode.ChildNodes.Count > 0)
-                    {
-                        XmlRekursivImport(treeNode.Nodes, myXmlNode.ChildNodes);
-                    }
-                    elem.Add(treeNode);
-                    sElementList element = new sElementList(treeNode.GetHashCode(), treeNode.Parent.GetHashCode(), treeNode, myXmlNode);
-                    ElementList.Add(element);
+                    XmlRekursivImport(treeNode.Nodes, myXmlNode.ChildNodes);
                 }
+                elem.Add(treeNode);
+                sElementList element = new sElementList(treeNode.GetHashCode(), treeNode.Parent.GetHashCode(), treeNode, myXmlNode);
+                ElementList.Add(element);
             }
         }
 
@@ -134,9 +140,13 @@ namespace OpenSkinDesigner.Logic
             {
                 treeNode.ImageIndex = 0;
             }
-            else if (myXmlNode.Name == "colors" || myXmlNode.Name == "fonts" || myXmlNode.Name == "font" || myXmlNode.Name == "sub" || myXmlNode.Name == "subtitles" || myXmlNode.Name == "color")
+            else if (myXmlNode.Name == "colors" || myXmlNode.Name == "fonts" || myXmlNode.Name == "font" || myXmlNode.Name == "sub" || myXmlNode.Name == "subtitles" || myXmlNode.Name == "color" || myXmlNode.Name == "include")
             {
                 treeNode.ImageIndex = 1;
+            }
+            else if (myXmlNode.Name == "#comment")
+            {
+                treeNode.ImageIndex = 2;
             }
             else if (myXmlNode.Name == "ePixmap")
             {
@@ -174,19 +184,7 @@ namespace OpenSkinDesigner.Logic
             {
                 if (temp.Handle == hash)
                 {
-                    String name = temp.Node.Name;
-
-                    if (temp.Node.Attributes != null && temp.Node.Attributes["name"] != null)
-                        name += " - " + temp.Node.Attributes["name"].Value;
-
-                    String ext = XmlElementStringLookup(temp.Node.Name);
-                    if (ext.Length > 0)
-                    {
-                        if (temp.Node.Attributes != null && temp.Node.Attributes[ext] != null)
-                            name += " : " + temp.Node.Attributes[ext].Value;
-                        else
-                            name += " " + temp.Node.Value;
-                    }
+                    String name = getTreeName(temp.Node);
                     temp.TreeNode.Name = name;
 
                     //if (treenode.GetHashCode() == temp.Handle)
