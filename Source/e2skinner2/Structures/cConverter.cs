@@ -315,9 +315,6 @@ namespace OpenSkinDesigner.Structures
             bool showHours = false;
             bool showNoSeconds = false;
 
-            int poll_interval = 0;
-            bool poll_enabled = false;
-
             public ServicePosition(String type, String Source)
             {
                 String[] argsS = type.Split(',');
@@ -342,15 +339,6 @@ namespace OpenSkinDesigner.Structures
                     this.type = this.GAUGE;
                 else
                     this.type = -1;
-
-                if (detailed)
-                    poll_interval = 100;
-                else if (this.type == this.LENGTH)
-                    poll_interval = 2000;
-                else
-                    poll_interval = 500;
-
-                poll_enabled = true;
 
                 text = getText(Source);
             }
@@ -405,8 +393,6 @@ namespace OpenSkinDesigner.Structures
                     else
                         return sign + String.Format("{0}:{1:00}:{2:000}", (l / 60 / 90000), (l / 90000) % 60, (l % 90000) / 90);
                 }
-
-                return "???";
             }
         }
 
@@ -519,16 +505,6 @@ namespace OpenSkinDesigner.Structures
 
             private int type = 0;
 
-            //custom
-            int ber = 0;
-            int snr = 95;
-            int agc = 90;
-            int ilock = 0;
-            int snrdb = -1; //-1 tofallbakc to snr
-            int slot_number = 1;
-            int tuner_type = 0; // 0 s 1 c 3 t -1 unknown
-            //end
-
             public FrontendInfo(String type, String Source)
             {
                 if(type.Equals("BER"))
@@ -574,7 +550,7 @@ namespace OpenSkinDesigner.Structures
                     else
                         return ((int)((Hashtable)pTable[Source])["snr"]) + " %";
                 } else if (this.type == this.TUNER_TYPE) {
-                    switch (tuner_type) {
+                    switch ((int)((Hashtable)pTable[Source])["tuner_type"]) {
                         case 0:
                             return "DVB-S";
                         case 1:

@@ -382,7 +382,7 @@ namespace OpenSkinDesigner.Logic
                                     uint colorValue = Convert.ToUInt32(colorString, 16);
                                     myXmlNode.Attributes["foregroundColor"].Value = get(colorValue);
                                 }
-                                catch (Exception ex)
+                                catch (Exception)
                                 {
                                     myXmlNode.Attributes["foregroundColor"].Value = colorString;
                                 }
@@ -398,7 +398,7 @@ namespace OpenSkinDesigner.Logic
                                     uint colorValue = Convert.ToUInt32(colorString, 16);
                                     myXmlNode.Attributes["backgroundColor"].Value = get(colorValue);
                                 }
-                                catch (Exception ex)
+                                catch (Exception)
                                 {
                                     myXmlNode.Attributes["backgroundColor"].Value = colorString;
                                 }
@@ -414,7 +414,7 @@ namespace OpenSkinDesigner.Logic
                                     uint colorValue = Convert.ToUInt32(colorString, 16);
                                     myXmlNode.Attributes["borderColor"].Value = get(colorValue);
                                 }
-                                catch (Exception ex)
+                                catch (Exception)
                                 {
                                     myXmlNode.Attributes["borderColor"].Value = colorString;
                                 }
@@ -755,7 +755,7 @@ namespace OpenSkinDesigner.Logic
                                 {
                                     dw = Convert.ToInt32(node.Attributes["size"].Value.Substring(0, node.Attributes["size"].Value.IndexOf(',')));
                                 }
-                                catch (OverflowException e)
+                                catch (OverflowException)
                                 {
                                     dw = 0;
                                 }
@@ -764,7 +764,7 @@ namespace OpenSkinDesigner.Logic
                                 {
                                     dh = Convert.ToInt32(node.Attributes["size"].Value.Substring(node.Attributes["size"].Value.IndexOf(',') + 1));
                                 }
-                                catch (OverflowException e)
+                                catch (OverflowException)
                                 {
                                     dh = 0;
                                 }
@@ -788,7 +788,7 @@ namespace OpenSkinDesigner.Logic
                                     else
                                         dx = Convert.ToUInt32(sRelativeX);
                                 }
-                                catch (OverflowException e)
+                                catch (OverflowException)
                                 {
                                     dx = 0;
                                 }
@@ -801,7 +801,7 @@ namespace OpenSkinDesigner.Logic
                                     else
                                         dy = Convert.ToUInt32(sRelativeY);
                                 }
-                                catch (OverflowException e)
+                                catch (OverflowException)
                                 {
                                     dy = 0;
                                 }

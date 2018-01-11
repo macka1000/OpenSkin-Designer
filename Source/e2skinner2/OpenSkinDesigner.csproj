@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>OpenSkinDesigner</RootNamespace>
     <AssemblyName>OpenSkinDesigner</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ManifestCertificateThumbprint>4D01805CAE65F861C43BA8CB8CEBE06E36E3FE55</ManifestCertificateThumbprint>
     <ManifestKeyFile>e2skinner2_TemporaryKey.pfx</ManifestKeyFile>
@@ -316,6 +316,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Frames\UserControls\" />
+    <Folder Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\OpenHH.png" />

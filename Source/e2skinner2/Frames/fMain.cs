@@ -24,7 +24,6 @@ namespace OpenSkinDesigner.Frames
         //  private TreeView treeNodeCache = new System.Windows.Forms.TreeView();
         private ImageList treeImageList = new ImageList();
         private TreeView treeViewCache = new TreeView();
-        private String currentScreenName = "";
 
         private bool keyCapture = false;
 
@@ -1591,7 +1590,7 @@ namespace OpenSkinDesigner.Frames
             }
         }
 
-        private bool _bFullScreenMode = false, _bPreviewFullScreenMode = false;
+        private bool _bFullScreenMode = false;
         private Form previewForm = null;
         private int x, y, w, h;
 

@@ -50,7 +50,7 @@ namespace OpenSkinDesigner.Structures
             {
                 pImage = Image.FromFile(cDataBase.getPath(image));
             }
-            catch (FileNotFoundException ex)
+            catch (FileNotFoundException)
             {
                 Console.WriteLine("File not found! (" + cDataBase.getPath(image) + ")");
                 return;
@@ -75,7 +75,7 @@ namespace OpenSkinDesigner.Structures
             {
                 pImage = Image.FromFile(cDataBase.getPath(image));
             }
-            catch (FileNotFoundException ex)
+            catch (FileNotFoundException)
             {
                 Console.WriteLine("File not found! (" + cDataBase.getPath(image) + ")");
                 return;

@@ -93,6 +93,7 @@ namespace OpenSkinDesigner.Frames
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panelEditor = new System.Windows.Forms.Panel();
+            this.textBoxEditor = new System.Windows.Forms.TextBox();
             this.textBoxEditor2 = new ScintillaNET.Scintilla();
             this.toolStripEditor = new System.Windows.Forms.ToolStrip();
             this.btnSaveEditor = new System.Windows.Forms.ToolStripButton();
@@ -1353,7 +1354,6 @@ namespace OpenSkinDesigner.Frames
         private System.Windows.Forms.ToolStripButton btnFading;
         private System.Windows.Forms.TextBox textBoxEditor;
         private ScintillaNET.Scintilla textBoxEditor2;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripButton keyCaptureNotifyButton;
