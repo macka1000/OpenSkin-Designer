@@ -1723,7 +1723,6 @@ namespace OpenSkinDesigner.Frames
             if (tbxTreeFilter.Text == "Search...")
             {
                 tbxTreeFilter.Text = "";
-
             }
         }
 
@@ -1793,6 +1792,15 @@ namespace OpenSkinDesigner.Frames
             else
             {
                 lbxSearch.Visible = false;
+            }
+        }
+
+        private void tbxTreeFilter_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                lbxSearch.Visible = false;
+                tbxTreeFilter.Text = "";
             }
         }
 

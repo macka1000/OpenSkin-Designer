@@ -988,6 +988,7 @@ namespace OpenSkinDesigner.Frames
             this.tbxTreeFilter.Text = "Search...";
             this.tbxTreeFilter.TextChanged += new System.EventHandler(this.tbxTreeFilter_TextChanged);
             this.tbxTreeFilter.Enter += new System.EventHandler(this.tbxTreeFilter_Enter);
+            this.tbxTreeFilter.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbxTreeFilter_KeyDown);
             // 
             // splitContainer3
             // 
