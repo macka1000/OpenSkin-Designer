@@ -134,12 +134,13 @@ namespace OpenSkinDesigner.Frames
             treeView1.ImageIndex = 1;
             treeView1.SelectedImageIndex = 5;
             treeView1.GetNodeAt(0, 0).Expand();
+            float xratio = (float)panelDesignerInner.Width / cDataBase.pResolution.getResolution().Xres;
+            float yratio = (float)panelDesignerInner.Height / cDataBase.pResolution.getResolution().Yres;
+            float zoom = xratio < yratio ? xratio : yratio;
+            trackBarZoom.Value = (int)((zoom - 1.0f) * 100.0f - 0.5f);
             pDesigner.drawFrame();
-            pictureBox1.Invalidate();
 
-            panelDesignerInner.AutoScrollMinSize = new Size((int)(cDataBase.pResolution.getResolution().Xres / pDesigner.zoomLevel()) + 100, (int)(cDataBase.pResolution.getResolution().Yres / pDesigner.zoomLevel()) + 100);
             MiOpen.Enabled = false;
-
             MiSave.Enabled = true;
             MiSaveAs.Enabled = false;
             MiClose.Enabled = true;
@@ -1526,23 +1527,17 @@ namespace OpenSkinDesigner.Frames
 
                 e.Handled = true;
             }
-            else if (isPLUS(e))
+            else if (isPLUS(e) || isMINUS(e))
             {
-                pDesigner.zoomIn();
+                if (isPLUS(e))
+                    pDesigner.zoomIn();
+                else
+                    pDesigner.zoomOut();
                 //pictureBox1.Scale(new SizeF((float)0.5, (float)0.5));
                 //
                 //pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
-                panelDesignerInner.AutoScrollMinSize = new Size((int)(cDataBase.pResolution.getResolution().Xres * pDesigner.zoomLevel()) + 100, (int)(cDataBase.pResolution.getResolution().Yres * pDesigner.zoomLevel()) + 100);
+                panelDesignerInner.AutoScrollMinSize = new Size((int)(cDataBase.pResolution.getResolution().Xres * pDesigner.zoomLevel()), (int)(cDataBase.pResolution.getResolution().Yres * pDesigner.zoomLevel()));
                 trackBarZoom.Value = (int)((pDesigner.zoomLevel() - 1.0f) * 100.0f);
-                numericUpDownZoom.Value = (int)((pDesigner.zoomLevel() - 1.0f) * 100.0f);
-                pictureBox1.Invalidate();
-            }
-            else if (isMINUS(e))
-            {
-                pDesigner.zoomOut();
-                panelDesignerInner.AutoScrollMinSize = new Size((int)(cDataBase.pResolution.getResolution().Xres * pDesigner.zoomLevel()) + 100, (int)(cDataBase.pResolution.getResolution().Yres * pDesigner.zoomLevel()) + 100);
-                trackBarZoom.Value = (int)((pDesigner.zoomLevel() - 1.0f) * 100.0f);
-                numericUpDownZoom.Value = (int)((pDesigner.zoomLevel() - 1.0f) * 100.0f);
                 pictureBox1.Invalidate();
             }
             /*else if (e.KeyCode == Keys.Z) //UNDO
@@ -1670,7 +1665,7 @@ namespace OpenSkinDesigner.Frames
             pDesigner.setZoomLevel(zoom);
             pictureBox1.Invalidate();
 
-            panelDesignerInner.AutoScrollMinSize = new Size((int)(cDataBase.pResolution.getResolution().Xres * pDesigner.zoomLevel()) + 100, (int)(cDataBase.pResolution.getResolution().Yres * pDesigner.zoomLevel()) + 100);
+            panelDesignerInner.AutoScrollMinSize = new Size((int)(cDataBase.pResolution.getResolution().Xres * pDesigner.zoomLevel()), (int)(cDataBase.pResolution.getResolution().Yres * pDesigner.zoomLevel()));
         }
 
         private void trackBarZoom_ValueChanged(object sender, EventArgs e)
