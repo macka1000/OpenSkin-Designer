@@ -676,7 +676,7 @@ namespace OpenSkinDesigner.Logic
             {
                 foreach (XmlNode myXmlNode in fontNode.ChildNodes)
                 {
-                    if (myXmlNode.NodeType != XmlNodeType.Element)
+                    if (myXmlNode.NodeType != XmlNodeType.Element || myXmlNode.Name != "font")
                         continue;
 
                     sFont font = new sFont(
@@ -684,6 +684,19 @@ namespace OpenSkinDesigner.Logic
                         myXmlNode.Attributes["filename"].Value,
                         Convert.ToInt32(myXmlNode.Attributes["scale"] != null ? myXmlNode.Attributes["scale"].Value : "100"),
                         Convert.ToInt32(myXmlNode.Attributes["replacement"] != null ? myXmlNode.Attributes["replacement"].Value : "0") != 0
+                    );
+                    pFonts.Add(font.Name, font);
+                }
+                foreach (XmlNode myXmlNode in fontNode.ChildNodes)
+                {
+                    if (myXmlNode.NodeType != XmlNodeType.Element || myXmlNode.Name != "alias")
+                        continue;
+
+                    sFont font = new sFont(
+                        myXmlNode.Attributes["name"].Value,
+                        getFont(myXmlNode.Attributes["font"].Value).Path,
+                        100,
+                        false
                     );
                     pFonts.Add(font.Name, font);
                 }
