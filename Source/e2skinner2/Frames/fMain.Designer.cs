@@ -93,7 +93,6 @@ namespace OpenSkinDesigner.Frames
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panelEditor = new System.Windows.Forms.Panel();
-            this.textBoxEditor = new System.Windows.Forms.TextBox();
             this.textBoxEditor2 = new ScintillaNET.Scintilla();
             this.toolStripEditor = new System.Windows.Forms.ToolStrip();
             this.btnSaveEditor = new System.Windows.Forms.ToolStripButton();
@@ -105,6 +104,7 @@ namespace OpenSkinDesigner.Frames
             this.btnFoldElementsOff = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator16 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.textBoxEditor = new System.Windows.Forms.TextBox();
             this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -173,7 +173,7 @@ namespace OpenSkinDesigner.Frames
             this.treeView1.HotTracking = true;
             this.treeView1.Location = new System.Drawing.Point(0, 0);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(274, 463);
+            this.treeView1.Size = new System.Drawing.Size(274, 433);
             this.treeView1.TabIndex = 1;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             this.treeView1.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeView1_AfterDoubleclick);
@@ -277,7 +277,7 @@ namespace OpenSkinDesigner.Frames
             this.undoToolStripMenuItem.Image = global::OpenSkinDesigner.Properties.Resources.Undo;
             this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
             this.undoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.undoToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.undoToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.undoToolStripMenuItem.Text = "Undo";
             this.undoToolStripMenuItem.Click += new System.EventHandler(this.undoToolStripMenuItem_Click);
             // 
@@ -287,14 +287,14 @@ namespace OpenSkinDesigner.Frames
             this.redoToolStripMenuItem.Image = global::OpenSkinDesigner.Properties.Resources.Redo;
             this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
             this.redoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
-            this.redoToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.redoToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.redoToolStripMenuItem.Text = "Redo";
             this.redoToolStripMenuItem.Click += new System.EventHandler(this.redoToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(143, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(141, 6);
             // 
             // elementToolStripMenuItem1
             // 
@@ -449,7 +449,7 @@ namespace OpenSkinDesigner.Frames
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1005, 732);
+            this.tabControl1.Size = new System.Drawing.Size(1005, 687);
             this.tabControl1.TabIndex = 2;
             this.tabControl1.Enter += new System.EventHandler(this.tabControl1_Enter);
             this.tabControl1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tabControl1_KeyDown);
@@ -461,7 +461,7 @@ namespace OpenSkinDesigner.Frames
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(997, 706);
+            this.tabPage1.Size = new System.Drawing.Size(997, 661);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Designer";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -479,7 +479,7 @@ namespace OpenSkinDesigner.Frames
             this.panelDesigner.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDesigner.Location = new System.Drawing.Point(3, 3);
             this.panelDesigner.Name = "panelDesigner";
-            this.panelDesigner.Size = new System.Drawing.Size(991, 700);
+            this.panelDesigner.Size = new System.Drawing.Size(991, 655);
             this.panelDesigner.TabIndex = 1;
             // 
             // numericUpDownZoom
@@ -502,7 +502,7 @@ namespace OpenSkinDesigner.Frames
             this.panelDesignerInner.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDesignerInner.Location = new System.Drawing.Point(0, 25);
             this.panelDesignerInner.Name = "panelDesignerInner";
-            this.panelDesignerInner.Size = new System.Drawing.Size(989, 673);
+            this.panelDesignerInner.Size = new System.Drawing.Size(989, 628);
             this.panelDesignerInner.TabIndex = 2;
             // 
             // pictureBox1
@@ -511,7 +511,7 @@ namespace OpenSkinDesigner.Frames
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.pictureBox1.Size = new System.Drawing.Size(989, 673);
+            this.pictureBox1.Size = new System.Drawing.Size(989, 628);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -768,7 +768,7 @@ namespace OpenSkinDesigner.Frames
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(997, 706);
+            this.tabPage2.Size = new System.Drawing.Size(997, 661);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Code";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -780,7 +780,7 @@ namespace OpenSkinDesigner.Frames
             this.panelEditor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelEditor.Location = new System.Drawing.Point(3, 3);
             this.panelEditor.Name = "panelEditor";
-            this.panelEditor.Size = new System.Drawing.Size(991, 700);
+            this.panelEditor.Size = new System.Drawing.Size(991, 655);
             this.panelEditor.TabIndex = 2;
             // 
             // textBoxEditor2
@@ -802,7 +802,7 @@ namespace OpenSkinDesigner.Frames
             this.textBoxEditor2.Margins.Margin1.Width = 2;
             this.textBoxEditor2.Margins.Margin2.Width = 30;
             this.textBoxEditor2.Name = "textBoxEditor2";
-            this.textBoxEditor2.Size = new System.Drawing.Size(991, 675);
+            this.textBoxEditor2.Size = new System.Drawing.Size(991, 630);
             this.textBoxEditor2.Styles.BraceBad.FontName = "Verdana\0\0\0\0\0\0\0\0\0\0\0\0\0";
             this.textBoxEditor2.Styles.BraceLight.FontName = "Verdana\0\0\0\0\0\0\0\0\0\0\0\0\0";
             this.textBoxEditor2.Styles.CallTip.FontName = "Segoe UI\0\0\0\0\0\0\0\0\0\0\0\0";
@@ -913,6 +913,13 @@ namespace OpenSkinDesigner.Frames
             this.toolStripLabel1.Size = new System.Drawing.Size(59, 22);
             this.toolStripLabel1.Text = "No Errors.";
             // 
+            // textBoxEditor
+            // 
+            this.textBoxEditor.Location = new System.Drawing.Point(0, 0);
+            this.textBoxEditor.Name = "textBoxEditor";
+            this.textBoxEditor.Size = new System.Drawing.Size(100, 20);
+            this.textBoxEditor.TabIndex = 0;
+            // 
             // propertyGrid1
             // 
             this.propertyGrid1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -921,7 +928,7 @@ namespace OpenSkinDesigner.Frames
             this.propertyGrid1.Location = new System.Drawing.Point(0, 0);
             this.propertyGrid1.Name = "propertyGrid1";
             this.propertyGrid1.PropertySort = System.Windows.Forms.PropertySort.Categorized;
-            this.propertyGrid1.Size = new System.Drawing.Size(274, 236);
+            this.propertyGrid1.Size = new System.Drawing.Size(274, 221);
             this.propertyGrid1.TabIndex = 2;
             this.propertyGrid1.ViewBackColor = System.Drawing.SystemColors.InactiveBorder;
             this.propertyGrid1.PropertyValueChanged += new System.Windows.Forms.PropertyValueChangedEventHandler(this.propertyGrid1_PropertyValueChanged);
@@ -949,7 +956,7 @@ namespace OpenSkinDesigner.Frames
             this.splitContainer1.Panel2.Controls.Add(this.tabControl1);
             this.splitContainer1.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.splitContainer1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.splitContainer1.Size = new System.Drawing.Size(1283, 732);
+            this.splitContainer1.Size = new System.Drawing.Size(1283, 687);
             this.splitContainer1.SplitterDistance = 274;
             this.splitContainer1.TabIndex = 3;
             // 
@@ -970,7 +977,7 @@ namespace OpenSkinDesigner.Frames
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.splitContainer3);
-            this.splitContainer2.Size = new System.Drawing.Size(274, 732);
+            this.splitContainer2.Size = new System.Drawing.Size(274, 687);
             this.splitContainer2.SplitterDistance = 25;
             this.splitContainer2.SplitterWidth = 2;
             this.splitContainer2.TabIndex = 2;
@@ -1005,8 +1012,8 @@ namespace OpenSkinDesigner.Frames
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.propertyGrid1);
-            this.splitContainer3.Size = new System.Drawing.Size(274, 705);
-            this.splitContainer3.SplitterDistance = 463;
+            this.splitContainer3.Size = new System.Drawing.Size(274, 660);
+            this.splitContainer3.SplitterDistance = 433;
             this.splitContainer3.SplitterWidth = 6;
             this.splitContainer3.TabIndex = 3;
             // 
@@ -1024,8 +1031,8 @@ namespace OpenSkinDesigner.Frames
             // 
             // toolStripMain
             // 
-            this.toolStripMain.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.toolStripMain.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.toolStripMain.BackColor = System.Drawing.SystemColors.ControlDark;
             this.toolStripMain.Dock = System.Windows.Forms.DockStyle.None;
             this.toolStripMain.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
@@ -1227,11 +1234,11 @@ namespace OpenSkinDesigner.Frames
             this.toolStripContainer1.ContentPanel.Controls.Add(this.splitter1);
             this.toolStripContainer1.ContentPanel.Controls.Add(this.splitContainer1);
             this.toolStripContainer1.ContentPanel.Margin = new System.Windows.Forms.Padding(0);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(1283, 732);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(1283, 687);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
             this.toolStripContainer1.Name = "toolStripContainer1";
-            this.toolStripContainer1.Size = new System.Drawing.Size(1283, 795);
+            this.toolStripContainer1.Size = new System.Drawing.Size(1283, 750);
             this.toolStripContainer1.TabIndex = 5;
             this.toolStripContainer1.Text = "toolStripContainer1";
             // 
@@ -1244,7 +1251,7 @@ namespace OpenSkinDesigner.Frames
             // 
             this.splitter1.Location = new System.Drawing.Point(0, 0);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 732);
+            this.splitter1.Size = new System.Drawing.Size(3, 687);
             this.splitter1.TabIndex = 4;
             this.splitter1.TabStop = false;
             // 
@@ -1253,7 +1260,7 @@ namespace OpenSkinDesigner.Frames
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.ClientSize = new System.Drawing.Size(1283, 795);
+            this.ClientSize = new System.Drawing.Size(1283, 750);
             this.Controls.Add(this.toolStripContainer1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
