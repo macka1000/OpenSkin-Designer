@@ -21,3 +21,4 @@ It includes a couple of new features i.e.:
 To-Do: 
 * some performance improvements
 * parse includes
+* fix save as (copy your skin to the Designer's directory)

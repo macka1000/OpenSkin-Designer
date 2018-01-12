@@ -141,7 +141,7 @@ namespace OpenSkinDesigner.Frames
             MiOpen.Enabled = false;
 
             MiSave.Enabled = true;
-            MiSaveAs.Enabled = true;
+            MiSaveAs.Enabled = false;
             MiClose.Enabled = true;
             MiResolution.Enabled = true;
             MiColors.Enabled = true;
