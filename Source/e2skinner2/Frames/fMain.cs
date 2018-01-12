@@ -251,6 +251,25 @@ namespace OpenSkinDesigner.Frames
             }
         }
 
+        private XmlNode screenSearch(string screen, TreeNodeCollection tree)
+        {
+            foreach (TreeNode node in tree)
+            {
+                XmlNode nodeXml = pXmlHandler.getXmlNode(node.GetHashCode());
+                if (nodeXml.Name == "screen" &&
+                    nodeXml.Attributes["name"] != null &&
+                    nodeXml.Attributes["name"].Value == screen)
+                    return nodeXml;
+                if (nodeXml.Name == "include")
+                {
+                    nodeXml = screenSearch(screen, node.Nodes);
+                    if (nodeXml != null)
+                        return nodeXml;
+                }
+            }
+            return null;
+        }
+
         private void refresh()
         {
             lbxSearch.Visible = false;
@@ -282,75 +301,62 @@ namespace OpenSkinDesigner.Frames
                         pDesigner.drawBackground();
 
                         sAttribute subattr = null;
+
+                        sAttribute attr = new sAttributeScreen(screenNode);
+                        propertyGrid1.SelectedObject = attr;
+
+                        pDesigner.draw(attr);
+
+                        XmlNode[] nodes = pXmlHandler.XmlGetChildNodes(hash);
+
+                        if (nodes.Length > 0 && screenNode != node)
+                            propertyGrid1.SelectedObject = null;
+
+                        foreach (XmlNode tmpnode in nodes)
                         {
-                            sAttribute attr = new sAttributeScreen(screenNode);
-                            if (screenNode.Name == "screen")
+                            if (tmpnode.Name == "eLabel")
                             {
-                                //sAttribute subattr = new sAttributeScreen(node);
-                                propertyGrid1.SelectedObject = attr;
+                                subattr = new sAttributeLabel(attr, tmpnode);
+                                pDesigner.draw(subattr);
                             }
-                            pDesigner.draw(attr);
-
-                            XmlNode[] nodes = pXmlHandler.XmlGetChildNodes(hash);
-
-                            if (nodes.Length > 0 && screenNode != node)
-                                propertyGrid1.SelectedObject = null;
-
-                            if (cProperties.getPropertyBool("skinned_panels"))
+                            else if (tmpnode.Name == "ePixmap")
                             {
-                                foreach (XmlNode tmpnode in nodes)
+                                subattr = new sAttributePixmap(attr, tmpnode);
+                                pDesigner.draw(subattr);
+                            }
+                            else if (tmpnode.Name == "widget")
+                            {
+                                subattr = new sAttributeWidget(attr, tmpnode);
+                                pDesigner.draw(subattr);
+                            }
+                            else if (tmpnode.Name == "panel")
+                            {
+                                if (cProperties.getPropertyBool("skinned_panels"))
                                 {
-                                    if (tmpnode.Name == "panel")
+                                    if (tmpnode.Attributes["name"] != null)
                                     {
-                                        foreach (TreeNode panelNode in treeView1.Nodes[0].Nodes)
-                                        {
-                                            XmlNode panelNodeXml = pXmlHandler.getXmlNode(panelNode.GetHashCode());
-                                            if (panelNodeXml.Name == "screen")
-                                                if (panelNodeXml.Attributes["name"] != null)
-                                                    if (tmpnode.Attributes["name"].Value == panelNodeXml.Attributes["name"].Value)
-                                                    {
-                                                        showPanel(panelNodeXml);
-
-                                                    }
-                                        }
+                                        XmlNode panelNodeXml = screenSearch(tmpnode.Attributes["name"].Value, treeView1.Nodes[0].Nodes);
+                                        if (panelNodeXml != null)
+                                            showPanel(panelNodeXml, attr);
                                     }
-
-                                    if (tmpnode == node)
+                                    else
                                     {
-                                        propertyGrid1.SelectedObject = subattr;
-                                        if (cProperties.getPropertyBool("fading"))
-                                            try { pDesigner.drawFog((int)subattr.pAbsolutX, (int)subattr.pAbsolutY, (int)subattr.pWidth, (int)subattr.pHeight); }
-                                            catch { }
+                                        subattr = new sAttribute(attr, tmpnode);
+                                        showPanel(tmpnode, subattr);
                                     }
                                 }
                             }
-
-                            foreach (XmlNode tmpnode in nodes)
+                            else
                             {
-                                if (tmpnode.Name == "eLabel")
-                                {
-                                    subattr = new sAttributeLabel(attr, tmpnode);
-                                    pDesigner.draw(subattr);
-                                }
-                                else if (tmpnode.Name == "ePixmap")
-                                {
-                                    subattr = new sAttributePixmap(attr, tmpnode);
-                                    pDesigner.draw(subattr);
-                                }
-                                else if (tmpnode.Name == "widget")
-                                {
-                                    subattr = new sAttributeWidget(attr, tmpnode);
-                                    pDesigner.draw(subattr);
-                                }
+                                subattr = null;
+                            }
 
-
-                                if (tmpnode == node)
-                                {
-                                    propertyGrid1.SelectedObject = subattr;
-                                    if (cProperties.getPropertyBool("fading"))
-                                        try { pDesigner.drawFog((int)subattr.pAbsolutX, (int)subattr.pAbsolutY, (int)subattr.pWidth, (int)subattr.pHeight); }
-                                        catch { }
-                                }
+                            if (tmpnode == node)
+                            {
+                                propertyGrid1.SelectedObject = subattr;
+                                if (cProperties.getPropertyBool("fading"))
+                                    try { pDesigner.drawFog((int)subattr.pAbsolutX, (int)subattr.pAbsolutY, (int)subattr.pWidth, (int)subattr.pHeight); }
+                                    catch { }
                             }
                         }
 
@@ -360,69 +366,55 @@ namespace OpenSkinDesigner.Frames
                     pDesigner.sort();
                     pictureBox1.Invalidate();
                 }
-                
+
             }
         }
 
-        private void showPanel(XmlNode node)
+        private void showPanel(XmlNode node, sAttribute attr)
         {
-            
-            
             //Get Screen Node
             XmlNode screenNode = node;
             if (screenNode != null)
             {
                 //Draw Screen and its Elements
                 sAttribute subattr = null;
+
+                XmlNodeList nodes = screenNode.ChildNodes;
+                Console.WriteLine("building panel");
+
+                foreach (XmlNode tmpnode in nodes)
                 {
-                    sAttribute attr = new sAttributeScreen(screenNode);
-                    /*if (screenNode.Name == "screen")
+                    if (tmpnode.Name == "eLabel")
                     {
-                        //sAttribute subattr = new sAttributeScreen(node);
-                        propertyGrid1.SelectedObject = attr;
+                        subattr = new sAttributeLabel(attr, tmpnode);
+                        pDesigner.draw(subattr);
                     }
-                    pDesigner.draw(attr);*/
-
-                    XmlNodeList nodes = screenNode.ChildNodes;
-                    Console.WriteLine("building panel");
-                    if (nodes.Count > 0 && screenNode != node)
-                        propertyGrid1.SelectedObject = null;
-
-                        
-                    foreach (XmlNode tmpnode in nodes)
+                    else if (tmpnode.Name == "ePixmap")
                     {
-                        if (tmpnode.Name == "eLabel")
+                        subattr = new sAttributePixmap(attr, tmpnode);
+                        pDesigner.draw(subattr);
+                    }
+                    else if (tmpnode.Name == "widget")
+                    {
+                        subattr = new sAttributeWidget(attr, tmpnode);
+                        pDesigner.draw(subattr);
+                    }
+                    else if (tmpnode.Name == "panel")
+                    {
+                        if (tmpnode.Attributes["name"] != null)
                         {
-                            subattr = new sAttributeLabel(attr, tmpnode);
-                            pDesigner.draw(subattr);
+                            XmlNode panelNodeXml = screenSearch(tmpnode.Attributes["name"].Value, treeView1.Nodes[0].Nodes);
+                            if (panelNodeXml != null)
+                                showPanel(panelNodeXml, attr);
                         }
-                        else if (tmpnode.Name == "ePixmap")
+                        else
                         {
-                            subattr = new sAttributePixmap(attr, tmpnode);
-                            pDesigner.draw(subattr);
-                        }
-                        else if (tmpnode.Name == "widget")
-                        {
-                            subattr = new sAttributeWidget(attr, tmpnode);
-                            pDesigner.draw(subattr);
-                        }
-
-
-                        if (tmpnode == node)
-                        {
-                            propertyGrid1.SelectedObject = subattr;
-                            if (cProperties.getPropertyBool("fading"))
-                                try { pDesigner.drawFog((int)subattr.pAbsolutX, (int)subattr.pAbsolutY, (int)subattr.pWidth, (int)subattr.pHeight); }
-                                catch { }
+                            subattr = new sAttribute(attr, tmpnode);
+                            showPanel(tmpnode, subattr);
                         }
                     }
                 }
-
-                pDesigner.drawFrame();
             }
-
-            
-            
         }
 
         private void treeView1_AfterSelect(object sender, EventArgs e)
@@ -1769,8 +1761,26 @@ namespace OpenSkinDesigner.Frames
             }
         }
 
-
-
+        private void doSearch(TreeNodeCollection nodes)
+        {
+            foreach (TreeNode node in nodes)
+            {
+                if (node.Text.ToLower().Contains(tbxTreeFilter.Text.ToLower()))
+                {
+                    lbxSearch.Items.Add(node.Text);
+                    lbxSearch.Height += lbxSearch.ItemHeight;
+                }
+                else
+                {
+                    //XmlNode xnode = pXmlHandler.getXmlNode(node);
+                    //if (xnode != null && xnode.Name == "include")
+                    if (node.Tag != null)
+                        doSearch(node.Nodes);
+                }
+                if (lbxSearch.Height + lbxSearch.ItemHeight > treeView1.Height)
+                    break;
+           }
+        }
 
         private void tbxTreeFilter_TextChanged(object sender, EventArgs e)
         {
@@ -1780,14 +1790,7 @@ namespace OpenSkinDesigner.Frames
                 lbxSearch.Height = 4;
                 lbxSearch.Items.Clear();
                 lbxSearch.Visible = true;
-                foreach (TreeNode node in treeView1.Nodes[0].Nodes)
-                {
-                    if (node.Text.ToLower().Contains(tbxTreeFilter.Text.ToLower()))
-                    {
-                        lbxSearch.Items.Add(node.Text);
-                        lbxSearch.Height = lbxSearch.Height + lbxSearch.ItemHeight;
-                    }
-                }
+                doSearch(treeView1.Nodes[0].Nodes);
             } 
             else
             {
@@ -1822,23 +1825,38 @@ namespace OpenSkinDesigner.Frames
                 }
             }
             tabControl1.SelectedIndex = 1;
-            
+        }
 
+        private TreeNode findItem(TreeNodeCollection nodes)
+        {
+            foreach (TreeNode node in nodes)
+            {
+                if (node.Text == lbxSearch.SelectedItem.ToString())
+                {
+                    return node;
+                }
+                else
+                {
+                    //XmlNode xnode = pXmlHandler.getXmlNode(node);
+                    //if (xnode != null && xnode.Name == "include")
+                    if (node.Tag != null)
+                    {
+                        TreeNode inode = findItem(node.Nodes);
+                        if (inode != null)
+                            return inode;
+                    }
+                }
+            }
+            return null;
         }
 
         private void lbxSearch_Click(object sender, EventArgs e)
         {
             if (tbxTreeFilter.Text != "")
             {
-                
-                foreach (TreeNode node in treeView1.Nodes[0].Nodes)
-                {
-                    if (node.Text == lbxSearch.SelectedItem.ToString())
-                    {
-                        treeView1.SelectedNode = node;
-                        break;
-                    }
-                }
+                TreeNode node = findItem(treeView1.Nodes[0].Nodes);
+                if (node != null)
+                    treeView1.SelectedNode = node;
             }
             lbxSearch.Height = 4;
             lbxSearch.Items.Clear();
@@ -1945,7 +1963,5 @@ namespace OpenSkinDesigner.Frames
             cProperties.setProperty("skinned_panels", btnSkinnedShowPanels.Checked);
             refresh();
         }
-
-
     }
 }

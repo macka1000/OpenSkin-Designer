@@ -17,6 +17,7 @@ namespace OpenSkinDesigner.Logic
         public XmlDocument xmlDocument;
         ArrayList ElementList = null;
         int rootNode = 0;
+        TreeView xmlTreeView;
         /// <summary>
         /// Initialisiert eine neue Instanz der MultiClipboard Klasse.
         /// </summary>
@@ -48,11 +49,24 @@ namespace OpenSkinDesigner.Logic
 
 
             XmlRekursivImport(treeNode.Nodes, xmlDocument.DocumentElement.ChildNodes);
+
+            xmlTreeView = treeView;
         }
 
         public void XmlToFile(String path)
         {
-            xmlDocument.Save(cProperties.getProperty("path") + "/" + cProperties.getProperty("path_skin_xml"));
+            String xmlPath = cProperties.getProperty("path") + "/" + cProperties.getProperty("path_skin_xml");
+            xmlDocument.Save(xmlPath);
+            xmlPath = xmlPath.Substring(0, xmlPath.Length - 4) + "_"; // drop ".xml"
+            foreach (TreeNode node in xmlTreeView.Nodes[0].Nodes)
+            {
+                XmlDocument incDoc = node.Tag as XmlDocument;
+                if (incDoc != null)
+                {
+                    String skin = node.Text.Substring(node.Text.LastIndexOf(' ') + 1);
+                    incDoc.Save(xmlPath + skin + ".xml");
+                }
+            }
         }
 
         private String[] XmlElementStringLookup(String element)
@@ -107,8 +121,10 @@ namespace OpenSkinDesigner.Logic
             return name;
         }
 
-        private void XmlRekursivImport(TreeNodeCollection elem, XmlNodeList xmlNodeList) {
+        private void XmlRekursivImport(TreeNodeCollection elem, XmlNodeList xmlNodeList)
+        {
             TreeNode treeNode;
+            sElementList element;
             foreach (XmlNode myXmlNode in xmlNodeList)
             {
                 if (myXmlNode.Name == "output" ||
@@ -119,6 +135,26 @@ namespace OpenSkinDesigner.Logic
 
                 String name = getTreeName(myXmlNode);
 
+                if (myXmlNode.Name == "include")
+                {
+                    XmlDocument incDocument = new XmlDocument();
+                    string fname = myXmlNode.Attributes["filename"].Value;
+                    incDocument.Load(cDataBase.getPath(fname));
+                    string pname = cProperties.getProperty("path_skin_xml");
+                    string sname = pname.Substring(0, pname.Length - 4) + "_"; // "Name-of-skin/skin_"
+                    if (!fname.StartsWith(sname))
+                        sname = "skin_";
+                    string iname = fname.StartsWith(sname) && fname.EndsWith(".xml") ? fname.Substring(sname.Length, fname.Length - 4 - sname.Length) : fname;
+                    treeNode = new TreeNode(name + " : " + iname);
+                    treeNode.Tag = incDocument;
+                    setImageIndex(myXmlNode, treeNode);
+                    XmlRekursivImport(treeNode.Nodes, incDocument.DocumentElement.ChildNodes);
+                    elem.Add(treeNode);
+                    element = new sElementList(treeNode.GetHashCode(), treeNode.Parent.GetHashCode(), treeNode, myXmlNode);
+                    ElementList.Add(element);
+                    continue;
+                }
+
                 treeNode = new TreeNode(name/*Attributes["value"].Value*/);
                 setImageIndex(myXmlNode,  treeNode);
 
@@ -127,7 +163,7 @@ namespace OpenSkinDesigner.Logic
                     XmlRekursivImport(treeNode.Nodes, myXmlNode.ChildNodes);
                 }
                 elem.Add(treeNode);
-                sElementList element = new sElementList(treeNode.GetHashCode(), treeNode.Parent.GetHashCode(), treeNode, myXmlNode);
+                element = new sElementList(treeNode.GetHashCode(), treeNode.Parent.GetHashCode(), treeNode, myXmlNode);
                 ElementList.Add(element);
             }
         }
@@ -209,11 +245,12 @@ namespace OpenSkinDesigner.Logic
         public XmlNode XmlAppendNode(XmlNode node, String[] attributes)
         {
             XmlNode xmlNode = null;
-            xmlNode = xmlDocument.CreateElement(attributes[0]);
+            XmlDocument xmlDoc = node.OwnerDocument;
+            xmlNode = xmlDoc.CreateElement(attributes[0]);
 
             for (int i = 1; i < attributes.Length; i += 2)
             {
-                xmlNode.Attributes.Append(xmlDocument.CreateAttribute(attributes[i]));
+                xmlNode.Attributes.Append(xmlDoc.CreateAttribute(attributes[i]));
                 xmlNode.Attributes[attributes[i]].Value = attributes[i+1];
             }
 
@@ -227,7 +264,7 @@ namespace OpenSkinDesigner.Logic
         {
             XmlNode xmlNode = null;
             XmlTextReader xmlReader = new XmlTextReader(new StringReader(outerXml));
-            xmlNode = xmlDocument.ReadNode(xmlReader);
+            xmlNode = node.OwnerDocument.ReadNode(xmlReader);
 
             if(node != null)
                 node.AppendChild(xmlNode);
@@ -333,8 +370,8 @@ namespace OpenSkinDesigner.Logic
                     {
                         //We are the root element
 
-                        xmlDocument.ReplaceChild(xmlDocument.ReadNode(xmlReader), temp.Node);
-                        temp.Node = xmlDocument.DocumentElement/*.ParentNode*/;
+                        temp.Node.OwnerDocument.ReplaceChild(temp.Node.OwnerDocument.ReadNode(xmlReader), temp.Node);
+                        temp.Node = temp.Node.OwnerDocument.DocumentElement/*.ParentNode*/;
                         XmlRekursivImport(temp.TreeNode.Nodes, temp.Node.ChildNodes);
                     }
                     else
@@ -356,7 +393,7 @@ namespace OpenSkinDesigner.Logic
                                         }
                                         else // Replace node
                                         {
-                                            temp.Node = xmlDocument.ReadNode(xmlReader);
+                                            temp.Node = temp.Node.OwnerDocument.ReadNode(xmlReader);
                                             tempParent.Node.ReplaceChild(temp.Node, tempParent.Node.ChildNodes[i]);
                                             XmlRekursivImport(temp.TreeNode.Nodes, temp.Node.ChildNodes);
                                         }
@@ -364,10 +401,8 @@ namespace OpenSkinDesigner.Logic
                                     }
                                 break;
                             }
-
                         }
                     }
-
                     break;
                 }
             }
@@ -380,7 +415,7 @@ namespace OpenSkinDesigner.Logic
             {
                 if (temp.Handle == hash)
                 {
-                    temp.Node = xmlDocument.ReadNode(xmlReader);
+                    temp.Node = temp.Node.OwnerDocument.ReadNode(xmlReader);
                     break;
                 }
             }
