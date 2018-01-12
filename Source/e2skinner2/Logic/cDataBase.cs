@@ -722,9 +722,14 @@ namespace OpenSkinDesigner.Logic
             if (path[0] == '~')
                 return cProperties.getProperty("path_skin") + path.Substring(1);
             else if (path[0] == '@')
-                return cProperties.getProperty("path_skins") + path.Substring(1); 
+                return cProperties.getProperty("path_skins") + path.Substring(1);
             else
-                return cProperties.getProperty("path") + "/" + path; 
+            {
+                string fpath = cProperties.getProperty("path") + "/" + path;
+                if (!File.Exists(fpath))
+                    fpath = cProperties.getProperty("path") + "/" + cProperties.getProperty("path_skin") + "/" + path;
+                return fpath;
+            }
         }
 
         //#################################################################
