@@ -435,7 +435,48 @@ namespace OpenSkinDesigner.Structures
 
         public XmlNode myNode;
 
-        public sAttribute( sAttribute parent, XmlNode node)
+        private Int32 parseCoord(String coord, Int32 parent, Int32 size = 0)
+        {
+            Int32 n = 0;
+            coord = coord.Trim();
+            if (coord == "center")
+            {
+                if (size != 0)
+                    n = (parent - size) / 2;
+            }
+            else 
+            {
+                if (coord.StartsWith("e"))
+                {
+                    n = parent;
+                    coord = coord.Substring(1);
+                }
+                else if (coord.StartsWith("c"))
+                {
+                    n = parent / 2;
+                    coord = coord.Substring(1);
+                }
+                if (coord.Length != 0)
+                {
+                    if (coord.EndsWith("%"))
+                        n += parent * Convert.ToInt32(coord.Substring(0, coord.Length - 1)) / 100;
+                    else
+                        n += Convert.ToInt32(coord);
+                }
+            }
+            if (n < 0)
+                n = 0;
+            return n;
+        }
+
+        private void parsePair(String pair, sAttribute parent, out Int32 x, out Int32 y, Int32 w = 0, Int32 h = 0)
+        {
+            String[] coord = pair.Split(new Char[]{','});
+            x = parseCoord(coord[0], parent.pWidth, w);
+            y = parseCoord(coord[1], parent.pHeight, h);
+        }
+
+        private void init(sAttribute parent, XmlNode node)
         {
             if (node == null)
                 return;
@@ -444,45 +485,38 @@ namespace OpenSkinDesigner.Structures
 
             _pParent = parent;
 
-            try
+            if (node.Attributes["size"] != null)
             {
-                pWidth = Convert.ToInt32(node.Attributes["size"].Value.Substring(0, node.Attributes["size"].Value.IndexOf(',')).Trim());
-                pHeight = Convert.ToInt32(node.Attributes["size"].Value.Substring(node.Attributes["size"].Value.IndexOf(',') + 1).Trim());
+                parsePair(node.Attributes["size"].Value, parent, out pWidth, out pHeight);
             }
-            catch
+            else
             {
-                pWidth = (int)cDataBase.pResolution.getResolution().Xres;
-                pHeight = (int)cDataBase.pResolution.getResolution().Yres;
+                pWidth = parent.pWidth;
+                pHeight = parent.pHeight;
             }
             
-
-            try
+            if (node.Attributes["position"] != null)
             {
-                String sRelativeX = node.Attributes["position"].Value.Substring(0, node.Attributes["position"].Value.IndexOf(',')).Trim();
-                if (sRelativeX.Equals("center"))
-                    pRelativX = (Int32)(cDataBase.pResolution.getResolution().Xres - pWidth) >> 1 /*1/2*/;
+                String pos = node.Attributes["position"].Value;
+                if (pos == "fill")
+                {
+                    pRelativX = 0;
+                    pRelativY = 0;
+                    pWidth = parent.pWidth;
+                    pHeight = parent.pHeight;
+                }
                 else
-                    pRelativX = Convert.ToInt32(sRelativeX);
-            } catch
+                {
+                    parsePair(pos, parent, out pRelativX, out pRelativY, pWidth, pHeight);
+                }
+            } 
+            else
             {
                 pRelativX = 0;
-            }
-            pAbsolutX = parent.pAbsolutX + pRelativX;
-
-            try
-            {
-                String sRelativeY = node.Attributes["position"].Value.Substring(node.Attributes["position"].Value.IndexOf(',') + 1).Trim();
-                if (sRelativeY.Equals("center"))
-                    pRelativY = (Int32)(cDataBase.pResolution.getResolution().Yres - pHeight) >> 1 /*1/2*/;
-                else
-                    pRelativY = Convert.ToInt32(sRelativeY);
-            }
-            catch
-            {
                 pRelativY = 0;
             }
+            pAbsolutX = parent.pAbsolutX + pRelativX;
             pAbsolutY = parent.pAbsolutY + pRelativY;
-
 
             if (node.Attributes["name"] != null)
                 pName = node.Attributes["name"].Value.Trim();
@@ -509,89 +543,25 @@ namespace OpenSkinDesigner.Structures
             else
                 pBorderColor = null;
 
-            if (pBorderWidth > 0 && pBorderColor != null)
-                pBorder = true;
-            else
-                pBorder = false;
-        }
-
-        public sAttribute(XmlNode node)
-        {
-            if (node == null)
-                return;
-
-            myNode = node;
-            if (node.Attributes["size"]!=null)
-            {
-                pWidth = Convert.ToInt32(node.Attributes["size"].Value.Substring(0, node.Attributes["size"].Value.IndexOf(',')).Trim());
-                pHeight = Convert.ToInt32(node.Attributes["size"].Value.Substring(node.Attributes["size"].Value.IndexOf(',') + 1).Trim());
-            }
-            else
-            {
-                pWidth = (Int32)(cDataBase.pResolution.getResolution().Xres);
-                pHeight = (Int32)(cDataBase.pResolution.getResolution().Yres);
-            }
-            if (node.Attributes["position"]!=null)
-            {
-                String sRelativeX = node.Attributes["position"].Value.Substring(0, node.Attributes["position"].Value.IndexOf(',')).Trim();
-                if (sRelativeX.Equals("center"))
-                    pRelativX = (Int32)(cDataBase.pResolution.getResolution().Xres - pWidth) >> 1 /*1/2*/;
-                else
-                    pRelativX = Convert.ToInt32(sRelativeX);
-            }
-            else//To display panels
-            {
-                pRelativX = 0;
-            }
-            pAbsolutX = pRelativX;
-
-            if (node.Attributes["position"]!=null)
-            {
-                String sRelativeY = node.Attributes["position"].Value.Substring(node.Attributes["position"].Value.IndexOf(',') + 1).Trim();
-                if (sRelativeY.Equals("center"))
-                    pRelativY = (Int32)(cDataBase.pResolution.getResolution().Yres - pHeight) >> 1 /*1/2*/;
-                else
-                    pRelativY = Convert.ToInt32(sRelativeY);
-            }
-            else// To display panels
-            {
-                pRelativY = 0;
-            }
-            pAbsolutY = pRelativY;
-                      
-
-            if (node.Attributes["name"] != null)
-                pName = node.Attributes["name"].Value.Trim();
-
-            if (node.Attributes["zPosition"] != null)
-                pZPosition = Convert.ToInt32(node.Attributes["zPosition"].Value.Trim());
-            else
-                pZPosition = 0;
-
-            if (node.Attributes["transparent"] != null)
-                pTransparent = Convert.ToUInt32(node.Attributes["transparent"].Value.Trim()) != 0;
-            else
-                pTransparent = false;
-
-            if (node.Attributes["borderWidth"] != null)
-                pBorderWidth = Convert.ToUInt32(node.Attributes["borderWidth"].Value.Trim());
-            else
-                pBorderWidth = 0;
-
-            if (node.Attributes["borderColor"] != null)
-                pBorderColor = (sColor)cDataBase.pColors.get(node.Attributes["borderColor"].Value.Trim());
-            else
-                pBorderColor = (sColor)cDataBase.pColors.get("transparent");
-
-            if (pBorderWidth > 0 && pBorderColor != null)
-                pBorder = true;
-            else
-                pBorder = false;
+            pBorder = (pBorderWidth > 0 && pBorderColor != null);
 
             if (node.Attributes["name"] != null && node.Attributes["position"] == null && node.Attributes["size"] == null && node.Name == "screen")
             {
                 pTransparent = false;
             }
+        }
+
+        public sAttribute(sAttribute parent, XmlNode node)
+        {
+            init(parent, node);
+        }
+
+        public sAttribute(XmlNode node)
+        {
+            init(new sAttribute(0, 0,
+                        (int)cDataBase.pResolution.getResolution().Xres,
+                        (int)cDataBase.pResolution.getResolution().Yres,
+                        "desktop"), node);
         }
 
         public sAttribute(Int32 x, Int32 y, Int32 width, Int32 height, String name)
