@@ -707,8 +707,8 @@ namespace OpenSkinDesigner.Structures
                 else
                     return "";
             }
-	
-	        private int getValue(String Source)
+
+            private int getValue(String Source)
             {
                 if (this.type == this.FE_USE_MASK)
                     return (int)((Hashtable)pTable[Source])["tunerusemask"];
@@ -774,6 +774,7 @@ namespace OpenSkinDesigner.Structures
             public int DATE = 3;
             public int FORMAT = 4;
             public int AS_LENGTH = 5;
+            public int SHORT_FULL_DATE = 6;
 
             private int type = 0;
             private String fmt_string = "";
@@ -786,6 +787,8 @@ namespace OpenSkinDesigner.Structures
                     this.type = this.IN_MINUTES;
                 else if (type.Equals("Date"))
                     this.type = this.DATE;
+                else if (type.Equals("ShortFullDate"))
+                    this.type = this.SHORT_FULL_DATE;
                 else if (type.Equals("AsLength"))
                     this.type = this.AS_LENGTH;
                 else if (type.StartsWith("Format"))
@@ -841,6 +844,10 @@ namespace OpenSkinDesigner.Structures
                 else if (this.type == this.DATE)
                 {
                     return t.ToString(strftime.ToString("%A %B %d, %Y"));
+                }
+                else if (this.type == this.SHORT_FULL_DATE)
+                {
+                    return t.ToString(strftime.ToString("%a %b %d, %Y"));
                 }
                 else if (this.type == this.FORMAT)
                 {
