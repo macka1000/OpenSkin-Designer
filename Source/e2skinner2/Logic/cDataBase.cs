@@ -498,7 +498,13 @@ namespace OpenSkinDesigner.Logic
                 {
                     return new sColor("undefined", Convert.ToUInt32(name.Substring(1), 16));
                 }
-                return (Object)pColors[name];
+                Object col = (Object)pColors[name];
+                if (col == null)
+                {
+                    col = new sColor(name, 0xFF00FF);
+                    add(col);
+                }
+                return col;
             }
 
             public String get(UInt32 value)
