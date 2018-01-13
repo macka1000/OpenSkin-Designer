@@ -95,7 +95,7 @@ namespace OpenSkinDesigner.Structures
         CategoryAttribute(entryName)]
         public String BackgroundColor
         {
-            get { return pBackgroundColor.pName; }
+            get { return pBackgroundColor == null ? myNode.Attributes["backgroundColor"].Value + " (undefined)": pBackgroundColor.pName; }
             set
             {
                 if (value != null)
