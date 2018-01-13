@@ -30,7 +30,6 @@ namespace OpenSkinDesigner.Frames
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fMain));
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -1262,7 +1261,7 @@ namespace OpenSkinDesigner.Frames
             this.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.ClientSize = new System.Drawing.Size(1283, 750);
             this.Controls.Add(this.toolStripContainer1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Icon = global::OpenSkinDesigner.Properties.Resources.OpenSkinDesigner;
             this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "fMain";

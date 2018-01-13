@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fWindowstyle));
             this.label1 = new System.Windows.Forms.Label();
             this.comboBoxStyles = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -422,7 +421,7 @@
             this.Controls.Add(this.comboBoxStyles);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBoxPreview);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Icon = global::OpenSkinDesigner.Properties.Resources.OpenSkinDesigner;
             this.Name = "fWindowstyle";
             this.Text = "Window Style Settings";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPreview)).EndInit();

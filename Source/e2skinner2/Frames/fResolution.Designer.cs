@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fResolution));
             this.groupBoxResolution = new System.Windows.Forms.GroupBox();
             this.radioButton1080 = new System.Windows.Forms.RadioButton();
             this.radioButton720 = new System.Windows.Forms.RadioButton();
@@ -111,7 +110,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBoxResolution);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Icon = global::OpenSkinDesigner.Properties.Resources.OpenSkinDesigner;
             this.Name = "fResolution";
             this.Text = "Resolution Settings";
             this.groupBoxResolution.ResumeLayout(false);
