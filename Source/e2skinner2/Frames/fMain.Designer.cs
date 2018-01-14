@@ -1266,7 +1266,7 @@ namespace OpenSkinDesigner.Frames
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "fMain";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.Text = "OpenSkin Designer 3.0";
+            this.Text = "OpenSkin Designer 3.1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.fMain_FormClosing);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.fMain_KeyDown);
