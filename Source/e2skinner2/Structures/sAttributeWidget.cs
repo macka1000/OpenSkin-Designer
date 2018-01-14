@@ -439,14 +439,8 @@ namespace OpenSkinDesigner.Structures
                                 if (text.Length > 0 && (pLabel.pText == null || pLabel.pText.Length <= 0))
                                     pLabel.pPreviewText = text;
 
-                                if (text == "MAGIC#TRUE")
-                                {
-                                    //pLabel.pText = "";
-                                }
-                                else if (text == "MAGIC#FALSE")
-                                {
-                                    pLabel.pPreviewText = "";
-                                }
+                                if (text == "MAGIC#TRUE" || text == "MAGIC#FALSE")
+                                    pLabel.pPreviewText = text;
                             }
                             else if (pPixmap != null)
                             {
