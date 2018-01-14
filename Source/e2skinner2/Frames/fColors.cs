@@ -42,10 +42,10 @@ namespace OpenSkinDesigner.Frames
                 if (color.isNamedColor)
                     continue; //subtitems[COL_VALUE_AS_STRING].Text = color.pValueName;
                 else
-                    subtitems[COL_VALUE_AS_STRING].Text = "#" + Convert.ToString(color.pValue, 16);
+                    subtitems[COL_VALUE_AS_STRING].Text = "#" + color.pValue.ToString("x8");
 
                 subtitems[COL_VALUE] = new System.Windows.Forms.ListViewItem.ListViewSubItem();
-                subtitems[COL_VALUE].BackColor = Color.FromArgb(255, color.Color);
+                subtitems[COL_VALUE].BackColor = color.ColorAlpha;
                 subtitems[COL_VALUE].Text = "    ";
 
                 ListViewItem item = new ListViewItem(subtitems, 0);
@@ -69,13 +69,9 @@ namespace OpenSkinDesigner.Frames
             {
                 textBoxName.Text = listView1.SelectedItems[0].SubItems[COL_NAME].Text;
                 Color color = listView1.SelectedItems[0].SubItems[COL_VALUE].BackColor;
-                textBoxValue.Text = Convert.ToString(color.ToArgb(), 16);
-                textBoxAlpha.Text = color.A.ToString();
-                textBoxRed.Text = color.R.ToString();
-                textBoxGreen.Text = color.G.ToString();
-                textBoxBlue.Text = color.B.ToString();
-
-                pictureBoxColor.BackColor = Color.FromArgb(255, color);
+                color = Color.FromArgb(255 - color.A, color);
+                textBoxValue.Text = color.ToArgb().ToString("x8");
+                // Changing the above causes all the others to be changed.
             }
         }
 
@@ -142,7 +138,7 @@ namespace OpenSkinDesigner.Frames
             textBoxGreen.Text = green.ToString();
             int blue = (int)color & 0xff;
             textBoxBlue.Text = blue.ToString();
-            pictureBoxColor.BackColor = Color.FromArgb(/*alpha, */(int)red, (int)green, (int)blue);
+            pictureBoxColor.BackColor = Color.FromArgb(255 - alpha, red, green, blue);
 
             listView1.SelectedItems[0].SubItems[COL_VALUE_AS_STRING].Text = "#" + textBoxValue.Text;
             listView1.SelectedItems[0].SubItems[COL_VALUE].BackColor = pictureBoxColor.BackColor;
@@ -240,9 +236,9 @@ namespace OpenSkinDesigner.Frames
             }
 
             UInt32 value = /*Convert.ToUInt32*/((alpha * 0x01000000) + (red * 0x00010000) + (green * 0x00000100) + blue);
-            textBoxValue.Text = Convert.ToString(value, 16);
+            textBoxValue.Text = value.ToString("x8");
 
-            pictureBoxColor.BackColor = Color.FromArgb(/*alpha, */(int)red, (int)green, (int)blue);
+            pictureBoxColor.BackColor = Color.FromArgb(255 - (int)alpha, (int)red, (int)green, (int)blue);
         }
 
         private void buttonPallete_Click(object sender, EventArgs e)

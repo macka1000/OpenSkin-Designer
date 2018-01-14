@@ -344,79 +344,33 @@ namespace OpenSkinDesigner.Logic
                 sync(XmlHandler);
             }
 
+            private String[] color_attrs = { "color", "foregroundColor", "backgroundColor", "borderColor" };
+
             private void checkColor(XmlNodeList nodes)
             {
                 foreach (XmlNode myXmlNode in nodes)
                 {
-                    if (myXmlNode.NodeType != XmlNodeType.Element)
+                    if (myXmlNode.Attributes == null)
                         continue;
 
                     if (myXmlNode.HasChildNodes)
                         checkColor(myXmlNode.ChildNodes);
 
-                    if (myXmlNode.Attributes != null)
+                    foreach (String color in color_attrs)
                     {
-                        if (myXmlNode.Attributes["color"] != null)
+                        if (myXmlNode.Attributes[color] != null)
                         {
-                            if (myXmlNode.Attributes["color"].Value[0] == '#')
+                            if (myXmlNode.Attributes[color].Value[0] == '#')
                             {
-                                String colorString = myXmlNode.Attributes["color"].Value.Substring(1);
+                                String colorString = myXmlNode.Attributes[color].Value.Substring(1);
                                 try
                                 {
                                     uint colorValue = Convert.ToUInt32(colorString, 16);
-                                    myXmlNode.Attributes["color"].Value = get(colorValue);
+                                    myXmlNode.Attributes[color].Value = get(colorValue);
                                 }
                                 catch (Exception)
                                 {
-                                    myXmlNode.Attributes["color"].Value = colorString;
-                                }
-                            }
-                        }
-                        if (myXmlNode.Attributes["foregroundColor"] != null)
-                        {
-                            if (myXmlNode.Attributes["foregroundColor"].Value[0] == '#')
-                            {
-                                String colorString = myXmlNode.Attributes["foregroundColor"].Value.Substring(1);
-                                try
-                                {
-                                    uint colorValue = Convert.ToUInt32(colorString, 16);
-                                    myXmlNode.Attributes["foregroundColor"].Value = get(colorValue);
-                                }
-                                catch (Exception)
-                                {
-                                    myXmlNode.Attributes["foregroundColor"].Value = colorString;
-                                }
-                            }
-                        }
-                        if (myXmlNode.Attributes["backgroundColor"] != null)
-                        {
-                            if (myXmlNode.Attributes["backgroundColor"].Value[0] == '#')
-                            {
-                                String colorString = myXmlNode.Attributes["backgroundColor"].Value.Substring(1);
-                                try
-                                {
-                                    uint colorValue = Convert.ToUInt32(colorString, 16);
-                                    myXmlNode.Attributes["backgroundColor"].Value = get(colorValue);
-                                }
-                                catch (Exception)
-                                {
-                                    myXmlNode.Attributes["backgroundColor"].Value = colorString;
-                                }
-                            }
-                        }
-                        if (myXmlNode.Attributes["borderColor"] != null)
-                        {
-                            if (myXmlNode.Attributes["borderColor"].Value[0] == '#')
-                            {
-                                String colorString = myXmlNode.Attributes["borderColor"].Value.Substring(1);
-                                try
-                                {
-                                    uint colorValue = Convert.ToUInt32(colorString, 16);
-                                    myXmlNode.Attributes["borderColor"].Value = get(colorValue);
-                                }
-                                catch (Exception)
-                                {
-                                    myXmlNode.Attributes["borderColor"].Value = colorString;
+                                    myXmlNode.Attributes[color].Value = colorString;
                                 }
                             }
                         }
@@ -431,9 +385,7 @@ namespace OpenSkinDesigner.Logic
                 color.pName = to;
                 add(color);
 
-                string[] path = { /*"skin", */"colors" };
-                XmlNode Node = XmlHandler.XmlGetRootNodeElement(path);
-
+                XmlNode Node = XmlHandler.XmlGetRootNodeElement(null);
                 renameColor(Node.ChildNodes, name, to);
             }
 
@@ -441,40 +393,19 @@ namespace OpenSkinDesigner.Logic
             {
                 foreach (XmlNode myXmlNode in nodes)
                 {
-                    if (myXmlNode.NodeType != XmlNodeType.Element)
+                    if (myXmlNode.Attributes == null)
                         continue;
 
                     if (myXmlNode.HasChildNodes)
                         renameColor(myXmlNode.ChildNodes, name, to);
 
-                    if (myXmlNode.Attributes != null)
+                    foreach (String attr in color_attrs)
                     {
-                        if (myXmlNode.Attributes["color"] != null)
+                        if (myXmlNode.Attributes[attr] != null)
                         {
-                            if (myXmlNode.Attributes["color"].Value == name)
+                            if (myXmlNode.Attributes[attr].Value == name)
                             {
-                                myXmlNode.Attributes["color"].Value = to;
-                            }
-                        }
-                        if (myXmlNode.Attributes["foregroundColor"] != null)
-                        {
-                            if (myXmlNode.Attributes["foregroundColor"].Value == name)
-                            {
-                                myXmlNode.Attributes["foregroundColor"].Value = to;
-                            }
-                        }
-                        if (myXmlNode.Attributes["backgroundColor"] != null)
-                        {
-                            if (myXmlNode.Attributes["backgroundColor"].Value == name)
-                            {
-                                myXmlNode.Attributes["backgroundColor"].Value = to;
-                            }
-                        }
-                        if (myXmlNode.Attributes["borderColor"] != null)
-                        {
-                            if (myXmlNode.Attributes["borderColor"].Value == name)
-                            {
-                                myXmlNode.Attributes["borderColor"].Value = to;
+                                myXmlNode.Attributes[attr].Value = to;
                             }
                         }
                     }
@@ -494,6 +425,8 @@ namespace OpenSkinDesigner.Logic
 
             public override Object get(String name)
             {
+                if (name == "(none)")
+                    return null;
                 if (name[0] == '#')
                 {
                     return new sColor("undefined", Convert.ToUInt32(name.Substring(1), 16));
@@ -521,16 +454,7 @@ namespace OpenSkinDesigner.Logic
             public override String add(Object element)
             {
                 sColor color = (sColor)element;
-                foreach (sColor tmpcolor in pColors.Values)
-                {
-                    if (tmpcolor.pName == color.pName)
-                    {
-                        tmpcolor.pValue = color.pValue;
-                        return color.pName;
-                    }
-                }
-
-                pColors.Add(color.pName, color);
+                pColors[color.pName] = color;
                 return color.pName;
             }
 
