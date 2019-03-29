@@ -47,7 +47,11 @@ namespace OpenSkinDesigner.Structures
             String AbsolutPathFont = fontPath + "/" + Filename;
             String AbsolutPathSkinPathFont = skinsPath + "/" + skinPath + "/" + Filename;
             String RelativPathFont = Path;
+            // RelativPathSkinPathFont war der selbe Pfad wie AbsolutPathSkinPathFont
             String RelativPathSkinPathFont = skinsPath + "/" + skinPath + "/" + Path;
+            // Deshalb jetzt so, damit auch im Skinordner unter fonts nachgesehen wird
+            RelativPathSkinPathFont = skinsPath + "/" + skinPath + "/" + "fonts" + "/" + Path;
+
             RelativPathFont = Path;
             RelativPathFont = RelativPathFont.Replace("enigma2", "");
             RelativPathFont = RelativPathFont.Replace("usr", "");
@@ -103,8 +107,8 @@ namespace OpenSkinDesigner.Structures
                 String errorMessage = "";
                 errorMessage += "OpenSkinDesigner has tried to open the font \"" + Filename + "\".\n";
                 errorMessage += "Unfortunatly this was not successful.\n";
-                errorMessage += "Either the font type is not supported by e2kinner2,\n";
-                errorMessage += "or it is not a vaild font.\n";
+                errorMessage += "Either the font type is not supported by OpenSkinDesigner,\n";
+                errorMessage += "or it is not a valid font.\n";
                 errorMessage += "\n";
                 errorMessage += "Location:\n";
                 errorMessage += "\t" + new FileInfo(lookupPath).FullName + "\n" + error + "\n";

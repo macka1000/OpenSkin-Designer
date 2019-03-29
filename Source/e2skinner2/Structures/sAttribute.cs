@@ -13,6 +13,14 @@ using System.Reflection;
 
 namespace OpenSkinDesigner.Structures
 {
+    public static class MyGlobaleVariables
+    {
+        public static bool ShowErrorMessages { get; set; } // Zur Zeit nicht verwendet--> anzeige von abgefangenen aber nicht behandelten Ausnahmen
+        public static bool Reload { get; set; } = false; // Wenn z.B. eine Farbe doppelt eingelesen wurde, Nachfrage ob save, und reload!
+        public static List<String> SkinName = new List<String>();
+        public static List<String> SkinValue1 = new List<String>();
+        public static List<String> SkinValue2 = new List<String>();
+    }
     public class sAttribute
     {
         public class PositionConverter : TypeConverter
@@ -435,6 +443,32 @@ namespace OpenSkinDesigner.Structures
 
         public XmlNode myNode;
 
+        public int getValue(String NameOfVariable, bool First)
+        {
+            if (NameOfVariable == null)
+                return -1000;
+
+            for (int b = 0; b < MyGlobaleVariables.SkinName.Count; b++)
+            {
+                if (NameOfVariable == MyGlobaleVariables.SkinName[b])
+                {
+                    try
+                    {
+                        if (First == true)
+                            return Int32.Parse(MyGlobaleVariables.SkinValue1[b]);
+                        else
+                            return Int32.Parse(MyGlobaleVariables.SkinValue2[b]);
+                    }
+                    catch
+                    {
+                        return -1000;
+                    }
+
+                }
+            }
+            return -1000;
+        }
+
         private Int32 parseCoord(String coord, Int32 parent, Int32 size = 0)
         {
             Int32 n = 0;
@@ -462,6 +496,8 @@ namespace OpenSkinDesigner.Structures
                         n += parent * Convert.ToInt32(coord.Substring(0, coord.Length - 1)) / 100;
                     else
                         n += Convert.ToInt32(coord);
+                    
+                    
                 }
             }
             if (n < 0)
@@ -471,9 +507,18 @@ namespace OpenSkinDesigner.Structures
 
         private void parsePair(String pair, sAttribute parent, out Int32 x, out Int32 y, Int32 w = 0, Int32 h = 0)
         {
-            String[] coord = pair.Split(new Char[]{','});
-            x = parseCoord(coord[0], parent.pWidth, w);
-            y = parseCoord(coord[1], parent.pHeight, h);
+            if (pair.Contains(","))
+            {
+                String[] coord = pair.Split(new Char[]{','});
+                    x = parseCoord(coord[0], parent.pWidth, w);
+                    y = parseCoord(coord[1], parent.pHeight, h);
+            }
+            else
+            {
+                x = getValue(pair, true);
+                y = getValue(pair, false);
+            }
+            
         }
 
         private void init(sAttribute parent, XmlNode node)

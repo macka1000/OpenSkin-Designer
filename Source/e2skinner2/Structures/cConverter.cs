@@ -169,8 +169,9 @@ namespace OpenSkinDesigner.Structures
                 case "TunerInfo":
                     new TunerInfo(Paramter, Source);
                     break;
-
-
+                case "KravenFHDEventTime": //MOD
+                    new EventTime(Paramter, Source);
+                    break;
                 case "ValueBitTest":
                     new ValueBitTest(Paramter, Source);
                     break;
