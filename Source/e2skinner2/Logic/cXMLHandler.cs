@@ -69,6 +69,11 @@ namespace OpenSkinDesigner.Logic
             }
         }
 
+        public void XmlToFileAs(String path) //MOD
+        {
+            xmlDocument.Save(path);
+        }
+
         private String[] XmlElementStringLookup(String element)
         {
             String stmp = null;
@@ -183,6 +188,18 @@ namespace OpenSkinDesigner.Logic
             else if (myXmlNode.Name == "#comment")
             {
                 treeNode.ImageIndex = 2;
+            }
+            else if (myXmlNode.Name == "constant-widget" || myXmlNode.Name == "constant-widgets") // Hier könnte man ein Image für Constant-Widgets einstellen
+            {
+                treeNode.ImageIndex = 6;
+            }
+            else if (myXmlNode.Name == "parameters" || myXmlNode.Name == "parameter") // Hier könnte man ein Image für parameters einstellen
+            {
+                treeNode.ImageIndex = 6;
+            }
+            else if (myXmlNode.Name == "variables" || myXmlNode.Name == "variable") // Hier könnte man ein Image für variables einstellen
+            {
+                treeNode.ImageIndex = 6;
             }
             else if (myXmlNode.Name == "ePixmap")
             {

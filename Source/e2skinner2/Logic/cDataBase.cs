@@ -327,13 +327,24 @@ namespace OpenSkinDesigner.Logic
                         errormessage += "\n" + color.pName + "\t#" + Convert.ToString(color.pValue, 16);
 
                         errormessage += "\n";
-                        errormessage += "\n" + "The second definition will be deleted!";
+                        errormessage += "\n" + "The second definition will be deleted if you save manually.";
 
-                        MessageBox.Show(errormessage,
-                            "Error while parsing color table",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Information,
-                            MessageBoxDefaultButton.Button1);
+                        errormessage += "\n";
+                        errormessage += "\n" + "Until you save the second definition is still shown in TreeView!";
+
+                        errormessage += "\n";
+                        errormessage += "\n" + "Do you want to save and reload the skin?";
+
+
+
+                        if (MessageBox.Show(errormessage,
+                             "Error while parsing color table",
+                             MessageBoxButtons.YesNo,
+                             MessageBoxIcon.Information,
+                             MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+                        {
+                            MyGlobaleVariables.Reload = true;
+                        }
                     }
                 }
 
@@ -387,6 +398,12 @@ namespace OpenSkinDesigner.Logic
 
                 XmlNode Node = XmlHandler.XmlGetRootNodeElement(null);
                 renameColor(Node.ChildNodes, name, to);
+            }
+
+            public void removeColor(cXMLHandler XmlHandler, String name, String to)
+            {
+                sColor color = (sColor)pColors[name];
+                remove(color);
             }
 
             private void renameColor(XmlNodeList nodes, String name, String to)
@@ -606,30 +623,63 @@ namespace OpenSkinDesigner.Logic
             {
                 foreach (XmlNode myXmlNode in fontNode.ChildNodes)
                 {
-                    if (myXmlNode.NodeType != XmlNodeType.Element || myXmlNode.Name != "font")
+                    if (myXmlNode.NodeType != XmlNodeType.Element || myXmlNode.Name != "font" && myXmlNode.Name != "alias") //MOD
                         continue;
+                    if (myXmlNode.Name == "font")//MOD
+                        try //MOD
+                        {
+                            if (pFonts[myXmlNode.Attributes["name"].Value] == null)
+                            {
+                                sFont font = new sFont(
+                                    myXmlNode.Attributes["name"].Value,
+                                    myXmlNode.Attributes["filename"].Value,
+                                    Convert.ToInt32(myXmlNode.Attributes["scale"] != null ? myXmlNode.Attributes["scale"].Value : "100"),
+                                    Convert.ToInt32(myXmlNode.Attributes["replacement"] != null ? myXmlNode.Attributes["replacement"].Value : "0") != 0);
+                                pFonts.Add(font.Name, font);
+                            }
+                            else
+                            {
+                                String errormessage = "More than one font defined with name " + myXmlNode.Attributes["name"].Value;
 
-                    sFont font = new sFont(
-                        myXmlNode.Attributes["name"].Value,
-                        myXmlNode.Attributes["filename"].Value,
-                        Convert.ToInt32(myXmlNode.Attributes["scale"] != null ? myXmlNode.Attributes["scale"].Value : "100"),
-                        Convert.ToInt32(myXmlNode.Attributes["replacement"] != null ? myXmlNode.Attributes["replacement"].Value : "0") != 0
-                    );
-                    pFonts.Add(font.Name, font);
-                }
-                foreach (XmlNode myXmlNode in fontNode.ChildNodes)
-                {
-                    if (myXmlNode.NodeType != XmlNodeType.Element || myXmlNode.Name != "alias")
-                        continue;
+                                MessageBox.Show(errormessage,
+                                     "Error while parsing font table",
+                                     MessageBoxButtons.OK,
+                                     MessageBoxIcon.Information,
+                                     MessageBoxDefaultButton.Button1);
+                            }
 
-                    sFont font = new sFont(
-                        myXmlNode.Attributes["name"].Value,
-                        getFont(myXmlNode.Attributes["font"].Value).Path,
-                        100,
-                        false
-                    );
-                    pFonts.Add(font.Name, font);
-                }
+
+                        }
+                        catch
+                        {
+                        }
+                    else if (myXmlNode.Name == "alias")//MOD
+                        try
+                        {
+                            if (pFonts[myXmlNode.Attributes["name"].Value] == null)
+                            {
+                                sFont font = new sFont(
+                                    myXmlNode.Attributes["name"].Value,
+                                    getFont(myXmlNode.Attributes["font"].Value).Path,
+                                    100,
+                                    false);
+                                pFonts.Add(font.Name, font);
+                            }
+                            else
+                            {
+                                String errormessage = "More than one font (alias) defined with name " + myXmlNode.Attributes["name"].Value;
+
+                                MessageBox.Show(errormessage,
+                                     "Error while parsing font table",
+                                     MessageBoxButtons.OK,
+                                     MessageBoxIcon.Information,
+                                     MessageBoxDefaultButton.Button1);
+                            }
+                        }
+                        catch
+                        {
+                        }
+                } 
             }
         }
 

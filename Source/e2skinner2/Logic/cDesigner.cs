@@ -128,7 +128,11 @@ namespace OpenSkinDesigner.Logic
             sResolution res = cDataBase.pResolution.getResolution();
             sAttribute attr = new sAttribute(0, 0, (Int32)res.Xres, (Int32)res.Yres, "Background");
             attr.pZPosition = -1000;
-            pDrawList.Add(new sGraphicImage(attr, "background.jpg"));
+            if (res.Xres == 1920 && res.Yres == 1080 && System.IO.File.Exists(cDataBase.getPath("background1920.jpg")))
+                pDrawList.Add(new sGraphicImage(attr, "background1920.jpg"));
+            else
+                pDrawList.Add(new sGraphicImage(attr, "background.jpg"));
+
         }
 
         public void draw(sAttribute attr)
