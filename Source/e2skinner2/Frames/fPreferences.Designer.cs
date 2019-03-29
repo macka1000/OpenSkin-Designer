@@ -35,9 +35,9 @@
             // 
             // listView1
             // 
-            this.listView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.listView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeaderKey,
             this.columnHeaderValue});
@@ -68,7 +68,11 @@
             this.ClientSize = new System.Drawing.Size(409, 435);
             this.Controls.Add(this.listView1);
             this.Icon = global::OpenSkinDesigner.Properties.Resources.OpenSkinDesigner;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(425, 474);
             this.Name = "fPreferences";
+            this.ShowInTaskbar = false;
             this.Text = "Preferences";
             this.ResumeLayout(false);
 

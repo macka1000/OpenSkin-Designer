@@ -58,10 +58,19 @@
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonRemove = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.trackBarBlue = new System.Windows.Forms.TrackBar();
+            this.trackBarGreen = new System.Windows.Forms.TrackBar();
+            this.trackBarRed = new System.Windows.Forms.TrackBar();
+            this.trackBar_Alpha = new System.Windows.Forms.TrackBar();
             this.buttonRename = new System.Windows.Forms.Button();
             this.buttonPallete = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxColor)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarBlue)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarGreen)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarRed)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar_Alpha)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -77,9 +86,9 @@
             // listView1
             // 
             this.listView1.AllowColumnReorder = true;
-            this.listView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.listView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeaderName,
             this.columnHeaderValue,
@@ -95,7 +104,7 @@
             this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
             this.listView1.ShowGroups = false;
-            this.listView1.Size = new System.Drawing.Size(412, 250);
+            this.listView1.Size = new System.Drawing.Size(560, 281);
             this.listView1.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.listView1.TabIndex = 3;
             this.listView1.UseCompatibleStateImageBehavior = false;
@@ -105,7 +114,7 @@
             // columnHeaderName
             // 
             this.columnHeaderName.Text = "Name";
-            this.columnHeaderName.Width = 202;
+            this.columnHeaderName.Width = 350;
             // 
             // columnHeaderValue
             // 
@@ -121,7 +130,7 @@
             // 
             this.labelName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelName.AutoSize = true;
-            this.labelName.Location = new System.Drawing.Point(15, 26);
+            this.labelName.Location = new System.Drawing.Point(14, 24);
             this.labelName.Name = "labelName";
             this.labelName.Size = new System.Drawing.Size(35, 13);
             this.labelName.TabIndex = 4;
@@ -131,18 +140,18 @@
             // 
             this.textBoxName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.textBoxName.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxName.Location = new System.Drawing.Point(64, 23);
+            this.textBoxName.Location = new System.Drawing.Point(54, 21);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(100, 20);
+            this.textBoxName.Size = new System.Drawing.Size(257, 20);
             this.textBoxName.TabIndex = 6;
             // 
             // pictureBoxColor
             // 
             this.pictureBoxColor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.pictureBoxColor.BackColor = System.Drawing.Color.White;
-            this.pictureBoxColor.Location = new System.Drawing.Point(18, 59);
+            this.pictureBoxColor.Location = new System.Drawing.Point(5, 57);
             this.pictureBoxColor.Name = "pictureBoxColor";
-            this.pictureBoxColor.Size = new System.Drawing.Size(50, 50);
+            this.pictureBoxColor.Size = new System.Drawing.Size(122, 122);
             this.pictureBoxColor.TabIndex = 8;
             this.pictureBoxColor.TabStop = false;
             // 
@@ -152,7 +161,7 @@
             this.textBoxRed.AsciiOnly = true;
             this.textBoxRed.BeepOnError = true;
             this.textBoxRed.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxRed.Location = new System.Drawing.Point(117, 56);
+            this.textBoxRed.Location = new System.Drawing.Point(179, 54);
             this.textBoxRed.Name = "textBoxRed";
             this.textBoxRed.PromptChar = '0';
             this.textBoxRed.Size = new System.Drawing.Size(47, 20);
@@ -162,8 +171,8 @@
             // 
             // buttonSave
             // 
-            this.buttonSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonSave.Location = new System.Drawing.Point(17, 498);
+            this.buttonSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonSave.Location = new System.Drawing.Point(416, 545);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(75, 23);
             this.buttonSave.TabIndex = 10;
@@ -174,7 +183,7 @@
             // buttonAdd
             // 
             this.buttonAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonAdd.Location = new System.Drawing.Point(17, 293);
+            this.buttonAdd.Location = new System.Drawing.Point(317, 19);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(75, 23);
             this.buttonAdd.TabIndex = 11;
@@ -186,7 +195,7 @@
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(84, 59);
+            this.label2.Location = new System.Drawing.Point(141, 57);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(27, 13);
             this.label2.TabIndex = 12;
@@ -196,7 +205,7 @@
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(170, 59);
+            this.label3.Location = new System.Drawing.Point(226, 57);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(143, 13);
             this.label3.TabIndex = 13;
@@ -206,7 +215,7 @@
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(170, 100);
+            this.label4.Location = new System.Drawing.Point(226, 109);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(143, 13);
             this.label4.TabIndex = 16;
@@ -216,7 +225,7 @@
             // 
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(84, 100);
+            this.label5.Location = new System.Drawing.Point(141, 109);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(28, 13);
             this.label5.TabIndex = 15;
@@ -228,7 +237,7 @@
             this.textBoxBlue.AsciiOnly = true;
             this.textBoxBlue.BeepOnError = true;
             this.textBoxBlue.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxBlue.Location = new System.Drawing.Point(117, 97);
+            this.textBoxBlue.Location = new System.Drawing.Point(179, 106);
             this.textBoxBlue.Name = "textBoxBlue";
             this.textBoxBlue.PromptChar = '0';
             this.textBoxBlue.Size = new System.Drawing.Size(47, 20);
@@ -240,7 +249,7 @@
             // 
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(170, 80);
+            this.label6.Location = new System.Drawing.Point(226, 83);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(143, 13);
             this.label6.TabIndex = 19;
@@ -250,7 +259,7 @@
             // 
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(84, 80);
+            this.label7.Location = new System.Drawing.Point(141, 83);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(36, 13);
             this.label7.TabIndex = 18;
@@ -262,7 +271,7 @@
             this.textBoxGreen.AsciiOnly = true;
             this.textBoxGreen.BeepOnError = true;
             this.textBoxGreen.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxGreen.Location = new System.Drawing.Point(117, 77);
+            this.textBoxGreen.Location = new System.Drawing.Point(179, 80);
             this.textBoxGreen.Name = "textBoxGreen";
             this.textBoxGreen.PromptChar = '0';
             this.textBoxGreen.Size = new System.Drawing.Size(47, 20);
@@ -274,7 +283,7 @@
             // 
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(199, 144);
+            this.label8.Location = new System.Drawing.Point(255, 161);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(83, 13);
             this.label8.TabIndex = 22;
@@ -284,7 +293,7 @@
             // 
             this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(84, 144);
+            this.label9.Location = new System.Drawing.Point(141, 161);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(34, 13);
             this.label9.TabIndex = 21;
@@ -296,7 +305,7 @@
             this.textBoxValue.AsciiOnly = true;
             this.textBoxValue.BeepOnError = true;
             this.textBoxValue.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxValue.Location = new System.Drawing.Point(117, 141);
+            this.textBoxValue.Location = new System.Drawing.Point(179, 158);
             this.textBoxValue.Name = "textBoxValue";
             this.textBoxValue.PromptChar = '0';
             this.textBoxValue.Size = new System.Drawing.Size(76, 20);
@@ -308,7 +317,7 @@
             // 
             this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(170, 120);
+            this.label10.Location = new System.Drawing.Point(226, 135);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(143, 13);
             this.label10.TabIndex = 25;
@@ -318,7 +327,7 @@
             // 
             this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(84, 120);
+            this.label11.Location = new System.Drawing.Point(141, 135);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(34, 13);
             this.label11.TabIndex = 24;
@@ -330,7 +339,7 @@
             this.textBoxAlpha.AsciiOnly = true;
             this.textBoxAlpha.BeepOnError = true;
             this.textBoxAlpha.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxAlpha.Location = new System.Drawing.Point(117, 117);
+            this.textBoxAlpha.Location = new System.Drawing.Point(179, 132);
             this.textBoxAlpha.Name = "textBoxAlpha";
             this.textBoxAlpha.PromptChar = '0';
             this.textBoxAlpha.Size = new System.Drawing.Size(47, 20);
@@ -340,8 +349,8 @@
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonCancel.Location = new System.Drawing.Point(98, 498);
+            this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonCancel.Location = new System.Drawing.Point(497, 545);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
             this.buttonCancel.TabIndex = 26;
@@ -352,7 +361,7 @@
             // buttonRemove
             // 
             this.buttonRemove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonRemove.Location = new System.Drawing.Point(98, 293);
+            this.buttonRemove.Location = new System.Drawing.Point(398, 19);
             this.buttonRemove.Name = "buttonRemove";
             this.buttonRemove.Size = new System.Drawing.Size(75, 23);
             this.buttonRemove.TabIndex = 27;
@@ -362,11 +371,17 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.trackBarBlue);
+            this.groupBox1.Controls.Add(this.trackBarGreen);
+            this.groupBox1.Controls.Add(this.trackBarRed);
+            this.groupBox1.Controls.Add(this.trackBar_Alpha);
             this.groupBox1.Controls.Add(this.buttonRename);
+            this.groupBox1.Controls.Add(this.buttonRemove);
             this.groupBox1.Controls.Add(this.buttonPallete);
             this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.buttonAdd);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.textBoxAlpha);
             this.groupBox1.Controls.Add(this.label8);
@@ -384,51 +399,128 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.textBoxRed);
             this.groupBox1.Controls.Add(this.pictureBoxColor);
-            this.groupBox1.Location = new System.Drawing.Point(19, 322);
+            this.groupBox1.Location = new System.Drawing.Point(12, 323);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(405, 175);
+            this.groupBox1.Size = new System.Drawing.Size(560, 216);
             this.groupBox1.TabIndex = 28;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Color";
             // 
+            // trackBarBlue
+            // 
+            this.trackBarBlue.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.trackBarBlue.AutoSize = false;
+            this.trackBarBlue.Location = new System.Drawing.Point(376, 106);
+            this.trackBarBlue.Maximum = 255;
+            this.trackBarBlue.Name = "trackBarBlue";
+            this.trackBarBlue.Size = new System.Drawing.Size(178, 29);
+            this.trackBarBlue.TabIndex = 31;
+            this.trackBarBlue.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.trackBarBlue.Value = 255;
+            this.trackBarBlue.Scroll += new System.EventHandler(this.trackBarBlue_Scroll);
+            // 
+            // trackBarGreen
+            // 
+            this.trackBarGreen.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.trackBarGreen.AutoSize = false;
+            this.trackBarGreen.Location = new System.Drawing.Point(376, 80);
+            this.trackBarGreen.Maximum = 255;
+            this.trackBarGreen.Name = "trackBarGreen";
+            this.trackBarGreen.Size = new System.Drawing.Size(178, 29);
+            this.trackBarGreen.TabIndex = 30;
+            this.trackBarGreen.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.trackBarGreen.Value = 255;
+            this.trackBarGreen.Scroll += new System.EventHandler(this.trackBarGreen_Scroll);
+            // 
+            // trackBarRed
+            // 
+            this.trackBarRed.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.trackBarRed.AutoSize = false;
+            this.trackBarRed.Location = new System.Drawing.Point(376, 54);
+            this.trackBarRed.Maximum = 255;
+            this.trackBarRed.Name = "trackBarRed";
+            this.trackBarRed.Size = new System.Drawing.Size(178, 29);
+            this.trackBarRed.TabIndex = 29;
+            this.trackBarRed.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.trackBarRed.Value = 255;
+            this.trackBarRed.Scroll += new System.EventHandler(this.trackBarRed_Scroll);
+            // 
+            // trackBar_Alpha
+            // 
+            this.trackBar_Alpha.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.trackBar_Alpha.AutoSize = false;
+            this.trackBar_Alpha.Location = new System.Drawing.Point(376, 132);
+            this.trackBar_Alpha.Maximum = 255;
+            this.trackBar_Alpha.Name = "trackBar_Alpha";
+            this.trackBar_Alpha.Size = new System.Drawing.Size(178, 29);
+            this.trackBar_Alpha.TabIndex = 28;
+            this.trackBar_Alpha.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.trackBar_Alpha.Value = 255;
+            this.trackBar_Alpha.ValueChanged += new System.EventHandler(this.trackBar1_ValueChanged);
+            // 
             // buttonRename
             // 
-            this.buttonRename.Location = new System.Drawing.Point(170, 21);
+            this.buttonRename.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonRename.Location = new System.Drawing.Point(479, 19);
             this.buttonRename.Name = "buttonRename";
             this.buttonRename.Size = new System.Drawing.Size(75, 23);
             this.buttonRename.TabIndex = 27;
-            this.buttonRename.Text = "Rename";
+            this.buttonRename.Text = "Change";
             this.buttonRename.UseVisualStyleBackColor = true;
             this.buttonRename.Click += new System.EventHandler(this.buttonRename_Click);
             // 
             // buttonPallete
             // 
-            this.buttonPallete.Location = new System.Drawing.Point(6, 116);
+            this.buttonPallete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonPallete.Location = new System.Drawing.Point(5, 185);
             this.buttonPallete.Name = "buttonPallete";
-            this.buttonPallete.Size = new System.Drawing.Size(62, 23);
+            this.buttonPallete.Size = new System.Drawing.Size(122, 23);
             this.buttonPallete.TabIndex = 26;
             this.buttonPallete.Text = "Palette";
             this.buttonPallete.UseVisualStyleBackColor = true;
             this.buttonPallete.Click += new System.EventHandler(this.buttonPallete_Click);
             // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button1.Location = new System.Drawing.Point(17, 545);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(122, 23);
+            this.button1.TabIndex = 29;
+            this.button1.Text = "Hints";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // fColors
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(436, 533);
+            this.ClientSize = new System.Drawing.Size(584, 575);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.buttonRemove);
             this.Controls.Add(this.buttonCancel);
-            this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.label1);
             this.Icon = global::OpenSkinDesigner.Properties.Resources.OpenSkinDesigner;
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(605, 950);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(600, 614);
             this.Name = "fColors";
+            this.ShowInTaskbar = false;
             this.Text = "Color Settings";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxColor)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarBlue)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarGreen)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarRed)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar_Alpha)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -467,5 +559,10 @@
         private System.Windows.Forms.Button buttonPallete;
         private System.Windows.Forms.ColumnHeader columnHeaderColor;
         private System.Windows.Forms.Button buttonRename;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TrackBar trackBar_Alpha;
+        private System.Windows.Forms.TrackBar trackBarBlue;
+        private System.Windows.Forms.TrackBar trackBarGreen;
+        private System.Windows.Forms.TrackBar trackBarRed;
     }
 }

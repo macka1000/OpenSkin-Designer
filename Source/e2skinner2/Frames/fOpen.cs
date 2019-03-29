@@ -85,9 +85,18 @@ namespace OpenSkinDesigner.Frames
             }
 
             if (new FileInfo("./skins/" + skinName + "/prev.png").Exists)
+            {
                 pictureBox1.Image = Image.FromFile("./skins/" + skinName + "/prev.png");
+                //this.Size = new Size(listView1.Size.Width + 30 + pictureBox1.Image.Size.Width, pictureBox1.Image.Size.Height + 60);
+            }
+                
+            
             else if (new FileInfo("./skins/" + skinName + "/preview.png").Exists)
+            {
                 pictureBox1.Image = Image.FromFile("./skins/" + skinName + "/preview.png");
+               // this.Size = new Size(listView1.Size.Width + 30 + pictureBox1.Image.Size.Width, pictureBox1.Image.Size.Height + 60);
+            }
+                
             else
                 pictureBox1.Image = null;
 

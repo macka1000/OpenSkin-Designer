@@ -30,9 +30,12 @@ namespace OpenSkinDesigner.Frames
         public fMain()
         {
             InitializeComponent();
-
             btnSkinned_Alpha.Checked = cProperties.getPropertyBool("enable_alpha"); ;
-
+            trackBarZoom.Enabled = false; //MOD
+            numericUpDownZoom.Enabled = false; //MOD
+            MyGlobaleVariables.ShowErrorMessages = true; //MOD
+            showErrormessagesToolStripMenuItem.Visible = false; //MOD
+            jToolStripMenuItem.Visible = false; //MOD
             if (Platform.sysPlatform != Platform.ePlatform.MONO)
                 textBoxEditor2.ConfigurationManager.Language = "xml";
 
@@ -110,20 +113,67 @@ namespace OpenSkinDesigner.Frames
             treeImageList.Images.Add(Properties.Resources.treeWidget);
         }
 
+        public bool getVariables()
+        {
+            TextBox TB = new TextBox();
+            String Dateiname = cProperties.getProperty("path") + "/" + cProperties.getProperty("path_skin_xml");
+            String strTemp = string.Empty;
+            String strVariablenName = string.Empty;
+            String strValue1 = string.Empty;
+            String strValue2 = string.Empty;
+            if (!File.Exists(Dateiname))
+                return false;
+            try
+            {
+                TB.Text = File.ReadAllText(Dateiname);
+                TB.Text = TB.Text.Substring(TB.Text.IndexOf("<variables>"));
+                TB.Text = TB.Text.Substring(0, TB.Text.IndexOf("</variables>") + 12);
+                for (int b = 0; b < TB.Lines.Length - 1; b++)
+                {
+                    if (TB.Lines[b].Contains("<variable ") && TB.Lines[b].Contains("name=") && TB.Lines[b].Contains("value="))
+                    {
+                        strVariablenName = TB.Lines[b].Substring(TB.Lines[b].IndexOf("name=" + "\"") + 6);
+                        MyGlobaleVariables.SkinName.Add(strVariablenName.Substring(0, strVariablenName.IndexOf("\"")));
+                        strTemp = TB.Lines[b].Substring(TB.Lines[b].IndexOf("value=" + "\"") + 7);
+                        MyGlobaleVariables.SkinValue1.Add(strTemp.Substring(0, strTemp.IndexOf(",")));
+                        strTemp = strTemp.Substring(strTemp.IndexOf(",") + 1);
+                        MyGlobaleVariables.SkinValue2.Add(strTemp.Substring(0, strTemp.IndexOf("\"")));
+                    }
+                }
+                return true;
+
+            }
+            catch
+            {
+                return false;
+            }
+
+        }
+
         public void open(String path)
         {
             // Close all open
             close();
 
+            trackBarZoom.Enabled=true; //MOD
+            numericUpDownZoom.Enabled=true; //MOD
             cProperties.setProperty("path_skin", path);
             cProperties.setProperty("path", "./skins");
             cProperties.setProperty("path_fonts", "./fonts");
 
             pXmlHandler = new cXMLHandler();
             fillImageList();
+            // Evtl. vorhandene Variablen einlesen
+            getVariables();
             //treeview TO Xml
             pXmlHandler.XmlToTreeView(cProperties.getProperty("path") + "/" + cProperties.getProperty("path_skin_xml"), treeView1);
             cDataBase.init(pXmlHandler);
+
+            if (MyGlobaleVariables.Reload == true)
+            {
+                reload();
+                return;
+            }
             //fillTreeView();
             foreach (TreeNode node in treeView1.Nodes)
             {
@@ -131,18 +181,20 @@ namespace OpenSkinDesigner.Frames
             }
 
             treeView1.ImageList = treeImageList;
-            treeView1.ImageIndex = 1;
+            treeView1.ImageIndex = 0; //MOD vorher = 1
             treeView1.SelectedImageIndex = 5;
             treeView1.GetNodeAt(0, 0).Expand();
             float xratio = (float)panelDesignerInner.Width / cDataBase.pResolution.getResolution().Xres;
             float yratio = (float)panelDesignerInner.Height / cDataBase.pResolution.getResolution().Yres;
             float zoom = xratio < yratio ? xratio : yratio;
+            //if (trackBarZoom.Minimum > (int)((zoom - 1.0f) * 100.0f - 0.5f)) //MOD - Komisch war bei meiner Version nicht nötig???
+             //   trackBarZoom.Minimum = (int)((zoom - 1.0f) * 100.0f - 0.5f); //MOD
             trackBarZoom.Value = (int)((zoom - 1.0f) * 100.0f - 0.5f);
             pDesigner.drawFrame();
 
-            MiOpen.Enabled = false;
+            MiOpen.Enabled = true;//MOD
             MiSave.Enabled = true;
-            MiSaveAs.Enabled = false;
+            MiSaveAs.Enabled = true;
             MiClose.Enabled = true;
             MiResolution.Enabled = true;
             MiColors.Enabled = true;
@@ -168,10 +220,19 @@ namespace OpenSkinDesigner.Frames
         public void close()
         {
             pXmlHandler = null;
+            pQueue.clear();//MOD
+            trackBarZoom.Enabled = false; //MOD
+            numericUpDownZoom.Enabled = false; //MOD
+            MyGlobaleVariables.SkinName.Clear();
+            MyGlobaleVariables.SkinValue1.Clear();
+            MyGlobaleVariables.SkinValue2.Clear();
+            MyGlobaleVariables.Reload = false;
             pDesigner.clear();
             cDataBase.clear();
             treeView1.Nodes.Clear();
             treeView1.Invalidate();
+            trackBarZoom.Enabled=false;//MOD
+            numericUpDownZoom.Enabled=false;//MOD
 
             if (Platform.sysPlatform == Platform.ePlatform.MONO)
                 textBoxEditor.Clear();
@@ -223,8 +284,8 @@ namespace OpenSkinDesigner.Frames
 
         public void saveAs(String name)
         {
-            pXmlHandler.XmlToFile(name);
-            cProperties.setProperty("path_skin_xml", name);
+            pXmlHandler.XmlToFileAs(name);
+            //cProperties.setProperty("path_skin_xml", name); //MOD sonst crasht es danach beim save Button...
         }
 
         private void refreshEditor()
@@ -485,7 +546,11 @@ namespace OpenSkinDesigner.Frames
             fColors ftmp = new fColors();
             ftmp.setup(pXmlHandler);
             ftmp.ShowDialog();
-
+            if (MyGlobaleVariables.Reload == true)
+            {
+                reload();
+                return;
+            }
             refresh();
         }
 
@@ -775,9 +840,17 @@ namespace OpenSkinDesigner.Frames
 
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            saveFileDialog1.Filter = "XML - Files (*.xml)|*.xml"; //MOD
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                saveAs(saveFileDialog1.FileName);
+                if (saveFileDialog1.FileName.ToLower().EndsWith(".xml"))
+                {
+                    saveAs(saveFileDialog1.FileName);
+                }
+                else
+                {
+                    saveAs(saveFileDialog1.FileName + ".xml");
+                }
             }
         }
 
@@ -1094,44 +1167,50 @@ namespace OpenSkinDesigner.Frames
 
         private void btnSaveEditor_Click(object sender, EventArgs e)
         {
-            int hash = treeView1.SelectedNode.GetHashCode();
-            try
+            if ( treeView1.SelectedNode != null)
             {
-                Point p = new Point(0, 0);
 
-                if (Platform.sysPlatform == Platform.ePlatform.MONO)
+                int hash = treeView1.SelectedNode.GetHashCode();
+                try
                 {
-                    p = textBoxEditor.AutoScrollOffset;
-                    //pXmlHandler.XmlReplaceNode(hash, textBoxEditor.Text);
-                    replaceXmlNode(hash, textBoxEditor.Text);
+                    Point p = new Point(0, 0);
+
+                    if (Platform.sysPlatform == Platform.ePlatform.MONO)
+                    {
+                        p = textBoxEditor.AutoScrollOffset;
+                        //pXmlHandler.XmlReplaceNode(hash, textBoxEditor.Text);
+                        replaceXmlNode(hash, textBoxEditor.Text);
+                    }
+                    else
+                    {
+                        p = textBoxEditor2.AutoScrollOffset;
+                        //pXmlHandler.XmlReplaceNode(hash, textBoxEditor2.Text);
+                        replaceXmlNode(hash, textBoxEditor2.Text);
+                    }
+
+                    toolStripLabel1.Text = "No Errors.";
+
+
+                    if (Platform.sysPlatform == Platform.ePlatform.MONO)
+                    {
+                        textBoxEditor.AutoScrollOffset = p;
+                    }
+                    else
+                    {
+                        textBoxEditor2.AutoScrollOffset = p;
+                    }
+
+                    pXmlHandler.XmlSyncTreeChilds(treeView1.SelectedNode.GetHashCode(), treeView1.SelectedNode);
+
+                    pQueue.clear();
                 }
-                else
+                catch (Exception ex)
                 {
-                    p = textBoxEditor2.AutoScrollOffset;
-                    //pXmlHandler.XmlReplaceNode(hash, textBoxEditor2.Text);
-                    replaceXmlNode(hash, textBoxEditor2.Text);
+                    toolStripLabel1.Text = "Error: " + ex.Message;
                 }
-
-                toolStripLabel1.Text = "No Errors.";
-
-
-                if (Platform.sysPlatform == Platform.ePlatform.MONO)
-                {
-                    textBoxEditor.AutoScrollOffset = p;
-                }
-                else
-                {
-                    textBoxEditor2.AutoScrollOffset = p;
-                }
-
-                pXmlHandler.XmlSyncTreeChilds(treeView1.SelectedNode.GetHashCode(), treeView1.SelectedNode);
-
-                pQueue.clear();
             }
-            catch (Exception ex)
-            {
-                toolStripLabel1.Text = "Error: " + ex.Message;
-            }
+            else
+                toolStripLabel1.Text = "Error: " + "No element selected";
         }
 
 
@@ -1671,6 +1750,8 @@ namespace OpenSkinDesigner.Frames
         private void trackBarZoom_ValueChanged(object sender, EventArgs e)
         {
             setZoom(((System.Windows.Forms.TrackBar)sender).Value / 100.0f + 1.0f);
+           // if (numericUpDownZoom.Minimum > ((System.Windows.Forms.TrackBar)sender).Value) //MOD - Komisch war bei meiner Version nicht nötig???
+            //    numericUpDownZoom.Minimum = ((System.Windows.Forms.TrackBar)sender).Minimum; //MOD
 
             numericUpDownZoom.Value = ((System.Windows.Forms.TrackBar)sender).Value;
         }
@@ -1957,6 +2038,22 @@ namespace OpenSkinDesigner.Frames
         {
             cProperties.setProperty("skinned_panels", btnSkinnedShowPanels.Checked);
             refresh();
+        }
+
+        void ShowErrormessagesToolStripMenuItemClick(object sender, EventArgs e)
+        {
+            if (showErrormessagesToolStripMenuItem.Checked == true)
+            {
+                showErrormessagesToolStripMenuItem.Checked = false;
+                MyGlobaleVariables.ShowErrorMessages = false;
+            }
+            else
+            {
+                showErrormessagesToolStripMenuItem.Checked = true;
+                MyGlobaleVariables.ShowErrorMessages = true;
+            }
+
+
         }
     }
 }

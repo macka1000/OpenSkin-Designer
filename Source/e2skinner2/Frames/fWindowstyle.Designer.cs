@@ -89,7 +89,7 @@
             this.comboBoxStyles.FormattingEnabled = true;
             this.comboBoxStyles.Location = new System.Drawing.Point(78, 14);
             this.comboBoxStyles.Name = "comboBoxStyles";
-            this.comboBoxStyles.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxStyles.Size = new System.Drawing.Size(180, 21);
             this.comboBoxStyles.TabIndex = 26;
             this.comboBoxStyles.SelectedIndexChanged += new System.EventHandler(this.comboBoxStyles_SelectedIndexChanged);
             // 
@@ -421,8 +421,13 @@
             this.Controls.Add(this.comboBoxStyles);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBoxPreview);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = global::OpenSkinDesigner.Properties.Resources.OpenSkinDesigner;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(822, 433);
             this.Name = "fWindowstyle";
+            this.ShowInTaskbar = false;
             this.Text = "Window Style Settings";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPreview)).EndInit();
             this.tabControl1.ResumeLayout(false);

@@ -16,7 +16,8 @@ namespace OpenSkinDesigner.Frames
     public partial class fFonts : Form
     {
         private cXMLHandler pXmlHandler = null;
-
+        Font MyFont = new Font("Arial", 30.25F, FontStyle.Regular, GraphicsUnit.Pixel);
+        
         public fFonts()
         {
             InitializeComponent();
@@ -53,6 +54,7 @@ namespace OpenSkinDesigner.Frames
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            textBoxPreview.Visible = false;
             if (listView1.SelectedItems.Count > 0)
             {
                 textBoxName.Text = listView1.SelectedItems[0].SubItems[0].Text;
@@ -60,35 +62,40 @@ namespace OpenSkinDesigner.Frames
                 textBoxScale.Text = listView1.SelectedItems[0].SubItems[3].Text;
                 checkBoxReplacement.Checked = Convert.ToBoolean(listView1.SelectedItems[0].SubItems[4].Text);
 
-                float pSize = 20.25F;
+                float pSize = 40.25F;
                 sFont pFont = cDataBase.getFont(textBoxName.Text);
-
-                System.Drawing.Font font = null;
+                
+                // System.Drawing.Font font = null;
                 String name = "";
                 try
                 {
                     if (pFont.FontFamily != null) //Only do this if the font is valid
                     {
                         name = pFont.FontFamily.GetName(0);
-
-                        font = new System.Drawing.Font(pFont.FontFamily, pSize, pFont.FontStyle, GraphicsUnit.Pixel);
-                        textBoxPreview.Font = font;
-                        textBoxPreview.Text = "Test String 1234567890 !#?";
-                    } else
+                        // font = new System.Drawing.Font(pFont.FontFamily, pSize, pFont.FontStyle, GraphicsUnit.Pixel);
+                        MyFont = new System.Drawing.Font(pFont.FontFamily, pSize, pFont.FontStyle, GraphicsUnit.Pixel);
+                        pictureBox1.Invalidate();
+                    }
+                    else
                     {
                         Console.WriteLine("Font painting failed! (" + pFont.Name + ")");
-                        textBoxPreview.Text ="Font failed !";
+                        textBoxPreview.Visible = true;
                     }
                 }
                 catch (Exception error)
                 {
                     Console.WriteLine("Font painting failed! (" + pFont.Name + ")\n" + error);
-                    textBoxPreview.Text = "Font failed !";
+                    textBoxPreview.Visible = true;
                     return;
                 }
 
                 
             }
+        }
+
+        private void pictureBox1_Paint(object sender, PaintEventArgs e)
+        {
+            e.Graphics.DrawString("Test-String Sky 1234567890 !#?ÜÄÖ", MyFont, Brushes.Black, 10, 10);
         }
     }
 }

@@ -111,7 +111,11 @@
             this.Controls.Add(this.groupBoxResolution);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = global::OpenSkinDesigner.Properties.Resources.OpenSkinDesigner;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(364, 200);
             this.Name = "fResolution";
+            this.ShowInTaskbar = false;
             this.Text = "Resolution Settings";
             this.groupBoxResolution.ResumeLayout(false);
             this.groupBoxResolution.PerformLayout();

@@ -43,30 +43,32 @@
             this.labelScale = new System.Windows.Forms.Label();
             this.textBoxScale = new System.Windows.Forms.TextBox();
             this.checkBoxReplacement = new System.Windows.Forms.CheckBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.textBoxPreview = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxPath
             // 
             this.textBoxPath.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBoxPath.Location = new System.Drawing.Point(71, 342);
+            this.textBoxPath.Location = new System.Drawing.Point(71, 378);
             this.textBoxPath.Name = "textBoxPath";
-            this.textBoxPath.Size = new System.Drawing.Size(100, 20);
+            this.textBoxPath.Size = new System.Drawing.Size(163, 20);
             this.textBoxPath.TabIndex = 13;
             // 
             // textBoxName
             // 
             this.textBoxName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBoxName.Location = new System.Drawing.Point(71, 316);
+            this.textBoxName.Location = new System.Drawing.Point(71, 352);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(100, 20);
+            this.textBoxName.Size = new System.Drawing.Size(163, 20);
             this.textBoxName.TabIndex = 12;
             // 
             // labelPath
             // 
             this.labelPath.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelPath.AutoSize = true;
-            this.labelPath.Location = new System.Drawing.Point(12, 349);
+            this.labelPath.Location = new System.Drawing.Point(12, 385);
             this.labelPath.Name = "labelPath";
             this.labelPath.Size = new System.Drawing.Size(29, 13);
             this.labelPath.TabIndex = 11;
@@ -76,7 +78,7 @@
             // 
             this.labelName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelName.AutoSize = true;
-            this.labelName.Location = new System.Drawing.Point(12, 319);
+            this.labelName.Location = new System.Drawing.Point(12, 355);
             this.labelName.Name = "labelName";
             this.labelName.Size = new System.Drawing.Size(35, 13);
             this.labelName.TabIndex = 10;
@@ -84,9 +86,9 @@
             // 
             // listView1
             // 
-            this.listView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.listView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader5,
@@ -96,12 +98,11 @@
             this.columnHeader3});
             this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
-            this.listView1.LabelEdit = true;
             this.listView1.Location = new System.Drawing.Point(12, 37);
             this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
             this.listView1.ShowGroups = false;
-            this.listView1.Size = new System.Drawing.Size(672, 261);
+            this.listView1.Size = new System.Drawing.Size(885, 297);
             this.listView1.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.listView1.TabIndex = 9;
             this.listView1.UseCompatibleStateImageBehavior = false;
@@ -111,17 +112,17 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "Name";
-            this.columnHeader1.Width = 130;
+            this.columnHeader1.Width = 200;
             // 
             // columnHeader5
             // 
             this.columnHeader5.Text = "Filename";
-            this.columnHeader5.Width = 79;
+            this.columnHeader5.Width = 150;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Path";
-            this.columnHeader2.Width = 302;
+            this.columnHeader2.Width = 350;
             // 
             // columnHeader6
             // 
@@ -144,15 +145,15 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(109, 25);
+            this.label1.Size = new System.Drawing.Size(148, 25);
             this.label1.TabIndex = 8;
-            this.label1.Text = "Edit Fonts";
+            this.label1.Text = "Preview Fonts";
             // 
             // labelScale
             // 
             this.labelScale.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelScale.AutoSize = true;
-            this.labelScale.Location = new System.Drawing.Point(12, 375);
+            this.labelScale.Location = new System.Drawing.Point(12, 411);
             this.labelScale.Name = "labelScale";
             this.labelScale.Size = new System.Drawing.Size(34, 13);
             this.labelScale.TabIndex = 14;
@@ -161,38 +162,54 @@
             // textBoxScale
             // 
             this.textBoxScale.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBoxScale.Location = new System.Drawing.Point(71, 368);
+            this.textBoxScale.Location = new System.Drawing.Point(71, 404);
             this.textBoxScale.Name = "textBoxScale";
-            this.textBoxScale.Size = new System.Drawing.Size(100, 20);
+            this.textBoxScale.Size = new System.Drawing.Size(163, 20);
             this.textBoxScale.TabIndex = 16;
             // 
             // checkBoxReplacement
             // 
             this.checkBoxReplacement.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.checkBoxReplacement.AutoSize = true;
-            this.checkBoxReplacement.Location = new System.Drawing.Point(71, 394);
+            this.checkBoxReplacement.Location = new System.Drawing.Point(71, 430);
             this.checkBoxReplacement.Name = "checkBoxReplacement";
             this.checkBoxReplacement.Size = new System.Drawing.Size(89, 17);
             this.checkBoxReplacement.TabIndex = 17;
             this.checkBoxReplacement.Text = "Replacement";
             this.checkBoxReplacement.UseVisualStyleBackColor = true;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.Location = new System.Drawing.Point(240, 352);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(657, 72);
+            this.pictureBox1.TabIndex = 19;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
+            // 
             // textBoxPreview
             // 
-            this.textBoxPreview.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxPreview.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxPreview.Enabled = false;
             this.textBoxPreview.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPreview.Location = new System.Drawing.Point(199, 316);
+            this.textBoxPreview.Location = new System.Drawing.Point(240, 358);
+            this.textBoxPreview.Multiline = true;
             this.textBoxPreview.Name = "textBoxPreview";
-            this.textBoxPreview.Size = new System.Drawing.Size(485, 38);
+            this.textBoxPreview.ReadOnly = true;
+            this.textBoxPreview.Size = new System.Drawing.Size(657, 46);
             this.textBoxPreview.TabIndex = 18;
-            this.textBoxPreview.Text = "Test Text";
+            this.textBoxPreview.Text = "Font failed !";
+            this.textBoxPreview.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxPreview.Visible = false;
             // 
             // fFonts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(696, 439);
+            this.ClientSize = new System.Drawing.Size(909, 475);
             this.Controls.Add(this.textBoxPreview);
             this.Controls.Add(this.checkBoxReplacement);
             this.Controls.Add(this.textBoxScale);
@@ -203,9 +220,16 @@
             this.Controls.Add(this.labelName);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.pictureBox1);
             this.Icon = global::OpenSkinDesigner.Properties.Resources.OpenSkinDesigner;
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1600, 980);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(925, 500);
             this.Name = "fFonts";
-            this.Text = "Font Settings";
+            this.ShowInTaskbar = false;
+            this.Text = "Preview Fonts";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -228,7 +252,7 @@
         private System.Windows.Forms.Label labelScale;
         private System.Windows.Forms.TextBox textBoxScale;
         private System.Windows.Forms.CheckBox checkBoxReplacement;
+        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox textBoxPreview;
-
     }
 }
