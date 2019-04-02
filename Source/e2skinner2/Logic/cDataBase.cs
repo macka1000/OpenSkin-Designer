@@ -79,6 +79,7 @@ namespace OpenSkinDesigner.Logic
                         "nmsbd.ttf",
                         90,
                         30,
+                        "nmsbd",
                         false
                     );
                     pFonts.Add(font.Name, font);
@@ -613,6 +614,7 @@ namespace OpenSkinDesigner.Logic
                                 fontString[0],
                                 Convert.ToInt32(fontString[2]),
                                 12,
+                                "",
                                 fontString[3] != "False"
                             );
                             pFonts.Add(font.Name, font);
@@ -637,6 +639,7 @@ namespace OpenSkinDesigner.Logic
                                     myXmlNode.Attributes["filename"].Value,
                                     Convert.ToInt32(myXmlNode.Attributes["scale"] != null ? myXmlNode.Attributes["scale"].Value : "100"),
                                     Convert.ToInt32(myXmlNode.Attributes["size"] != null),
+                                    "",
                                     Convert.ToInt32(myXmlNode.Attributes["replacement"] != null ? myXmlNode.Attributes["replacement"].Value : "0") != 0);
                                 pFonts.Add(font.Name, font);
                             }
@@ -666,6 +669,7 @@ namespace OpenSkinDesigner.Logic
                                     getFont(myXmlNode.Attributes["font"].Value).Path,
                                     100,
                                     Convert.ToInt32(myXmlNode.Attributes["size"].Value),
+                                    myXmlNode.Attributes["font"].Value,
                                     false);
                                 pFonts.Add(font.Name, font);
                             }

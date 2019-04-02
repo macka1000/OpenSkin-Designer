@@ -43,9 +43,12 @@
             this.labelScale = new System.Windows.Forms.Label();
             this.textBoxScale = new System.Windows.Forms.TextBox();
             this.checkBoxReplacement = new System.Windows.Forms.CheckBox();
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.textBoxPreview = new System.Windows.Forms.TextBox();
-            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -97,6 +100,7 @@
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader5,
+            this.columnHeader8,
             this.columnHeader7,
             this.columnHeader2,
             this.columnHeader6,
@@ -181,7 +185,7 @@
             // 
             this.checkBoxReplacement.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.checkBoxReplacement.AutoSize = true;
-            this.checkBoxReplacement.Location = new System.Drawing.Point(95, 529);
+            this.checkBoxReplacement.Location = new System.Drawing.Point(95, 560);
             this.checkBoxReplacement.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkBoxReplacement.Name = "checkBoxReplacement";
             this.checkBoxReplacement.Size = new System.Drawing.Size(113, 21);
@@ -189,12 +193,40 @@
             this.checkBoxReplacement.Text = "Replacement";
             this.checkBoxReplacement.UseVisualStyleBackColor = true;
             // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Size";
+            // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Text = "font";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(16, 535);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 17);
+            this.label2.TabIndex = 20;
+            this.label2.Text = "Size";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.textBox1.Location = new System.Drawing.Point(95, 530);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(216, 22);
+            this.textBox1.TabIndex = 21;
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Location = new System.Drawing.Point(320, 433);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(876, 89);
             this.pictureBox1.TabIndex = 19;
@@ -208,7 +240,7 @@
             this.textBoxPreview.Enabled = false;
             this.textBoxPreview.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxPreview.Location = new System.Drawing.Point(320, 441);
-            this.textBoxPreview.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxPreview.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxPreview.Multiline = true;
             this.textBoxPreview.Name = "textBoxPreview";
             this.textBoxPreview.ReadOnly = true;
@@ -218,15 +250,13 @@
             this.textBoxPreview.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBoxPreview.Visible = false;
             // 
-            // columnHeader7
-            // 
-            this.columnHeader7.Text = "Size";
-            // 
             // fFonts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1212, 585);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.textBoxPreview);
             this.Controls.Add(this.checkBoxReplacement);
             this.Controls.Add(this.textBoxScale);
@@ -270,8 +300,11 @@
         private System.Windows.Forms.Label labelScale;
         private System.Windows.Forms.TextBox textBoxScale;
         private System.Windows.Forms.CheckBox checkBoxReplacement;
+        private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Windows.Forms.ColumnHeader columnHeader8;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox textBoxPreview;
-        private System.Windows.Forms.ColumnHeader columnHeader7;
     }
 }

@@ -8,6 +8,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Design;
 using System.Collections;
+using System.Windows.Forms;
 
 namespace OpenSkinDesigner.Structures
 {
@@ -261,11 +262,35 @@ namespace OpenSkinDesigner.Structures
 
             if (myNode.Attributes["font"] != null)
             {
+                sFont[] fonts = cDataBase.getFonts();
+
+                float size = 0;
+                String fontname = "";
+
                 String tmpfont = myNode.Attributes["font"].Value;
-                float size = Convert.ToSingle(tmpfont.Substring(tmpfont.IndexOf(';') + 1));
-                String fontname = tmpfont.Substring(0, tmpfont.IndexOf(';'));
-                pFont = cDataBase.getFont(fontname);
-                pFontSize = size;
+                try
+                {
+                    size = Convert.ToSingle(tmpfont.Substring(tmpfont.IndexOf(';') + 1));
+                    fontname = tmpfont.Substring(0, tmpfont.IndexOf(';'));
+                    pFont = cDataBase.getFont(fontname);
+                    pFontSize = size;
+                }
+                catch
+                {
+                    // In <fonts> suchen
+                    sFont query = Array.Find(fonts, x => x.Name.Equals(tmpfont));
+                    if(query != null)
+                    {
+                        size = query.Size;
+                        fontname = query.FontName;
+                        pFont = cDataBase.getFont(fontname);
+                        pFontSize = size;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Font '" + tmpfont + "' not found!","Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }                
             }
             else
             {
