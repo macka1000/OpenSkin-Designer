@@ -19,6 +19,7 @@ namespace OpenSkinDesigner.Structures
         public String Path = "";
         public System.Drawing.FontFamily FontFamily;
         public System.Drawing.FontStyle FontStyle;
+        public int Size = 0;
 
         //if this isnt defined as global public, mono will lose the reference and crash!!!
         public PrivateFontCollection pfc;
@@ -27,7 +28,7 @@ namespace OpenSkinDesigner.Structures
         public int Scale = 0;
         public bool Replacement = false;
 
-        public sFont(String name, String path, int scale, bool replacement)
+        public sFont(String name, String path, int scale, int size, bool replacement)
         {
             String fontPath = cProperties.getProperty("path_fonts");
             String skinPath = cProperties.getProperty("path_skin");
@@ -40,6 +41,7 @@ namespace OpenSkinDesigner.Structures
 
             Scale = scale;
             Replacement = replacement;
+            Size = size;
 
             //This way we have only the file name, but what happens if the fonts are in the skin directory ?
             //Lets check all posibilities

@@ -32,20 +32,23 @@ namespace OpenSkinDesigner.Frames
             //listView1.Clear();
             foreach (sFont font in fonts)
             {
-                System.Windows.Forms.ListViewItem.ListViewSubItem[] subtitems = new System.Windows.Forms.ListViewItem.ListViewSubItem[6];
+                System.Windows.Forms.ListViewItem.ListViewSubItem[] subtitems = new System.Windows.Forms.ListViewItem.ListViewSubItem[7];
 
                 subtitems[0] = new System.Windows.Forms.ListViewItem.ListViewSubItem();
                 subtitems[0].Text = font.Name;
                 subtitems[1] = new System.Windows.Forms.ListViewItem.ListViewSubItem();
                 subtitems[1].Text = font.Filename;
                 subtitems[2] = new System.Windows.Forms.ListViewItem.ListViewSubItem();
-                subtitems[2].Text = font.Path;
+                subtitems[2].Text = Convert.ToString(font.Size);
                 subtitems[3] = new System.Windows.Forms.ListViewItem.ListViewSubItem();
-                subtitems[3].Text = Convert.ToString(font.Scale);
+                subtitems[3].Text = font.Path;
                 subtitems[4] = new System.Windows.Forms.ListViewItem.ListViewSubItem();
-                subtitems[4].Text = Convert.ToString(font.Replacement);
+                subtitems[4].Text = Convert.ToString(font.Scale);
                 subtitems[5] = new System.Windows.Forms.ListViewItem.ListViewSubItem();
-                subtitems[5].Text = "0";
+                subtitems[5].Text = Convert.ToString(font.Replacement);
+                subtitems[6] = new System.Windows.Forms.ListViewItem.ListViewSubItem();
+                subtitems[6].Text = "0";
+
                 ListViewItem item = new ListViewItem(subtitems, 0);
                 listView1.Items.Add(item);
             }
@@ -58,9 +61,9 @@ namespace OpenSkinDesigner.Frames
             if (listView1.SelectedItems.Count > 0)
             {
                 textBoxName.Text = listView1.SelectedItems[0].SubItems[0].Text;
-                textBoxPath.Text = listView1.SelectedItems[0].SubItems[2].Text;
-                textBoxScale.Text = listView1.SelectedItems[0].SubItems[3].Text;
-                checkBoxReplacement.Checked = Convert.ToBoolean(listView1.SelectedItems[0].SubItems[4].Text);
+                textBoxPath.Text = listView1.SelectedItems[0].SubItems[3].Text;
+                textBoxScale.Text = listView1.SelectedItems[0].SubItems[4].Text;
+                checkBoxReplacement.Checked = Convert.ToBoolean(listView1.SelectedItems[0].SubItems[5].Text);
 
                 float pSize = 40.25F;
                 sFont pFont = cDataBase.getFont(textBoxName.Text);
