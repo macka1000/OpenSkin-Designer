@@ -6,6 +6,8 @@ using System.Drawing;
 using OpenSkinDesigner.Logic;
 using System.Drawing.Imaging;
 using System.IO;
+using System.Windows.Forms;
+using System.Drawing.Drawing2D;
 
 namespace OpenSkinDesigner.Structures
 {
@@ -23,7 +25,7 @@ namespace OpenSkinDesigner.Structures
             try
             {
                 pImage = Image.FromFile(cDataBase.getPath(image));
-                
+
             }
             catch (FileNotFoundException ex)
             {
@@ -55,7 +57,7 @@ namespace OpenSkinDesigner.Structures
                 Console.WriteLine("File not found! (" + cDataBase.getPath(image) + ")");
                 return;
             }
-            
+
             pX = x;
             pY = y;
 
@@ -69,11 +71,28 @@ namespace OpenSkinDesigner.Structures
             //Console.WriteLine("sGraphicImage: ");
 
             //pAttr = attr;
+
             if (image == null || image.Length == 0)
                 return;
             try
             {
                 pImage = Image.FromFile(cDataBase.getPath(image));
+
+                // Check correct type
+                if (attr.GetType() == typeof(sAttributePixmap))
+                {
+                    //get size of root element (= size of a widget)
+                    Size elementSize = ((sAttributePixmap)attr).pPixmap;
+
+                    if (elementSize != null)
+                    {
+                        //Resize image, if imageSize and element size is diffrent
+                        if (elementSize.Width != pImage.Size.Width || elementSize.Height != pImage.Height)
+                        {
+                            pImage = ResizeImageKeepAspectRatio(pImage, elementSize.Width, elementSize.Height);
+                        }
+                    }
+                }
             }
             catch (FileNotFoundException)
             {
@@ -90,11 +109,66 @@ namespace OpenSkinDesigner.Structures
             //    new sGraphicRectangel(pAttr, false, (float)1.0, Color.Red).paint(sender, e);
             //}
             //else
-            if(pImage != null)
+
+            if (pImage != null)
             {
                 Graphics g = e.Graphics;
                 g.DrawImageUnscaledAndClipped(pImage, new Rectangle((int)pX, (int)pY, pWidth < pImage.Width ? (int)pWidth : pImage.Width, pHeight < pImage.Height ? (int)pHeight : pImage.Height));
             }
+        }
+
+        public static Image ResizeImage(Image imgToResize, Size size)
+        {
+            return (Image)(new Bitmap(imgToResize, size));
+        }
+
+        public static Image ResizeImageKeepAspectRatio(Image imgPhoto, int Width, int Height)
+        {
+            int sourceWidth = imgPhoto.Width;
+            int sourceHeight = imgPhoto.Height;
+            int sourceX = 0;
+            int sourceY = 0;
+            int destX = 0;
+            int destY = 0;
+
+            float nPercent = 0;
+            float nPercentW = 0;
+            float nPercentH = 0;
+
+            nPercentW = ((float)Width / (float)sourceWidth);
+            nPercentH = ((float)Height / (float)sourceHeight);
+            if (nPercentH < nPercentW)
+            {
+                nPercent = nPercentH;
+                destX = System.Convert.ToInt16((Width -
+                              (sourceWidth * nPercent)) / 2);
+            }
+            else
+            {
+                nPercent = nPercentW;
+                destY = System.Convert.ToInt16((Height -
+                              (sourceHeight * nPercent)) / 2);
+            }
+
+            int destWidth = (int)(sourceWidth * nPercent);
+            int destHeight = (int)(sourceHeight * nPercent);
+
+            Bitmap bmPhoto = new Bitmap(Width, Height);
+            bmPhoto.SetResolution(imgPhoto.HorizontalResolution,
+                             imgPhoto.VerticalResolution);
+
+            Graphics grPhoto = Graphics.FromImage(bmPhoto);
+            //grPhoto.Clear(Color.Red);
+            grPhoto.InterpolationMode =
+                    InterpolationMode.HighQualityBicubic;
+
+            grPhoto.DrawImage(imgPhoto,
+                new Rectangle(destX, destY, destWidth, destHeight),
+                new Rectangle(sourceX, sourceY, sourceWidth, sourceHeight),
+                GraphicsUnit.Pixel);
+
+            grPhoto.Dispose();
+            return bmPhoto;
         }
     }
 }

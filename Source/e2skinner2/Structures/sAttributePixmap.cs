@@ -9,8 +9,6 @@ using System.IO;
 using System.ComponentModel;
 using System.Windows.Forms;
 
-
-
 namespace OpenSkinDesigner.Structures
 {
     class sAttributePixmap : sAttribute
@@ -94,6 +92,13 @@ namespace OpenSkinDesigner.Structures
         public sAttributePixmap(sAttribute parent, XmlNode node)
             : base(parent, node)
         {
+            //TODO: scale attribut verwenden
+            ////'scale' attribut lesen
+            //if (node.Attributes["scale"] != null)
+            //{
+            //    MessageBox.Show(node.Name + ": scale");
+            //}
+
             if (node.Attributes["pixmap"] != null)
             {
                 pPixmapName = node.Attributes["pixmap"].Value;
@@ -134,9 +139,14 @@ namespace OpenSkinDesigner.Structures
                         }
 
                         Image pixmap = Image.FromFile(Application.StartupPath + cProperties.getProperty("path_skins").Replace("./", "\\").Replace("/", "\\") + piconFileName, true);
-                        pPixmap = pixmap.Size;
+
+                        // size of root element (= size of a widget)
+                        pPixmap = new Size(this.Size.Width, this.Size.Height);
+
                         pixmap.Dispose();
                         pPixmapName = "@" + piconFileName;
+
+
                     }
                     catch (FileNotFoundException)
                     {
