@@ -84,6 +84,8 @@
     <name>Service3</name>
     <name>Service4</name>
     <name>Service5</name>
+    <name>MasterService</name>
+    <name>SlaveService</name>
     <entries>
       <entry name='time_sec' value='-2' type='int'/>
       <entry name='service_name'  value='BBC World' type='string'/>
