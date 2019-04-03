@@ -32,20 +32,25 @@ namespace OpenSkinDesigner.Frames
             //listView1.Clear();
             foreach (sFont font in fonts)
             {
-                System.Windows.Forms.ListViewItem.ListViewSubItem[] subtitems = new System.Windows.Forms.ListViewItem.ListViewSubItem[6];
+                System.Windows.Forms.ListViewItem.ListViewSubItem[] subtitems = new System.Windows.Forms.ListViewItem.ListViewSubItem[8];
 
                 subtitems[0] = new System.Windows.Forms.ListViewItem.ListViewSubItem();
                 subtitems[0].Text = font.Name;
                 subtitems[1] = new System.Windows.Forms.ListViewItem.ListViewSubItem();
                 subtitems[1].Text = font.Filename;
                 subtitems[2] = new System.Windows.Forms.ListViewItem.ListViewSubItem();
-                subtitems[2].Text = font.Path;
+                subtitems[2].Text = font.FontName;
                 subtitems[3] = new System.Windows.Forms.ListViewItem.ListViewSubItem();
-                subtitems[3].Text = Convert.ToString(font.Scale);
+                subtitems[3].Text = Convert.ToString(font.Size);
                 subtitems[4] = new System.Windows.Forms.ListViewItem.ListViewSubItem();
-                subtitems[4].Text = Convert.ToString(font.Replacement);
+                subtitems[4].Text = font.Path;
                 subtitems[5] = new System.Windows.Forms.ListViewItem.ListViewSubItem();
-                subtitems[5].Text = "0";
+                subtitems[5].Text = Convert.ToString(font.Scale);
+                subtitems[6] = new System.Windows.Forms.ListViewItem.ListViewSubItem();
+                subtitems[6].Text = Convert.ToString(font.Replacement);
+                subtitems[7] = new System.Windows.Forms.ListViewItem.ListViewSubItem();
+                subtitems[7].Text = "0";
+
                 ListViewItem item = new ListViewItem(subtitems, 0);
                 listView1.Items.Add(item);
             }
@@ -54,15 +59,15 @@ namespace OpenSkinDesigner.Frames
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            textBoxPreview.Visible = false;
             if (listView1.SelectedItems.Count > 0)
             {
                 textBoxName.Text = listView1.SelectedItems[0].SubItems[0].Text;
-                textBoxPath.Text = listView1.SelectedItems[0].SubItems[2].Text;
-                textBoxScale.Text = listView1.SelectedItems[0].SubItems[3].Text;
-                checkBoxReplacement.Checked = Convert.ToBoolean(listView1.SelectedItems[0].SubItems[4].Text);
+                textBoxPath.Text = listView1.SelectedItems[0].SubItems[4].Text;
+                textBoxScale.Text = listView1.SelectedItems[0].SubItems[5].Text;
+                textBox1.Text = listView1.SelectedItems[0].SubItems[3].Text;
+                checkBoxReplacement.Checked = Convert.ToBoolean(listView1.SelectedItems[0].SubItems[6].Text);
 
-                float pSize = 40.25F;
+                float pSize = Convert.ToSingle(textBox1.Text);
                 sFont pFont = cDataBase.getFont(textBoxName.Text);
                 
                 // System.Drawing.Font font = null;
@@ -79,13 +84,11 @@ namespace OpenSkinDesigner.Frames
                     else
                     {
                         Console.WriteLine("Font painting failed! (" + pFont.Name + ")");
-                        textBoxPreview.Visible = true;
                     }
                 }
                 catch (Exception error)
                 {
                     Console.WriteLine("Font painting failed! (" + pFont.Name + ")\n" + error);
-                    textBoxPreview.Visible = true;
                     return;
                 }
 
