@@ -39,7 +39,7 @@ namespace OpenSkinDesigner.Structures
                     updateObject(pAttr, ((sAttributeWidget)pAttr).pPixmap);
                     new sGraphicPixmap((sAttributePixmap)((sAttributeWidget)pAttr).pPixmap).paint(sender, e);
                 }
-                else if (((sAttributeWidget)pAttr).pRender.ToLower() == "picon" || ((sAttributeWidget)pAttr).pRender.ToLower() == "xpicon")
+                else if (((sAttributeWidget)pAttr).pRender.ToLower() == "picon" || ((sAttributeWidget)pAttr).pRender.ToLower() == "xpicon" || ((sAttributeWidget)pAttr).pRender.ToLower() == "metrixreloadedxhdpicon")
                 {
                     updateObject(pAttr, ((sAttributeWidget)pAttr).pPixmap);
                     new sGraphicPixmap((sAttributePixmap)((sAttributeWidget)pAttr).pPixmap).paint(sender, e);

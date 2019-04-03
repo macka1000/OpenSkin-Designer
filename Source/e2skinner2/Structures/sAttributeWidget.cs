@@ -354,6 +354,7 @@ namespace OpenSkinDesigner.Structures
                                                                     "Listbox",
                                                                     "Picon",
                                                                     "XPicon",
+                                                                    "MetrixReloadedXHDPicon",
                                                                     "Pixmap",
                                                                     "PositionGauge",
                                                                     "Progress"});
@@ -402,6 +403,10 @@ namespace OpenSkinDesigner.Structures
                 pPixmap = new sAttributePixmap(parent, node);
             }
             else if (pRender.ToLower() == "xpicon")
+            {
+                pPixmap = new sAttributePixmap(parent, node);
+            }
+            else if (pRender.ToLower() == "metrixreloadedxhdpicon")
             {
                 pPixmap = new sAttributePixmap(parent, node);
             }
