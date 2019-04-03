@@ -413,6 +413,13 @@ namespace OpenSkinDesigner.Structures
             if (pSource != null && pSource.Length > 0)
             {
                 String text = cPreviewText.getText(parent.Name, pSource);
+                
+                if(text == null || text.Length == 0)
+                {
+                    // Show dummy text for rendered elements
+                    text = "Example";
+                }
+
                 if (text.Length > 0)
                 {
                     if (pLabel != null && (pLabel.pText == null || pLabel.pText.Length == 0))
