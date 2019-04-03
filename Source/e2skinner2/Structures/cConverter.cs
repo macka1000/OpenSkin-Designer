@@ -589,6 +589,7 @@ namespace OpenSkinDesigner.Structures
             public int SHORT_DESCRIPTION = 1;
             public int EXTENDED_DESCRIPTION = 2;
             public int ID = 3;
+            public int FULL_DESCRIPTION = 2;
 
             private int type = 0;
 
@@ -600,6 +601,8 @@ namespace OpenSkinDesigner.Structures
                     this.type = this.EXTENDED_DESCRIPTION;
                 else if(type.Equals("ID"))
                     this.type = this.ID;
+                else if (type.Equals("FullDescription"))
+                    this.type = this.FULL_DESCRIPTION;
                 else
                     this.type = this.NAME;
 
@@ -613,6 +616,8 @@ namespace OpenSkinDesigner.Structures
                     return (String)((Hashtable)pTable[Source])["short_description"];
                 else if (this.type == this.EXTENDED_DESCRIPTION)
                     return (String)((Hashtable)pTable[Source])["extended_description"];
+                else if (this.type == this.FULL_DESCRIPTION)
+                    return (String)((Hashtable)pTable[Source])["full_description"];
                 else if (this.type == this.ID)
                     return (String)((Hashtable)pTable[Source])["id"];
                 else
