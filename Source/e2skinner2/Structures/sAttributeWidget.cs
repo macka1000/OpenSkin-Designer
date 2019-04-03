@@ -418,7 +418,7 @@ namespace OpenSkinDesigner.Structures
 
                 if (text == null || text.Length == 0)
                 {
-                    // Show dummy text for rendered elements, if they have font attribute
+                    // Show text for elements with render attribute, if they have a font attribute
                     if (myNode.Attributes["font"] != null)
                     {
                         if (myNode.Attributes["name"] != null)

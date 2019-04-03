@@ -326,31 +326,22 @@ namespace OpenSkinDesigner.Structures
             if (myNode.Attributes["noWrap"] != null)
                 pNoWrap = Convert.ToUInt32(myNode.Attributes["noWrap"].Value.ToLower()) != 0 ? true : false;
 
-            if (pText == null || pText.Length == 0 || pPreviewText == null || pPreviewText.Length == 0)
+            if (pText == null || pText.Length == 0)
             {
-                // Show dummy text for rendered elements, if they have font attribute
+                // Show text for elements without render attribute, if they have a font attribute
                 if (myNode.Attributes["font"] != null)
                 {
-                    if (myNode.Attributes["name"] != null)
+                    if (myNode.Attributes["name"] != null && myNode.Attributes["source"] == null)
                     {
                         // show name
                         pText = myNode.Attributes["name"].Value;
                     }
-                    // without source, because of overwriting converter
-                    if (myNode.Attributes["source"] == null)
-                    {
-                        pText = "Label";
-                    }
-
                 }
             }
 
             if (pText == null || pText.Length > 0)
                 if (Name.Length > 0)
                     pPreviewText = cPreviewText.getText(parent.Name, Name);
-
-
-
         }
     }
 }

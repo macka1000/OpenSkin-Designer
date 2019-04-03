@@ -186,6 +186,7 @@ namespace OpenSkinDesigner.Structures
             if (node.Attributes["title"] != null)
                 pTitle = node.Attributes["title"].Value;
 
+            // If screen has not title attribute, fallback to name attribute
             if (pTitle == null || pTitle.Length == 0)
                 if (node.Attributes["name"] != null)
                     pTitle = node.Attributes["name"].Value;
