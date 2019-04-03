@@ -8,6 +8,13 @@
 			<entry name='menu' value='Item 1|Item 2|Item 3|Item 4' type='string'/>
 		</entries>
 	</screen>
+  <screen>
+    <name>InfoPanel</name>
+    <entries>
+      <entry name='netdev' value='Item 1|Item 2|Item 3|Item 4' type='string'/>
+      <entry name='proclist' value='Item 1|Item 2|Item 3|Item 4' type='string'/>
+    </entries>
+  </screen>
 	<screen>
 		<name>About</name>
 		<entries>

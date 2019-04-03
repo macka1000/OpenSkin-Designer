@@ -28,7 +28,7 @@ namespace OpenSkinDesigner.Structures
             
                 //Unfortunatyl we have more tahn on instance of the base attributes,
                 //so update all here
-                if (((sAttributeWidget)pAttr).pRender.ToLower() == "label" || ((sAttributeWidget)pAttr).pRender.ToLower() == "fixedlabel")
+                if (((sAttributeWidget)pAttr).pRender.ToLower() == "label" || ((sAttributeWidget)pAttr).pRender.ToLower() == "fixedlabel" || ((sAttributeWidget)pAttr).pRender.ToLower() == "vrunningtext")
                 {
                     updateObject(pAttr, ((sAttributeWidget)pAttr).pLabel);
                     new sGraphicLabel((sAttributeLabel)((sAttributeWidget)pAttr).pLabel).paint(sender, e);
