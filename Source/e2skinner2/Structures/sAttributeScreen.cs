@@ -186,6 +186,10 @@ namespace OpenSkinDesigner.Structures
             if (node.Attributes["title"] != null)
                 pTitle = node.Attributes["title"].Value;
 
+            if (pTitle == null || pTitle.Length == 0)
+                if (node.Attributes["name"] != null)
+                    pTitle = node.Attributes["name"].Value;
+
             if (node.Attributes["flags"] != null)
                 switch (node.Attributes["flags"].Value)
                 {
