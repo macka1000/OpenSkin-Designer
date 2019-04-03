@@ -51,7 +51,7 @@ namespace OpenSkinDesigner.Structures
                 }
                 else
                     if (myNode.Attributes["text"] != null)
-                        myNode.Attributes.RemoveNamedItem("text");
+                    myNode.Attributes.RemoveNamedItem("text");
             }
         }
 
@@ -92,7 +92,8 @@ namespace OpenSkinDesigner.Structures
         public float FontSize
         {
             get { return pFontSize; }
-            set { 
+            set
+            {
                 pFontSize = value;
 
                 if (myNode.Attributes["font"] == null)
@@ -136,7 +137,7 @@ namespace OpenSkinDesigner.Structures
                 }
                 else
                     if (myNode.Attributes["foregroundColor"] != null)
-                        myNode.Attributes.RemoveNamedItem("foregroundColor");
+                    myNode.Attributes.RemoveNamedItem("foregroundColor");
             }
         }
 
@@ -146,7 +147,8 @@ namespace OpenSkinDesigner.Structures
         public String BackgroundColor
         {
             get { return pBackgroundColor.pName; }
-            set {
+            set
+            {
                 if (value != null)
                     pBackgroundColor = (sColor)cDataBase.pColors.get(value);
                 else
@@ -164,7 +166,7 @@ namespace OpenSkinDesigner.Structures
                 }
                 else
                     if (myNode.Attributes["backgroundColor"] != null)
-                        myNode.Attributes.RemoveNamedItem("backgroundColor");
+                    myNode.Attributes.RemoveNamedItem("backgroundColor");
             }
         }
 
@@ -219,7 +221,8 @@ namespace OpenSkinDesigner.Structures
         public bool noWrap
         {
             get { return pNoWrap; }
-            set { 
+            set
+            {
                 pNoWrap = value;
 
                 if (pNoWrap)
@@ -241,7 +244,7 @@ namespace OpenSkinDesigner.Structures
                 }
                 else
                     if (myNode.Attributes["noWrap"] != null)
-                        myNode.Attributes.RemoveNamedItem("noWrap");
+                    myNode.Attributes.RemoveNamedItem("noWrap");
             }
         }
 
@@ -254,7 +257,7 @@ namespace OpenSkinDesigner.Structures
         public sAttributeLabel(sAttribute parent, XmlNode node)
             : base(parent, node)
         {
- 
+
             pWindowStyle = (sWindowStyle)cDataBase.pWindowstyles.get();
 
             if (myNode.Attributes["text"] != null)
@@ -279,7 +282,7 @@ namespace OpenSkinDesigner.Structures
                 {
                     // In <fonts> suchen
                     sFont query = Array.Find(fonts, x => x.Name.Equals(tmpfont));
-                    if(query != null)
+                    if (query != null)
                     {
                         size = query.Size;
                         fontname = query.FontName;
@@ -288,9 +291,9 @@ namespace OpenSkinDesigner.Structures
                     }
                     else
                     {
-                        MessageBox.Show("Font '" + tmpfont + "' not found!","Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Font '" + tmpfont + "' not found!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                }                
+                }
             }
             else
             {
@@ -325,8 +328,32 @@ namespace OpenSkinDesigner.Structures
 
 
             if (pText == null || pText.Length > 0)
-                if(Name.Length > 0)
+                if (Name.Length > 0)
                     pPreviewText = cPreviewText.getText(parent.Name, Name);
+
+            if (pText == null || pText.Length == 0)
+            {
+                // Show dummy text for rendered elements, if they have font attribute
+                if (myNode.Attributes["font"] != null)
+                {
+                    if (myNode.Attributes["name"] != null)
+                    {
+                        // show name
+                        pText = myNode.Attributes["name"].Value;
+                    }
+                    else if (myNode.Attributes["source"] != null)
+                    {
+                        // show source
+                        if(myNode.Attributes["source"].Value.ToLower() != "Title".ToLower())
+                        pText = myNode.Attributes["source"].Value;
+                    }
+                    else
+                    {
+                        pText = "label";
+                    }
+                }
+            }
+
         }
     }
 }
