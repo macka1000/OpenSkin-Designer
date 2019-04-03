@@ -94,12 +94,12 @@ namespace OpenSkinDesigner.Structures
         {
             get
             {
-                if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel") return pLabel.Text;
+                if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel" || pRender.ToLower() == "vrunningtext" || pRender.ToLower() == "metrixreloadedscreennamelabel") return pLabel.Text;
                 else return "(none)";
             }
             set
             {
-                if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel")
+                if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel" || pRender.ToLower() == "vrunningtext" || pRender.ToLower() == "metrixreloadedscreennamelabel")
                 {
                     pLabel.Text = value;
                 }
@@ -112,7 +112,7 @@ namespace OpenSkinDesigner.Structures
         {
             get
             {
-                if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel") return pLabel.pPreviewText;
+                if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel" || pRender.ToLower() == "vrunningtext" || pRender.ToLower() == "metrixreloadedscreennamelabel") return pLabel.pPreviewText;
                 else return "(none)";
             }
         }
@@ -126,12 +126,12 @@ namespace OpenSkinDesigner.Structures
         {
             get
             {
-                if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel") return pLabel.Font;
+                if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel" || pRender.ToLower() == "vrunningtext" || pRender.ToLower() == "metrixreloadedscreennamelabel") return pLabel.Font;
                 else return "(none)";
             }
             set
             {
-                if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel")
+                if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel" || pRender.ToLower() == "vrunningtext" || pRender.ToLower() == "metrixreloadedscreennamelabel")
                 {
                     pLabel.Font = value;
                 }
@@ -143,12 +143,12 @@ namespace OpenSkinDesigner.Structures
         {
             get
             {
-                if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel") return pLabel.FontSize;
+                if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel" || pRender.ToLower() == "vrunningtext" || pRender.ToLower() == "metrixreloadedscreennamelabel") return pLabel.FontSize;
                 else return 0;
             }
             set
             {
-                if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel")
+                if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel" || pRender.ToLower() == "vrunningtext" || pRender.ToLower() == "metrixreloadedscreennamelabel")
                 {
                     pLabel.FontSize = value;
                 }
@@ -162,12 +162,12 @@ namespace OpenSkinDesigner.Structures
         {
             get
             {
-                if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel") return pLabel.ForegroundColor;
+                if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel" || pRender.ToLower() == "vrunningtext" || pRender.ToLower() == "metrixreloadedscreennamelabel") return pLabel.ForegroundColor;
                 else return "(none)";
             }
             set
             {
-                if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel")
+                if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel" || pRender.ToLower() == "vrunningtext" || pRender.ToLower() == "metrixreloadedscreennamelabel")
                 {
                     pLabel.ForegroundColor = value;
                 }
@@ -181,12 +181,12 @@ namespace OpenSkinDesigner.Structures
         {
             get
             {
-                if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel") return pLabel.BackgroundColor;
+                if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel" || pRender.ToLower() == "vrunningtext" || pRender.ToLower() == "metrixreloadedscreennamelabel") return pLabel.BackgroundColor;
                 else return "(none)";
             }
             set
             {
-                if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel")
+                if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel" || pRender.ToLower() == "vrunningtext" || pRender.ToLower() == "metrixreloadedscreennamelabel")
                 {
                     pLabel.BackgroundColor = value;
                 }
@@ -200,10 +200,10 @@ namespace OpenSkinDesigner.Structures
         {
             get
             {
-                if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel") return pLabel.Valign;
+                if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel" || pRender.ToLower() == "vrunningtext" || pRender.ToLower() == "metrixreloadedscreennamelabel") return pLabel.Valign;
                 else return "(none)";
             }
-            set { if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel") pLabel.Valign = value; }
+            set { if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel" || pRender.ToLower() == "vrunningtext" || pRender.ToLower() == "metrixreloadedscreennamelabel") pLabel.Valign = value; }
         }
 
         [TypeConverter(typeof(cProperty.HAlignConverter)),
@@ -212,10 +212,10 @@ namespace OpenSkinDesigner.Structures
         {
             get
             {
-                if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel") return pLabel.Halign;
+                if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel" || pRender.ToLower() == "vrunningtext" || pRender.ToLower() == "metrixreloadedscreennamelabel") return pLabel.Halign;
                 else return "(none)";
             }
-            set { if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel") pLabel.Halign = value; }
+            set { if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel" || pRender.ToLower() == "vrunningtext" || pRender.ToLower() == "metrixreloadedscreennamelabel") pLabel.Halign = value; }
         }
 
         [CategoryAttribute(entryNameLabel)]
@@ -223,10 +223,10 @@ namespace OpenSkinDesigner.Structures
         {
             get
             {
-                if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel") return pLabel.pNoWrap;
+                if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel" || pRender.ToLower() == "vrunningtext" || pRender.ToLower() == "metrixreloadedscreennamelabel") return pLabel.pNoWrap;
                 else return false;
             }
-            set { if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel") pLabel.noWrap = value; }
+            set { if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel" || pRender.ToLower() == "vrunningtext" || pRender.ToLower() == "metrixreloadedscreennamelabel") pLabel.noWrap = value; }
         }
 
         //######################################################################
@@ -349,6 +349,8 @@ namespace OpenSkinDesigner.Structures
                 return new StandardValuesCollection(new string[]{   "Canvas",
                                                                     "FixedLabel",
                                                                     "Label",
+                                                                    "VRunningText",
+                                                                    "MetrixReloadedScreenNameLabel",
                                                                     "Listbox",
                                                                     "Picon",
                                                                     "XPicon",
@@ -387,7 +389,7 @@ namespace OpenSkinDesigner.Structures
                     pRender = "Label";
             }
 
-            if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel")
+            if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel" || pRender.ToLower() == "vrunningtext" || pRender.ToLower() == "metrixreloadedscreennamelabel")
             {
                 pLabel = new sAttributeLabel(parent, node);
             }
