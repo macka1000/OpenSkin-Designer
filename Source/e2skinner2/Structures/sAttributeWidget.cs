@@ -43,7 +43,8 @@ namespace OpenSkinDesigner.Structures
         public String Source
         {
             get { return pSource; }
-            set { 
+            set
+            {
                 pSource = value;
                 if (pSource != null && pSource.Length > 0)
                 {
@@ -57,7 +58,7 @@ namespace OpenSkinDesigner.Structures
                 }
                 else
                     if (myNode.Attributes["source"] != null)
-                        myNode.Attributes.RemoveNamedItem("source");
+                    myNode.Attributes.RemoveNamedItem("source");
             }
         }
 
@@ -66,7 +67,8 @@ namespace OpenSkinDesigner.Structures
         public String Render
         {
             get { return pRender; }
-            set { 
+            set
+            {
                 pRender = value;
                 if (pRender != null && pRender.Length > 0)
                 {
@@ -80,7 +82,7 @@ namespace OpenSkinDesigner.Structures
                 }
                 else
                     if (myNode.Attributes["render"] != null)
-                        myNode.Attributes.RemoveNamedItem("render");
+                    myNode.Attributes.RemoveNamedItem("render");
             }
         }
 
@@ -413,11 +415,27 @@ namespace OpenSkinDesigner.Structures
             if (pSource != null && pSource.Length > 0)
             {
                 String text = cPreviewText.getText(parent.Name, pSource);
-                
-                if(text == null || text.Length == 0)
+
+                if (text == null || text.Length == 0)
                 {
-                    // Show dummy text for rendered elements
-                    text = "Example";
+                    // Show dummy text for rendered elements, if they have font attribute
+                    if (myNode.Attributes["font"] != null)
+                    {
+                        if (myNode.Attributes["name"] != null)
+                        {
+                            // show name
+                            text = myNode.Attributes["name"].Value;
+                        }
+                        else if (myNode.Attributes["source"] != null)
+                        {
+                            // show source
+                            text = myNode.Attributes["source"].Value;
+                        }
+                        else
+                        {
+                            text = "widget";
+                        }
+                    }
                 }
 
                 if (text.Length > 0)
@@ -464,7 +482,7 @@ namespace OpenSkinDesigner.Structures
                         }
                     }
                 }
-                
+
                 cConverter.reset();
             }
             else
