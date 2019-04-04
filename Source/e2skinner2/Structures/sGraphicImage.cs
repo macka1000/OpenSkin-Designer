@@ -82,14 +82,24 @@ namespace OpenSkinDesigner.Structures
                 if (attr.GetType() == typeof(sAttributePixmap))
                 {
                     //get size of root element (= size of a widget)
-                    Size elementSize = ((sAttributePixmap)attr).pPixmap;
+                    sAttributePixmap element = (sAttributePixmap) attr;
+                    Size elementSize = element.pPixmap;
 
                     if (elementSize != null)
                     {
                         //Resize image, if imageSize and element size is diffrent
                         if (elementSize.Width != pImage.Size.Width || elementSize.Height != pImage.Height)
                         {
-                            pImage = ResizeImageKeepAspectRatio(pImage, elementSize.Width, elementSize.Height);
+                            if(element.myNode.Attributes["pixmap"] != null)
+                            {
+                                // ePixmap or widget element with attribute 'pixmap' (= path to image)
+                                pImage = ResizeImage(pImage, elementSize.Width, elementSize.Height);
+                            }
+                            else if (element.myNode.Attributes["render"] != null && element.myNode.Attributes["render"].Value.ToLower().Contains("picon"))
+                            {
+                                // is picon
+                                pImage = ResizeImageKeepAspectRatio(pImage, elementSize.Width, elementSize.Height);
+                            }
                         }
                     }
                 }
@@ -117,12 +127,12 @@ namespace OpenSkinDesigner.Structures
             }
         }
 
-        public static Image ResizeImage(Image imgToResize, Size size)
+        private Image ResizeImage(Image imgToResize, int Width, int Height)
         {
-            return (Image)(new Bitmap(imgToResize, size));
+            return (Image)(new Bitmap(imgToResize, new Size(Width, Height)));
         }
 
-        public static Image ResizeImageKeepAspectRatio(Image imgPhoto, int Width, int Height)
+        private Image ResizeImageKeepAspectRatio(Image imgPhoto, int Width, int Height)
         {
             int sourceWidth = imgPhoto.Width;
             int sourceHeight = imgPhoto.Height;

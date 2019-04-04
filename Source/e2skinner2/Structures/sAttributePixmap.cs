@@ -92,15 +92,9 @@ namespace OpenSkinDesigner.Structures
         public sAttributePixmap(sAttribute parent, XmlNode node)
             : base(parent, node)
         {
-            //TODO: scale attribut verwenden
-            ////'scale' attribut lesen
-            //if (node.Attributes["scale"] != null)
-            //{
-            //    MessageBox.Show(node.Name + ": scale");
-            //}
-
+            // ePixmap or widget element with attribute 'pixmap' (= path to image)
             if (node.Attributes["pixmap"] != null)
-            {
+            {                
                 pPixmapName = node.Attributes["pixmap"].Value;
                 try
                 {
@@ -110,7 +104,16 @@ namespace OpenSkinDesigner.Structures
                         pPixmapName = pPixmapName.Substring(pPixmapName.IndexOf("ProjectValerie/skins/") + "ProjectValerie/skins/".Length);
                     }
                     Image pixmap = Image.FromFile(cDataBase.getPath(pPixmapName));
-                    pPixmap = pixmap.Size;
+
+                    // Element has scale attribute -> take size attribute
+                    if (node.Attributes["scale"] != null)
+                    {
+                        pPixmap = new Size(this.Size.Width, this.Size.Height);
+                    }
+                    else
+                    {
+                        pPixmap = pixmap.Size;
+                    }
                     pixmap.Dispose();
                 }
                 catch (FileNotFoundException)
@@ -145,8 +148,6 @@ namespace OpenSkinDesigner.Structures
 
                         pixmap.Dispose();
                         pPixmapName = "@" + piconFileName;
-
-
                     }
                     catch (FileNotFoundException)
                     {
