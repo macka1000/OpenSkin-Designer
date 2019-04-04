@@ -79,9 +79,8 @@ namespace OpenSkinDesigner.Frames
                 "- Converter: support for 'FullDescription' added" + Environment.NewLine +
                 "- resize picon on element size change" + Environment.NewLine +
                 "- Use attribute scale for ePixmap & widget which have 'pixmap' attribute." + Environment.NewLine +
-                "- Converter MovieInfo added" + Environment.NewLine;
-
-
+                "- Converter MovieInfo added" + Environment.NewLine +
+                "- show images for widgets wiht any render and 'path' attribute" + Environment.NewLine;
         }
 
         #region Assemblyattributaccessoren
