@@ -199,7 +199,7 @@ namespace OpenSkinDesigner.Structures
                     {
                         Random random = new Random();
                         if (random.Next(0, 2) == 0)
-                        return "MAGIC#FALSE";
+                            return "MAGIC#FALSE";
                         else
                             return "MAGIC#TRUE";
                     }
@@ -420,20 +420,21 @@ namespace OpenSkinDesigner.Structures
 
             private int type = 0;
 
-            public ServiceInfo(String type, String Source) {
-                if(type.Equals("HasTelext"))
+            public ServiceInfo(String type, String Source)
+            {
+                if (type.Equals("HasTelext"))
                     this.type = this.HAS_TELETEXT;
-                else if(type.Equals("IsMultichannel"))
+                else if (type.Equals("IsMultichannel"))
                     this.type = this.IS_MULTICHANNEL;
-                else if(type.Equals("IsCrypted"))
+                else if (type.Equals("IsCrypted"))
                     this.type = this.IS_CRYPTED;
-                else if(type.Equals("IsWidescreen"))
+                else if (type.Equals("IsWidescreen"))
                     this.type = this.IS_WIDESCREEN;
-                else if(type.Equals("SubservicesAvailable"))
+                else if (type.Equals("SubservicesAvailable"))
                     this.type = this.SUBSERVICES_AVAILABLE;
-                else if(type.Equals("VideoWidth"))
+                else if (type.Equals("VideoWidth"))
                     this.type = this.XRES;
-                else if(type.Equals("VideoHeight"))
+                else if (type.Equals("VideoHeight"))
                     this.type = this.YRES;
                 else if (type.Equals("VideoWidth"))
                     this.type = this.XRES;
@@ -511,17 +512,17 @@ namespace OpenSkinDesigner.Structures
 
             public FrontendInfo(String type, String Source)
             {
-                if(type.Equals("BER"))
+                if (type.Equals("BER"))
                     this.type = this.BER;
-                else if(type.Equals("SNR"))
+                else if (type.Equals("SNR"))
                     this.type = this.SNR;
-                else if(type.Equals("AGC"))
+                else if (type.Equals("AGC"))
                     this.type = this.AGC;
-                else if(type.Equals("SNRdB"))
+                else if (type.Equals("SNRdB"))
                     this.type = this.SNRdB;
-                else if(type.Equals("NUMBER"))
+                else if (type.Equals("NUMBER"))
                     this.type = this.SLOT_NUMBER;
-                else if(type.Equals("TYPE"))
+                else if (type.Equals("TYPE"))
                     this.type = this.TUNER_TYPE;
                 else
                     this.type = this.LOCK;
@@ -537,10 +538,10 @@ namespace OpenSkinDesigner.Structures
                 if (this.type == this.LOCK)
                     return (bool)((Hashtable)pTable[Source])["lock"];
                 else
-                    return ((int)((Hashtable)pTable[Source])["ber"])>0?true:false;
+                    return ((int)((Hashtable)pTable[Source])["ber"]) > 0 ? true : false;
             }
 
-            public String getText(String Source) 
+            public String getText(String Source)
             {
                 if (this.type == this.BER)
                     return ((int)((Hashtable)pTable[Source])["ber"]) == -1 ? "N/A" : ((int)((Hashtable)pTable[Source])["ber"]).ToString();
@@ -548,13 +549,17 @@ namespace OpenSkinDesigner.Structures
                     return ((int)((Hashtable)pTable[Source])["agc"]) + " %";
                 else if (this.type == this.SNR)
                     return ((int)((Hashtable)pTable[Source])["snr"]) + " %";
-                else if (this.type == this.SNRdB) {
+                else if (this.type == this.SNRdB)
+                {
                     if (((int)((Hashtable)pTable[Source])["snrdb"]) != -1)
                         return String.Format("{0:###.00} db", ((int)((Hashtable)pTable[Source])["snrdb"]) / 100.0);
                     else
                         return ((int)((Hashtable)pTable[Source])["snr"]) + " %";
-                } else if (this.type == this.TUNER_TYPE) {
-                    switch ((int)((Hashtable)pTable[Source])["tuner_type"]) {
+                }
+                else if (this.type == this.TUNER_TYPE)
+                {
+                    switch ((int)((Hashtable)pTable[Source])["tuner_type"])
+                    {
                         case 0:
                             return "DVB-S";
                         case 1:
@@ -562,9 +567,10 @@ namespace OpenSkinDesigner.Structures
                         case 2:
                             return "DVB-T";
                         default:
-                             return "Unknown";
+                            return "Unknown";
                     }
-                } else
+                }
+                else
                     return "";
             }
 
@@ -598,15 +604,15 @@ namespace OpenSkinDesigner.Structures
 
             public EventName(String type, String Source)
             {
-                if(type.Equals("Description"))
+                if (type.Equals("Description"))
                     this.type = this.SHORT_DESCRIPTION;
                 else if (type.Equals("ShortDescription"))
                     this.type = this.SHORT_DESCRIPTION;
-                else if(type.Equals("ExtendedDescription"))
+                else if (type.Equals("ExtendedDescription"))
                     this.type = this.EXTENDED_DESCRIPTION;
                 else if (type.Equals("FullDescription"))
                     this.type = this.FULL_DESCRIPTION;
-                else if(type.Equals("ID"))
+                else if (type.Equals("ID"))
                     this.type = this.ID;
                 else
                     this.type = this.NAME;
@@ -614,7 +620,8 @@ namespace OpenSkinDesigner.Structures
                 text = getText(Source);
             }
 
-            public String getText(String Source) {
+            public String getText(String Source)
+            {
                 if (this.type == this.NAME)
                     return (String)((Hashtable)pTable[Source])["service_name"];
                 else if (this.type == this.SHORT_DESCRIPTION)
@@ -642,15 +649,15 @@ namespace OpenSkinDesigner.Structures
 
             public EventTime(String type, String Source)
             {
-                if(type.Equals("EndTime"))
+                if (type.Equals("EndTime"))
                     this.type = this.ENDTIME;
-                else if(type.Equals("Remaining"))
+                else if (type.Equals("Remaining"))
                     this.type = this.REMAINING;
-                else if(type.Equals("StartTime"))
+                else if (type.Equals("StartTime"))
                     this.type = this.STARTTIME;
-                else if(type.Equals("Duration"))
+                else if (type.Equals("Duration"))
                     this.type = this.DURATION;
-                else if(type.Equals("Progress"))
+                else if (type.Equals("Progress"))
                     this.type = this.PROGRESS;
                 else
                     this.type = this.STARTTIME;
@@ -660,20 +667,30 @@ namespace OpenSkinDesigner.Structures
                 range = 1000;
             }
 
-            private int getTime(String Source) {
-                if (this.type == this.STARTTIME) {
+            private int getTime(String Source)
+            {
+                if (this.type == this.STARTTIME)
+                {
                     return (int)((Hashtable)pTable[Source])["event_starttime"];
-                } else if (this.type == this.ENDTIME) {
+                }
+                else if (this.type == this.ENDTIME)
+                {
                     return (int)((Hashtable)pTable[Source])["event_endtime"];
-                } else if (this.type == this.DURATION) {
+                }
+                else if (this.type == this.DURATION)
+                {
                     return (int)((Hashtable)pTable[Source])["event_duration"];
-                } else if (this.type == this.REMAINING) {
+                }
+                else if (this.type == this.REMAINING)
+                {
                     return (int)((Hashtable)pTable[Source])["event_remaining"];
-                } else
+                }
+                else
                     return -1;
             }
 
-            private int getValue(String Source) {
+            private int getValue(String Source)
+            {
                 if (this.type == this.PROGRESS)
                     return (int)((Hashtable)pTable[Source])["event_progress"];
                 return -1;

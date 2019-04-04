@@ -44,7 +44,7 @@ namespace OpenSkinDesigner.Structures
             : base(attr)
         {
             //Console.WriteLine("sGraphicImage: " + x + ":" + y);
-            
+
             //pAttr = attr;
             if (image == null || image.Length == 0)
                 return;
@@ -81,7 +81,7 @@ namespace OpenSkinDesigner.Structures
                 if (attr.GetType() == typeof(sAttributePixmap))
                 {
                     //get size of root element (= size of a widget)
-                    sAttributePixmap element = (sAttributePixmap) attr;
+                    sAttributePixmap element = (sAttributePixmap)attr;
                     Size elementSize = element.pPixmap;
 
                     if (elementSize != null)
@@ -89,7 +89,7 @@ namespace OpenSkinDesigner.Structures
                         //Resize image, if imageSize and element size is diffrent
                         if (elementSize.Width != pImage.Size.Width || elementSize.Height != pImage.Height)
                         {
-                            if(element.myNode.Attributes["pixmap"] != null)
+                            if (element.myNode.Attributes["pixmap"] != null)
                             {
                                 // ePixmap or widget element with attribute 'pixmap' (= path to image)
                                 pImage = ResizeImage(pImage, elementSize.Width, elementSize.Height);

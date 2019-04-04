@@ -133,7 +133,7 @@ namespace OpenSkinDesigner.Structures
                     // take random picture in path
                     string[] filePaths = Directory.GetFiles(@cDataBase.getPath(path));
 
-                    pPixmapName = cProperties.getProperty("path_skin").Replace("./", "\\").Replace("/", "\\")+ "/" + path + "/" + System.IO.Path.GetFileName(filePaths[0]);
+                    pPixmapName = cProperties.getProperty("path_skin").Replace("./", "\\").Replace("/", "\\") + "/" + path + "/" + System.IO.Path.GetFileName(filePaths[0]);
                     Image pixmap = Image.FromFile(cDataBase.getPath(pPixmapName));
 
                     // Element has scale attribute -> take size attribute
