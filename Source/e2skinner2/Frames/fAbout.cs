@@ -74,7 +74,12 @@ namespace OpenSkinDesigner.Frames
                 "- Screen has not title attribute, fallback to name attribute" + Environment.NewLine +
                 "- Render VRunningText added" + Environment.NewLine +
                 "- Render MetrixReloadedScreenNameLabel added" + Environment.NewLine +
-                "- Show picon bug fixed" + Environment.NewLine;
+                "- Show picon bug fixed" + Environment.NewLine +
+                "v3.2.0.0 by Scrounger" + Environment.NewLine +
+                "- Converter: support for 'FullDescription' added" + Environment.NewLine +
+                "- resize picon on element size change" + Environment.NewLine +
+                "- Use attribute scale for ePixmap & widget which have 'pixmap' attribute." + Environment.NewLine +
+                "- Converter MovieInfo added" + Environment.NewLine;
 
 
         }

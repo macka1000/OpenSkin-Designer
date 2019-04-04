@@ -1,5 +1,9 @@
 OpenSkin Designer
 =================
+[![GitHub release](https://img.shields.io/github/release/Humaxx/OpenSkin-Designer.svg)](https://github.com/Humaxx/OpenSkin-Designer/releases)
+[![GitHub All Releases](https://img.shields.io/github/downloads/Humaxx/OpenSkin-Designer/total.svg)](https://github.com/Humaxx/OpenSkin-Designer/releases)
+[![GitHub Releases (by Release)](https://img.shields.io/github/downloads/Humaxx/OpenSkin-Designer/3.2.0/total.svg)](https://github.com/Humaxx/OpenSkin-Designer/releases)
+
 OpenSkin Designer is a further development of [e2skinner](https://code.google.com/p/e2skinner2/).
 
 It includes a couple of new features i.e.:
