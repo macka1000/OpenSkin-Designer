@@ -62,7 +62,20 @@ namespace OpenSkinDesigner.Frames
                 "- Fixed some unhandled exceptions / bugs in 'Color Settings Dialog' - when no Color is selected or spaces are used in names" + Environment.NewLine +
                 "- Fixed the 'remove'-color button in 'Color Settings Dialog' (previously it had no function)" + Environment.NewLine +
                 "- In 'Color Settings Dialog' when choosing a color via Palette, the transparency is set to '0'" + Environment.NewLine +
-                "- Fixed a bug that prevented searching for the specified fonts in the skin folder." + Environment.NewLine;
+                "- Fixed a bug that prevented searching for the specified fonts in the skin folder." + Environment.NewLine + Environment.NewLine +
+                "v3.1.0.3 by Scrounger" + Environment.NewLine +
+                "- Fonts: loading size from xml implemented" + Environment.NewLine +
+                "- Loading predefined fonts from <fonts> added" + Environment.NewLine +
+                "- Converter bug fixes: name ServiceX added - Exception in VerticalEPGView_FHD" + Environment.NewLine +
+                "- Show dummy text for rendered elements added" + Environment.NewLine +
+                "- Converter bug fix for AudioZap" + Environment.NewLine +
+                "- Show dummy text for rendered elements " + Environment.NewLine +
+                "- Show name or source attribute if available" + Environment.NewLine +
+                "- Screen has not title attribute, fallback to name attribute" + Environment.NewLine +
+                "- Render VRunningText added" + Environment.NewLine +
+                "- Render MetrixReloadedScreenNameLabel added" + Environment.NewLine +
+                "- Show picon bug fixed" + Environment.NewLine;
+
 
         }
 
