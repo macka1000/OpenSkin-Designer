@@ -99,6 +99,11 @@
       <entry name='MovieInfo'  value='Good Wife'   type='string'/>
       <entry name='event_duration'  value='3600'   type='int'/>
       <entry name='event_progress'  value='80'   type='int'/>
+      <!-- Converter MovieInfo -->
+      <entry name='meta_description'  value='Leaflets and phone messages ...' type='string'/>
+      <entry name='record_service_name'  value='BBC World' type='string'/>
+      <entry name='file_size'  value='3.5 GB' type='string'/>
+      <entry name='reference'  value='1:0:19:7C:6:85:FFFF0000:0:0:0' type='string'/>
     </entries>
   </source>
   
