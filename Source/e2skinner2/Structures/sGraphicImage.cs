@@ -44,7 +44,7 @@ namespace OpenSkinDesigner.Structures
             : base(attr)
         {
             //Console.WriteLine("sGraphicImage: " + x + ":" + y);
-
+            
             //pAttr = attr;
             if (image == null || image.Length == 0)
                 return;
@@ -71,7 +71,6 @@ namespace OpenSkinDesigner.Structures
             //Console.WriteLine("sGraphicImage: ");
 
             //pAttr = attr;
-
             if (image == null || image.Length == 0)
                 return;
             try
@@ -99,6 +98,11 @@ namespace OpenSkinDesigner.Structures
                             {
                                 // is picon
                                 pImage = ResizeImageKeepAspectRatio(pImage, elementSize.Width, elementSize.Height);
+                            }
+                            else if (element.myNode.Attributes["path"] != null)
+                            {
+                                //widget element with attribute 'path' (= path to image)
+                                pImage = ResizeImage(pImage, elementSize.Width, elementSize.Height);
                             }
                         }
                     }

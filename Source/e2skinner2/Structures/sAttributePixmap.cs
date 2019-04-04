@@ -94,7 +94,7 @@ namespace OpenSkinDesigner.Structures
         {
             // ePixmap or widget element with attribute 'pixmap' (= path to image)
             if (node.Attributes["pixmap"] != null)
-            {                
+            {
                 pPixmapName = node.Attributes["pixmap"].Value;
                 try
                 {
@@ -124,40 +124,71 @@ namespace OpenSkinDesigner.Structures
                     pPixmapName = "@broken.png";
                 }
             }
-            else
+            else if (node.Attributes["path"] != null)
             {
-                if (node.Attributes["render"] != null && node.Attributes["render"].Value.ToLower().Contains("picon"))
+                //Any Render that use path attribute
+                String path = node.Attributes["path"].Value;
+                try
                 {
-                    try
+                    // take random picture in path
+                    string[] filePaths = Directory.GetFiles(@cDataBase.getPath(path));
+
+                    pPixmapName = cProperties.getProperty("path_skin").Replace("./", "\\").Replace("/", "\\")+ "/" + path + "/" + System.IO.Path.GetFileName(filePaths[0]);
+                    Image pixmap = Image.FromFile(cDataBase.getPath(pPixmapName));
+
+                    // Element has scale attribute -> take size attribute
+                    if (node.Attributes["scale"] != null)
                     {
-                        String piconFileName = "picon.png";
-
-                        if (node.Attributes["render"].Value.ToLower().Contains("xpicon"))
-                        {
-                            piconFileName = "xpicon.png";
-                        }
-                        else if (node.Attributes["render"].Value.ToLower().Contains("xhdpicon"))
-                        {
-                            piconFileName = "xhdpicon.png";
-                        }
-
-                        Image pixmap = Image.FromFile(Application.StartupPath + cProperties.getProperty("path_skins").Replace("./", "\\").Replace("/", "\\") + piconFileName, true);
-
-                        // size of root element (= size of a widget)
                         pPixmap = new Size(this.Size.Width, this.Size.Height);
-
-                        pixmap.Dispose();
-                        pPixmapName = "@" + piconFileName;
                     }
-                    catch (FileNotFoundException)
+                    else
                     {
-                        Image pixmap = Image.FromFile(Application.StartupPath + cProperties.getProperty("path_skins").Replace("./", "\\").Replace("/", "\\") + "broken.png", true);
                         pPixmap = pixmap.Size;
-                        pixmap.Dispose();
-                        pPixmapName = "@broken.png";
                     }
+                    pixmap.Dispose();
+                }
+                catch (FileNotFoundException)
+                {
+                    Image pixmap = Image.FromFile(Application.StartupPath + cProperties.getProperty("path_skins").Replace("./", "\\").Replace("/", "\\") + "broken.png", true);
+                    pPixmap = pixmap.Size;
+                    pixmap.Dispose();
+                    pPixmapName = "@broken.png";
+                }
+
+                //MessageBox.Show(node.Attributes["path"].Value);
+            }
+            else if (node.Attributes["render"] != null && node.Attributes["render"].Value.ToLower().Contains("picon"))
+            {
+                try
+                {
+                    String piconFileName = "picon.png";
+
+                    if (node.Attributes["render"].Value.ToLower().Contains("xpicon"))
+                    {
+                        piconFileName = "xpicon.png";
+                    }
+                    else if (node.Attributes["render"].Value.ToLower().Contains("xhdpicon"))
+                    {
+                        piconFileName = "xhdpicon.png";
+                    }
+
+                    Image pixmap = Image.FromFile(Application.StartupPath + cProperties.getProperty("path_skins").Replace("./", "\\").Replace("/", "\\") + piconFileName, true);
+
+                    // size of root element (= size of a widget)
+                    pPixmap = new Size(this.Size.Width, this.Size.Height);
+
+                    pixmap.Dispose();
+                    pPixmapName = "@" + piconFileName;
+                }
+                catch (FileNotFoundException)
+                {
+                    Image pixmap = Image.FromFile(Application.StartupPath + cProperties.getProperty("path_skins").Replace("./", "\\").Replace("/", "\\") + "broken.png", true);
+                    pPixmap = pixmap.Size;
+                    pixmap.Dispose();
+                    pPixmapName = "@broken.png";
                 }
             }
+
 
             if (node.Attributes["alphatest"] != null)
                 pAlphatest = node.Attributes["alphatest"].Value.ToLower() == "on" ? cProperty.eAlphatest.on :

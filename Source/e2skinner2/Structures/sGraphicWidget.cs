@@ -54,6 +54,11 @@ namespace OpenSkinDesigner.Structures
                     updateObject(pAttr, ((sAttributeWidget)pAttr).pListbox);
                     new sGraphicListbox((sAttributeListbox)((sAttributeWidget)pAttr).pListbox).paint(sender, e);
                 }
+                else if (((sAttributeWidget)pAttr).myNode.Attributes["path"] != null) {
+                    //Any Render that use path attribute
+                    updateObject(pAttr, ((sAttributeWidget)pAttr).pPixmap);
+                    new sGraphicPixmap((sAttributePixmap)((sAttributeWidget)pAttr).pPixmap).paint(sender, e);
+                }
 
                 if (pAttr.pBorder)
                     new sGraphicRectangel(pAttr, false, (float)pAttr.pBorderWidth, pAttr.pBorderColor).paint(sender, e);

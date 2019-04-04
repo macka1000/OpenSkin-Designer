@@ -418,6 +418,12 @@ namespace OpenSkinDesigner.Structures
             {
                 pListbox = new sAttributeListbox(parent, node);
             }
+            else
+            {
+                //Any Render that use path attribute
+                if (node.Attributes["path"] != null)
+                    pPixmap = new sAttributePixmap(parent, node);
+            }
 
             if (pSource != null && pSource.Length > 0)
             {
