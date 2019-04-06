@@ -407,11 +407,11 @@ namespace OpenSkinDesigner.Structures
             {
                 pPixmap = new sAttributePixmap(parent, node);
             }
-            else if (pRender.ToLower() == "metrixreloadedxhdpicon")
+            else if (pRender.ToLower().Contains("xhdpicon"))
             {
                 pPixmap = new sAttributePixmap(parent, node);
             }
-            else if (pRender.ToLower() == "metrixreloadedeventimage")
+            else if (pRender.ToLower().Contains("eventimage"))
             {
                 pPixmap = new sAttributePixmap(parent, node);
             }

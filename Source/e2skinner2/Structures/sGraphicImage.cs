@@ -99,9 +99,9 @@ namespace OpenSkinDesigner.Structures
                                 // is picon
                                 pImage = ResizeImageKeepAspectRatio(pImage, elementSize.Width, elementSize.Height);
                             }
-                            else if (element.myNode.Attributes["render"] != null && element.myNode.Attributes["render"].Value.ToLower().Contains("metrixreloadedeventimage"))
+                            else if (element.myNode.Attributes["render"] != null && element.myNode.Attributes["render"].Value.ToLower().Contains("eventimage"))
                             {
-                                // is MetrixReloadedEventImage
+                                // is EventImage
                                 pImage = ResizeImageKeepAspectRatio(pImage, elementSize.Width, elementSize.Height);
                             }
                             else if (element.myNode.Attributes["path"] != null)

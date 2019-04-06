@@ -81,7 +81,9 @@ namespace OpenSkinDesigner.Frames
                 "- Use attribute scale for ePixmap & widget which have 'pixmap' attribute." + Environment.NewLine +
                 "- Converter MovieInfo added" + Environment.NewLine +
                 "- show images for widgets wiht any render and 'path' attribute" + Environment.NewLine +
-                "- show MetrixReloadedEventImage" + Environment.NewLine;
+                "- show EventImage if render attribute contains 'eventimage'" + Environment.NewLine +
+                "- show XHDPicon if render attribute contains 'xhdpicon'" + Environment.NewLine;
+
         }
 
         #region Assemblyattributaccessoren

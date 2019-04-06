@@ -188,7 +188,7 @@ namespace OpenSkinDesigner.Structures
                     pPixmapName = "@broken.png";
                 }
             }
-            else if (node.Attributes["render"] != null && node.Attributes["render"].Value.ToLower().Contains("metrixreloadedeventimage"))
+            else if (node.Attributes["render"] != null && node.Attributes["render"].Value.ToLower().Contains("eventimage"))
             {
                 try
                 {

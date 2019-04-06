@@ -12,15 +12,14 @@
     <AssemblyName>OpenSkinDesigner</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <ManifestCertificateThumbprint>1C345F3B1B67D1C986846962723B196D367ACD67</ManifestCertificateThumbprint>
-    <ManifestKeyFile>
-    </ManifestKeyFile>
+    <ManifestCertificateThumbprint>4D01805CAE65F861C43BA8CB8CEBE06E36E3FE55</ManifestCertificateThumbprint>
+    <ManifestKeyFile>e2skinner2_TemporaryKey.pfx</ManifestKeyFile>
     <GenerateManifests>true</GenerateManifests>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <ApplicationIcon>Resources\OpenSkinDesigner.ico</ApplicationIcon>
     <StartupObject>OpenSkinDesigner.Program</StartupObject>
-    <SignAssembly>True</SignAssembly>
+    <SignAssembly>false</SignAssembly>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
     <FileUpgradeFlags>
@@ -84,6 +83,9 @@
   <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
     <BaseAddress>4194304</BaseAddress>
     <RegisterForComInterop>False</RegisterForComInterop>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>e2skinner2_TemporaryKey.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
