@@ -188,9 +188,31 @@ namespace OpenSkinDesigner.Structures
                     pPixmapName = "@broken.png";
                 }
             }
+            else if (node.Attributes["render"] != null && node.Attributes["render"].Value.ToLower().Contains("metrixreloadedeventimage"))
+            {
+                try
+                {
+                    String eventImageFileName = "eventimage.jpg";
+
+                    Image pixmap = Image.FromFile(Application.StartupPath + cProperties.getProperty("path_skins").Replace("./", "\\").Replace("/", "\\") + eventImageFileName, true);
+
+                    // size of root element (= size of a widget)
+                    pPixmap = new Size(this.Size.Width, this.Size.Height);
+
+                    pixmap.Dispose();
+                    pPixmapName = "@" + eventImageFileName;
+                }
+                catch (FileNotFoundException)
+                {
+                    Image pixmap = Image.FromFile(Application.StartupPath + cProperties.getProperty("path_skins").Replace("./", "\\").Replace("/", "\\") + "broken.png", true);
+                    pPixmap = pixmap.Size;
+                    pixmap.Dispose();
+                    pPixmapName = "@broken.png";
+                }
+            }
 
 
-            if (node.Attributes["alphatest"] != null)
+                if (node.Attributes["alphatest"] != null)
                 pAlphatest = node.Attributes["alphatest"].Value.ToLower() == "on" ? cProperty.eAlphatest.on :
                     node.Attributes["alphatest"].Value.ToLower() == "blend" ? cProperty.eAlphatest.blend :
                     cProperty.eAlphatest.off;

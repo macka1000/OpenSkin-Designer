@@ -99,6 +99,11 @@ namespace OpenSkinDesigner.Structures
                                 // is picon
                                 pImage = ResizeImageKeepAspectRatio(pImage, elementSize.Width, elementSize.Height);
                             }
+                            else if (element.myNode.Attributes["render"] != null && element.myNode.Attributes["render"].Value.ToLower().Contains("metrixreloadedeventimage"))
+                            {
+                                // is MetrixReloadedEventImage
+                                pImage = ResizeImageKeepAspectRatio(pImage, elementSize.Width, elementSize.Height);
+                            }
                             else if (element.myNode.Attributes["path"] != null)
                             {
                                 //widget element with attribute 'path' (= path to image)
