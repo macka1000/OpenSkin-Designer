@@ -80,7 +80,8 @@ namespace OpenSkinDesigner.Frames
                 "- resize picon on element size change" + Environment.NewLine +
                 "- Use attribute scale for ePixmap & widget which have 'pixmap' attribute." + Environment.NewLine +
                 "- Converter MovieInfo added" + Environment.NewLine +
-                "- show images for widgets wiht any render and 'path' attribute" + Environment.NewLine;
+                "- show images for widgets wiht any render and 'path' attribute" + Environment.NewLine +
+                "- show MetrixReloadedEventImage" + Environment.NewLine;
         }
 
         #region Assemblyattributaccessoren
