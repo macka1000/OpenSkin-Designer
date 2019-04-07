@@ -6,6 +6,7 @@ using System.Collections;
 using OpenSkinDesigner.Logic;
 using System.Globalization;
 using System.Xml;
+using System.Windows.Forms;
 
 namespace OpenSkinDesigner.Structures
 {
@@ -165,6 +166,9 @@ namespace OpenSkinDesigner.Structures
                     break;
                 case "EventTime":
                     new EventTime(Paramter, Source);
+                    break;
+                case "MetrixReloadedExtEventEPG":
+                    new MetrixReloadedExtEventEPG(Paramter, Source);
                     break;
                 case "ServicePosition":
                     new ServicePosition(Paramter, Source);
@@ -1025,6 +1029,35 @@ namespace OpenSkinDesigner.Structures
                     return (String)((Hashtable)pTable[Source])["file_size"];
                 else if (this.type == this.REFERENCE)
                     return (String)((Hashtable)pTable[Source])["reference"];
+                else
+                    return "???";
+            }
+        }
+
+        public class MetrixReloadedExtEventEPG
+        {
+            public int POWERDESCRIPTION = 0;
+            public int ONELINER = 1;
+
+
+            private int type = 0;
+
+            public MetrixReloadedExtEventEPG(String type, String Source)
+            {
+                if (type.Contains("PowerDescription"))
+                    this.type = this.POWERDESCRIPTION;
+                else if (!type.Contains("PowerDescription"))
+                    this.type = this.ONELINER;
+
+                text = getText(Source);
+            }
+
+            public String getText(String Source)
+            {
+                if (this.type == this.POWERDESCRIPTION)
+                    return (String)((Hashtable)pTable[Source])["power_description"];
+                else if (this.type == this.ONELINER)
+                    return (String)((Hashtable)pTable[Source])["one_liner"];
                 else
                     return "???";
             }

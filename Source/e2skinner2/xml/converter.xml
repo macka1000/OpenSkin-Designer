@@ -55,6 +55,22 @@
       <entry name='event_progress'  value='80'   type='int'/>
     </entries>
   </source>
+
+  <source>
+    <name>session.extEvent_Now</name>
+    <entries>
+      <entry name='one_liner'    value='S01E01 • MetrixReloaded Review • Science-Fiction-Drama • 2019' type='string'/>
+      <entry name='power_description'    value='power_description' type='string'/>
+    </entries>
+  </source>
+  
+  <source>
+    <name>session.extEvent_Next</name>
+    <entries>
+      <entry name='one_liner'    value='S01E05 • MetrixReloaded Features • Science-Fiction-Drama • 2019' type='string'/>
+      <entry name='power_description'    value='power_description' type='string'/>
+    </entries>
+  </source>
   
   <source>
     <name>session.FrontendStatus</name>
