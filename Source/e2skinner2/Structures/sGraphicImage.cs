@@ -75,6 +75,7 @@ namespace OpenSkinDesigner.Structures
                 return;
             try
             {
+                
                 pImage = Image.FromFile(cDataBase.getPath(image));
 
                 // Check correct type
@@ -89,7 +90,7 @@ namespace OpenSkinDesigner.Structures
                         //Resize image, if imageSize and element size is diffrent
                         if (elementSize.Width != pImage.Size.Width || elementSize.Height != pImage.Height)
                         {
-                            if (element.myNode.Attributes["pixmap"] != null)
+                            if (element.myNode.Attributes["pixmap"] != null || element.myNode.Attributes["pixmaps"] != null)
                             {
                                 // ePixmap or widget element with attribute 'pixmap' (= path to image)
                                 pImage = ResizeImage(pImage, elementSize.Width, elementSize.Height);

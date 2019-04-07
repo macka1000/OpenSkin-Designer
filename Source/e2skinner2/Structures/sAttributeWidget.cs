@@ -237,10 +237,10 @@ namespace OpenSkinDesigner.Structures
         {
             get
             {
-                if (pRender.ToLower() == "pixmap") return pPixmap.Path;
+                if (pRender.ToLower().Contains("pixmap")) return pPixmap.Path;
                 else return "(none)";
             }
-            set { if (pRender.ToLower() == "pixmap") pPixmap.Path = value; }
+            set { if (pRender.ToLower().Contains("pixmap")) pPixmap.Path = value; }
         }
 
         [CategoryAttribute(entryNamePixmap),
@@ -249,7 +249,7 @@ namespace OpenSkinDesigner.Structures
         {
             get
             {
-                if (pRender.ToLower() == "pixmap") return pPixmap.Resolution;
+                if (pRender.ToLower().Contains("pixmap")) return pPixmap.Resolution;
                 else return new Size();
             }
         }
@@ -260,10 +260,10 @@ namespace OpenSkinDesigner.Structures
         {
             get
             {
-                if (pRender.ToLower() == "pixmap") return pPixmap.Alphatest;
+                if (pRender.ToLower().Contains("pixmap")) return pPixmap.Alphatest;
                 else return "(none)";
             }
-            set { if (pRender.ToLower() == "pixmap") pPixmap.Alphatest = value; }
+            set { if (pRender.ToLower().Contains("pixmap")) pPixmap.Alphatest = value; }
         }
 
         //######################################################################
@@ -357,6 +357,7 @@ namespace OpenSkinDesigner.Structures
                                                                     "MetrixReloadedXHDPicon",
                                                                     "MetrixReloadedEventImage",
                                                                     "Pixmap",
+                                                                    "Pixmaps",
                                                                     "PositionGauge",
                                                                     "Progress"});
             }
@@ -379,7 +380,7 @@ namespace OpenSkinDesigner.Structures
 
             if (pRender == null)
             {
-                if (node.Attributes["pixmap"] != null)
+                if (node.Attributes["pixmap"] != null || node.Attributes["pixmaps"] != null)
                     pRender = "Pixmap";
                 else if (pName == "menu" || pName == "list" || pName.EndsWith("list")) //depreceated
                     pRender = "Listbox";
@@ -395,7 +396,7 @@ namespace OpenSkinDesigner.Structures
             {
                 pLabel = new sAttributeLabel(parent, node);
             }
-            else if (pRender.ToLower() == "pixmap")
+            else if (pRender.ToLower().Contains("pixmap"))
             {
                 pPixmap = new sAttributePixmap(parent, node);
             }

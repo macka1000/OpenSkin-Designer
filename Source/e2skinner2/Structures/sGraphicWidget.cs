@@ -34,7 +34,7 @@ namespace OpenSkinDesigner.Structures
                 updateObject(pAttr, ((sAttributeWidget)pAttr).pLabel);
                 new sGraphicLabel((sAttributeLabel)((sAttributeWidget)pAttr).pLabel).paint(sender, e);
             }
-            else if (((sAttributeWidget)pAttr).pRender.ToLower() == "pixmap")
+            else if (((sAttributeWidget)pAttr).pRender.ToLower().Contains("pixmap"))
             {
                 updateObject(pAttr, ((sAttributeWidget)pAttr).pPixmap);
                 new sGraphicPixmap((sAttributePixmap)((sAttributeWidget)pAttr).pPixmap).paint(sender, e);

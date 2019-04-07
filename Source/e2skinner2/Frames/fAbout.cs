@@ -82,8 +82,8 @@ namespace OpenSkinDesigner.Frames
                 "- Converter MovieInfo added" + Environment.NewLine +
                 "- show images for widgets wiht any render and 'path' attribute" + Environment.NewLine +
                 "- show EventImage if render attribute contains 'eventimage'" + Environment.NewLine +
-                "- show XHDPicon if render attribute contains 'xhdpicon'" + Environment.NewLine;
-
+                "- show XHDPicon if render attribute contains 'xhdpicon'" + Environment.NewLine +
+                "- show images with 'pixmaps' attribute" + Environment.NewLine;
         }
 
         #region Assemblyattributaccessoren

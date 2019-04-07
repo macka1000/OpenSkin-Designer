@@ -124,6 +124,32 @@ namespace OpenSkinDesigner.Structures
                     pPixmapName = "@broken.png";
                 }
             }
+            else if (node.Attributes["pixmaps"] != null)
+            {
+                pPixmapName = node.Attributes["pixmaps"].Value.Split(',')[0];
+                try
+                {
+                    Image pixmap = Image.FromFile(cDataBase.getPath(pPixmapName));
+
+                    // Element has scale attribute -> take size attribute
+                    if (node.Attributes["scale"] != null)
+                    {
+                        pPixmap = new Size(this.Size.Width, this.Size.Height);
+                    }
+                    else
+                    {
+                        pPixmap = pixmap.Size;
+                    }
+                    pixmap.Dispose();
+                }
+                catch (FileNotFoundException)
+                {
+                    Image pixmap = Image.FromFile(Application.StartupPath + cProperties.getProperty("path_skins").Replace("./", "\\").Replace("/", "\\") + "broken.png", true);
+                    pPixmap = pixmap.Size;
+                    pixmap.Dispose();
+                    pPixmapName = "@broken.png";
+                }
+            }
             else if (node.Attributes["path"] != null)
             {
                 //Any Render that use path attribute
