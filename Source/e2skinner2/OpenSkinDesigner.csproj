@@ -243,6 +243,8 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Structures\cConverter.cs" />
+    <Compile Include="Structures\cConverterSimplePresets.cs" />
+    <Compile Include="Structures\cConverterSimple.cs" />
     <Compile Include="Structures\cPreviewText.cs" />
     <Compile Include="Structures\sAttributeListbox.cs" />
     <Compile Include="Structures\cProperty.cs" />
@@ -394,6 +396,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="skins\xpicon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\converterSimple.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="xml\converter.xml">

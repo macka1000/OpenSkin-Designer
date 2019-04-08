@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- Known Datatypes: 'string', 'bool', 'int' -->
+<converterSimple>
+  <presets>
+    <preset name="channelName" value="Das Erste HD" />
+    <preset name="programTitle" value="The Walking Dead" />
+    <preset name="programTitle_Next" value="The Big Bang Theory" />
+    <preset name="programSubtitle" value="Days Gone Bye" />
+    <preset name="programDescription" value="Rick searches for his family after emerging from a coma into a world terrorized by the walking dead. Morgan and Duane, whom he meets along the way, help teach Rick the new rules for survival." />
+    <preset name="MetrixReloadedEventEpg_programSubtitle" value="S01E01 · Days Gone Bye · Science-Fiction-Drama · 2019" />
+    <preset name="MetrixReloadedEventEpg_programSubtitle_Next" value="S11E12 · The Matrimonial Metric · Science-Fiction-Drama · 2019" />
+
+  </presets>
+
+
+  <entries>
+    <!-- Converter EventName -->
+    <entry source="ServiceEvent" converterName="EventName" converterParameter="Name" value="#programTitle#"/>
+    <entry source="Event" converterName="EventName" converterParameter="Name" value="#programTitle#"/>
+    <entry source="ServiceEvent" converterName="EventName" converterParameter="ShortDescription" value="#programSubtitle#"/>
+    <entry source="Event" converterName="EventName" converterParameter="ShortDescription" value="#programSubtitle#"/>
+    <entry source="ServiceEvent" converterName="EventName" converterParameter="FullDescription" value="#programDescription#"/>
+    <entry source="Event" converterName="EventName" converterParameter="FullDescription" value="#programDescription#"/>
+    <entry source="ServiceEvent" converterName="EventName" converterParameter="ExtendedDescription" value="#programDescription#"/>
+    <entry source="Event" converterName="EventName" converterParameter="ExtendedDescription" value="#programDescription#"/>
+    
+    <entry source="session.Event_Now" converterName="EventName" converterParameter="Name" value="#programTitle#"/>
+    <entry source="session.Event_Next" converterName="EventName" converterParameter="Name" value="#programTitle_Next#"/>
+
+    <!-- Converter ServiceName -->
+    <entry source="Service" converterName="ServiceName" converterParameter="Name" value="#channelName#"/>
+    
+    <!-- ### MetrixReloaded ########################################################################################################### -->
+    
+    <!-- SystemInfos-->
+    <entry source="Title" converterName="MetrixReloadedTextTranslator" converterParameter="temperature" value="Temperatur:"/>
+    <entry source="Title" converterName="MetrixReloadedTempFanInfo" converterParameter="TempInfo" value="49°C"/>
+    <entry source="Title" converterName="MetrixReloadedTextTranslator" converterParameter="fanspeed" value="Drehzahl:"/>
+    <entry source="Title" converterName="MetrixReloadedTempFanInfo" converterParameter="FanInfo" value="N/A"/>
+    <entry source="Title" converterName="MetrixReloadedTextTranslator" converterParameter="cpuload" value="CPU-Last:"/>
+    <entry source="Title" converterName="MetrixReloadedCpuUsage" converterParameter="$0" value="7%"/>
+    <entry source="Title" converterName="MetrixReloadedTextTranslator" converterParameter="avgload" value="Systemlast:"/>
+    <entry source="Title" converterName="MetrixReloadedLayoutInfo" converterParameter="LoadAvg" value="0.19"/>
+    <entry source="Title" converterName="MetrixReloadedTextTranslator" converterParameter="flash" value="Flash:"/>
+    <entry source="Title" converterName="MetrixReloadedLayoutInfo" converterParameter="FlashInfo,FreeOnly" value="2.8 GB frei"/>
+    <entry source="Title" converterName="MetrixReloadedTextTranslator" converterParameter="ram" value="Ram:"/>
+    <entry source="Title" converterName="MetrixReloadedLayoutInfo" converterParameter="MemTotal,FreeOnly" value="8.9 MB frei"/>
+    <entry source="Title" converterName="MetrixReloadedTextTranslator" converterParameter="hdd" value="HDD:"/>
+    <entry source="Title" converterName="MetrixReloadedLayoutInfo" converterParameter="HddInfo,FreeOnly" value="8.9 MB frei"/>
+    <entry source="Title" converterName="MetrixReloadedTextTranslator" converterParameter="usb" value="USB:"/>
+    <entry source="Title" converterName="MetrixReloadedLayoutInfo" converterParameter="UsbInfo,FreeOnly" value="Nicht vorhanden"/>
+
+    <!-- Converter MetrixReloadedExtEventEPG -->
+    <entry source="session.extEvent_Now" converterName="MetrixReloadedExtEventEPG" converterParameter="EpisodeNum, Subtitle(10), Genre, Year" value="#MetrixReloadedEventEpg_programSubtitle#"/>
+    <entry source="session.extEvent_Next" converterName="MetrixReloadedExtEventEPG" converterParameter="EpisodeNum, Subtitle(10), Genre, Year" value="#MetrixReloadedEventEpg_programSubtitle_Next#"/>
+
+    
+    
+  </entries>
+</converterSimple>

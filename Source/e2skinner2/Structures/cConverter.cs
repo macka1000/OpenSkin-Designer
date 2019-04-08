@@ -13,6 +13,7 @@ namespace OpenSkinDesigner.Structures
     static public class cConverter
     {
         static Hashtable pTable = null;
+        static List<cConverterSimple> pSimpleList;
 
         public static class strftime
         {
@@ -135,6 +136,19 @@ namespace OpenSkinDesigner.Structures
             {
                 Console.WriteLine(ex.ToString());
             }
+
+            try
+            {
+                // Loading converterSimple
+                pSimpleList = cConverterSimple.ListAll();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                pSimpleList = null;
+                MessageBox.Show(ex.ToString());
+            }
+
         }
 
         static public void reset()
@@ -144,6 +158,20 @@ namespace OpenSkinDesigner.Structures
 
         static public String getText(String Source, String Type, String Paramter)
         {
+
+            if(pSimpleList != null)
+            {
+                // seacrh in converterSimple
+                cConverterSimple result = pSimpleList.Find(s => s.Source.ToLower().Equals(Source.ToLower()) &&
+                            s.ConverterName.ToLower().Equals(Type.ToLower()) &&
+                            s.ConverterParameter.ToLower().Equals(Paramter.ToLower()));
+
+                if (result != null)
+                {
+                    return result.Value;
+                }
+            }
+
             switch (Type)
             {
                 case "ServiceName":
@@ -166,9 +194,6 @@ namespace OpenSkinDesigner.Structures
                     break;
                 case "EventTime":
                     new EventTime(Paramter, Source);
-                    break;
-                case "MetrixReloadedExtEventEPG":
-                    new MetrixReloadedExtEventEPG(Paramter, Source);
                     break;
                 case "ServicePosition":
                     new ServicePosition(Paramter, Source);
@@ -1029,35 +1054,6 @@ namespace OpenSkinDesigner.Structures
                     return (String)((Hashtable)pTable[Source])["file_size"];
                 else if (this.type == this.REFERENCE)
                     return (String)((Hashtable)pTable[Source])["reference"];
-                else
-                    return "???";
-            }
-        }
-
-        public class MetrixReloadedExtEventEPG
-        {
-            public int POWERDESCRIPTION = 0;
-            public int ONELINER = 1;
-
-
-            private int type = 0;
-
-            public MetrixReloadedExtEventEPG(String type, String Source)
-            {
-                if (type.Contains("PowerDescription"))
-                    this.type = this.POWERDESCRIPTION;
-                else if (!type.Contains("PowerDescription"))
-                    this.type = this.ONELINER;
-
-                text = getText(Source);
-            }
-
-            public String getText(String Source)
-            {
-                if (this.type == this.POWERDESCRIPTION)
-                    return (String)((Hashtable)pTable[Source])["power_description"];
-                else if (this.type == this.ONELINER)
-                    return (String)((Hashtable)pTable[Source])["one_liner"];
                 else
                     return "???";
             }
