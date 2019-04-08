@@ -20,9 +20,21 @@ It includes a couple of new features i.e.:
 * bugfixes
 * etc.
 
-![alt tag](https://raw.githubusercontent.com/iMaxxx/OpenSkin-Designer/master/Preview.png)
+## Screenshots
+<p align="center">
+<img src="Screenshots/Preview1.jpg?sanitize=true&raw=true" title="Preview1" width="400"/>
+<img src="Screenshots/Preview2.jpg?sanitize=true&raw=true" title="Preview1" width="400"/>
+<img src="Screenshots/Preview3.jpg?sanitize=true&raw=true" title="Preview1" width="400"/>
+</p>
 
+## Changelog
 
-To-Do: 
-* some performance improvements
-* fix save as (copy your skin to OpenSkin's directory)
+### 3.2.0 (08.04.2019)
+* Converter: support for 'FullDescription' added
+* resize picon on element size change
+* Use attribute scale for ePixmap & widget which have 'pixmap' attribute.
+* Converter MovieInfo added
+* show images for widgets with any render and 'path' attribute
+* show EventImage if render attribute contains 'eventimage'
+* show XHDPicon if render attribute contains 'xhdpicon'
+* show images with 'pixmaps' attribute
