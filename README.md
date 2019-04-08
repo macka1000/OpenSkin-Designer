@@ -30,6 +30,7 @@ It includes a couple of new features i.e.:
 ## Changelog
 
 ### 3.2.0 (08.04.2019)
+created by [Scrounger](https://github.com/Scrounger)
 * Converter: support for 'FullDescription' added
 * resize picon on element size change
 * Use attribute scale for ePixmap & widget which have 'pixmap' attribute.
