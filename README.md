@@ -22,9 +22,9 @@ It includes a couple of new features i.e.:
 
 ## Screenshots
 <p align="center">
-<img src="Screenshots/Preview1.jpg?sanitize=true&raw=true" title="Preview1" width="400"/>
-<img src="Screenshots/Preview2.jpg?sanitize=true&raw=true" title="Preview1" width="400"/>
-<img src="Screenshots/Preview3.jpg?sanitize=true&raw=true" title="Preview1" width="400"/>
+<img src="Screenshots/preview1.jpg?sanitize=true&raw=true" title="preview1" width="400"/>
+<img src="Screenshots/preview2.jpg?sanitize=true&raw=true" title="preview2" width="400"/>
+<img src="Screenshots/preview3.jpg?sanitize=true&raw=true" title="preview3" width="400"/>
 </p>
 
 ## Changelog
