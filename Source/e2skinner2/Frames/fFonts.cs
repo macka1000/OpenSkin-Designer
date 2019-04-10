@@ -32,24 +32,25 @@ namespace OpenSkinDesigner.Frames
             //listView1.Clear();
             foreach (sFont font in fonts)
             {
-                System.Windows.Forms.ListViewItem.ListViewSubItem[] subtitems = new System.Windows.Forms.ListViewItem.ListViewSubItem[8];
-
+                System.Windows.Forms.ListViewItem.ListViewSubItem[] subtitems = new System.Windows.Forms.ListViewItem.ListViewSubItem[9];
                 subtitems[0] = new System.Windows.Forms.ListViewItem.ListViewSubItem();
-                subtitems[0].Text = font.Name;
+                subtitems[0].Text = font.isAlias == true ? "X" : "";
                 subtitems[1] = new System.Windows.Forms.ListViewItem.ListViewSubItem();
-                subtitems[1].Text = font.Filename;
+                subtitems[1].Text = font.Name;
                 subtitems[2] = new System.Windows.Forms.ListViewItem.ListViewSubItem();
-                subtitems[2].Text = font.FontName;
+                subtitems[2].Text = font.Filename;
                 subtitems[3] = new System.Windows.Forms.ListViewItem.ListViewSubItem();
-                subtitems[3].Text = Convert.ToString(font.Size);
+                subtitems[3].Text = font.FontName;
                 subtitems[4] = new System.Windows.Forms.ListViewItem.ListViewSubItem();
-                subtitems[4].Text = font.Path;
+                subtitems[4].Text = Convert.ToString(font.Size);
                 subtitems[5] = new System.Windows.Forms.ListViewItem.ListViewSubItem();
-                subtitems[5].Text = Convert.ToString(font.Scale);
+                subtitems[5].Text = font.Path;
                 subtitems[6] = new System.Windows.Forms.ListViewItem.ListViewSubItem();
-                subtitems[6].Text = Convert.ToString(font.Replacement);
+                subtitems[6].Text = Convert.ToString(font.Scale);
                 subtitems[7] = new System.Windows.Forms.ListViewItem.ListViewSubItem();
-                subtitems[7].Text = "0";
+                subtitems[7].Text = Convert.ToString(font.Replacement);
+                subtitems[8] = new System.Windows.Forms.ListViewItem.ListViewSubItem();
+                subtitems[8].Text = "0";
 
                 ListViewItem item = new ListViewItem(subtitems, 0);
                 listView1.Items.Add(item);
@@ -61,11 +62,11 @@ namespace OpenSkinDesigner.Frames
         {
             if (listView1.SelectedItems.Count > 0)
             {
-                textBoxName.Text = listView1.SelectedItems[0].SubItems[0].Text;
-                textBoxPath.Text = listView1.SelectedItems[0].SubItems[4].Text;
-                textBoxScale.Text = listView1.SelectedItems[0].SubItems[5].Text;
-                textBox1.Text = listView1.SelectedItems[0].SubItems[3].Text;
-                checkBoxReplacement.Checked = Convert.ToBoolean(listView1.SelectedItems[0].SubItems[6].Text);
+                textBoxName.Text = listView1.SelectedItems[0].SubItems[1].Text;
+                textBoxPath.Text = listView1.SelectedItems[0].SubItems[5].Text;
+                textBoxScale.Text = listView1.SelectedItems[0].SubItems[6].Text;
+                textBox1.Text = listView1.SelectedItems[0].SubItems[4].Text;
+                checkBoxReplacement.Checked = Convert.ToBoolean(listView1.SelectedItems[0].SubItems[7].Text);
 
                 float pSize = Convert.ToSingle(textBox1.Text);
                 sFont pFont = cDataBase.getFont(textBoxName.Text);

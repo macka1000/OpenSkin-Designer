@@ -21,6 +21,7 @@ namespace OpenSkinDesigner.Structures
         public System.Drawing.FontFamily FontFamily;
         public System.Drawing.FontStyle FontStyle;
         public int Size = 0;
+        public bool isAlias = false;
 
         //if this isnt defined as global public, mono will lose the reference and crash!!!
         public PrivateFontCollection pfc;
@@ -29,7 +30,7 @@ namespace OpenSkinDesigner.Structures
         public int Scale = 0;
         public bool Replacement = false;
 
-        public sFont(String name, String path, int scale, int size, String fontName, bool replacement)
+        public sFont(String name, String path, int scale, int size, String fontName, bool replacement, bool isAlias = false)
         {
             String fontPath = cProperties.getProperty("path_fonts");
             String skinPath = cProperties.getProperty("path_skin");
@@ -37,13 +38,14 @@ namespace OpenSkinDesigner.Structures
 
             pfc = new PrivateFontCollection();
 
-            Name = name; 
-            Path = path;
+            this.Name = name;
+            this.Path = path;
 
-            Scale = scale;
-            Replacement = replacement;
-            Size = size;
-            FontName = fontName;
+            this.Scale = scale;
+            this.Replacement = replacement;
+            this.Size = size;
+            this.FontName = fontName;
+            this.isAlias = isAlias;
 
             //This way we have only the file name, but what happens if the fonts are in the skin directory ?
             //Lets check all posibilities

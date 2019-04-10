@@ -670,7 +670,9 @@ namespace OpenSkinDesigner.Logic
                                     100,
                                     Convert.ToInt32(myXmlNode.Attributes["size"].Value),
                                     myXmlNode.Attributes["font"].Value,
-                                    false);
+                                    false,
+                                    true);
+
                                 pFonts.Add(font.Name, font);
                             }
                             else
@@ -693,7 +695,22 @@ namespace OpenSkinDesigner.Logic
 
         static public sFont getFont(String name)
         {
-            return (sFont)pFonts[name];
+            try
+            {
+                //Font Attribut: 'Font;Size' 
+                int size = Convert.ToInt16(name.Substring(name.IndexOf(';') + 1));
+                string fontname = name.Substring(0, name.IndexOf(';'));
+
+                sFont font = (sFont)pFonts[fontname];
+                font.Size = size;
+
+                return (sFont)pFonts[fontname];
+            }
+            catch
+            {
+                //Font Alias
+                return (sFont)pFonts[name];
+            }
         }
 
         static public sFont[] getFonts()
