@@ -30,7 +30,7 @@
     <!-- Converter ServiceName -->
     <entry source="Service" converterName="ServiceName" converterParameter="Name" value="#channelName#"/>
     
-    <!-- ### MetrixReloaded ########################################################################################################### -->
+    <!-- Skin: MetrixReloaded ########################################################################################################### -->
     
     <!-- SystemInfos-->
     <entry source="Title" converterName="MetrixReloadedTextTranslator" converterParameter="temperature" value="Temperatur:"/>
@@ -54,7 +54,8 @@
     <entry source="session.extEvent_Now" converterName="MetrixReloadedExtEventEPG" converterParameter="EpisodeNum, Subtitle(10), Genre, Year" value="#MetrixReloadedEventEpg_programSubtitle#"/>
     <entry source="session.extEvent_Next" converterName="MetrixReloadedExtEventEPG" converterParameter="EpisodeNum, Subtitle(10), Genre, Year" value="#MetrixReloadedEventEpg_programSubtitle_Next#"/>
 
-    
+    <!-- Converter MetrixReloadedVersion -->
+    <entry source="Title" converterName="MetrixReloadedVersion" converterParameter="" value="Version: 0.7.0"/>
     
   </entries>
 </converterSimple>
