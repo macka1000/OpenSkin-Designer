@@ -541,7 +541,7 @@ namespace OpenSkinDesigner.Structures
                     if (pLabel != null && (pLabel.pText == null || pLabel.pText.Length == 0))
                         pLabel.pPreviewText = text;
                     if (pListbox != null)
-                        pListbox.pPreviewEntries = text.Split('|');
+                        pListbox.pPreviewEntries = new List<string>(text.Split('|'));
                 }
             }
 

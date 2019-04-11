@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Drawing;
 using OpenSkinDesigner.Logic;
+using System.Windows.Forms;
 
 namespace OpenSkinDesigner.Structures
 {
@@ -180,7 +181,7 @@ namespace OpenSkinDesigner.Structures
             // entries
             if (((sAttributeListbox)pAttr).pPreviewEntries != null)
             {
-                if (((sAttributeListbox)pAttr).pPreviewEntries.Length >= 1)
+                if (((sAttributeListbox)pAttr).pPreviewEntries.Count >= 1)
                 {
                     int itemHeight = ((sAttributeListbox)pAttr).pItemHeight;
 
@@ -215,13 +216,18 @@ namespace OpenSkinDesigner.Structures
                     else
                         new sGraphicFont(null, pAttr.pAbsolutX, pAttr.pAbsolutY, entry, fontSize, font, foreground, background == null ? new sColor(Color.Black) : background, halign, valign).paint(sender, e);
 
-                    if (((sAttributeListbox)pAttr).pPreviewEntries.Length > 1)
+                    if (((sAttributeListbox)pAttr).pPreviewEntries.Count > 1)
                     {
                         foreground = ((sAttributeListbox)pAttr).pListboxForegroundColor;
                         background = ((sAttributeListbox)pAttr).pListboxBackgroundColor;
 
-                        for (int i = 1; i < ((sAttributeListbox)pAttr).pPreviewEntries.Length; i++)
+                        for (int i = 1; i < ((sAttributeListbox)pAttr).pPreviewEntries.Count; i++)
                         {
+                            //Listen Einträge
+                            if (i * itemHeight > pAttr.pHeight)
+                                // Abbrechen wenn Höhe der Listen Einträge größer als Höhe der Liste
+                                break;
+
                             entry = ((sAttributeListbox)pAttr).pPreviewEntries[i];
 
                             // NonSelection Pixmap

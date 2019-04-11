@@ -68,7 +68,7 @@ namespace OpenSkinDesigner.Structures
         public String pSelectionPixmapName;
         public Image pSelectionPixmap;
 
-        public String[] pPreviewEntries = null;
+        public List<string> pPreviewEntries = new List<string>();
 
         public cProperty.eScrollbarMode pScrollbarMode;
 
@@ -472,7 +472,12 @@ namespace OpenSkinDesigner.Structures
 
             String entries = cPreviewText.getText(parent.Name, Name);
             if (entries.Length > 0)
-                pPreviewEntries = entries.Split('|');
+                pPreviewEntries = new List<string>(entries.Split('|'));
+            else
+                for (int i = 1; i < 50; i++)
+                {
+                    pPreviewEntries.Add("List entry " + i);
+                }
         }
     }
 }
