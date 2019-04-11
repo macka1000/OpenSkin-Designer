@@ -24,22 +24,22 @@ namespace OpenSkinDesigner.Structures
         public sAttributeListbox pListbox;
 
         /*//Pixmap
-        public String pPixmapPath;
+		public String pPixmapPath;
 
-        //Label
-        public String pText;
-        public sFont pFont;
-        public float pFontSize;
-        public sColor pBackgroundColor; //background is used for the shadow if wanted, or posily if not transparent is selected !!!!
-        public sColor pForegroundColor;
-        public enum eVAlign { Top, Center, Bottom };
-        public enum eHAlign { Left, Center, Right };
-        public eVAlign pValign = eVAlign.Center;
-        public eHAlign pHalign = eHAlign.Left;
-        public bool pNoWrap = true;*/
+		//Label
+		public String pText;
+		public sFont pFont;
+		public float pFontSize;
+		public sColor pBackgroundColor; //background is used for the shadow if wanted, or posily if not transparent is selected !!!!
+		public sColor pForegroundColor;
+		public enum eVAlign { Top, Center, Bottom };
+		public enum eHAlign { Left, Center, Right };
+		public eVAlign pValign = eVAlign.Center;
+		public eHAlign pHalign = eHAlign.Left;
+		public bool pNoWrap = true;*/
 
         [CategoryAttribute(entryName),
-        DefaultValue("(none)")]
+         DefaultValue("(none)")]
         public String Source
         {
             get { return pSource; }
@@ -63,7 +63,7 @@ namespace OpenSkinDesigner.Structures
         }
 
         [TypeConverter(typeof(RenderConverter)),
-        CategoryAttribute(entryName)]
+         CategoryAttribute(entryName)]
         public String Render
         {
             get { return pRender; }
@@ -107,7 +107,7 @@ namespace OpenSkinDesigner.Structures
         }
 
         [CategoryAttribute(entryNameLabel),
-        ReadOnlyAttribute(true)]
+         ReadOnlyAttribute(true)]
         public String PreviewText
         {
             get
@@ -121,13 +121,23 @@ namespace OpenSkinDesigner.Structures
         //ReadOnlyAttribute(true)]
 
         [TypeConverter(typeof(OpenSkinDesigner.Structures.cProperty.sFontConverter)),
-        CategoryAttribute(entryNameLabel)]
+         CategoryAttribute(entryNameLabel)]
         public String Font
         {
             get
             {
-                if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel" || pRender.ToLower() == "vrunningtext" || pRender.ToLower() == "metrixreloadedscreennamelabel") return pLabel.Font;
-                else return "(none)";
+                if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel" || pRender.ToLower() == "vrunningtext" || pRender.ToLower() == "metrixreloadedscreennamelabel")
+                {
+                    return pLabel.Font;
+                }
+                else if (pRender.ToLower() == "listbox")
+                {
+                    return pListbox.Font;
+                }
+                else
+                {
+                    return "(none)";
+                }
             }
             set
             {
@@ -135,6 +145,11 @@ namespace OpenSkinDesigner.Structures
                 {
                     pLabel.Font = value;
                 }
+                else if (pRender.ToLower() == "listbox")
+                {
+                    pListbox.Font = value;
+                }
+
             }
         }
 
@@ -143,8 +158,18 @@ namespace OpenSkinDesigner.Structures
         {
             get
             {
-                if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel" || pRender.ToLower() == "vrunningtext" || pRender.ToLower() == "metrixreloadedscreennamelabel") return pLabel.FontSize;
-                else return 0;
+                if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel" || pRender.ToLower() == "vrunningtext" || pRender.ToLower() == "metrixreloadedscreennamelabel")
+                {
+                    return pLabel.FontSize;
+                }
+                else if (pRender.ToLower() == "listbox")
+                {
+                    return pListbox.FontSize;
+                }
+                else
+                {
+                    return 0;
+                }
             }
             set
             {
@@ -152,12 +177,16 @@ namespace OpenSkinDesigner.Structures
                 {
                     pLabel.FontSize = value;
                 }
+                else if (pRender.ToLower() == "listbox")
+                {
+                    pListbox.FontSize = value;
+                }
             }
         }
 
         [Editor(typeof(OpenSkinDesigner.Structures.cProperty.GradeEditor), typeof(System.Drawing.Design.UITypeEditor))]
         [TypeConverter(typeof(OpenSkinDesigner.Structures.cProperty.sColorConverter)),
-        CategoryAttribute(entryNameLabel)]
+         CategoryAttribute(entryNameLabel)]
         public String ForegroundColor
         {
             get
@@ -176,7 +205,7 @@ namespace OpenSkinDesigner.Structures
 
         [Editor(typeof(OpenSkinDesigner.Structures.cProperty.GradeEditor), typeof(System.Drawing.Design.UITypeEditor))]
         [TypeConverter(typeof(OpenSkinDesigner.Structures.cProperty.sColorConverter)),
-        CategoryAttribute(entryNameLabel)]
+         CategoryAttribute(entryNameLabel)]
         public String BackgroundColor
         {
             get
@@ -195,7 +224,7 @@ namespace OpenSkinDesigner.Structures
 
 
         [TypeConverter(typeof(cProperty.VAlignConverter)),
-        CategoryAttribute(entryNameLabel)]
+         CategoryAttribute(entryNameLabel)]
         public String Valign
         {
             get
@@ -207,7 +236,7 @@ namespace OpenSkinDesigner.Structures
         }
 
         [TypeConverter(typeof(cProperty.HAlignConverter)),
-        CategoryAttribute(entryNameLabel)]
+         CategoryAttribute(entryNameLabel)]
         public String Halign
         {
             get
@@ -244,7 +273,7 @@ namespace OpenSkinDesigner.Structures
         }
 
         [CategoryAttribute(entryNamePixmap),
-        ReadOnlyAttribute(true)]
+         ReadOnlyAttribute(true)]
         public Size Resolution
         {
             get
@@ -255,7 +284,7 @@ namespace OpenSkinDesigner.Structures
         }
 
         [TypeConverter(typeof(cProperty.AlphatestConverter)),
-        CategoryAttribute(entryNamePixmap)]
+         CategoryAttribute(entryNamePixmap)]
         public String Alphatest
         {
             get
@@ -272,7 +301,7 @@ namespace OpenSkinDesigner.Structures
 
         [Editor(typeof(OpenSkinDesigner.Structures.cProperty.GradeEditor), typeof(System.Drawing.Design.UITypeEditor))]
         [TypeConverter(typeof(OpenSkinDesigner.Structures.cProperty.sColorConverter)),
-        CategoryAttribute(entryNameProgress)]
+         CategoryAttribute(entryNameProgress)]
         public String ProgressColor
         {
             get
@@ -288,7 +317,7 @@ namespace OpenSkinDesigner.Structures
         private const String entryNameListbox = "7 Listbox";
 
         [TypeConverter(typeof(cProperty.ScrollbarModeConverter)),
-        CategoryAttribute(entryNameListbox)]
+         CategoryAttribute(entryNameListbox)]
         public String ScrollbarMode
         {
             get
@@ -332,38 +361,87 @@ namespace OpenSkinDesigner.Structures
             set { if (pRender.ToLower() == "listbox") pListbox.ItemHeight = value; }
         }
 
+        //		[TypeConverter(typeof(OpenSkinDesigner.Structures.cProperty.sFontConverter)),
+        //		 CategoryAttribute(entryNameListbox)]
+        //		public String Font_Second
+        //		{
+        //			get
+        //			{
+        //				if(pRender.ToLower() == "listbox")
+        //				{
+        //					return pListbox.FontSecond;
+        //				}
+        //				else
+        //				{
+        //					return "(none)";
+        //				}
+        //			}
+        //			set
+        //			{
+        //
+        //				if(pRender.ToLower() == "listbox")
+        //				{
+        //					pListbox.FontSecond = value;
+        //				}
+        //				
+        //			}
+        //		}
+        //
+        //		[CategoryAttribute(entryNameListbox)]
+        //		public float FontSize_Second
+        //		{
+        //			get
+        //			{
+        //				if(pRender.ToLower() == "listbox")
+        //				{
+        //					return pListbox.FontSecondSize;
+        //				}
+        //				else
+        //				{
+        //					return 0;
+        //				}
+        //			}
+        //			set
+        //			{
+        //				if(pRender.ToLower() == "listbox")
+        //				{
+        //					pListbox.FontSecondSize = value;
+        //				}
+        //			}
+        //		}		
+
         //######################################################################
         //################# WIDGET #############################################
 
         public class RenderConverter : StringConverter
         {
             public override bool GetStandardValuesSupported(
-                           ITypeDescriptorContext context)
+                ITypeDescriptorContext context)
             {
                 return true;
             }
 
             public override StandardValuesCollection
-                     GetStandardValues(ITypeDescriptorContext context)
+                GetStandardValues(ITypeDescriptorContext context)
             {
                 return new StandardValuesCollection(new string[]{   "Canvas",
-                                                                    "FixedLabel",
-                                                                    "Label",
-                                                                    "VRunningText",
-                                                                    "MetrixReloadedScreenNameLabel",
-                                                                    "Listbox",
-                                                                    "Picon",
-                                                                    "XPicon",
-                                                                    "MetrixReloadedXHDPicon",
-                                                                    "MetrixReloadedEventImage",
-                                                                    "Pixmap",
-                                                                    "Pixmaps",
-                                                                    "PositionGauge",
-                                                                    "Progress"});
+                                                        "FixedLabel",
+                                                        "Label",
+                                                        "VRunningText",
+                                                        "MetrixReloadedScreenNameLabel",
+                                                        "Listbox",
+                                                        "Picon",
+                                                        "XPicon",
+                                                        "MetrixReloadedXHDPicon",
+                                                        "MetrixReloadedEventImage",
+                                                        "Pixmap",
+                                                        "Pixmaps",
+                                                        "PositionGauge",
+                                                        "Progress"});
             }
 
             public override bool GetStandardValuesExclusive(
-                           ITypeDescriptorContext context)
+                ITypeDescriptorContext context)
             {
                 return true;
             }
@@ -382,7 +460,8 @@ namespace OpenSkinDesigner.Structures
             {
                 if (node.Attributes["pixmap"] != null || node.Attributes["pixmaps"] != null)
                     pRender = "Pixmap";
-                else if (pName == "menu" || pName == "list" || pName.EndsWith("list")) //depreceated
+                else if (pName == "menu" || pName == "list" || pName.EndsWith("list") || (myNode.Attributes["itemHeight"] != null && myNode.Attributes["font"] != null))
+                    //||(node.HasChildNodes && node.FirstChild.Attributes["type"] != null && node.FirstChild.Attributes["type"].Value.ToLower() == "templatedmulticontent")) 
                     pRender = "Listbox";
                 else if (pName == "PositionGauge") //depreceated
                     pRender = "PositionGauge";

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
+using System.Windows.Forms;
 //using System.Linq;
 using System.Text;
 using System.Xml;
@@ -25,12 +27,12 @@ namespace OpenSkinDesigner.Structures
 		<color name="ListboxMarkedForeground" color="#ffffff"/>
 		<color name="ListboxMarkedAndSelectedBackground" color="#800000"/>
 		<color name="ListboxMarkedAndSelectedForeground" color="#ffffff"/>
-         * backgroundPixmap //shown for the hole listbox
+		 * backgroundPixmap //shown for the hole listbox
          selectionPixmap //shown under an selected entry
          ScrollbarMode
-         * the following are only valid for the graphical multi epg
+		 * the following are only valid for the graphical multi epg
          EntryBorderColor="#071930" EntryBackgroundColor="#1f294b" EntryBackgroundColorSelected="#225b7395"
-         * the following are only valid for the servicelist
+		 * the following are only valid for the servicelist
          serviceInfoFont="Regular;22" serviceNameFont="Regular;24" serviceNumberFont="Regular;24"*/
 
         //note this are the pngs which will be shown around the complete list, not an entry
@@ -74,7 +76,8 @@ namespace OpenSkinDesigner.Structures
         public String BackgroundPixmap
         {
             get { return pBackgroundPixmapName; }
-            set {
+            set
+            {
                 pBackgroundPixmapName = value;
 
                 if (pBackgroundPixmapName != null && pBackgroundPixmapName.Length > 0)
@@ -89,15 +92,16 @@ namespace OpenSkinDesigner.Structures
                 }
                 else
                     if (myNode.Attributes["backgroundPixmap"] != null)
-                        myNode.Attributes.RemoveNamedItem("backgroundPixmap");              
-                }
+                    myNode.Attributes.RemoveNamedItem("backgroundPixmap");
+            }
         }
 
         [CategoryAttribute(entryName)]
         public String SelectionPixmap
         {
             get { return pSelectionPixmapName; }
-            set { 
+            set
+            {
                 pSelectionPixmapName = value;
 
                 if (pSelectionPixmapName != null && pSelectionPixmapName.Length > 0)
@@ -112,13 +116,13 @@ namespace OpenSkinDesigner.Structures
                 }
                 else
                     if (myNode.Attributes["selectionPixmap"] != null)
-                        myNode.Attributes.RemoveNamedItem("selectionPixmap");
-                
-                }
+                    myNode.Attributes.RemoveNamedItem("selectionPixmap");
+
+            }
         }
 
         [TypeConverter(typeof(cProperty.ScrollbarModeConverter)),
-        CategoryAttribute(entryName)]
+         CategoryAttribute(entryName)]
         public String ScrollbarMode
         {
             get { return pScrollbarMode.ToString(); }
@@ -135,7 +139,7 @@ namespace OpenSkinDesigner.Structures
         }
 
 
-        public Int32 pItemHeight;
+        public Int32 pItemHeight = 0;
 
         [CategoryAttribute(entryName)]
         public Int32 ItemHeight
@@ -158,10 +162,153 @@ namespace OpenSkinDesigner.Structures
                 //else
                 //    if (myNode.Attributes["itemHeight"] != null)
                 //        myNode.Attributes.RemoveNamedItem("itemHeight");
-                
+
             }
         }
-        
+
+        public sFont pFont;
+
+        [TypeConverter(typeof(OpenSkinDesigner.Structures.cProperty.sFontConverter)),
+         CategoryAttribute(entryName)]
+        public String Font
+        {
+            get
+            {
+                if (pFont != null) return pFont.Name;
+                else return "(none)";
+            }
+            set
+            {
+                if (value != null && !value.Equals("(none)"))
+                {
+                    pFont = cDataBase.getFont(value);
+
+                    if (myNode.Attributes["font"] != null)
+
+                        if (!pFont.isAlias)
+                            myNode.Attributes["font"].Value = pFont.Name + "; " + pFontSize;
+                        else
+                            myNode.Attributes["font"].Value = pFont.Name;
+                    else
+                    {
+                        myNode.Attributes.Append(myNode.OwnerDocument.CreateAttribute("font"));
+                        if (!pFont.isAlias)
+                            myNode.Attributes["font"].Value = pFont.Name + "; " + pFontSize;
+                        else
+                            myNode.Attributes["font"].Value = pFont.Name;
+                    }
+                }
+                else
+                {
+                    pFont = null;
+                }
+            }
+        }
+
+        public float pFontSize;
+
+        [CategoryAttribute(entryName)]
+        public float FontSize
+        {
+            get { return pFontSize; }
+            set
+            {
+                pFontSize = value;
+
+                if (myNode.Attributes["font"] == null)
+                {
+                    myNode.Attributes.Append(myNode.OwnerDocument.CreateAttribute("font"));
+                    //myNode.Attributes["font"].Value = "1";
+                }
+
+                if (myNode.Attributes["font"] != null)
+                    if (!pFont.isAlias)
+                        myNode.Attributes["font"].Value = pFont.Name + "; " + pFontSize;
+                    else
+                        myNode.Attributes["font"].Value = pFont.Name;
+                else
+                {
+                    myNode.Attributes.Append(myNode.OwnerDocument.CreateAttribute("font"));
+                    if (!pFont.isAlias)
+                        myNode.Attributes["font"].Value = pFont.Name + "; " + pFontSize;
+                    else
+                        myNode.Attributes["font"].Value = pFont.Name;
+                }
+            }
+        }
+
+
+
+        public sFont pFontSecond;
+
+        [TypeConverter(typeof(OpenSkinDesigner.Structures.cProperty.sFontConverter)),
+         CategoryAttribute(entryName)]
+        public String FontSecond
+        {
+            get
+            {
+                if (pFontSecond != null) return pFontSecond.Name;
+                else return "(none)";
+            }
+            set
+            {
+                if (value != null && !value.Equals("(none)"))
+                {
+                    pFontSecond = cDataBase.getFont(value);
+
+                    if (myNode.Attributes["secondfont"] != null)
+
+                        if (!pFontSecond.isAlias)
+                            myNode.Attributes["secondfont"].Value = pFontSecond.Name + "; " + pFontSecondSize;
+                        else
+                            myNode.Attributes["secondfont"].Value = pFontSecond.Name;
+                    else
+                    {
+                        myNode.Attributes.Append(myNode.OwnerDocument.CreateAttribute("secondfont"));
+                        if (!pFontSecond.isAlias)
+                            myNode.Attributes["secondfont"].Value = pFontSecond.Name + "; " + pFontSecondSize;
+                        else
+                            myNode.Attributes["secondfont"].Value = pFontSecond.Name;
+                    }
+                }
+                else
+                {
+                    pFontSecond = null;
+                }
+            }
+        }
+
+        public float pFontSecondSize;
+
+        [CategoryAttribute(entryName)]
+        public float FontSecondSize
+        {
+            get { return pFontSecondSize; }
+            set
+            {
+                pFontSecondSize = value;
+
+                if (myNode.Attributes["secondfont"] == null)
+                {
+                    myNode.Attributes.Append(myNode.OwnerDocument.CreateAttribute("secondfont"));
+                    //myNode.Attributes["font"].Value = "1";
+                }
+
+                if (myNode.Attributes["secondfont"] != null)
+                    if (!pFontSecond.isAlias)
+                        myNode.Attributes["secondfont"].Value = pFontSecond.Name + "; " + pFontSecondSize;
+                    else
+                        myNode.Attributes["secondfont"].Value = pFontSecond.Name;
+                else
+                {
+                    myNode.Attributes.Append(myNode.OwnerDocument.CreateAttribute("font"));
+                    if (!pFontSecond.isAlias)
+                        myNode.Attributes["secondfont"].Value = pFontSecond.Name + "; " + pFontSecondSize;
+                    else
+                        myNode.Attributes["secondfont"].Value = pFontSecond.Name;
+                }
+            }
+        }
 
         public sAttributeListbox(sAttribute parent, XmlNode node)
             : base(parent, node)
@@ -177,6 +324,28 @@ namespace OpenSkinDesigner.Structures
             else
                 pListboxForegroundColor = (sColor)((sWindowStyle)cDataBase.pWindowstyles.get()).pColors["ListboxForeground"];
 
+            if (myNode.Attributes["font"] != null)
+            {
+                pFont = cDataBase.getFont(myNode.Attributes["font"].Value);
+                pFontSize = pFont.Size;
+            }
+
+            if (myNode.Attributes["secondfont"] != null)
+            {
+                pFontSecond = cDataBase.getFont(myNode.Attributes["secondfont"].Value);
+                pFontSecondSize = pFontSecond.Size;
+            }
+
+            //if (node.HasChildNodes && node.FirstChild.Attributes["type"] != null && node.FirstChild.Attributes["type"].Value.ToLower() == "templatedmulticontent")
+            //{
+            //    String input = node.FirstChild.InnerText;
+            //    Match match = Regex.Match(input, @"""itemHeight"": (\d+)");
+            //    if (match.Success)
+            //        pItemHeight = Int16.Parse(match.Groups[1].ToString());
+
+            //    //MessageBox.Show(match.Groups[1].ToString());
+
+            //}
 
             //if (node.Attributes["backgroundColor"] != null)
             //    pListboxSelectedBackgroundColor = (sColor)cDataBase.pColors.get(node.Attributes["backgroundColor"].Value);
@@ -297,11 +466,12 @@ namespace OpenSkinDesigner.Structures
             if (node.Attributes["itemHeight"] != null)
                 pItemHeight = Convert.ToInt32(node.Attributes["itemHeight"].Value.Trim());
             else
+                if (pItemHeight == 0)
                 pItemHeight = 20;
 
 
             String entries = cPreviewText.getText(parent.Name, Name);
-            if(entries.Length > 0)
+            if (entries.Length > 0)
                 pPreviewEntries = entries.Split('|');
         }
     }
