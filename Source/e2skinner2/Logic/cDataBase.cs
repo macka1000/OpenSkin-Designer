@@ -19,8 +19,8 @@ namespace OpenSkinDesigner.Logic
     static public class cDataBase
     {
         static private Hashtable pFonts = null;
-        
-        
+
+
 
         static public cDataBaseColor pColors;
         static public cDataBaseWindowstyle pWindowstyles;
@@ -259,30 +259,30 @@ namespace OpenSkinDesigner.Logic
 
             public void rescale(int o_x, int o_y, int x, int y)
             {
-                double scale_x = (x*1.0) / o_x;
+                double scale_x = (x * 1.0) / o_x;
                 double scale_y = (y * 1.0) / o_y;
 
                 foreach (String image in pImages)
                 {
-                     Image pixmap;
-                     try
-                     {
-                         pixmap = Image.FromFile(cDataBase.getPath(image));
-                     }
-                     catch (FileNotFoundException error)
-                     {
-                         String errormessage = "PNG not found " + image + "!";
-                         errormessage += cDataBase.getPath(image) + "\n\n";
-                         errormessage += "Error:\n";
-                         errormessage += error.Message;
+                    Image pixmap;
+                    try
+                    {
+                        pixmap = Image.FromFile(cDataBase.getPath(image));
+                    }
+                    catch (FileNotFoundException error)
+                    {
+                        String errormessage = "PNG not found " + image + "!";
+                        errormessage += cDataBase.getPath(image) + "\n\n";
+                        errormessage += "Error:\n";
+                        errormessage += error.Message;
 
-                         MessageBox.Show(errormessage,
-                             error.Message,
-                             MessageBoxButtons.OK,
-                             MessageBoxIcon.Information,
-                             MessageBoxDefaultButton.Button1);
-                         continue;
-                     }
+                        MessageBox.Show(errormessage,
+                            error.Message,
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information,
+                            MessageBoxDefaultButton.Button1);
+                        continue;
+                    }
                     Image scaled = pixmap.GetThumbnailImage(Convert.ToInt32(pixmap.Width * scale_x), Convert.ToInt32(pixmap.Height * scale_y), null, IntPtr.Zero);
                     pixmap.Dispose();
                     pixmap = null;
@@ -320,7 +320,7 @@ namespace OpenSkinDesigner.Logic
                     }
                     else
                         color = new sColor(myXmlNode.Attributes["name"].Value, colorString);
-                    
+
                     if (pColors[color.pName] == null)
                         pColors.Add(color.pName, color);
                     else
@@ -510,7 +510,7 @@ namespace OpenSkinDesigner.Logic
                     if (color.isNamedColor)
                     {
                         String[] attributes = { "color",
-                                            "name",  color.pName, 
+                                            "name",  color.pName,
                                             "value", color.pValueName };
                         XmlHandler.XmlAppendNode(colorNode, attributes);
                     }
@@ -521,7 +521,7 @@ namespace OpenSkinDesigner.Logic
                             value = "0" + value;
 
                         String[] attributes = { "color",
-                                            "name",  color.pName, 
+                                            "name",  color.pName,
                                             "value", "#" + value };
                         XmlHandler.XmlAppendNode(colorNode, attributes);
                     }
@@ -690,7 +690,7 @@ namespace OpenSkinDesigner.Logic
                         catch
                         {
                         }
-                } 
+                }
             }
         }
 
@@ -709,8 +709,18 @@ namespace OpenSkinDesigner.Logic
             }
             catch
             {
+                sFont font = (sFont)pFonts[name];
+
+                if (font == null)
+                {
+                    font = (sFont)pFonts["Regular"];
+                    font.Size = 25;
+
+                    MessageBox.Show(String.Format("Font '{0}' is not defined or exist!\nUsing fallback font 'Regular; 25'", name),"Error", MessageBoxButtons.OK,MessageBoxIcon.Error);
+                }
+
                 //Font Alias
-                return (sFont)pFonts[name];
+                return font;
             }
         }
 
@@ -718,9 +728,9 @@ namespace OpenSkinDesigner.Logic
         {
             sFont[] fonts = new sFont[pFonts.Count];
             pFonts.Values.CopyTo(fonts, 0);
-            
+
             fonts = fonts.OrderBy(a => a.Name).ToArray();
-            
+
             return fonts;
         }
 
@@ -749,110 +759,110 @@ namespace OpenSkinDesigner.Logic
         private static double scale_y = 1;
 
         public static void rescaleLocations(cXMLHandler XmlHandler, int o_x, int o_y, int x, int y)
-            {
-                scale_x = (x * 1.0) / o_x;
-                scale_y = (y * 1.0) / o_y;
+        {
+            scale_x = (x * 1.0) / o_x;
+            scale_y = (y * 1.0) / o_y;
 
-                string[] path2 = { "skin" };
-                XmlNode Node = XmlHandler.XmlGetRootNodeElement(path2);
+            string[] path2 = { "skin" };
+            XmlNode Node = XmlHandler.XmlGetRootNodeElement(path2);
 
-                if (Node.HasChildNodes)
-                    checkLocations(Node.ChildNodes);
-            }
+            if (Node.HasChildNodes)
+                checkLocations(Node.ChildNodes);
+        }
 
         private static void checkLocations(XmlNodeList nodes)
+        {
+            foreach (XmlNode node in nodes)
             {
-                foreach (XmlNode node in nodes)
+                if (node.NodeType != XmlNodeType.Element)
+                    continue;
+
+                if (node.HasChildNodes)
+                    checkLocations(node.ChildNodes);
+
+                if (node.Attributes != null)
                 {
-                    if (node.NodeType != XmlNodeType.Element)
-                        continue;
-
-                    if (node.HasChildNodes)
-                        checkLocations(node.ChildNodes);
-
-                    if (node.Attributes != null)
+                    int w = 0;
+                    int h = 0;
+                    if (node.Attributes["size"] != null)
                     {
-                        int w = 0;
-                        int h = 0;
-                        if (node.Attributes["size"] != null)
                         {
+                            double dw, dh;
+                            try
                             {
-                                double dw, dh;
-                                try
-                                {
-                                    dw = Convert.ToInt32(node.Attributes["size"].Value.Substring(0, node.Attributes["size"].Value.IndexOf(',')));
-                                }
-                                catch (OverflowException)
-                                {
-                                    dw = 0;
-                                }
-                                dw *= scale_x;
-                                try
-                                {
-                                    dh = Convert.ToInt32(node.Attributes["size"].Value.Substring(node.Attributes["size"].Value.IndexOf(',') + 1));
-                                }
-                                catch (OverflowException)
-                                {
-                                    dh = 0;
-                                }
-                                dh *= scale_y;
-
-                                w = (int)dw;
-                                h = (int)dh;
-
-                                node.Attributes["size"].Value = w.ToString() + "," + h.ToString();
+                                dw = Convert.ToInt32(node.Attributes["size"].Value.Substring(0, node.Attributes["size"].Value.IndexOf(',')));
                             }
+                            catch (OverflowException)
+                            {
+                                dw = 0;
+                            }
+                            dw *= scale_x;
+                            try
+                            {
+                                dh = Convert.ToInt32(node.Attributes["size"].Value.Substring(node.Attributes["size"].Value.IndexOf(',') + 1));
+                            }
+                            catch (OverflowException)
+                            {
+                                dh = 0;
+                            }
+                            dh *= scale_y;
+
+                            w = (int)dw;
+                            h = (int)dh;
+
+                            node.Attributes["size"].Value = w.ToString() + "," + h.ToString();
                         }
-                        if (node.Attributes["position"] != null)
+                    }
+                    if (node.Attributes["position"] != null)
+                    {
                         {
+                            double dx, dy;
+                            try
                             {
-                                double dx, dy;
-                                 try
-                                {
-                                    String sRelativeX = node.Attributes["position"].Value.Substring(0, node.Attributes["position"].Value.IndexOf(',')).Trim();
-                                    if (sRelativeX.Equals("center"))
-                                        dx = (cDataBase.pResolution.getResolution().Xres - w) >> 1 /*1/2*/;
-                                    else
-                                        dx = Convert.ToUInt32(sRelativeX);
-                                }
-                                catch (OverflowException)
-                                {
-                                    dx = 0;
-                                }
-                                 dx *= scale_x;
-                                try
-                                {
-                                    String sRelativeY = node.Attributes["position"].Value.Substring(node.Attributes["position"].Value.IndexOf(',') + 1).Trim();
-                                    if (sRelativeY.Equals("center"))
-                                        dy = (cDataBase.pResolution.getResolution().Yres - h) >> 1 /*1/2*/;
-                                    else
-                                        dy = Convert.ToUInt32(sRelativeY);
-                                }
-                                catch (OverflowException)
-                                {
-                                    dy = 0;
-                                }
-                                dy *= scale_y;
-
-                                int x = (int)dx;
-                                int y = (int)dy;
-
-                                node.Attributes["position"].Value = x.ToString() + "," + y.ToString();
+                                String sRelativeX = node.Attributes["position"].Value.Substring(0, node.Attributes["position"].Value.IndexOf(',')).Trim();
+                                if (sRelativeX.Equals("center"))
+                                    dx = (cDataBase.pResolution.getResolution().Xres - w) >> 1 /*1/2*/;
+                                else
+                                    dx = Convert.ToUInt32(sRelativeX);
                             }
-                        }
-                        
-                        if (node.Attributes["font"] != null)
-                        { //font="Regular;20"
-                            String tmpfont = node.Attributes["font"].Value;
-                            double size = Convert.ToDouble(tmpfont.Substring(tmpfont.IndexOf(';') + 1));
-                            String fontname = tmpfont.Substring(0, tmpfont.IndexOf(';'));
+                            catch (OverflowException)
+                            {
+                                dx = 0;
+                            }
+                            dx *= scale_x;
+                            try
+                            {
+                                String sRelativeY = node.Attributes["position"].Value.Substring(node.Attributes["position"].Value.IndexOf(',') + 1).Trim();
+                                if (sRelativeY.Equals("center"))
+                                    dy = (cDataBase.pResolution.getResolution().Yres - h) >> 1 /*1/2*/;
+                                else
+                                    dy = Convert.ToUInt32(sRelativeY);
+                            }
+                            catch (OverflowException)
+                            {
+                                dy = 0;
+                            }
+                            dy *= scale_y;
 
-                            size *= scale_x;
+                            int x = (int)dx;
+                            int y = (int)dy;
 
-                            node.Attributes["font"].Value = fontname + "; " + Convert.ToInt32(size);
+                            node.Attributes["position"].Value = x.ToString() + "," + y.ToString();
                         }
+                    }
+
+                    if (node.Attributes["font"] != null)
+                    { //font="Regular;20"
+                        String tmpfont = node.Attributes["font"].Value;
+                        double size = Convert.ToDouble(tmpfont.Substring(tmpfont.IndexOf(';') + 1));
+                        String fontname = tmpfont.Substring(0, tmpfont.IndexOf(';'));
+
+                        size *= scale_x;
+
+                        node.Attributes["font"].Value = fontname + "; " + Convert.ToInt32(size);
                     }
                 }
             }
+        }
     }
 }
