@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 //using System.Linq;
 using System.Text;
@@ -11,6 +11,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.IO;
+using System.Linq;
 
 
 namespace OpenSkinDesigner.Logic
@@ -717,6 +718,9 @@ namespace OpenSkinDesigner.Logic
         {
             sFont[] fonts = new sFont[pFonts.Count];
             pFonts.Values.CopyTo(fonts, 0);
+            
+            fonts = fonts.OrderBy(a => a.Name).ToArray();
+            
             return fonts;
         }
 
