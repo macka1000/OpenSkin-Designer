@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,7 +10,6 @@ using OpenSkinDesigner.Logic;
 using OpenSkinDesigner.Structures;
 using System.Drawing.Text;
 using System.IO;
-using System.Linq;
 
 namespace OpenSkinDesigner.Frames
 {
@@ -29,7 +28,6 @@ namespace OpenSkinDesigner.Frames
             pXmlHandler = xmlhandler;
 
             sFont[] fonts = cDataBase.getFonts();
-            fonts = fonts.OrderBy(a => a.Name).ToArray();
 
             //listView1.Clear();
             foreach (sFont font in fonts)
