@@ -9,6 +9,12 @@
     <preset name="programDescription" value="Rick searches for his family after emerging from a coma into a world terrorized by the walking dead. Morgan and Duane, whom he meets along the way, help teach Rick the new rules for survival." />
     <preset name="MetrixReloadedEventEpg_programSubtitle" value="S01E01 · Days Gone Bye · Science-Fiction-Drama · 2019" />
     <preset name="MetrixReloadedEventEpg_programSubtitle_Next" value="S11E12 · The Matrimonial Metric · Science-Fiction-Drama · 2019" />
+    <preset name="MetrixReloadedEventEpg_secondInfoBar_Additional" value="S11E12 - The Matrimonial Metric
+Genre:          Science-Fiction-Drama
+Katergorie:     Movie
+Bewertung:      7.4
+Jahr:           2019
+Land:           USA" />
 
   </presets>
 
@@ -23,6 +29,8 @@
     <entry source="Event" converterName="EventName" converterParameter="FullDescription" value="#programDescription#"/>
     <entry source="ServiceEvent" converterName="EventName" converterParameter="ExtendedDescription" value="#programDescription#"/>
     <entry source="Event" converterName="EventName" converterParameter="ExtendedDescription" value="#programDescription#"/>
+    <entry source="session.Event_Now" converterName="EventName" converterParameter="ExtendedDescription" value="#programDescription#"/>
+    <entry source="session.Event_Next" converterName="EventName" converterParameter="ExtendedDescription" value="#programDescription#"/>
     
     <entry source="session.Event_Now" converterName="EventName" converterParameter="Name" value="#programTitle#"/>
     <entry source="session.Event_Next" converterName="EventName" converterParameter="Name" value="#programTitle_Next#"/>
@@ -53,7 +61,15 @@
     <!-- Converter MetrixReloadedExtEventEPG -->
     <entry source="session.extEvent_Now" converterName="MetrixReloadedExtEventEPG" converterParameter="EpisodeNum, Subtitle(10), Genre, Year" value="#MetrixReloadedEventEpg_programSubtitle#"/>
     <entry source="session.extEvent_Next" converterName="MetrixReloadedExtEventEPG" converterParameter="EpisodeNum, Subtitle(10), Genre, Year" value="#MetrixReloadedEventEpg_programSubtitle_Next#"/>
+    
+    <entry source="session.extEvent_Now" converterName="MetrixReloadedExtEventEPG" converterParameter="PowerDescription[true][Title]" value="#programTitle#"/>
+    <entry source="session.extEvent_Now" converterName="MetrixReloadedExtEventEPG" converterParameter="PowerDescription[false][Title]" value="#programTitle#"/>
+    <entry source="session.extEvent_Next" converterName="MetrixReloadedExtEventEPG" converterParameter="PowerDescription[true][Title]" value="#programTitle#"/>
+    <entry source="session.extEvent_Next" converterName="MetrixReloadedExtEventEPG" converterParameter="PowerDescription[false][Title]" value="#programTitle#"/>
 
+    <entry source="session.extEvent_Now" converterName="MetrixReloadedExtEventEPG" converterParameter="PowerDescription[true][EpisodeNum(Staffel [s], Episode [e] - )Subtitle(10)Genre(\nGenre:\t)Category(\nKategorie:\t)Rating(\nBewertung:\t)Year(\nJahr:\t)Country(\nLand:\t)]" value="#MetrixReloadedEventEpg_secondInfoBar_Additional#"/>
+    <entry source="session.extEvent_Now" converterName="MetrixReloadedExtEventEPG" converterParameter="PowerDescription[false][EpisodeNum(Staffel [s], Episode [e] - )Subtitle(10)Genre(\nGenre:\t)Category(\nKategorie:\t)Rating(\nBewertung:\t)Year(\nJahr:\t)Country(\nLand:\t)]" value="#MetrixReloadedEventEpg_secondInfoBar_Additional#"/>
+    
     <!-- Converter MetrixReloadedVersion -->
     <entry source="Title" converterName="MetrixReloadedVersion" converterParameter="" value="Version: 0.7.0"/>
     
