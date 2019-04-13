@@ -224,7 +224,7 @@ namespace OpenSkinDesigner.Structures
                         for (int i = 1; i < ((sAttributeListbox)pAttr).pPreviewEntries.Count; i++)
                         {
                             //Listen Einträge
-                            if (i * itemHeight > pAttr.pHeight)
+                            if (i * itemHeight >= pAttr.pHeight)
                                 // Abbrechen wenn Höhe der Listen Einträge größer als Höhe der Liste
                                 break;
 
