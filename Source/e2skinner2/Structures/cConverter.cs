@@ -189,9 +189,6 @@ namespace OpenSkinDesigner.Structures
                 case "EventName":
                     new EventName(Paramter, Source);
                     break;
-                case "MovieInfo":
-                    new MovieInfo(Paramter, Source);
-                    break;
                 case "EventTime":
                     new EventTime(Paramter, Source);
                     break;
@@ -1013,49 +1010,6 @@ namespace OpenSkinDesigner.Structures
                 }
                 else
                     return String.Format("{0} / {1}", v, r);
-            }
-        }
-
-        public class MovieInfo
-        {
-            public int SHORT_DESCRIPTION = 0;
-            public int META_DESCRIPTION = 1;
-            public int RECORD_SERVICE_NAME = 2;
-            public int FILE_SIZE = 3;
-            public int REFERENCE = 4;
-
-            private int type = 0;
-
-            public MovieInfo(String type, String Source)
-            {
-                if (type.Equals("ShortDescription"))
-                    this.type = this.SHORT_DESCRIPTION;
-                else if (type.Equals("MetaDescription"))
-                    this.type = this.META_DESCRIPTION;
-                else if (type.Equals("RecordServiceName"))
-                    this.type = this.RECORD_SERVICE_NAME;
-                else if (type.Equals("FileSize"))
-                    this.type = this.FILE_SIZE;
-                else
-                    this.type = this.REFERENCE;
-
-                text = getText(Source);
-            }
-
-            public String getText(String Source)
-            {
-                if (this.type == this.SHORT_DESCRIPTION)
-                    return (String)((Hashtable)pTable[Source])["short_description"];
-                else if (this.type == this.META_DESCRIPTION)
-                    return (String)((Hashtable)pTable[Source])["meta_description"];
-                else if (this.type == this.RECORD_SERVICE_NAME)
-                    return (String)((Hashtable)pTable[Source])["record_service_name"];
-                else if (this.type == this.FILE_SIZE)
-                    return (String)((Hashtable)pTable[Source])["file_size"];
-                else if (this.type == this.REFERENCE)
-                    return (String)((Hashtable)pTable[Source])["reference"];
-                else
-                    return "???";
             }
         }
     }

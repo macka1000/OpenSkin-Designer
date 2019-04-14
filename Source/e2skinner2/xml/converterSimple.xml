@@ -43,6 +43,10 @@ Rick searches for his family after emerging from a coma into a world terrorized 
 
     <!-- Converter ServiceName -->
     <entry source="Service" converterName="ServiceName" converterParameter="Name" value="#channelName#"/>
+
+    <!-- Converter MovieInfo -->
+    <entry source="Service" converterName="MovieInfo" converterParameter="MetaDescription" value="#programDescription#"/>
+    <entry source="Service" converterName="MovieInfo" converterParameter="ShortDescription" value="#programSubtitle#"/>
     
     <!-- Skin: MetrixReloaded ########################################################################################################### -->
     
