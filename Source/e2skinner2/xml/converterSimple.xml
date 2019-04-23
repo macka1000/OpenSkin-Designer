@@ -16,6 +16,16 @@ Bewertung:      7.4
 Jahr:           2019
 Land:           USA" />
 
+    <preset name="MetrixReloadedEventEpg_secondInfoBar_Additional2" value="Genre:          Horror-Serie
+Katergorie:     Movie
+Bewertung:      7.4
+Jahr:           2019
+Land:           USA" />
+
+    <preset name="MetrixReloadedEventEpg_secondInfoBar_Subtitle_Description" value="Staffel 11, Episode 12 · The Matrimonial Metric
+
+Rick searches for his family after emerging from a coma into a world terrorized by the walking dead. Morgan and Duane, whom he meets along the way, help teach Rick the new rules for survival."/>
+
     <preset name="MetrixReloadedEventEpg_channelSelection_Description" value="S11E12 · The Matrimonial Metric
 Horror-Serie · Bewertung 7.4 · USA · 2019
 
@@ -72,7 +82,8 @@ Rick searches for his family after emerging from a coma into a world terrorized 
     <!-- Converter MetrixReloadedExtEventEPG -->
     <entry source="session.extEvent_Now" converterName="MetrixReloadedExtEventEPG" converterParameter="EpisodeNum, Subtitle(10), Genre, Year" value="#MetrixReloadedEventEpg_programSubtitle#"/>
     <entry source="session.extEvent_Next" converterName="MetrixReloadedExtEventEPG" converterParameter="EpisodeNum, Subtitle(10), Genre, Year" value="#MetrixReloadedEventEpg_programSubtitle_Next#"/>
-    
+
+    <entry source="session.extEvent_Now" converterName="MetrixReloadedExtEventEPG" converterParameter="PowerDescription[Title]" value="#programTitle#"/>
     <entry source="session.extEvent_Now" converterName="MetrixReloadedExtEventEPG" converterParameter="PowerDescription[true][Title]" value="#programTitle#"/>
     <entry source="session.extEvent_Now" converterName="MetrixReloadedExtEventEPG" converterParameter="PowerDescription[false][Title]" value="#programTitle#"/>
     <entry source="session.extEvent_Next" converterName="MetrixReloadedExtEventEPG" converterParameter="PowerDescription[true][Title]" value="#programTitle#"/>
@@ -82,6 +93,13 @@ Rick searches for his family after emerging from a coma into a world terrorized 
     <entry source="session.extEvent_Now" converterName="MetrixReloadedExtEventEPG" converterParameter="PowerDescription[true][EpisodeNum(Staffel [s], Episode [e]\,)Subtitle(10)Genre(\nGenre:\t)Category(\nKategorie:\t)Rating(\nBewertung:\t)Year(\nJahr:\t)Country(\nLand:\t)]" value="#MetrixReloadedEventEpg_secondInfoBar_Additional#"/>
     <entry source="session.extEvent_Now" converterName="MetrixReloadedExtEventEPG" converterParameter="PowerDescription[false][EpisodeNum(Staffel [s], Episode [e]\,)Subtitle(10)Genre(\nGenre:\t)Category(\nKategorie:\t)Rating(\nBewertung:\t)Year(\nJahr:\t)Country(\nLand:\t)]" value="#MetrixReloadedEventEpg_secondInfoBar_Additional#"/>
 
+    <entry source="session.extEvent_Now" converterName="MetrixReloadedExtEventEPG" converterParameter="PowerDescription[true][Genre(\nGenre:\t)Category(\nKategorie:\t)Rating(\nBewertung:\t)Year(\nJahr:\t)Country(\nLand:\t)]" value="#MetrixReloadedEventEpg_secondInfoBar_Additional2#"/>
+    <entry source="session.extEvent_Now" converterName="MetrixReloadedExtEventEPG" converterParameter="PowerDescription[false][Genre(\nGenre:\t)Category(\nKategorie:\t)Rating(\nBewertung:\t)Year(\nJahr:\t)Country(\nLand:\t)]" value="#MetrixReloadedEventEpg_secondInfoBar_Additional2#"/>
+    
+    <entry source="session.extEvent_Now" converterName="MetrixReloadedExtEventEPG" converterParameter="PowerDescription[true][EpisodeNum(Staffel [s], Episode [e]\,)Subtitle(10)]" value="Staffel 11, Episode 12 · The Matrimonial Metric"/>
+
+    <entry source="session.extEvent_Now" converterName="MetrixReloadedExtEventEPG" converterParameter="PowerDescription[EpisodeNum(Staffel [s], Episode [e]\,)Subtitle(10)ExtendedDescription(\n\n)]" value="#MetrixReloadedEventEpg_secondInfoBar_Subtitle_Description#"/>
+    
     <entry source="ServiceEvent" converterName="MetrixReloadedExtEventEPG" converterParameter="PowerDescription[EpisodeNum(S[ss]E[ee]\,)Subtitle(10)Genre(\n)Rating(\,Bewertung )Country(\,)Year(\,)ExtendedDescription(\n\n)]" value="#MetrixReloadedEventEpg_channelSelection_Description#"/>
     <entry source="ExtEvent" converterName="MetrixReloadedExtEventEPG" converterParameter="PowerDescription[EpisodeNum(S[ss]E[ee]\,)Subtitle(10)Genre(\n)Rating(\,Bewertung )Country(\,)Year(\,)ExtendedDescription(\n\n)]" value="#MetrixReloadedEventEpg_channelSelection_Description#"/>
     <entry source="ExtEvent" converterName="MetrixReloadedExtEventEPG" converterParameter="PowerDescription[Title]" value="#programTitle#"/>
