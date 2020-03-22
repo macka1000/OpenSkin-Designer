@@ -42,7 +42,7 @@ this.textBoxEditor2.Styles.Max.FontName = "Verdana\0\0\0\0\0\0\0\0\0\0\0\0\0";
 
 ## Changelog
 
-### 3.2.0 (08.04.2019)
+### 3.2.0 (08.04.2019) by Scrounger
 * Converter: support for 'FullDescription' added
 * Resize picon on element size change
 * Use attribute scale for ePixmap & widget which have 'pixmap' attribute.
@@ -52,7 +52,7 @@ this.textBoxEditor2.Styles.Max.FontName = "Verdana\0\0\0\0\0\0\0\0\0\0\0\0\0";
 * Show XHDPicon if render attribute contains 'xhdpicon'
 * Show images with 'pixmaps' attribute
 
-### 3.2.1 (22.03.2020)
+### 3.2.1 (22.03.2020) by Humax
 * Bugfixes: 
 * Undefined colors are added alternatively ('#' is not replaced by 'un')'
 * Added a option how to add undefined colors (with '#' or with 'un')
