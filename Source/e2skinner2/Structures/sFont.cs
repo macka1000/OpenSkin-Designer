@@ -18,6 +18,7 @@ namespace OpenSkinDesigner.Structures
         public String Filename = "";
         public String Path = "";
         public String FontName = "";
+        public bool Found = true; //MOD if font is existing in a folder for preview
         public System.Drawing.FontFamily FontFamily;
         public System.Drawing.FontStyle FontStyle;
         public int Size = 0;
@@ -85,6 +86,7 @@ namespace OpenSkinDesigner.Structures
                 lookupPath = new FileInfo(RelativPathSkinPathFont).FullName;
             else
             {
+                Found = false;
                 String errorMessage = "";
                 errorMessage += "OpenSkinDesigner has searched in several places for the font \"" + Filename + ".\"\n";
                 errorMessage += "Unfortunatly the search was not successful.\n";
@@ -95,13 +97,21 @@ namespace OpenSkinDesigner.Structures
                 errorMessage += "\t" + new FileInfo(RelativPathFont).FullName + "\n";
                 errorMessage += "\t" + new FileInfo(RelativPathSkinPathFont).FullName + "\n";
 
+                // lcd.ttf ist im Openskindesigner enthalten...
+                AbsolutPathFont = fontPath + "/" + "lcd.ttf";
+                if (File.Exists(AbsolutPathFont))
+                    errorMessage += "\n" + "Using 'lcd.tff' instead of " + Filename + "\n";
+
                 MessageBox.Show(errorMessage,
                     "Error while loading fonts",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information,
                     MessageBoxDefaultButton.Button1);
 
-                return;
+                if (File.Exists(AbsolutPathFont))
+                    lookupPath = new FileInfo(AbsolutPathFont).FullName;
+                else
+                    return;              
             }
 
             try
