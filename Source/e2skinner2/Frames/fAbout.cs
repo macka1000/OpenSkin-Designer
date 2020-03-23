@@ -99,7 +99,7 @@ namespace OpenSkinDesigner.Frames
                 "- ListBox: Show entries added" + Environment.NewLine + Environment.NewLine +
                 "v3.2.3.0 by Humax" + Environment.NewLine +
                 "- Undefined colors are added alternatively ('#' is not replaced by 'un')'" + Environment.NewLine +
-                "- Added a option how to add undefined colors (with '#' or with 'un')" + Environment.NewLine + Environment.NewLine +
+                "- Added a option how to add undefined colors (with '#' or with 'un')" + Environment.NewLine +
                 "- Fixed unhandled exception if a borderset-file isn't existing" + Environment.NewLine +
                 "- Bug fix in 'Windowstyle-preview': Now displaying correct borderset and filename" + Environment.NewLine +
                 "- Fix unhandled exception in 'Windowstyle-preview' if no borderstyle is declared in skin.xml" + Environment.NewLine +
@@ -108,7 +108,10 @@ namespace OpenSkinDesigner.Frames
                 "- Editor: now showing up to 99999 line numbers instead of max 999" + Environment.NewLine +
                 "- Editor: background color changed for better contrast" + Environment.NewLine +
                 "- Added VTi-Fonts" + Environment.NewLine +
-                "- Converter bug fixes: 'TimeshiftService' added to prevent a exception in 'Timeshiftstate'" + Environment.NewLine;
+                "- Converter bug fixes: 'TimeshiftService' added to prevent a exception in 'Timeshiftstate'" + Environment.NewLine + Environment.NewLine +
+                "v3.2.3.1 by Humax" + Environment.NewLine +
+                "- More sources rendered as listbox" + Environment.NewLine +
+                "- Fix unhandled exception when Source = null" + Environment.NewLine;
 
         }
 
