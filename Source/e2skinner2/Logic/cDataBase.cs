@@ -449,7 +449,19 @@ namespace OpenSkinDesigner.Logic
                     return null;
                 if (name[0] == '#')
                 {
-                    return new sColor("undefined", Convert.ToUInt32(name.Substring(1), 16));
+                    if (MyGlobaleVariables.AddUndefinedColor == "#") //MOD
+                    { //MOD
+                        add(new sColor(name, Convert.ToUInt32(name.Substring(1), 16))); //MOD
+                        return new sColor(name, Convert.ToUInt32(name.Substring(1), 16)); //MOD
+                    } //MOD
+                    else //MOD
+                    { //MOD
+                        add(new sColor(name.Replace("#", "un"), Convert.ToUInt32(name.Substring(1), 16))); //MOD
+                        return new sColor(name.Replace("#", "un"), Convert.ToUInt32(name.Substring(1), 16)); //MOD
+                    } //MOD
+                      // add(new sColor(name, Convert.ToUInt32(name.Substring(1), 16))); //MOD
+                      // return new sColor("undefined", Convert.ToUInt32(name.Substring(1), 16)); // Original
+                      // return new sColor(name, Convert.ToUInt32(name.Substring(1), 16)); //MOD                    
                 }
                 Object col = (Object)pColors[name];
                 if (col == null)
@@ -467,8 +479,8 @@ namespace OpenSkinDesigner.Logic
                     if (color.pValue == value)
                         return color.pName;
                 }
-
-                return add(new sColor("un" + Convert.ToString(value, 16), value));
+                //   return add(new sColor("un" + Convert.ToString(value, 16), value)); // Original
+                return add(new sColor(MyGlobaleVariables.AddUndefinedColor + Convert.ToString(value, 16), value));
             }
 
             public override String add(Object element)
