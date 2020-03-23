@@ -16,6 +16,7 @@ namespace OpenSkinDesigner.Structures
     public static class MyGlobaleVariables
     {
         public static bool ShowErrorMessages { get; set; } // Zur Zeit nicht verwendet--> anzeige von abgefangenen aber nicht behandelten Ausnahmen
+        public static string AddUndefinedColor { get; set; }// Nicht definierte Farbe zur Auflistung hinzufügen.
         public static bool Reload { get; set; } = false; // Wenn z.B. eine Farbe doppelt eingelesen wurde, Nachfrage ob save, und reload!
         public static List<String> SkinName = new List<String>();
         public static List<String> SkinValue1 = new List<String>();
