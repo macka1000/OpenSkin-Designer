@@ -77,13 +77,39 @@ namespace OpenSkinDesigner.Frames
                 "- Show picon bug fixed" + Environment.NewLine + Environment.NewLine +
                 "v3.2.0.0 by Scrounger" + Environment.NewLine +
                 "- Converter: support for 'FullDescription' added" + Environment.NewLine +
-                "- resize picon on element size change" + Environment.NewLine +
+                "- Resize picon on element size change" + Environment.NewLine +
                 "- Use attribute scale for ePixmap & widget which have 'pixmap' attribute." + Environment.NewLine +
                 "- Converter MovieInfo added" + Environment.NewLine +
-                "- show images for widgets wiht any render and 'path' attribute" + Environment.NewLine +
-                "- show EventImage if render attribute contains 'eventimage'" + Environment.NewLine +
-                "- show XHDPicon if render attribute contains 'xhdpicon'" + Environment.NewLine +
-                "- show images with 'pixmaps' attribute" + Environment.NewLine;
+                "- Show images for widgets wiht any render and 'path' attribute" + Environment.NewLine +
+                "- Show EventImage if render attribute contains 'eventimage'" + Environment.NewLine +
+                "- Show XHDPicon if render attribute contains 'xhdpicon'" + Environment.NewLine +
+                "- Show images with 'pixmaps' attribute" + Environment.NewLine + Environment.NewLine +
+                "v3.2.2.0 by Scrounger" + Environment.NewLine +
+                "- cConverterSimplePresets added" + Environment.NewLine +
+                "- Alias font bug fixes->gobal loading / usage added" + Environment.NewLine +
+                "- Fonts sorting added" + Environment.NewLine +
+                "- Label: font bug fix property grid->change font or fontsize" + Environment.NewLine +
+                "- ListBox font added to property grid" + Environment.NewLine +
+                "- Show font style and size for listboxes" + Environment.NewLine +
+                "- Font bug fix-> catch exception if font is not defined or exist" + Environment.NewLine +
+                "- Label metrixreloadedvrunningtext added" + Environment.NewLine +
+                "- ListBox: count of entries to show bug fixed" + Environment.NewLine +
+                "- sAttributePixmap: element with attribute 'path'->bug fix if skinPath is part of attribute path" + Environment.NewLine +
+                "- converterSimple.xml: MetrixReloaded converters added" + Environment.NewLine +
+                "- ListBox: Show entries added" + Environment.NewLine + Environment.NewLine +
+                "v3.2.3.0 by Humax" + Environment.NewLine +
+                "- Undefined colors are added alternatively ('#' is not replaced by 'un')'" + Environment.NewLine +
+                "- Added a option how to add undefined colors (with '#' or with 'un')" + Environment.NewLine + Environment.NewLine +
+                "- Fixed unhandled exception if a borderset-file isn't existing" + Environment.NewLine +
+                "- Bug fix in 'Windowstyle-preview': Now displaying correct borderset and filename" + Environment.NewLine +
+                "- Fix unhandled exception in 'Windowstyle-preview' if no borderstyle is declared in skin.xml" + Environment.NewLine +
+                "- Text-preview: using lcd.ttf if declared font is not found" + Environment.NewLine +
+                "- Fixed a bug that probably exists since 3.1.0.3. Font preview is now again working" + Environment.NewLine +
+                "- Editor: now showing up to 99999 line numbers instead of max 999" + Environment.NewLine +
+                "- Editor: background color changed for better contrast" + Environment.NewLine +
+                "- Added VTi-Fonts" + Environment.NewLine +
+                "- Converter bug fixes: 'TimeshiftService' added to prevent a exception in 'Timeshiftstate'" + Environment.NewLine;
+
         }
 
         #region Assemblyattributaccessoren
