@@ -159,9 +159,9 @@ namespace OpenSkinDesigner.Structures
         static public String getText(String Source, String Type, String Paramter)
         {
 
-            if(pSimpleList != null)
+            if(pSimpleList != null && Source != null)
             {
-                // seacrh in converterSimple
+                // search in converterSimple
                 cConverterSimple result = pSimpleList.Find(s => s.Source.ToLower().Equals(Source.ToLower()) &&
                             s.ConverterName.ToLower().Equals(Type.ToLower()) &&
                             s.ConverterParameter.ToLower().Equals(Paramter.ToLower()));
