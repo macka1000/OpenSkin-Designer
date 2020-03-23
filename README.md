@@ -35,14 +35,15 @@ this.textBoxEditor2.Styles.Max.FontName = "Verdana\0\0\0\0\0\0\0\0\0\0\0\0\0";
 
 ## Screenshots
 <p align="center">
-<img src="Screenshots/preview1.jpg?sanitize=true&raw=true" title="Preview1" width="400"/>
-<img src="Screenshots/preview2.jpg?sanitize=true&raw=true" title="Preview1" width="400"/>
-<img src="Screenshots/preview3.jpg?sanitize=true&raw=true" title="Preview1" width="400"/>
+<img src="Screenshots/preview1.jpg?sanitize=true&raw=true" title="preview1" width="400"/>
+<img src="Screenshots/preview2.jpg?sanitize=true&raw=true" title="preview2" width="400"/>
+<img src="Screenshots/preview3.jpg?sanitize=true&raw=true" title="preview3" width="400"/>
 </p>
 
 ## Changelog
 
-### 3.2.0 (08.04.2019) by Scrounger
+### 3.2.0.0 (08.04.2019)
+created by [Scrounger](https://github.com/Scrounger)
 * Converter: support for 'FullDescription' added
 * Resize picon on element size change
 * Use attribute scale for ePixmap & widget which have 'pixmap' attribute.
@@ -52,7 +53,22 @@ this.textBoxEditor2.Styles.Max.FontName = "Verdana\0\0\0\0\0\0\0\0\0\0\0\0\0";
 * Show XHDPicon if render attribute contains 'xhdpicon'
 * Show images with 'pixmaps' attribute
 
-### 3.2.1 (22.03.2020) by Humax
+### 3.2.2.0 (08.04.2019 - 21.04.2019)
+created by [Scrounger](https://github.com/Scrounger)
+* cConverterSimplePresets added
+* Alias font bug fixes -> gobal loading / usage added
+* Fonts sorting added
+* Label: font bug fix property grid -> change font or fontsize
+* ListBox font added to property grid
+* Show font style and size for listboxes
+* Font bug fix -> catch exception if font is not defined or exist
+* ListBox: Show entries added
+* Label metrixreloadedvrunningtext added
+* ListBox: count of entries to show bug fixed
+* sAttributePixmap: element with attribute 'path' -> bug fix if skinPath is part of attribute path
+* converterSimple.xml: MetrixReloaded converters added
+
+### 3.2.3.0 (22.03.2020) by Humax
 * Bugfixes: 
 * Undefined colors are added alternatively ('#' is not replaced by 'un')'
 * Added a option how to add undefined colors (with '#' or with 'un')
@@ -64,10 +80,4 @@ this.textBoxEditor2.Styles.Max.FontName = "Verdana\0\0\0\0\0\0\0\0\0\0\0\0\0";
 * Text-preview: using lcd.ttf if declared font is not found
 * Added VTi-Fonts
 * Converter bug fixes: 'TimeshiftService' added to prevent a exception in 'Timeshiftstate'
-* Converter bug fixes: 'ExtEvent' added to prevent a exception in some screens
-* Bug fix in 3.2.0.0: fixed a exception when creating a wrong path
-* Bug fix in 3.2.0.0: fixed a exception when searching for a path instead a file
 * Corrected xhdpicon.png for building in visual studio
-
-				
-				
