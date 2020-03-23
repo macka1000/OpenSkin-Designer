@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Collections;
 using System.Drawing;
+using System.Windows.Forms;
 using OpenSkinDesigner.Logic;
 
 namespace OpenSkinDesigner.Structures
@@ -60,19 +61,61 @@ namespace OpenSkinDesigner.Structures
                 pbpBottomName = bpBottomName;
                 pbpBottomRightName = bpBottomRightName;
 
-                if (pbpTopLeftName.Length > 0)
+                // MOD: fixed Unhandled Exception when a file(borderset) not found... And display a message
+                int anz = 0;
+                if (pbpTopLeftName.Length > 0 && !System.IO.File.Exists(cDataBase.getPath(pbpTopLeftName)))
+                {
+                    anz += 1;
+                }
+                if (pbpTopName.Length > 0 && !System.IO.File.Exists(cDataBase.getPath(pbpTopName)))
+                {
+                    anz += 1;
+                }
+                if (pbpTopRightName.Length > 0 && !System.IO.File.Exists(cDataBase.getPath(pbpTopRightName)))
+                {
+                    anz += 1;
+                }
+                if (pbpLeftName.Length > 0 && !System.IO.File.Exists(cDataBase.getPath(pbpLeftName)))
+                {
+                    anz += 1;
+                }
+                if (pbpRightName.Length > 0 && !System.IO.File.Exists(cDataBase.getPath(pbpRightName)))
+                {
+                    anz += 1;
+                }
+                if (pbpBottomLeftName.Length > 0 && !System.IO.File.Exists(cDataBase.getPath(pbpBottomLeftName)))
+                {
+                    anz += 1;
+                }
+                if (pbpBottomName.Length > 0 && !System.IO.File.Exists(cDataBase.getPath(pbpBottomName)))
+                {
+                    anz += 1;
+                }
+                if (pbpBottomRightName.Length > 0 && !System.IO.File.Exists(cDataBase.getPath(pbpBottomRightName)))
+                {
+                    anz += 1;
+                }
+                if (anz > 0)
+                {
+                    MessageBox.Show("Some borderset-files from '" + pName + "' are not existing!" + "\n\n",
+                    "File(s) not found",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+                }
+
+                if (pbpTopLeftName.Length > 0 && System.IO.File.Exists(cDataBase.getPath(pbpTopLeftName)))
                 {
                     Image pixmap = Image.FromFile(cDataBase.getPath(pbpTopLeftName));
                     pbpTopLeft = pixmap.Size;
                     pixmap.Dispose();
                 }
-                if (pbpTopName.Length > 0)
+                if (pbpTopName.Length > 0 && System.IO.File.Exists(cDataBase.getPath(pbpTopName)))
                 {
                     Image pixmap = Image.FromFile(cDataBase.getPath(pbpTopName));
                     pbpTop = pixmap.Size;
                     pixmap.Dispose();
                 }
-                if (pbpTopRightName.Length > 0)
+                if (pbpTopRightName.Length > 0 && System.IO.File.Exists(cDataBase.getPath(pbpTopRightName)))
                 {
                     Image pixmap = Image.FromFile(cDataBase.getPath(pbpTopRightName));
                     pbpTopRight = pixmap.Size;
@@ -80,13 +123,13 @@ namespace OpenSkinDesigner.Structures
                 }
 
 
-                if (pbpLeftName.Length > 0)
+                if (pbpLeftName.Length > 0 && System.IO.File.Exists(cDataBase.getPath(pbpLeftName)))
                 {
                     Image pixmap = Image.FromFile(cDataBase.getPath(pbpLeftName));
                     pbpLeft = pixmap.Size;
                     pixmap.Dispose();
                 }
-                if (pbpRightName.Length > 0)
+                if (pbpRightName.Length > 0 && System.IO.File.Exists(cDataBase.getPath(pbpRightName)))
                 {
                     Image pixmap = Image.FromFile(cDataBase.getPath(pbpRightName));
                     pbpRight = pixmap.Size;
@@ -94,19 +137,19 @@ namespace OpenSkinDesigner.Structures
                 }
 
 
-                if (pbpBottomLeftName.Length > 0)
+                if (pbpBottomLeftName.Length > 0 && System.IO.File.Exists(cDataBase.getPath(pbpBottomLeftName)))
                 {
                     Image pixmap = Image.FromFile(cDataBase.getPath(pbpBottomLeftName));
                     pbpBottomLeft = pixmap.Size;
                     pixmap.Dispose();
                 }
-                if (pbpBottomName.Length > 0)
+                if (pbpBottomName.Length > 0 && System.IO.File.Exists(cDataBase.getPath(pbpBottomName)))
                 {
                     Image pixmap = Image.FromFile(cDataBase.getPath(pbpBottomName));
                     pbpBottom = pixmap.Size;
                     pixmap.Dispose();
                 }
-                if (pbpBottomRightName.Length > 0)
+                if (pbpBottomRightName.Length > 0 && System.IO.File.Exists(cDataBase.getPath(pbpBottomRightName)))
                 {
                     Image pixmap = Image.FromFile(cDataBase.getPath(pbpBottomRightName));
                     pbpBottomRight = pixmap.Size;
