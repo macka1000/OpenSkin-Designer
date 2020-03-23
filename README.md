@@ -68,11 +68,11 @@ created by [Scrounger](https://github.com/Scrounger)
 * sAttributePixmap: element with attribute 'path' -> bug fix if skinPath is part of attribute path
 * converterSimple.xml: MetrixReloaded converters added
 
-### 3.2.3.0 (22.03.2020) by Humax
-* Bugfixes: 
+### 3.2.3.0 (23.03.2020) by Humax
 * Undefined colors are added alternatively ('#' is not replaced by 'un')'
 * Added a option how to add undefined colors (with '#' or with 'un')
 * Fixed unhandled exception if a borderset-file isn't existing
+* Fixed unhandled exception in 'Windowstyle-preview' if no borderstyle is declared in skin.xml
 * Bug fix in 'Windowstyle-preview': Now displaying correct borderset and filename
 * Fixed a bug that probably exists since 3.1.0.3. Font preview is now again working
 * Editor: now showing up to 99999 line numbers instead of max 999
