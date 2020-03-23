@@ -452,7 +452,7 @@ namespace OpenSkinDesigner.Structures
             : base(parent, node)
         {
             if (node.Attributes["source"] != null)
-                pSource = node.Attributes["source"].Value;
+                pSource = node.Attributes["source"].Value;           
 
             if (node.Attributes["render"] != null)
                 pRender = node.Attributes["render"].Value;
@@ -461,7 +461,8 @@ namespace OpenSkinDesigner.Structures
             {
                 if (node.Attributes["pixmap"] != null || node.Attributes["pixmaps"] != null)
                     pRender = "Pixmap";
-                else if (pName == "menu" || pName == "list" || pName.EndsWith("list") || (myNode.Attributes["itemHeight"] != null && myNode.Attributes["font"] != null))
+                else if (pName == "menu" || pName == "config" || pName == "content" || pName == "list" || pName.EndsWith("list") || pName.StartsWith("list") || 
+                    pName.StartsWith("timer") || pName.EndsWith("List") || (myNode.Attributes["itemHeight"] != null && myNode.Attributes["font"] != null))
                     //||(node.HasChildNodes && node.FirstChild.Attributes["type"] != null && node.FirstChild.Attributes["type"].Value.ToLower() == "templatedmulticontent")) 
                     pRender = "Listbox";
                 else if (pName == "PositionGauge") //depreceated
