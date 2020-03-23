@@ -31,6 +31,7 @@ namespace OpenSkinDesigner.Frames
         {
             InitializeComponent();
             btnSkinned_Alpha.Checked = cProperties.getPropertyBool("enable_alpha"); ;
+            MyGlobaleVariables.AddUndefinedColor = "#"; //MOD
             trackBarZoom.Enabled = false; //MOD
             numericUpDownZoom.Enabled = false; //MOD
             MyGlobaleVariables.ShowErrorMessages = true; //MOD
@@ -2014,6 +2015,24 @@ namespace OpenSkinDesigner.Frames
             txt.AutoComplete.DropRestOfWord = false;
             txt.AutoComplete.Show();
         }
+
+        private void cToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (addUndefinedColorsWithToolStripMenuItem.Checked == true)
+            {
+                MyGlobaleVariables.AddUndefinedColor = "#";
+            }
+            else
+            {
+                MyGlobaleVariables.AddUndefinedColor = "un";
+            }
+        }
+
+        private void fMain_Load(object sender, EventArgs e)
+        {
+            textBoxEditor2.Styles.LineNumber.BackColor = Color.LightGray;
+        }
+
         private void showElementsList(ScintillaNET.Scintilla txt)
         {
             List<string> words = new List<string>();
