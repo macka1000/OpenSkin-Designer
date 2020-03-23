@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!-- Known Datatypes: 'string' -->
 <!-- entry name='' is the name of the widget -->
+<!-- previewText.xml - Version 3.2.3.0 (23.03.2020) -->
 <screens>
 	<screen>
 		<name>menu_mainmenu</name>
