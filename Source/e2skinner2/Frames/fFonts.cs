@@ -18,6 +18,8 @@ namespace OpenSkinDesigner.Frames
         private cXMLHandler pXmlHandler = null;
         Font MyFont = new Font("Arial", 30.25F, FontStyle.Regular, GraphicsUnit.Pixel);
 
+        public string PreviewText { get; private set; } //MOD
+        public string PreviewText2 { get; private set; }//MOD
         public fFonts()
         {
             InitializeComponent();
@@ -33,6 +35,7 @@ namespace OpenSkinDesigner.Frames
             foreach (sFont font in fonts)
             {
                 System.Windows.Forms.ListViewItem.ListViewSubItem[] subtitems = new System.Windows.Forms.ListViewItem.ListViewSubItem[9];
+
                 subtitems[0] = new System.Windows.Forms.ListViewItem.ListViewSubItem();
                 subtitems[0].Text = font.isAlias == true ? "X" : "";
                 subtitems[1] = new System.Windows.Forms.ListViewItem.ListViewSubItem();
@@ -73,23 +76,49 @@ namespace OpenSkinDesigner.Frames
 
                 // System.Drawing.Font font = null;
                 String name = "";
+                bool found = true;
                 try
                 {
                     if (pFont.FontFamily != null) //Only do this if the font is valid
                     {
                         name = pFont.FontFamily.GetName(0);
-                        // font = new System.Drawing.Font(pFont.FontFamily, pSize, pFont.FontStyle, GraphicsUnit.Pixel);
-                        MyFont = new System.Drawing.Font(pFont.FontFamily, pSize, pFont.FontStyle, GraphicsUnit.Pixel);
-                        pictureBox1.Invalidate();
+                        found = pFont.Found; //MOD
+                        if (found == true) //MOD
+                        {
+                            PreviewText = "This is a preview-text to show the font";
+                            PreviewText2 = "Test-String SKY 1234567890 !#?ÜÖÄ$%/()";
+                            if (pSize == 0) //MOD Wenn Size=0 dann Size setzen und Teststring anzeigen
+                            {
+                                pSize = 20;
+                                PreviewText = "To be able to show this preview, the font size";
+                                PreviewText2 = "was temporarily changed from 0 to 20";
+                            }
+                            // font = new System.Drawing.Font(pFont.FontFamily, pSize, pFont.FontStyle, GraphicsUnit.Pixel);
+                            MyFont = new System.Drawing.Font(pFont.FontFamily, pSize, pFont.FontStyle, GraphicsUnit.Pixel);
+                            pictureBox1.Invalidate();
+                            pictureBox2.Invalidate(); //MOD
+                            textBoxPreview.Visible = false;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Font painting failed! (" + pFont.Name + ")");
+                            textBoxPreview.Text = "The font '" + pFont.Name + "' was not found." + Environment.NewLine + "Probably this is a default font on the image of your box";
+                            textBoxPreview.Visible = true; //MOD
+                        }
+
                     }
                     else
                     {
                         Console.WriteLine("Font painting failed! (" + pFont.Name + ")");
+                        textBoxPreview.Text = "The font '" + pFont.Name + "' was not found." + Environment.NewLine + "Probably this is a default font on the image of your box";
+                        textBoxPreview.Visible = true; //MOD
                     }
                 }
                 catch (Exception error)
                 {
                     Console.WriteLine("Font painting failed! (" + pFont.Name + ")\n" + error);
+                    textBoxPreview.Text = error.Message;
+                    textBoxPreview.Visible = true; //MOD 
                     return;
                 }
 
@@ -99,7 +128,26 @@ namespace OpenSkinDesigner.Frames
 
         private void pictureBox1_Paint(object sender, PaintEventArgs e)
         {
-            e.Graphics.DrawString("Test-String Sky 1234567890 !#?ÜÄÖ", MyFont, Brushes.Black, 10, 10);
+            if (listView1.SelectedItems.Count > 0) //MOD Nicht bei Form-Show anzeigen
+            {
+                e.Graphics.DrawString(PreviewText, MyFont, Brushes.Black, 10, 10);
+            }
+        }
+
+        private void pictureBox2_Paint(object sender, PaintEventArgs e)
+        {
+            if (listView1.SelectedItems.Count > 0) //MOD Nicht bei Form-Show anzeigen
+            {
+                e.Graphics.DrawString(PreviewText2, MyFont, Brushes.Black, 10, 10);
+            }
+        }
+
+        private void checkBoxReplacement_Click(object sender, EventArgs e)
+        {
+            if (checkBoxReplacement.Checked == true)
+                checkBoxReplacement.Checked = false;
+            else
+                checkBoxReplacement.Checked = true;
         }
     }
 }
