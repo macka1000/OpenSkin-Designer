@@ -2,7 +2,7 @@ OpenSkin Designer
 =================
 [![GitHub release](https://img.shields.io/github/release/Humaxx/OpenSkin-Designer.svg)](https://github.com/Humaxx/OpenSkin-Designer/releases)
 [![GitHub All Releases](https://img.shields.io/github/downloads/Humaxx/OpenSkin-Designer/total.svg)](https://github.com/Humaxx/OpenSkin-Designer/releases)
-[![GitHub Releases (by Release)](https://img.shields.io/github/downloads/Humaxx/OpenSkin-Designer/3.2.0/total.svg)](https://github.com/Humaxx/OpenSkin-Designer/releases)
+[![GitHub Releases (by Release)](https://img.shields.io/github/downloads/Humaxx/OpenSkin-Designer/3.2.3/total.svg)](https://github.com/Humaxx/OpenSkin-Designer/releases)
 
 OpenSkin Designer is a further development of [e2skinner](https://code.google.com/p/e2skinner2/).
 
@@ -81,3 +81,7 @@ created by [Scrounger](https://github.com/Scrounger)
 * Added VTi-Fonts
 * Converter bug fixes: 'TimeshiftService' added to prevent a exception in 'Timeshiftstate'
 * Corrected xhdpicon.png for building in visual studio
+
+### 3.2.3.1 (23.03.2020) by Humax
+* Added more sources rendered as listbox
+* Fixed unhandled exception if source = null
