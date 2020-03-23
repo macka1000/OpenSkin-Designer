@@ -37,8 +37,8 @@ namespace OpenSkinDesigner.Frames
             {
                 comboBoxStyles.Items.Add(borderset.pName);
             }
-
-            comboBoxStyles.SelectedIndex = 0;
+            if (comboBoxStyles.Items.Count>0)
+                comboBoxStyles.SelectedIndex = 0;
 
             //refreshStyle();
         }
@@ -49,52 +49,90 @@ namespace OpenSkinDesigner.Frames
             sWindowStyle.sBorderSet borderset = (sWindowStyle.sBorderSet)style.pBorderSets[comboBoxStyles.SelectedItem.ToString()];
 
             propertyGridTable.SelectedObject = borderset;
-
-            if (borderset.pbpTopLeftName.Length > 0)
+            // MOD: fixed Unhandled Exception when a file(borderset) not found...
+            // MOD: Clear Textboxes and Pictureboxes
+            if (borderset.pbpTopLeftName.Length > 0 && System.IO.File.Exists(cDataBase.getPath(borderset.pbpTopLeftName)))
             {
                 textBoxTopLeft.Text = borderset.pbpTopLeftName;
                 pictureBoxTopLeft.Image = Image.FromFile(cDataBase.getPath(borderset.pbpTopLeftName));
             }
-            if (borderset.pbpTopName.Length > 0)
+            else
+            {
+                textBoxTopLeft.Text = string.Empty;
+                pictureBoxTopLeft.Image = null;
+            }
+            if (borderset.pbpTopName.Length > 0 && System.IO.File.Exists(cDataBase.getPath(borderset.pbpTopName)))
             {
                 textBoxTop.Text = borderset.pbpTopName;
                 pictureBoxTop.Image = Image.FromFile(cDataBase.getPath(borderset.pbpTopName));
             }
-            if (borderset.pbpTopRightName.Length > 0)
+            else
+            {
+                textBoxTop.Text = string.Empty;
+                pictureBoxTop.Image = null;
+            }
+            if (borderset.pbpTopRightName.Length > 0 && System.IO.File.Exists(cDataBase.getPath(borderset.pbpTopRightName)))
             {
                 textBoxTopRight.Text = borderset.pbpTopRightName;
                 pictureBoxTopRight.Image = Image.FromFile(cDataBase.getPath(borderset.pbpTopRightName));
             }
+            else
+            {
+                textBoxTopRight.Text = string.Empty;
+                pictureBoxTopRight.Image = null;
+            }
 
-
-            if (borderset.pbpLeftName.Length > 0)
+            if (borderset.pbpLeftName.Length > 0 && System.IO.File.Exists(cDataBase.getPath(borderset.pbpLeftName)))
             {
                 textBoxLeft.Text = borderset.pbpLeftName;
                 pictureBoxLeft.Image = Image.FromFile(cDataBase.getPath(borderset.pbpLeftName));
             }
-            if (borderset.pbpRightName.Length > 0)
+            else
+            {
+                textBoxLeft.Text = string.Empty;
+                pictureBoxLeft.Image = null;
+            }
+            if (borderset.pbpRightName.Length > 0 && System.IO.File.Exists(cDataBase.getPath(borderset.pbpRightName)))
             {
                 textBoxRight.Text = borderset.pbpRightName;
                 pictureBoxRight.Image = Image.FromFile(cDataBase.getPath(borderset.pbpRightName));
             }
+            else
+            {
+                textBoxRight.Text = string.Empty;
+                pictureBoxRight.Image = null;
+            }
 
-
-            if (borderset.pbpBottomLeftName.Length > 0)
+            if (borderset.pbpBottomLeftName.Length > 0 && System.IO.File.Exists(cDataBase.getPath(borderset.pbpBottomLeftName)))
             {
                 textBoxBottomLeft.Text = borderset.pbpBottomLeftName;
                 pictureBoxBottomLeft.Image = Image.FromFile(cDataBase.getPath(borderset.pbpBottomLeftName));
             }
-            if (borderset.pbpBottomName.Length > 0)
+            else
+            {
+                textBoxBottomLeft.Text = string.Empty;
+                pictureBoxBottomLeft.Image = null;
+            }
+            if (borderset.pbpBottomName.Length > 0 && System.IO.File.Exists(cDataBase.getPath(borderset.pbpBottomName)))
             {
                 textBoxBottom.Text = borderset.pbpBottomName;
                 pictureBoxBottom.Image = Image.FromFile(cDataBase.getPath(borderset.pbpBottomName));
             }
-            if (borderset.pbpBottomRightName.Length > 0)
+            else
+            {
+                textBoxBottom.Text = string.Empty;
+                pictureBoxBottom.Image = null;
+            }
+            if (borderset.pbpBottomRightName.Length > 0 && System.IO.File.Exists(cDataBase.getPath(borderset.pbpBottomRightName)))
             {
                 textBoxBottomRight.Text = borderset.pbpBottomRightName;
                 pictureBoxBottomRight.Image = Image.FromFile(cDataBase.getPath(borderset.pbpBottomRightName));
             }
-
+            else
+            {
+                textBoxBottomRight.Text = string.Empty;
+                pictureBoxBottomRight.Image = null;
+            }
 
             sAttributeScreen attr = new sAttributeScreen(null);
             attr.pZPosition = -100;
