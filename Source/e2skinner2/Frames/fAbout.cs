@@ -111,7 +111,13 @@ namespace OpenSkinDesigner.Frames
                 "- Converter bug fixes: 'TimeshiftService' added to prevent a exception in 'Timeshiftstate'" + Environment.NewLine + Environment.NewLine +
                 "v3.2.3.1 by Humax" + Environment.NewLine +
                 "- More sources rendered as listbox" + Environment.NewLine +
-                "- Fix unhandled exception when Source = null" + Environment.NewLine;
+                "- Fix unhandled exception when Source = null" + Environment.NewLine + Environment.NewLine +
+                "v3.2.3.2 by Humax" + Environment.NewLine +
+                "- Fixed unhandled exception if no Font is declared or only alias - then using 'lcd.ttf'" + Environment.NewLine +
+                "- Fixed unhandled exceptions if a color is missing or declared with 'foregroundColors'" + Environment.NewLine +
+                "- Ask to show messageboxes again or not" + Environment.NewLine +
+                "- Added option to set 'Fallback-Color', which is used for previewing some text" + Environment.NewLine +
+                "- Bugfix: show picon also when a path is set" + Environment.NewLine;
 
         }
 

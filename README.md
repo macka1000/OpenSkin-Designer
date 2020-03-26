@@ -85,3 +85,10 @@ created by [Scrounger](https://github.com/Scrounger)
 ### 3.2.3.1 (23.03.2020) by Humax
 * Added more sources rendered as listbox
 * Fixed unhandled exception if source = null
+
+### 3.2.3.2 (26.03.2020) by Humax
+* Fixed unhandled exception if no Font is declared or only alias - then using 'lcd.ttf'
+* Fixed unhandled exceptions if a color is missing or declared with 'foregroundColors'
+* Ask to show messageboxes again or not
+* Bugfix: show picon also when a path is set
+* Added option to set 'Fallback-Color', which is used for previewing some text
