@@ -58,7 +58,8 @@ namespace OpenSkinDesigner.Frames
                 ListViewItem item = new ListViewItem(subtitems, 0);
                 listView1.Items.Add(item);
             }
-            listView1.RedrawItems(0, listView1.Items.Count - 1, false);
+            if (listView1.Items.Count>0) //MOD
+                listView1.RedrawItems(0, listView1.Items.Count - 1, false);
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -87,7 +88,7 @@ namespace OpenSkinDesigner.Frames
                         {
                             PreviewText = "This is a preview-text to show the font";
                             PreviewText2 = "Test-String SKY 1234567890 !#?ÜÖÄ$%/()";
-                            if (pSize == 0) //MOD Wenn Size=0 dann Size setzen und Teststring anzeigen
+                            if (pSize == 0) //MOD if Size=0 set Size and show preview-text
                             {
                                 pSize = 20;
                                 PreviewText = "To be able to show this preview, the font size";
@@ -128,7 +129,7 @@ namespace OpenSkinDesigner.Frames
 
         private void pictureBox1_Paint(object sender, PaintEventArgs e)
         {
-            if (listView1.SelectedItems.Count > 0) //MOD Nicht bei Form-Show anzeigen
+            if (listView1.SelectedItems.Count > 0) //MOD Do not show on Form load
             {
                 e.Graphics.DrawString(PreviewText, MyFont, Brushes.Black, 10, 10);
             }
@@ -136,7 +137,7 @@ namespace OpenSkinDesigner.Frames
 
         private void pictureBox2_Paint(object sender, PaintEventArgs e)
         {
-            if (listView1.SelectedItems.Count > 0) //MOD Nicht bei Form-Show anzeigen
+            if (listView1.SelectedItems.Count > 0) //MOD Do not show on Form load
             {
                 e.Graphics.DrawString(PreviewText2, MyFont, Brushes.Black, 10, 10);
             }
