@@ -62,8 +62,8 @@ namespace OpenSkinDesigner.Frames
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.MiPreferences = new System.Windows.Forms.ToolStripMenuItem();
             this.jToolStripMenuItem = new System.Windows.Forms.ToolStripSeparator();
-            this.showErrormessagesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.setFallbackColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -134,6 +134,7 @@ namespace OpenSkinDesigner.Frames
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.splitter1 = new System.Windows.Forms.Splitter();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -370,8 +371,8 @@ namespace OpenSkinDesigner.Frames
             this.toolStripSeparator7,
             this.MiPreferences,
             this.jToolStripMenuItem,
-            this.showErrormessagesToolStripMenuItem,
-            this.cToolStripMenuItem});
+            this.cToolStripMenuItem,
+            this.setFallbackColorToolStripMenuItem});
             this.addUndefinedColorsWithToolStripMenuItem.Name = "addUndefinedColorsWithToolStripMenuItem";
             this.addUndefinedColorsWithToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.addUndefinedColorsWithToolStripMenuItem.Text = "Settings";
@@ -444,15 +445,6 @@ namespace OpenSkinDesigner.Frames
             this.jToolStripMenuItem.Name = "jToolStripMenuItem";
             this.jToolStripMenuItem.Size = new System.Drawing.Size(227, 6);
             // 
-            // showErrormessagesToolStripMenuItem
-            // 
-            this.showErrormessagesToolStripMenuItem.Checked = true;
-            this.showErrormessagesToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.showErrormessagesToolStripMenuItem.Name = "showErrormessagesToolStripMenuItem";
-            this.showErrormessagesToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
-            this.showErrormessagesToolStripMenuItem.Text = "Show unhandled exceptions";
-            this.showErrormessagesToolStripMenuItem.Click += new System.EventHandler(this.ShowErrormessagesToolStripMenuItemClick);
-            // 
             // cToolStripMenuItem
             // 
             this.cToolStripMenuItem.Checked = true;
@@ -462,6 +454,13 @@ namespace OpenSkinDesigner.Frames
             this.cToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
             this.cToolStripMenuItem.Text = "Add undefined colors with \'#\'";
             this.cToolStripMenuItem.Click += new System.EventHandler(this.cToolStripMenuItem_Click);
+            // 
+            // setFallbackColorToolStripMenuItem
+            // 
+            this.setFallbackColorToolStripMenuItem.Name = "setFallbackColorToolStripMenuItem";
+            this.setFallbackColorToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
+            this.setFallbackColorToolStripMenuItem.Text = "Set \'Fallback\'-Color";
+            this.setFallbackColorToolStripMenuItem.Click += new System.EventHandler(this.setFallbackColorToolStripMenuItem_Click);
             // 
             // toolStripMenuItemHelp
             // 
@@ -1303,7 +1302,7 @@ namespace OpenSkinDesigner.Frames
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "fMain";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.Text = "OpenSkin Designer 3.2.3.0";
+            this.Text = "OpenSkin Designer x.x.x.x";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.fMain_FormClosing);
             this.Load += new System.EventHandler(this.fMain_Load);
@@ -1349,7 +1348,6 @@ namespace OpenSkinDesigner.Frames
             this.ResumeLayout(false);
 
         }
-        private System.Windows.Forms.ToolStripMenuItem showErrormessagesToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator jToolStripMenuItem;
         #endregion
 
@@ -1455,5 +1453,7 @@ namespace OpenSkinDesigner.Frames
         private System.Windows.Forms.ToolStripButton btnSkinnedShowPanels;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator18;
         private System.Windows.Forms.ToolStripMenuItem cToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem setFallbackColorToolStripMenuItem;
+        private System.Windows.Forms.ColorDialog colorDialog1;
     }
 }

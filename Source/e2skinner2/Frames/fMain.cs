@@ -34,8 +34,6 @@ namespace OpenSkinDesigner.Frames
             MyGlobaleVariables.AddUndefinedColor = "#"; //MOD
             trackBarZoom.Enabled = false; //MOD
             numericUpDownZoom.Enabled = false; //MOD
-            MyGlobaleVariables.ShowErrorMessages = true; //MOD
-            showErrormessagesToolStripMenuItem.Visible = false; //MOD
             jToolStripMenuItem.Visible = false; //MOD
             if (Platform.sysPlatform != Platform.ePlatform.MONO)
                 textBoxEditor2.ConfigurationManager.Language = "xml";
@@ -2028,6 +2026,15 @@ namespace OpenSkinDesigner.Frames
             }
         }
 
+        private void setFallbackColorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = new DialogResult();
+            colorDialog1.Color = MyGlobaleVariables.FallbackColor;
+            dr = colorDialog1.ShowDialog();
+            if (dr == DialogResult.OK)
+                MyGlobaleVariables.FallbackColor = colorDialog1.Color;
+        }
+
         private void fMain_Load(object sender, EventArgs e)
         {
             textBoxEditor2.Styles.LineNumber.BackColor = Color.LightGray;
@@ -2059,20 +2066,6 @@ namespace OpenSkinDesigner.Frames
             refresh();
         }
 
-        void ShowErrormessagesToolStripMenuItemClick(object sender, EventArgs e)
-        {
-            if (showErrormessagesToolStripMenuItem.Checked == true)
-            {
-                showErrormessagesToolStripMenuItem.Checked = false;
-                MyGlobaleVariables.ShowErrorMessages = false;
-            }
-            else
-            {
-                showErrormessagesToolStripMenuItem.Checked = true;
-                MyGlobaleVariables.ShowErrorMessages = true;
-            }
-
-
-        }
+        
     }
 }
