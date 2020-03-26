@@ -715,9 +715,31 @@ namespace OpenSkinDesigner.Logic
                 string fontname = name.Substring(0, name.IndexOf(';'));
 
                 sFont font = (sFont)pFonts[fontname];
-                font.Size = size;
+                if (font == null)
+                {
+                    String fontPath = cProperties.getProperty("path_fonts");
+                    fontPath = fontPath + "/" + "lcd.ttf";
+                    font = new sFont("Regular", fontPath, 100, 25, "Fallback", false, false);
+                    font.Size = size;
+                    if (MyGlobaleVariables.ShowMsgFallbackFont==true)
+                    {
+                        DialogResult dr = new DialogResult();
+                        dr = MessageBox.Show(String.Format("Font '{0}' is not defined or exist!\nUsing fallback font 'lcd.ttf; 25'" + Environment.NewLine + Environment.NewLine
+                            + "Show this message again?", name), "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (dr == DialogResult.No)
+                            MyGlobaleVariables.ShowMsgFallbackFont = false;
 
-                return (sFont)pFonts[fontname];
+
+                    }
+                    return font;
+
+                }
+                else
+                {
+                    font.Size = size;
+                    return (sFont)pFonts[fontname];
+                }
+                
             }
             catch
             {
@@ -725,10 +747,20 @@ namespace OpenSkinDesigner.Logic
 
                 if (font == null)
                 {
-                    font = (sFont)pFonts["Regular"];
-                    font.Size = 25;
+                    String fontPath = cProperties.getProperty("path_fonts");
+                    fontPath = fontPath + "/" + "lcd.ttf";
+                    font = new sFont("Regular", fontPath, 100, 25, "Fallback", false, false);
 
-                    MessageBox.Show(String.Format("Font '{0}' is not defined or exist!\nUsing fallback font 'Regular; 25'", name),"Error", MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    if (MyGlobaleVariables.ShowMsgFallbackFont == true)
+                    {
+                        DialogResult dr = new DialogResult();
+                        dr = MessageBox.Show(String.Format("Font '{0}' is not defined or exist!\nUsing fallback font 'lcd.ttf; 25'" + Environment.NewLine + Environment.NewLine
+                            + "Show this message again?", name), "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (dr == DialogResult.No)
+                            MyGlobaleVariables.ShowMsgFallbackFont = false;
+
+
+                    }
                 }
 
                 //Font Alias
