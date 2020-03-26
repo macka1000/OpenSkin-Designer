@@ -36,7 +36,7 @@ namespace OpenSkinDesigner.Structures
             String fontPath = cProperties.getProperty("path_fonts");
             String skinPath = cProperties.getProperty("path_skin");
             String skinsPath = cProperties.getProperty("path");
-
+          
             pfc = new PrivateFontCollection();
 
             this.Name = name;
@@ -54,9 +54,9 @@ namespace OpenSkinDesigner.Structures
             String AbsolutPathFont = fontPath + "/" + Filename;
             String AbsolutPathSkinPathFont = skinsPath + "/" + skinPath + "/" + Filename;
             String RelativPathFont = Path;
-            // RelativPathSkinPathFont war der selbe Pfad wie AbsolutPathSkinPathFont
+            // RelativPathSkinPathFont was the same path as AbsolutPathSkinPathFont
             String RelativPathSkinPathFont = skinsPath + "/" + skinPath + "/" + Path;
-            // Deshalb jetzt so, damit auch im Skinordner unter fonts nachgesehen wird
+            // so changed it to look up in skin-path / fonts
             RelativPathSkinPathFont = skinsPath + "/" + skinPath + "/" + "fonts" + "/" + Path;
 
             RelativPathFont = Path;
@@ -91,22 +91,29 @@ namespace OpenSkinDesigner.Structures
                 errorMessage += "OpenSkinDesigner has searched in several places for the font \"" + Filename + ".\"\n";
                 errorMessage += "Unfortunatly the search was not successful.\n";
                 errorMessage += "\n";
-                errorMessage += "Search Locations:\n";
-                errorMessage += "\t" + new FileInfo(AbsolutPathFont).FullName + "\n";
-                errorMessage += "\t" + new FileInfo(AbsolutPathSkinPathFont).FullName + "\n";
-                errorMessage += "\t" + new FileInfo(RelativPathFont).FullName + "\n";
-                errorMessage += "\t" + new FileInfo(RelativPathSkinPathFont).FullName + "\n";
+                errorMessage += "Search Locations:\n\n";
+                errorMessage += new FileInfo(AbsolutPathFont).FullName + "\n\n";
+                errorMessage += new FileInfo(AbsolutPathSkinPathFont).FullName + "\n\n";
+                errorMessage += new FileInfo(RelativPathFont).FullName + "\n\n";
+                errorMessage += new FileInfo(RelativPathSkinPathFont).FullName + "\n\n";
 
-                // lcd.ttf ist im Openskindesigner enthalten...
+                // Openskindesigner contains lcd.ttf by default and should be existing...
                 AbsolutPathFont = fontPath + "/" + "lcd.ttf";
                 if (File.Exists(AbsolutPathFont))
                     errorMessage += "\n" + "Using 'lcd.tff' instead of " + Filename + "\n";
 
-                MessageBox.Show(errorMessage,
+                errorMessage += Environment.NewLine + Environment.NewLine + "Show this message again?";
+
+                DialogResult dr = new DialogResult();
+                if (MyGlobaleVariables.ShowMsgFontNotFound == true)
+                dr = MessageBox.Show(errorMessage,
                     "Error while loading fonts",
-                    MessageBoxButtons.OK,
+                    MessageBoxButtons.YesNo ,
                     MessageBoxIcon.Information,
                     MessageBoxDefaultButton.Button1);
+                if (dr == DialogResult.No)
+                    MyGlobaleVariables.ShowMsgFontNotFound = false;
+
 
                 if (File.Exists(AbsolutPathFont))
                     lookupPath = new FileInfo(AbsolutPathFont).FullName;
