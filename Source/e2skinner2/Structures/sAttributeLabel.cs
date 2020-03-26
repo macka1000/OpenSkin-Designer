@@ -9,6 +9,7 @@ using System.Drawing;
 using System.Drawing.Design;
 using System.Collections;
 using System.Windows.Forms;
+using System.Runtime.InteropServices.WindowsRuntime;
 
 namespace OpenSkinDesigner.Structures
 {
@@ -29,7 +30,7 @@ namespace OpenSkinDesigner.Structures
 		public cProperty.eVAlign pValign = cProperty.eVAlign.Center;
 		public cProperty.eHAlign pHalign = cProperty.eHAlign.Left;
 
-		public bool pNoWrap = false; /* DONT KNOW IF THIS IS HE CORRECT DEFAULT VALUE */
+		public bool pNoWrap = false; /* DONT KNOW IF THIS IS THE CORRECT DEFAULT VALUE */
 
 		[CategoryAttribute(entryName),
 		 DefaultValueAttribute("")]
@@ -130,7 +131,13 @@ namespace OpenSkinDesigner.Structures
 		 CategoryAttribute(entryName)]
 		public String ForegroundColor
 		{
-			get { return pForegroundColor.pName; }
+			get 
+			{
+				if (pForegroundColor != null)
+					return pForegroundColor.pName;
+				else
+					return "(none)";
+			}
 			set
 			{
 				if (value != null)
