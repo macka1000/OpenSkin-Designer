@@ -126,14 +126,34 @@ namespace OpenSkinDesigner.Structures
             if (font != null)
             {
                 SizeF StringSize = g.MeasureString(pText, font);
+                if (pColor == null) //MOD 
+                {
+                    pColor = new sColor(MyGlobaleVariables.FallbackColor);
+                    if (MyGlobaleVariables.ShowMsgFallbackColor == true)
+                    {
+                        DialogResult dr = new DialogResult();
+                        if (pAttr != null)
+                            dr = MessageBox.Show("Using 'Fallback-Color' for: '" + pAttr.Name + "'" + Environment.NewLine + Environment.NewLine +
+                            "Show this Message again?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        else
+                            dr = MessageBox.Show("Using 'Fallback-Color'" + Environment.NewLine + Environment.NewLine +
+                                "Show this Message again?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
+                        if (dr == DialogResult.No)
+                            MyGlobaleVariables.ShowMsgFallbackColor = false;
+
+                    }
+                        
+                }
+                    
+ 
                 Color penColor = pColor.Color;
                 if (cProperties.getPropertyBool("enable_alpha"))
                     penColor = pColor.ColorAlpha;
 
                 //int x = pX;
                 int y = pY;
-
+                
                 float height = pHeight;
 
                 if (pAttr != null && pAttr.GetType() == typeof(sAttributeLabel) && ((sAttributeLabel)pAttr).noWrap)
