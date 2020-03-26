@@ -15,9 +15,12 @@ namespace OpenSkinDesigner.Structures
 {
     public static class MyGlobaleVariables
     {
-        public static bool ShowErrorMessages { get; set; } // Zur Zeit nicht verwendet--> anzeige von abgefangenen aber nicht behandelten Ausnahmen
-        public static string AddUndefinedColor { get; set; }// Nicht definierte Farbe zur Auflistung hinzufügen.
-        public static bool Reload { get; set; } = false; // Wenn z.B. eine Farbe doppelt eingelesen wurde, Nachfrage ob save, und reload!
+        public static string AddUndefinedColor { get; set; } = "#"; // Prefix how to add undefined color ('#' or 'un') 
+        public static bool Reload { get; set; } = false; // Ask if Skin should be saved and reloaded
+        public static bool ShowMsgFallbackFont { get; set; } = true; // Show Messagebox if OSD uses a 'Fallback-Font' (when font not found / declared)
+        public static bool ShowMsgFallbackColor { get; set; } = true; // Show Messagebox if OSD uses a 'Fallback-Color' (When missing Color)
+        public static bool ShowMsgFontNotFound { get; set; } = true; // Show Messagebox if a Font is not found
+        public static Color FallbackColor { get; set; } = Color.HotPink; 
         public static List<String> SkinName = new List<String>();
         public static List<String> SkinValue1 = new List<String>();
         public static List<String> SkinValue2 = new List<String>();
