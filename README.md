@@ -92,3 +92,8 @@ created by [Scrounger](https://github.com/Scrounger)
 * Ask to show messageboxes again or not
 * Bugfix: show picon also when a path is set
 * Added option to set 'Fallback-Color', which is used for previewing some text
+
+### 3.2.3.3 (27.03.2020) by Humax
+* Fixed path not found exception
+* Updated converter.xml
+* Added speedyAXBlueRunningText

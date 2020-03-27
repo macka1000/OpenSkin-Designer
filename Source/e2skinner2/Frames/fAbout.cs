@@ -117,8 +117,11 @@ namespace OpenSkinDesigner.Frames
                 "- Fixed unhandled exceptions if a color is missing or declared with 'foregroundColors'" + Environment.NewLine +
                 "- Ask to show messageboxes again or not" + Environment.NewLine +
                 "- Added option to set 'Fallback-Color', which is used for previewing some text" + Environment.NewLine +
-                "- Bugfix: show picon also when a path is set" + Environment.NewLine;
-
+                "- Bugfix: show picon also when a path is set" + Environment.NewLine + Environment.NewLine +
+                "v3.2.3.3 by Humax" + Environment.NewLine +
+                "- Fixed path not found exception" + Environment.NewLine +
+                "- Updated converter.xml" + Environment.NewLine +
+                "- Added 'speedyAXBlueRunningText'" + Environment.NewLine;
         }
 
         #region Assemblyattributaccessoren
