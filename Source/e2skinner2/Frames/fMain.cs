@@ -1963,11 +1963,10 @@ namespace OpenSkinDesigner.Frames
             words.Add("font");
             words.Add("text");
             words.Add("zPosition");
-            words.Add("BorderWidth");
-            words.Add("BorderColor");
-
-            words.Add("title");
-            words.Add("foregroundColor");
+            words.Add("borderWidth");
+            words.Add("borderColor");
+                        
+            words.Add("foregroundColor");            
             words.Add("pixmap");
             words.Add("halign");
             words.Add("valign");
@@ -2003,10 +2002,98 @@ namespace OpenSkinDesigner.Frames
 
             words.Add("filename");
             words.Add("pos");
-            words.Add("value");
-            words.Add("xres");
-            words.Add("yres");
-            words.Add("bpp");
+            words.Add("foregroundColors");
+            words.Add("options");
+            words.Add("pixmaps");
+
+            if (MyGlobaleVariables.UseFullAttList == true)
+            {
+                words.Add("type");
+                words.Add("backgroundColorRows");
+                words.Add("descriptionColor");
+                words.Add("secondfont");
+                words.Add("scrollbarBackgroundPicture");
+                words.Add("scrollbarWidth");
+                words.Add("scrollbarSliderBorderWidth");
+                words.Add("scrollbarKeepGapColor");
+                words.Add("scrollbarGap");
+                words.Add("padding");
+                words.Add("spacing");
+                words.Add("Animation");
+                words.Add("NoAnimationAfter");
+                words.Add("serviceItemHeight");
+                words.Add("serviceNumberFont");
+                words.Add("serviceNameFont");
+                words.Add("serviceInfoFont");
+                words.Add("itemWidth");
+                words.Add("colorServiceDescriptionSelected");
+                words.Add("serviceNumberAlign");
+                words.Add("serviceNameAlign");
+                words.Add("serviceTimeAlign");
+                words.Add("serviceInfoAlign");
+                words.Add("onlyFullListEntries");
+                words.Add("boxOrientation");
+                words.Add("scrollbarOrientation");
+                words.Add("selectionOffset");
+                words.Add("colorServiceDescription");
+                words.Add("foregroundColorServiceNotAvail");
+                words.Add("colorEventProgressbarBorder");
+                words.Add("colorEventProgressbarBorderSelected");
+                words.Add("progressbarHeight");
+                words.Add("progressbarBorderWidth");
+                words.Add("lines");
+                words.Add("TimeStringColor");
+                words.Add("TimeColor");
+                words.Add("FontSize1");
+                words.Add("FontSize2");
+                words.Add("EntryBorderColor");
+                words.Add("EntryBackgroundColor");
+                words.Add("EntryBackgroundColorSelected");
+                words.Add("descriptionfont");
+                words.Add("animationMode"); 
+                words.Add("scrollbarSliderForegroundColor");
+                words.Add("scrollbarSliderBorderColor");
+                words.Add("imageType");
+                words.Add("path");
+                words.Add("viewMode");
+                words.Add("overlayImage");
+                words.Add("itemScale");
+                words.Add("itemSpace");
+                words.Add("aspectRatio");
+                words.Add("textColor");
+                words.Add("panelColor");
+                words.Add("dimensions");
+                words.Add("useShadow");
+                words.Add("useOverlay");
+                words.Add("backgroundColorGlobal");
+                words.Add("ServiceNameForegroundColor");
+                words.Add("ServiceNameBackgroundColor");
+                words.Add("EntryForegroundColor");
+                words.Add("colorServiceWithAdvertisment");
+                words.Add("EntryNowForegroundColor");
+                words.Add("EntryNowBackgroundColor");
+                words.Add("EntryForegroundColorSelected");
+                words.Add("colorEventProgressbar");
+                words.Add("EntryNowForegroundColorSelected");
+                words.Add("EntryNowBackgroundColorSelected");
+                words.Add("EntryRecColor");
+                words.Add("EntryPreColor");
+                words.Add("EntryRecIncompleteColor");
+                words.Add("EntryRecOffColor");
+                words.Add("piconWidth");
+                words.Add("foregroundColorMarked");
+                words.Add("foregroundColorMarkedSelected");
+                words.Add("backgroundColorMarked");
+                words.Add("backgroundColorMarkedSelected");
+                words.Add("delay");
+                words.Add("speed");
+                words.Add("animated");
+                words.Add("pixtype");
+                words.Add("plugin_pixmaps");
+                words.Add("colorEventProgressbarSelected");
+              
+            }
+
             words.Sort();
             txt.AutoComplete.List = words;
             txt.AutoComplete.IsCaseSensitive = false;
@@ -2033,6 +2120,19 @@ namespace OpenSkinDesigner.Frames
             dr = colorDialog1.ShowDialog();
             if (dr == DialogResult.OK)
                 MyGlobaleVariables.FallbackColor = colorDialog1.Color;
+        }
+
+        private void useFullAttributlistToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (useFullAttributlistToolStripMenuItem.Checked == true)
+            {
+                MyGlobaleVariables.UseFullAttList = true;
+            }
+            else
+            {
+                MyGlobaleVariables.UseFullAttList = false;
+            }
+            
         }
 
         private void fMain_Load(object sender, EventArgs e)
