@@ -97,3 +97,7 @@ created by [Scrounger](https://github.com/Scrounger)
 * Fixed path not found exception
 * Updated converter.xml
 * Added speedyAXBlueRunningText
+* Removed doubled attributs
+* Added some entries to attribut-list like 'foregroundColors' 'options' 'pixmaps' and more
+* Added a option to enable showing full attribut-list
+* Autocomplete attribut list - max preview set to 15 instead of 5

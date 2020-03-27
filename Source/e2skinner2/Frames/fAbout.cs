@@ -121,6 +121,9 @@ namespace OpenSkinDesigner.Frames
                 "v3.2.3.3 by Humax" + Environment.NewLine +
                 "- Fixed path not found exception" + Environment.NewLine +
                 "- Updated converter.xml" + Environment.NewLine +
+                "- Added some entries to attribut-list like 'foregroundColors' 'options' 'pixmaps' and more" + Environment.NewLine +
+                "- Added a option to enable showing full attribut-list" + Environment.NewLine +
+                "- Autocomplete attribut list - max preview set to 15 instead of 5" + Environment.NewLine +
                 "- Added 'speedyAXBlueRunningText'" + Environment.NewLine;
         }
 
