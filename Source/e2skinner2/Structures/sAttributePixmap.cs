@@ -196,11 +196,18 @@ namespace OpenSkinDesigner.Structures
                     catch
                     {
                         // Bug Fix: if path contains skin-path 
-                        path = path.Replace(cProperties.getProperty("path_skin"), "");
-                        filePaths = Directory.GetFiles(@cDataBase.getPath(path));
+                        try
+                        {
+                            path = path.Replace(cProperties.getProperty("path_skin"), "");
+                            filePaths = Directory.GetFiles(@cDataBase.getPath(path));
+                        }                      
+                        catch
+                        {
+
+                        }
                     }
 
-                    if (filePaths.Length > 0) // MOD
+                    if (filePaths != null && filePaths.Length > 0) // MOD
                     {
                         pPixmapName = cProperties.getProperty("path_skin").Replace("./", "\\").Replace("/", "\\") + "/" + path + "/" + System.IO.Path.GetFileName(filePaths[0]);
                         Image pixmap = Image.FromFile(cDataBase.getPath(pPixmapName));
@@ -214,6 +221,13 @@ namespace OpenSkinDesigner.Structures
                             pPixmap = pixmap.Size;
                         }
                         pixmap.Dispose();
+                    }
+                    else
+                    {
+                        Image pixmap = Image.FromFile(Application.StartupPath + cProperties.getProperty("path_skins").Replace("./", "\\").Replace("/", "\\") + "broken.png", true);
+                        pPixmap = pixmap.Size;
+                        pixmap.Dispose();
+                        pPixmapName = "@broken.png";
                     }
                         
                 }
