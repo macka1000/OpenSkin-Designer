@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!-- Known Datatypes: 'string', 'bool', 'int' -->
-<!-- Converter.xml - Version 3.2.3.0 (23.03.2020) -->
+<!-- Converter.xml - Version 3.2.3.3 (27.03.2020) -->
 <sources>
   <source>
     <name>global.CurrentTime</name>
@@ -11,6 +11,12 @@
 
   <source>
     <name>session.CurrentService</name>
+    <name>piconCh1</name>
+    <name>piconCh2</name>
+    <name>piconCh3</name>
+    <name>piconCh4</name>
+    <name>piconCh5</name>
+    
     <entries>
       <entry name='service_name'   value='BBC World'     type='string'/>
       <entry name='provider'       value='BBC Provider'  type='string'/>
