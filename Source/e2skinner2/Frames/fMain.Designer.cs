@@ -64,6 +64,7 @@ namespace OpenSkinDesigner.Frames
             this.jToolStripMenuItem = new System.Windows.Forms.ToolStripSeparator();
             this.cToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setFallbackColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.useFullAttributlistToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -372,7 +373,8 @@ namespace OpenSkinDesigner.Frames
             this.MiPreferences,
             this.jToolStripMenuItem,
             this.cToolStripMenuItem,
-            this.setFallbackColorToolStripMenuItem});
+            this.setFallbackColorToolStripMenuItem,
+            this.useFullAttributlistToolStripMenuItem});
             this.addUndefinedColorsWithToolStripMenuItem.Name = "addUndefinedColorsWithToolStripMenuItem";
             this.addUndefinedColorsWithToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.addUndefinedColorsWithToolStripMenuItem.Text = "Settings";
@@ -461,6 +463,14 @@ namespace OpenSkinDesigner.Frames
             this.setFallbackColorToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
             this.setFallbackColorToolStripMenuItem.Text = "Set \'Fallback\'-Color";
             this.setFallbackColorToolStripMenuItem.Click += new System.EventHandler(this.setFallbackColorToolStripMenuItem_Click);
+            // 
+            // useFullAttributlistToolStripMenuItem
+            // 
+            this.useFullAttributlistToolStripMenuItem.CheckOnClick = true;
+            this.useFullAttributlistToolStripMenuItem.Name = "useFullAttributlistToolStripMenuItem";
+            this.useFullAttributlistToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
+            this.useFullAttributlistToolStripMenuItem.Text = "Use full attribut-list";
+            this.useFullAttributlistToolStripMenuItem.Click += new System.EventHandler(this.useFullAttributlistToolStripMenuItem_Click);
             // 
             // toolStripMenuItemHelp
             // 
@@ -820,6 +830,8 @@ namespace OpenSkinDesigner.Frames
             // 
             // textBoxEditor2
             // 
+            this.textBoxEditor2.AutoComplete.ListString = "";
+            this.textBoxEditor2.AutoComplete.MaxHeight = 15;
             this.textBoxEditor2.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.textBoxEditor2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxEditor2.ConfigurationManager.Language = "xml";
@@ -1455,5 +1467,6 @@ namespace OpenSkinDesigner.Frames
         private System.Windows.Forms.ToolStripMenuItem cToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem setFallbackColorToolStripMenuItem;
         private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.ToolStripMenuItem useFullAttributlistToolStripMenuItem;
     }
 }
