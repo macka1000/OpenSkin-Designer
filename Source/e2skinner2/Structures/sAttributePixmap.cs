@@ -209,7 +209,9 @@ namespace OpenSkinDesigner.Structures
 
                     if (filePaths != null && filePaths.Length > 0) // MOD
                     {
-                        pPixmapName = cProperties.getProperty("path_skin").Replace("./", "\\").Replace("/", "\\") + "/" + path + "/" + System.IO.Path.GetFileName(filePaths[0]);
+                        Random rand = new Random();
+                        int rnd = rand.Next(-1, filePaths.Length);
+                        pPixmapName = cProperties.getProperty("path_skin").Replace("./", "\\").Replace("/", "\\") + "/" + path + "/" + System.IO.Path.GetFileName(filePaths[rnd]);
                         Image pixmap = Image.FromFile(cDataBase.getPath(pPixmapName));
                         // Element has scale attribute -> take size attribute
                         if (node.Attributes["scale"] != null)
