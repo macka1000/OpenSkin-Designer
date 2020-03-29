@@ -30,7 +30,8 @@ namespace OpenSkinDesigner.Structures
             //so update all here
             if (((sAttributeWidget)pAttr).pRender.ToLower() == "label" || ((sAttributeWidget)pAttr).pRender.ToLower() == "fixedlabel"
             || ((sAttributeWidget)pAttr).pRender.ToLower() == "vrunningtext" || ((sAttributeWidget)pAttr).pRender.ToLower() == "metrixreloadedvrunningtext"
-            || ((sAttributeWidget)pAttr).pRender.ToLower() == "metrixreloadedscreennamelabel" || ((sAttributeWidget)pAttr).pRender.ToLower() == "speedyaxbluerunningtext")
+            || ((sAttributeWidget)pAttr).pRender.ToLower() == "metrixreloadedscreennamelabel" || ((sAttributeWidget)pAttr).pRender.ToLower() == "speedyaxbluerunningtext"
+            || ((sAttributeWidget)pAttr).pRender.ToLower() == "chamaeleonrunningtext")
             {
                 updateObject(pAttr, ((sAttributeWidget)pAttr).pLabel);
                 new sGraphicLabel((sAttributeLabel)((sAttributeWidget)pAttr).pLabel).paint(sender, e);

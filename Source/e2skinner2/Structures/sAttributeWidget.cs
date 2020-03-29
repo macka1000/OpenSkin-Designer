@@ -94,12 +94,12 @@ namespace OpenSkinDesigner.Structures
         {
             get
             {
-                if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel" || pRender.ToLower() == "vrunningtext" || pRender.ToLower() == "metrixreloadedvrunningtext" || pRender.ToLower() == "metrixreloadedscreennamelabel" || pRender.ToLower() == "speedyaxbluerunningtext") return pLabel.Text;
+                if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel" || pRender.ToLower() == "vrunningtext" || pRender.ToLower() == "metrixreloadedvrunningtext" || pRender.ToLower() == "metrixreloadedscreennamelabel" || pRender.ToLower() == "speedyaxbluerunningtext" || pRender.ToLower() == "chamaeleonrunningtext") return pLabel.Text;
                 else return "(none)";
             }
             set
             {
-                if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel" || pRender.ToLower() == "vrunningtext" || pRender.ToLower() == "metrixreloadedvrunningtext" || pRender.ToLower() == "metrixreloadedscreennamelabel" || pRender.ToLower() == "speedyaxbluerunningtext")
+                if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel" || pRender.ToLower() == "vrunningtext" || pRender.ToLower() == "metrixreloadedvrunningtext" || pRender.ToLower() == "metrixreloadedscreennamelabel" || pRender.ToLower() == "speedyaxbluerunningtext" || pRender.ToLower() == "chamaeleonrunningtext")
                 {
                     pLabel.Text = value;
                 }
@@ -112,7 +112,7 @@ namespace OpenSkinDesigner.Structures
         {
             get
             {
-                if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel" || pRender.ToLower() == "vrunningtext" || pRender.ToLower() == "metrixreloadedvrunningtext" || pRender.ToLower() == "metrixreloadedscreennamelabel" || pRender.ToLower() == "speedyaxbluerunningtext") return pLabel.pPreviewText;
+                if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel" || pRender.ToLower() == "vrunningtext" || pRender.ToLower() == "metrixreloadedvrunningtext" || pRender.ToLower() == "metrixreloadedscreennamelabel" || pRender.ToLower() == "speedyaxbluerunningtext" || pRender.ToLower() == "chamaeleonrunningtext") return pLabel.pPreviewText;
                 else return "(none)";
             }
         }
@@ -126,7 +126,7 @@ namespace OpenSkinDesigner.Structures
         {
             get
             {
-                if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel" || pRender.ToLower() == "vrunningtext" || pRender.ToLower() == "metrixreloadedvrunningtext" || pRender.ToLower() == "metrixreloadedscreennamelabel" || pRender.ToLower() == "speedyaxbluerunningtext")
+                if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel" || pRender.ToLower() == "vrunningtext" || pRender.ToLower() == "metrixreloadedvrunningtext" || pRender.ToLower() == "metrixreloadedscreennamelabel" || pRender.ToLower() == "speedyaxbluerunningtext" || pRender.ToLower() == "chamaeleonrunningtext")
                 {
                     return pLabel.Font;
                 }
@@ -141,7 +141,7 @@ namespace OpenSkinDesigner.Structures
             }
             set
             {
-                if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel" || pRender.ToLower() == "vrunningtext" || pRender.ToLower() == "metrixreloadedvrunningtext" || pRender.ToLower() == "metrixreloadedscreennamelabel" || pRender.ToLower() == "speedyaxbluerunningtext")
+                if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel" || pRender.ToLower() == "vrunningtext" || pRender.ToLower() == "metrixreloadedvrunningtext" || pRender.ToLower() == "metrixreloadedscreennamelabel" || pRender.ToLower() == "speedyaxbluerunningtext" || pRender.ToLower() == "chamaeleonrunningtext")
                 {
                     pLabel.Font = value;
                 }
@@ -158,7 +158,7 @@ namespace OpenSkinDesigner.Structures
         {
             get
             {
-                if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel" || pRender.ToLower() == "vrunningtext" || pRender.ToLower() == "metrixreloadedvrunningtext" || pRender.ToLower() == "metrixreloadedscreennamelabel" || pRender.ToLower() == "speedyaxbluerunningtext")
+                if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel" || pRender.ToLower() == "vrunningtext" || pRender.ToLower() == "metrixreloadedvrunningtext" || pRender.ToLower() == "metrixreloadedscreennamelabel" || pRender.ToLower() == "speedyaxbluerunningtext" || pRender.ToLower() == "chamaeleonrunningtext")
                 {
                     return pLabel.FontSize;
                 }
@@ -173,7 +173,7 @@ namespace OpenSkinDesigner.Structures
             }
             set
             {
-                if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel" || pRender.ToLower() == "vrunningtext" || pRender.ToLower() == "metrixreloadedvrunningtext" || pRender.ToLower() == "metrixreloadedscreennamelabel" || pRender.ToLower() == "speedyaxbluerunningtext")
+                if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel" || pRender.ToLower() == "vrunningtext" || pRender.ToLower() == "metrixreloadedvrunningtext" || pRender.ToLower() == "metrixreloadedscreennamelabel" || pRender.ToLower() == "speedyaxbluerunningtext" || pRender.ToLower() == "chamaeleonrunningtext")
                 {
                     pLabel.FontSize = value;
                 }
@@ -191,12 +191,12 @@ namespace OpenSkinDesigner.Structures
         {
             get
             {
-                if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel" || pRender.ToLower() == "vrunningtext" || pRender.ToLower() == "metrixreloadedvrunningtext" || pRender.ToLower() == "metrixreloadedscreennamelabel" || pRender.ToLower() == "speedyaxbluerunningtext") return pLabel.ForegroundColor;
+                if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel" || pRender.ToLower() == "vrunningtext" || pRender.ToLower() == "metrixreloadedvrunningtext" || pRender.ToLower() == "metrixreloadedscreennamelabel" || pRender.ToLower() == "speedyaxbluerunningtext" || pRender.ToLower() == "chamaeleonrunningtext") return pLabel.ForegroundColor;
                 else return "(none)";
             }
             set
             {
-                if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel" || pRender.ToLower() == "vrunningtext" || pRender.ToLower() == "metrixreloadedvrunningtext" || pRender.ToLower() == "metrixreloadedscreennamelabel" || pRender.ToLower() == "speedyaxbluerunningtext")
+                if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel" || pRender.ToLower() == "vrunningtext" || pRender.ToLower() == "metrixreloadedvrunningtext" || pRender.ToLower() == "metrixreloadedscreennamelabel" || pRender.ToLower() == "speedyaxbluerunningtext" || pRender.ToLower() == "chamaeleonrunningtext")
                 {
                     pLabel.ForegroundColor = value;
                 }
@@ -210,12 +210,12 @@ namespace OpenSkinDesigner.Structures
         {
             get
             {
-                if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel" || pRender.ToLower() == "vrunningtext" || pRender.ToLower() == "metrixreloadedvrunningtext" || pRender.ToLower() == "metrixreloadedscreennamelabel" || pRender.ToLower() == "speedyaxbluerunningtext") return pLabel.BackgroundColor;
+                if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel" || pRender.ToLower() == "vrunningtext" || pRender.ToLower() == "metrixreloadedvrunningtext" || pRender.ToLower() == "metrixreloadedscreennamelabel" || pRender.ToLower() == "speedyaxbluerunningtext" || pRender.ToLower() == "chamaeleonrunningtext") return pLabel.BackgroundColor;
                 else return "(none)";
             }
             set
             {
-                if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel" || pRender.ToLower() == "vrunningtext" || pRender.ToLower() == "metrixreloadedvrunningtext" || pRender.ToLower() == "metrixreloadedscreennamelabel" || pRender.ToLower() == "speedyaxbluerunningtext")
+                if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel" || pRender.ToLower() == "vrunningtext" || pRender.ToLower() == "metrixreloadedvrunningtext" || pRender.ToLower() == "metrixreloadedscreennamelabel" || pRender.ToLower() == "speedyaxbluerunningtext" || pRender.ToLower() == "chamaeleonrunningtext")
                 {
                     pLabel.BackgroundColor = value;
                 }
@@ -229,10 +229,10 @@ namespace OpenSkinDesigner.Structures
         {
             get
             {
-                if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel" || pRender.ToLower() == "vrunningtext" || pRender.ToLower() == "metrixreloadedvrunningtext" || pRender.ToLower() == "metrixreloadedscreennamelabel" || pRender.ToLower() == "speedyaxbluerunningtext") return pLabel.Valign;
+                if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel" || pRender.ToLower() == "vrunningtext" || pRender.ToLower() == "metrixreloadedvrunningtext" || pRender.ToLower() == "metrixreloadedscreennamelabel" || pRender.ToLower() == "speedyaxbluerunningtext" || pRender.ToLower() == "chamaeleonrunningtext") return pLabel.Valign;
                 else return "(none)";
             }
-            set { if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel" || pRender.ToLower() == "vrunningtext" || pRender.ToLower() == "metrixreloadedvrunningtext" || pRender.ToLower() == "metrixreloadedscreennamelabel" || pRender.ToLower() == "speedyaxbluerunningtext") pLabel.Valign = value; }
+            set { if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel" || pRender.ToLower() == "vrunningtext" || pRender.ToLower() == "metrixreloadedvrunningtext" || pRender.ToLower() == "metrixreloadedscreennamelabel" || pRender.ToLower() == "speedyaxbluerunningtext" || pRender.ToLower() == "chamaeleonrunningtext") pLabel.Valign = value; }
         }
 
         [TypeConverter(typeof(cProperty.HAlignConverter)),
@@ -241,10 +241,10 @@ namespace OpenSkinDesigner.Structures
         {
             get
             {
-                if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel" || pRender.ToLower() == "vrunningtext" || pRender.ToLower() == "metrixreloadedvrunningtext" || pRender.ToLower() == "metrixreloadedscreennamelabel" || pRender.ToLower() == "speedyaxbluerunningtext") return pLabel.Halign;
+                if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel" || pRender.ToLower() == "vrunningtext" || pRender.ToLower() == "metrixreloadedvrunningtext" || pRender.ToLower() == "metrixreloadedscreennamelabel" || pRender.ToLower() == "speedyaxbluerunningtext" || pRender.ToLower() == "chamaeleonrunningtext") return pLabel.Halign;
                 else return "(none)";
             }
-            set { if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel" || pRender.ToLower() == "vrunningtext" || pRender.ToLower() == "metrixreloadedvrunningtext" || pRender.ToLower() == "metrixreloadedscreennamelabel" || pRender.ToLower() == "speedyaxbluerunningtext") pLabel.Halign = value; }
+            set { if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel" || pRender.ToLower() == "vrunningtext" || pRender.ToLower() == "metrixreloadedvrunningtext" || pRender.ToLower() == "metrixreloadedscreennamelabel" || pRender.ToLower() == "speedyaxbluerunningtext" || pRender.ToLower() == "chamaeleonrunningtext") pLabel.Halign = value; }
         }
 
         [CategoryAttribute(entryNameLabel)]
@@ -252,10 +252,10 @@ namespace OpenSkinDesigner.Structures
         {
             get
             {
-                if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel" || pRender.ToLower() == "vrunningtext" || pRender.ToLower() == "metrixreloadedvrunningtext" || pRender.ToLower() == "metrixreloadedscreennamelabel" || pRender.ToLower() == "speedyaxbluerunningtext") return pLabel.pNoWrap;
+                if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel" || pRender.ToLower() == "vrunningtext" || pRender.ToLower() == "metrixreloadedvrunningtext" || pRender.ToLower() == "metrixreloadedscreennamelabel" || pRender.ToLower() == "speedyaxbluerunningtext" || pRender.ToLower() == "chamaeleonrunningtext") return pLabel.pNoWrap;
                 else return false;
             }
-            set { if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel" || pRender.ToLower() == "vrunningtext" || pRender.ToLower() == "metrixreloadedvrunningtext" || pRender.ToLower() == "metrixreloadedscreennamelabel" || pRender.ToLower() == "speedyaxbluerunningtext") pLabel.noWrap = value; }
+            set { if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel" || pRender.ToLower() == "vrunningtext" || pRender.ToLower() == "metrixreloadedvrunningtext" || pRender.ToLower() == "metrixreloadedscreennamelabel" || pRender.ToLower() == "speedyaxbluerunningtext" || pRender.ToLower() == "chamaeleonrunningtext") pLabel.noWrap = value; }
         }
 
         //######################################################################
@@ -430,6 +430,7 @@ namespace OpenSkinDesigner.Structures
                                                         "VRunningText",
                                                         "MetrixReloadedVRunningText",
                                                         "speedyAXBlueRunningText",
+                                                        "ChamaeleonRunningText",
                                                         "MetrixReloadedScreenNameLabel",
                                                         "Listbox",
                                                         "Picon",
@@ -462,8 +463,8 @@ namespace OpenSkinDesigner.Structures
             {
                 if (node.Attributes["pixmap"] != null || node.Attributes["pixmaps"] != null)
                     pRender = "Pixmap";
-                else if (pName == "menu" || pName == "config" || pName == "content" || pName == "list" || pName.EndsWith("list") || pName.StartsWith("list") || 
-                    pName.StartsWith("timer") || pName.EndsWith("List") || (myNode.Attributes["itemHeight"] != null && myNode.Attributes["font"] != null))
+                else if (pName == "menu" || pName == "config" || pName == "content" || pName == "list" || pName.Contains("list") || pName.Contains("List") || 
+                    pName.StartsWith("timer") || (myNode.Attributes["itemHeight"] != null && myNode.Attributes["font"] != null))
                     //||(node.HasChildNodes && node.FirstChild.Attributes["type"] != null && node.FirstChild.Attributes["type"].Value.ToLower() == "templatedmulticontent")) 
                     pRender = "Listbox";
                 else if (pName == "PositionGauge") //depreceated
@@ -474,7 +475,7 @@ namespace OpenSkinDesigner.Structures
                     pRender = "Label";
             }
 
-            if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel" || pRender.ToLower() == "vrunningtext" || pRender.ToLower() == "metrixreloadedvrunningtext" || pRender.ToLower() == "metrixreloadedscreennamelabel" || pRender.ToLower() == "speedyaxbluerunningtext")
+            if (pRender.ToLower() == "label" || pRender.ToLower() == "fixedlabel" || pRender.ToLower() == "vrunningtext" || pRender.ToLower() == "metrixreloadedvrunningtext" || pRender.ToLower() == "metrixreloadedscreennamelabel" || pRender.ToLower() == "speedyaxbluerunningtext" || pRender.ToLower() == "chamaeleonrunningtext")
             {
                 pLabel = new sAttributeLabel(parent, node);
             }
