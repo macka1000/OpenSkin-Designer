@@ -150,6 +150,71 @@ namespace OpenSkinDesigner.Structures
                     pPixmapName = "@broken.png";
                 }
             }
+            else if (node.Attributes["path"] != null)
+            {
+                //Any Render that use path attribute
+                String path = node.Attributes["path"].Value;
+                try
+                {
+                    // take random picture in path
+                    string[] filePaths = null;
+                    try
+                    {
+                        filePaths = Directory.GetFiles(@cDataBase.getPath(path));
+                    }
+                    catch
+                    {
+                        // Bug Fix: if path contains skin-path 
+                        try
+                        {
+                            path = path.Replace(cProperties.getProperty("path_skin"), "");
+                            filePaths = Directory.GetFiles(@cDataBase.getPath(path));
+                        }
+                        catch
+                        {
+
+                        }
+                    }
+
+                    if (filePaths != null && filePaths.Length > 0) // MOD
+                    {
+                        Random rand = new Random();
+                        int rnd = rand.Next(0, filePaths.Length);
+                        if (rnd == -filePaths.Length)
+                            pPixmapName = cProperties.getProperty("path_skin").Replace("./", "\\").Replace("/", "\\") + "/" + path + "/" + System.IO.Path.GetFileName(filePaths[rnd]);
+
+                        pPixmapName = cProperties.getProperty("path_skin").Replace("./", "\\").Replace("/", "\\") + "/" + path + "/" + System.IO.Path.GetFileName(filePaths[rnd]);
+                        Image pixmap = Image.FromFile(cDataBase.getPath(pPixmapName));
+                        // Element has scale attribute -> take size attribute
+                        if (node.Attributes["scale"] != null)
+                        {
+                            pPixmap = new Size(this.Size.Width, this.Size.Height);
+                        }
+                        else
+                        {
+                            pPixmap = pixmap.Size;
+                        }
+                        pixmap.Dispose();
+                    }
+                    else
+                    {
+                        Image pixmap = Image.FromFile(Application.StartupPath + cProperties.getProperty("path_skins").Replace("./", "\\").Replace("/", "\\") + "broken.png", true);
+                        pPixmap = pixmap.Size;
+                        pixmap.Dispose();
+                        pPixmapName = "@broken.png";
+                    }
+
+                }
+                catch (FileNotFoundException)
+                {
+                    Image pixmap = Image.FromFile(Application.StartupPath + cProperties.getProperty("path_skins").Replace("./", "\\").Replace("/", "\\") + "broken.png", true);
+                    pPixmap = pixmap.Size;
+                    pixmap.Dispose();
+                    pPixmapName = "@broken.png";
+                }
+
+                //MessageBox.Show(node.Attributes["path"].Value);
+            }
             else if (node.Attributes["render"] != null && node.Attributes["render"].Value.ToLower().Contains("picon"))
             {
                 try
@@ -181,71 +246,7 @@ namespace OpenSkinDesigner.Structures
                     pPixmapName = "@broken.png";
                 }
             }
-            else if (node.Attributes["path"] != null)
-            {
-                //Any Render that use path attribute
-                String path = node.Attributes["path"].Value;
-                try
-                {
-                    // take random picture in path
-                    string[] filePaths = null;
-                    try
-                    {
-                        filePaths = Directory.GetFiles(@cDataBase.getPath(path));
-                    }
-                    catch
-                    {
-                        // Bug Fix: if path contains skin-path 
-                        try
-                        {
-                            path = path.Replace(cProperties.getProperty("path_skin"), "");
-                            filePaths = Directory.GetFiles(@cDataBase.getPath(path));
-                        }                      
-                        catch
-                        {
-
-                        }
-                    }
-
-                    if (filePaths != null && filePaths.Length > 0) // MOD
-                    {
-                        Random rand = new Random();
-                        int rnd = rand.Next(0, filePaths.Length);
-                        if (rnd==-filePaths.Length)
-                            pPixmapName = cProperties.getProperty("path_skin").Replace("./", "\\").Replace("/", "\\") + "/" + path + "/" + System.IO.Path.GetFileName(filePaths[rnd]);
-
-                        pPixmapName = cProperties.getProperty("path_skin").Replace("./", "\\").Replace("/", "\\") + "/" + path + "/" + System.IO.Path.GetFileName(filePaths[rnd]);
-                        Image pixmap = Image.FromFile(cDataBase.getPath(pPixmapName));
-                        // Element has scale attribute -> take size attribute
-                        if (node.Attributes["scale"] != null)
-                        {
-                            pPixmap = new Size(this.Size.Width, this.Size.Height);
-                        }
-                        else
-                        {
-                            pPixmap = pixmap.Size;
-                        }
-                        pixmap.Dispose();
-                    }
-                    else
-                    {
-                        Image pixmap = Image.FromFile(Application.StartupPath + cProperties.getProperty("path_skins").Replace("./", "\\").Replace("/", "\\") + "broken.png", true);
-                        pPixmap = pixmap.Size;
-                        pixmap.Dispose();
-                        pPixmapName = "@broken.png";
-                    }
-                        
-                }
-                catch (FileNotFoundException)
-                {
-                    Image pixmap = Image.FromFile(Application.StartupPath + cProperties.getProperty("path_skins").Replace("./", "\\").Replace("/", "\\") + "broken.png", true);
-                    pPixmap = pixmap.Size;
-                    pixmap.Dispose();
-                    pPixmapName = "@broken.png";
-                }
-
-                //MessageBox.Show(node.Attributes["path"].Value);
-            }
+           
             else if (node.Attributes["render"] != null && node.Attributes["render"].Value.ToLower().Contains("eventimage"))
             {
                 try
