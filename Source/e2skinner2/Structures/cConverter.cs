@@ -207,8 +207,6 @@ namespace OpenSkinDesigner.Structures
                 case "ValueRange":
                     new ValueRange(Paramter, Source);
                     break;
-
-
                 case "ClockToText":
                     new ClockToText(Paramter, Source);
                     return text;
