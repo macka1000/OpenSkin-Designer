@@ -104,3 +104,5 @@ created by [Scrounger](https://github.com/Scrounger)
 ### 3.2.3.4 (29.03.2020) by Humax
 * Added render 'ChamaeleonRunningText'
 * If pixmap have a path without specified filename, take random image
+* Bugfix: Pixmap path
+* Added render with 'runningtext'
