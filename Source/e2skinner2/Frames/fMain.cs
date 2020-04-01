@@ -448,7 +448,7 @@ namespace OpenSkinDesigner.Frames
                                 subattr = null;
                             }
 
-                            if (tmpnode == node)
+                            if (tmpnode == node && subattr != null)
                             {
                                 propertyGrid1.SelectedObject = subattr;
                                 if (cProperties.getPropertyBool("fading"))
