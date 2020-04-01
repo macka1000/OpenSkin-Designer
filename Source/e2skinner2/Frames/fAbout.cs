@@ -127,8 +127,10 @@ namespace OpenSkinDesigner.Frames
                 "- Added render 'speedyAXBlueRunningText'" + Environment.NewLine +
                 "v3.2.3.4 by Humax" + Environment.NewLine +
                 "- Added render 'ChamaeleonRunningText'" + Environment.NewLine +
-                "- Bugfix: Pixmap path" + Environment.NewLine +
-                "- Added render with 'runningtext'" + Environment.NewLine +
+                "- Bugfix: pixmap path" + Environment.NewLine +
+                "- Added all renders containing 'runningtext'" + Environment.NewLine +
+                "- Handling all renders containing 'list' as listbox" + Environment.NewLine +
+                "- Notifying about unsafed changes" + Environment.NewLine +               
                 "- If pixmap have a path without specified filename, take random image" + Environment.NewLine;
         
         }
