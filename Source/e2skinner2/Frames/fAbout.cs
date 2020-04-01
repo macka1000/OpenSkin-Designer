@@ -130,7 +130,7 @@ namespace OpenSkinDesigner.Frames
                 "- Bugfix: pixmap path" + Environment.NewLine +
                 "- Added all renders containing 'runningtext'" + Environment.NewLine +
                 "- Handling all renders containing 'list' as listbox" + Environment.NewLine +
-                "- Notifying about unsafed changes" + Environment.NewLine +               
+                "- Notifying about unsafed changes" + Environment.NewLine +
                 "- If pixmap have a path without specified filename, take random image" + Environment.NewLine;
         
         }
