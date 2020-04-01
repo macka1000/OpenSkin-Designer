@@ -463,8 +463,7 @@ namespace OpenSkinDesigner.Structures
             {
                 if (node.Attributes["pixmap"] != null || node.Attributes["pixmaps"] != null)
                     pRender = "Pixmap";
-                else if (pName == "menu" || pName == "config" || pName == "content" || pName == "list" || pName.Contains("list") || pName.Contains("List") || 
-                    pName.StartsWith("timer") || (myNode.Attributes["itemHeight"] != null && myNode.Attributes["font"] != null))
+                else if (pName == "menu" || pName == "config" || pName == "content" || pName.ToLower().Contains("list") || pName.StartsWith("timer") || (myNode.Attributes["itemHeight"] != null && myNode.Attributes["font"] != null))
                     //||(node.HasChildNodes && node.FirstChild.Attributes["type"] != null && node.FirstChild.Attributes["type"].Value.ToLower() == "templatedmulticontent")) 
                     pRender = "Listbox";
                 else if (pName == "PositionGauge") //depreceated

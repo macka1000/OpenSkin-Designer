@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
             this.label1 = new System.Windows.Forms.Label();
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnHeaderName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -55,7 +55,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.textBoxAlpha = new System.Windows.Forms.MaskedTextBox();
             this.colorDialog = new System.Windows.Forms.ColorDialog();
-            this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonRemove = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.trackBarBlue = new System.Windows.Forms.TrackBar();
@@ -96,10 +95,11 @@
             this.listView1.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
-            listViewGroup1.Header = "ListViewGroup";
-            listViewGroup1.Name = "listViewGroup1";
+            listViewGroup2.Header = "ListViewGroup";
+            listViewGroup2.Name = "listViewGroup1";
             this.listView1.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup1});
+            listViewGroup2});
+            this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(12, 37);
             this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
@@ -172,7 +172,7 @@
             // buttonSave
             // 
             this.buttonSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonSave.Location = new System.Drawing.Point(416, 545);
+            this.buttonSave.Location = new System.Drawing.Point(497, 545);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(75, 23);
             this.buttonSave.TabIndex = 10;
@@ -347,17 +347,6 @@
             this.textBoxAlpha.Text = "255";
             this.textBoxAlpha.TextChanged += new System.EventHandler(this.textBoxAlpha_TextChanged);
             // 
-            // buttonCancel
-            // 
-            this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonCancel.Location = new System.Drawing.Point(497, 545);
-            this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(75, 23);
-            this.buttonCancel.TabIndex = 26;
-            this.buttonCancel.Text = "Cancel";
-            this.buttonCancel.UseVisualStyleBackColor = true;
-            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
-            // 
             // buttonRemove
             // 
             this.buttonRemove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -500,9 +489,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 575);
+            this.ControlBox = false;
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.label1);
@@ -514,6 +503,7 @@
             this.Name = "fColors";
             this.ShowInTaskbar = false;
             this.Text = "Color Settings";
+            this.Load += new System.EventHandler(this.fColors_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxColor)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -553,7 +543,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.MaskedTextBox textBoxAlpha;
         private System.Windows.Forms.ColorDialog colorDialog;
-        private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Button buttonRemove;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button buttonPallete;

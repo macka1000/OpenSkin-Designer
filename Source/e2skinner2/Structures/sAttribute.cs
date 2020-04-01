@@ -20,6 +20,8 @@ namespace OpenSkinDesigner.Structures
         public static bool ShowMsgFallbackFont { get; set; } = true; // Show Messagebox if OSD uses a 'Fallback-Font' (when font not found / declared)
         public static bool ShowMsgFallbackColor { get; set; } = true; // Show Messagebox if OSD uses a 'Fallback-Color' (When missing Color)
         public static bool ShowMsgFontNotFound { get; set; } = true; // Show Messagebox if a Font is not found
+        public static bool UnsafedChanges { get; set; } = false; // If Changes are made 
+        public static bool UnsafedChangesEditor { get; set; } = false; // If changes in Editor are made
 
         public static bool UseFullAttList { get; set; } = true; // Scintilla - autoComplete, use full Attribut list instead of normal / old one
         public static Color FallbackColor { get; set; } = Color.HotPink; 

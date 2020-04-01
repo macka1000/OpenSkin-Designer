@@ -86,16 +86,46 @@ namespace OpenSkinDesigner.Frames
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            fOpen ftmp = new fOpen();
-            //ftmp.setup(pXmlHandler);
-            ftmp.ShowDialog();
-            if (ftmp.Status == fOpen.eStatus.OK)
+            bool ignoreEditor = false;
+            checkChangesEditor(ref ignoreEditor);
+            if (ignoreEditor ==true)
             {
-                cProperties.setProperty("path_skin_xml", ftmp.SkinName + "/skin.xml");
-                open(ftmp.SkinName);
+                bool ignore = false;
+                checkChanges(ref ignore);
+                if (ignore == true)
+                {
+                    fOpen ftmp = new fOpen();
+                    //ftmp.setup(pXmlHandler);
+                    ftmp.ShowDialog();
+                    if (ftmp.Status == fOpen.eStatus.OK)
+                    {
+                        cProperties.setProperty("path_skin_xml", ftmp.SkinName + "/skin.xml");
+                        open(ftmp.SkinName);
+                    }
+                    
+                    pQueue.clear();
+                }
             }
+            else
+            {
+                bool ignore = false;
+                checkChanges(ref ignore);
+                if (ignore == true)
+                {
+                    fOpen ftmp = new fOpen();
+                    //ftmp.setup(pXmlHandler);
+                    ftmp.ShowDialog();
+                    if (ftmp.Status == fOpen.eStatus.OK)
+                    {
+                        cProperties.setProperty("path_skin_xml", ftmp.SkinName + "/skin.xml");
+                        open(ftmp.SkinName);
+                    }
 
-            pQueue.clear();
+                    pQueue.clear();
+                }
+            }
+            
+                
         }
 
         private void fillImageList()
@@ -180,7 +210,7 @@ namespace OpenSkinDesigner.Frames
             }
 
             treeView1.ImageList = treeImageList;
-            treeView1.ImageIndex = 0; //MOD vorher = 1
+            treeView1.ImageIndex = 0; //MOD was set to 1 before changes
             treeView1.SelectedImageIndex = 5;
             treeView1.GetNodeAt(0, 0).Expand();
             float xratio = (float)panelDesignerInner.Width / cDataBase.pResolution.getResolution().Xres;
@@ -265,6 +295,8 @@ namespace OpenSkinDesigner.Frames
             this.btnEditRoot.Enabled = false;
             this.tbxTreeFilter.Enabled = false;
             this.btnAddPanel.Enabled = false;
+            MyGlobaleVariables.UnsafedChanges = false;
+            MyGlobaleVariables.UnsafedChangesEditor = false;
 
             pQueue.clear();
         }
@@ -279,12 +311,16 @@ namespace OpenSkinDesigner.Frames
         public void save()
         {
             pXmlHandler.XmlToFile(cProperties.getProperty("path_skin_xml"));
+            MyGlobaleVariables.UnsafedChanges = false;
+            MyGlobaleVariables.UnsafedChangesEditor = false;
         }
 
         public void saveAs(String name)
         {
             pXmlHandler.XmlToFileAs(name);
-            //cProperties.setProperty("path_skin_xml", name); //MOD sonst crasht es danach beim save Button...
+            MyGlobaleVariables.UnsafedChanges = false;
+            MyGlobaleVariables.UnsafedChangesEditor = false;
+            //cProperties.setProperty("path_skin_xml", name); //MOD changed because without it, it will crash on save button...
         }
 
         private void refreshEditor()
@@ -480,6 +516,7 @@ namespace OpenSkinDesigner.Frames
 
         private void treeView1_AfterSelect(object sender, EventArgs e)
         {
+            MyGlobaleVariables.UnsafedChangesEditor = false;
             refresh();
         }
         private void treeView1_AfterDoubleclick(object sender, EventArgs e)
@@ -643,7 +680,9 @@ namespace OpenSkinDesigner.Frames
                 String label = e.ChangedItem.Label;
                 PropertyInfo pi = ((s as PropertyGrid).SelectedObject as sAttribute).GetType().GetProperty(label);
                 Object oldValue = e.OldValue;
-
+                //This is maybe not the correct place for this                
+                MyGlobaleVariables.UnsafedChanges = true;
+                //
                 if (pi == null)
                 {
                     //FIXME: This is just a workaround
@@ -815,10 +854,52 @@ namespace OpenSkinDesigner.Frames
         }
 
         private void btnOpen_Click(object sender, EventArgs e)
-        {
-            openToolStripMenuItem_Click(sender, e);
-
+        {            
+                openToolStripMenuItem_Click(sender, e);
         }
+
+        private bool checkChanges(ref bool ignore)
+        {
+            if (MyGlobaleVariables.UnsafedChanges == false)
+            {
+                ignore = true;
+                return true;
+            }               
+            else
+            {
+                DialogResult dialog = new DialogResult();
+                dialog = MessageBox.Show("You have unsafed changes. Do you want to continue anyway?", "Continue", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dialog == DialogResult.Yes)
+                {
+                    ignore = true;
+                    return true;
+                }                    
+                else
+                    return false;
+            }
+        }
+
+        private bool checkChangesEditor(ref bool ignore)
+        {
+            if (MyGlobaleVariables.UnsafedChangesEditor == false)
+            {
+                ignore = true;
+                return true;
+            }
+            else
+            {
+                DialogResult dialog = new DialogResult();
+                dialog = MessageBox.Show("You have made changes in the editor. Do you want to continue anyway?", "Continue", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dialog == DialogResult.Yes)
+                {
+                    ignore = true;
+                    return true;
+                }
+                else
+                    return false;
+            }
+        }
+
 
         private void windowStylesToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -829,7 +910,27 @@ namespace OpenSkinDesigner.Frames
 
         private void fMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            cProperties.saveFile();
+            bool ignoreEditor = false;
+            checkChangesEditor(ref ignoreEditor);
+            if (ignoreEditor == true)
+            {
+                bool ignore = false;
+                checkChanges(ref ignore);
+                if (ignore == true)
+                    cProperties.saveFile();
+                else
+                    e.Cancel = true;
+            }
+            else
+            {
+                bool ignore = false;
+                checkChanges(ref ignore);
+                if (ignore == true)
+                    cProperties.saveFile();
+                else
+                    e.Cancel = true;
+            }
+            
         }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
@@ -993,6 +1094,7 @@ namespace OpenSkinDesigner.Frames
                     cmd.To = node.OuterXml; // Set the result
 
                     pQueue.addSilentCmd(cmd);
+                    MyGlobaleVariables.UnsafedChanges = true;
 
                     refresh();
                     refreshPropertyGrid();
@@ -1076,7 +1178,7 @@ namespace OpenSkinDesigner.Frames
                     //--
 
                     cmd.To = node.OuterXml; // Set the result
-
+                    MyGlobaleVariables.UnsafedChanges = true;
                     pQueue.addSilentCmd(cmd);
 
                     refresh();
@@ -1119,6 +1221,7 @@ namespace OpenSkinDesigner.Frames
                 replaceXmlNode(nodeHash, ""); // Delete Element
                 cmd.To = parentNode.OuterXml; // Set the result
 
+                MyGlobaleVariables.UnsafedChanges = true;
                 pQueue.addSilentCmd(cmd);
             }
         }
@@ -1199,8 +1302,9 @@ namespace OpenSkinDesigner.Frames
                         textBoxEditor2.AutoScrollOffset = p;
                     }
 
-                    pXmlHandler.XmlSyncTreeChilds(treeView1.SelectedNode.GetHashCode(), treeView1.SelectedNode);
-
+                    pXmlHandler.XmlSyncTreeChilds(treeView1.SelectedNode.GetHashCode(), treeView1.SelectedNode);  
+                    MyGlobaleVariables.UnsafedChangesEditor = false;
+                    MyGlobaleVariables.UnsafedChanges = true;
                     pQueue.clear();
                 }
                 catch (Exception ex)
@@ -1222,8 +1326,23 @@ namespace OpenSkinDesigner.Frames
         }
 
         private void MiClose_Click(object sender, EventArgs e)
-        {
-            close();
+        {            
+            bool ignoreEditor = false;
+            checkChangesEditor(ref ignoreEditor);
+            if (ignoreEditor == true)
+            {
+                bool ignore = false;
+                checkChanges(ref ignore);
+                if (ignore == true)
+                    close();                
+            }
+            else
+            {
+                bool ignore = false;
+                checkChanges(ref ignore);
+                if (ignore == true)
+                    close();
+            }
         }
 
         private Int32 _StartX = 0;
@@ -1409,6 +1528,7 @@ namespace OpenSkinDesigner.Frames
                         propertyGrid1.Refresh();
                         sAttribute subattr = (sAttribute)propertyGrid1.SelectedObject;
                         pDesigner.redrawFog((int)subattr.pAbsolutX, (int)subattr.pAbsolutY, (int)subattr.pWidth, (int)subattr.pHeight);
+                        MyGlobaleVariables.UnsafedChanges = true;
                         pictureBox1.Invalidate();
                     }
                 }
@@ -1778,11 +1898,13 @@ namespace OpenSkinDesigner.Frames
         private void undoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             pQueue.undoCmd();
+            MyGlobaleVariables.UnsafedChanges = true;
         }
 
         private void redoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             pQueue.redoCmd();
+            MyGlobaleVariables.UnsafedChanges = true;
         }
 
         private void tbxTreeFilter_Enter(object sender, EventArgs e)
@@ -1947,6 +2069,7 @@ namespace OpenSkinDesigner.Frames
                 showElementsList(txt);
             else if (e.Ch == ' ')
                 showAttrList(txt);
+            MyGlobaleVariables.UnsafedChangesEditor = true;
         }
 
         private void showAttrList(ScintillaNET.Scintilla txt)
@@ -2133,6 +2256,36 @@ namespace OpenSkinDesigner.Frames
                 MyGlobaleVariables.UseFullAttList = false;
             }
             
+        }
+
+        private void textBoxEditor2_TextChanged(object sender, EventArgs e)
+        {            
+            MyGlobaleVariables.UnsafedChangesEditor = true;
+        }
+
+        private void textBoxEditor2_Leave(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void MiNew_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void treeView1_BeforeSelect(object sender, TreeViewCancelEventArgs e)
+        {
+            if (MyGlobaleVariables.UnsafedChangesEditor==true)
+            {
+                bool ignore = false;
+                checkChangesEditor(ref ignore);
+                if (ignore == false)
+                    e.Cancel = true;
+                else
+                    MyGlobaleVariables.UnsafedChangesEditor = false;
+
+
+            }
         }
 
         private void fMain_Load(object sender, EventArgs e)

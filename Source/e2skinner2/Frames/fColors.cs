@@ -96,6 +96,7 @@ namespace OpenSkinDesigner.Frames
             cDataBase.pColors.sync(pXmlHandler);
             if (Edited == true)
             {
+                MyGlobaleVariables.UnsafedChanges = false;
                 String Message = "You've made some changes, which will only take effect (show the color in the treeview)," ;
                 Message += "\n" + "after you have saved and reloaded the skin!";
                 Message += "\n";
@@ -144,8 +145,8 @@ namespace OpenSkinDesigner.Frames
                     String itmName = textBoxName.Text;
                     UInt32 itmColor = Convert.ToUInt32(textBoxValue.Text, 16);
 
-                    cDataBase.pColors.add((Object)new sColor(itmName, itmColor));
-                    Edited = true;
+                    cDataBase.pColors.add((Object)new sColor(itmName, itmColor));                   
+                    Edited = true;                   
                 }
                 
                 
@@ -331,12 +332,13 @@ namespace OpenSkinDesigner.Frames
                 textBoxGreen.Text = Convert.ToString(colorDialog.Color.G);
                 textBoxBlue.Text = Convert.ToString(colorDialog.Color.B);
                 textBoxAlpha.Text = "0"; // Wenn Auswahl in der Palette die Transparenz zurücksetzen
+                Edited = true;
             }
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
         {
-            Hide();
+            Close();
         }
 
         private void buttonRemove_Click(object sender, EventArgs e)
@@ -414,6 +416,11 @@ namespace OpenSkinDesigner.Frames
         private void trackBarRed_Scroll(object sender, EventArgs e)
         {
             textBoxRed.Text = trackBarRed.Value.ToString();
+        }
+
+        private void fColors_Load(object sender, EventArgs e)
+        {
+            refresh();
         }
     }
 }
