@@ -101,6 +101,7 @@ created by [Scrounger](https://github.com/Scrounger)
 * Added some entries to attribut-list like 'foregroundColors' 'options' 'pixmaps' and more
 * Added a option to enable showing full attribut-list
 * Autocomplete attribut list - max preview set to 15 instead of 5
+
 ### 3.2.3.4 (01.04.2020) by Humax
 * Added render 'ChamaeleonRunningText'
 * If pixmap have a path without specified filename, take random image
