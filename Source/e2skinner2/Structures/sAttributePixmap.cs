@@ -8,6 +8,7 @@ using System.Xml;
 using System.IO;
 using System.ComponentModel;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace OpenSkinDesigner.Structures
 {
@@ -123,7 +124,7 @@ namespace OpenSkinDesigner.Structures
                     pixmap.Dispose();
                     pPixmapName = "@broken.png";
                 }
-                catch (OutOfMemoryException) // If Pixmap isn't a pixmap or broken
+                catch (OutOfMemoryException) // If Pixmap isn't a image or broken
                 {
                     MessageBox.Show("File: '" + pPixmapName + "' seems to be corrupt!","File corrupt?",MessageBoxButtons.OK,MessageBoxIcon.Information);
                     Image pixmap = Image.FromFile(Application.StartupPath + cProperties.getProperty("path_skins").Replace("./", "\\").Replace("/", "\\") + "broken.png", true);
@@ -157,7 +158,7 @@ namespace OpenSkinDesigner.Structures
                     pixmap.Dispose();
                     pPixmapName = "@broken.png";
                 }
-                catch (OutOfMemoryException) // If Pixmap isn't a pixmap or broken
+                catch (OutOfMemoryException) // If Pixmap isn't a image or broken
                 {
                     MessageBox.Show("File: '" + pPixmapName + "' seems to be corrupt!", "File corrupt?", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Image pixmap = Image.FromFile(Application.StartupPath + cProperties.getProperty("path_skins").Replace("./", "\\").Replace("/", "\\") + "broken.png", true);
@@ -195,10 +196,16 @@ namespace OpenSkinDesigner.Structures
                     if (filePaths != null && filePaths.Length > 0) // MOD
                     {
                         Random rand = new Random();
-                        int rnd = rand.Next(0, filePaths.Length);
-                        if (rnd == -filePaths.Length)
-                            pPixmapName = cProperties.getProperty("path_skin").Replace("./", "\\").Replace("/", "\\") + "/" + path + "/" + System.IO.Path.GetFileName(filePaths[rnd]);
-
+                        int rnd = 0;
+                        string ext = string.Empty;
+                        int count = 0;
+                        while (ext != ".jpg" && ext!=".png" && ext != ".jpeg" && count !=50) // Only take images, try for 50 times to find a image
+                        {
+                            rnd = rand.Next(0, filePaths.Length);
+                            ext = System.IO.Path.GetExtension(filePaths[rnd]).ToLower();
+                            count++;
+                        }
+                        
                         pPixmapName = cProperties.getProperty("path_skin").Replace("./", "\\").Replace("/", "\\") + "/" + path + "/" + System.IO.Path.GetFileName(filePaths[rnd]);
                         Image pixmap = Image.FromFile(cDataBase.getPath(pPixmapName));
                         // Element has scale attribute -> take size attribute
@@ -228,7 +235,7 @@ namespace OpenSkinDesigner.Structures
                     pixmap.Dispose();
                     pPixmapName = "@broken.png";
                 }
-                catch (OutOfMemoryException) // If Pixmap isn't a pixmap or broken
+                catch (OutOfMemoryException) // If Pixmap isn't a image or broken
                 {
                     MessageBox.Show("File: '" + pPixmapName + "' seems to be corrupt!", "File corrupt?", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Image pixmap = Image.FromFile(Application.StartupPath + cProperties.getProperty("path_skins").Replace("./", "\\").Replace("/", "\\") + "broken.png", true);
