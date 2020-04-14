@@ -112,3 +112,4 @@ created by [Scrounger](https://github.com/Scrounger)
 
 ### 3.2.3.5 (14.04.2020) by Humax
 * Fixed an unhandled exception if pixmap is corrupt
+* Only take 'jpg'; 'jpeg' and 'png' for random picture selection

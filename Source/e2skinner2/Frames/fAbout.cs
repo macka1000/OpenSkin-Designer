@@ -133,7 +133,8 @@ namespace OpenSkinDesigner.Frames
                 "- Notifying about unsafed changes" + Environment.NewLine +
                 "- If pixmap have a path without specified filename, take random image" + Environment.NewLine + Environment.NewLine +
                 "v3.2.3.5 by Humax" + Environment.NewLine +
-                "- Fixed an unhandled exception if pixmap is corrupt" + Environment.NewLine;
+                "- Fixed an unhandled exception if pixmap is corrupt" + Environment.NewLine +
+                "- Only take 'jpg'; 'jpeg' and 'png' for random image selection" + Environment.NewLine;
 
         }
 
