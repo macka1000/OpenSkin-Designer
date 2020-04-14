@@ -125,14 +125,16 @@ namespace OpenSkinDesigner.Frames
                 "- Added a option to enable showing full attribut-list" + Environment.NewLine +
                 "- Autocomplete attribut list - max preview set to 15 instead of 5" + Environment.NewLine +
                 "- Added render 'speedyAXBlueRunningText'" + Environment.NewLine + Environment.NewLine +
-                "v3.2.3.4 by Humax" + Environment.NewLine + 
+                "v3.2.3.4 by Humax" + Environment.NewLine +
                 "- Added render 'ChamaeleonRunningText'" + Environment.NewLine +
                 "- Bugfix: pixmap path" + Environment.NewLine +
                 "- Added all renders containing 'runningtext'" + Environment.NewLine +
                 "- Handling all renders containing 'list' as listbox" + Environment.NewLine +
                 "- Notifying about unsafed changes" + Environment.NewLine +
-                "- If pixmap have a path without specified filename, take random image" + Environment.NewLine;
-        
+                "- If pixmap have a path without specified filename, take random image" + Environment.NewLine + Environment.NewLine +
+                "v3.2.3.5 by Humax" + Environment.NewLine +
+                "- Fixed an unhandled exception if pixmap is corrupt" + Environment.NewLine;
+
         }
 
         #region Assemblyattributaccessoren

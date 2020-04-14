@@ -109,3 +109,6 @@ created by [Scrounger](https://github.com/Scrounger)
 * Added all renders containing 'runningtext'
 * Handling all renders containing 'list' as listbox
 * Notifying about unsafed changes
+
+### 3.2.3.5 (14.04.2020) by Humax
+* Fixed an unhandled exception if pixmap is corrupt
