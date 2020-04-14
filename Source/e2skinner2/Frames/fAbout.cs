@@ -124,8 +124,8 @@ namespace OpenSkinDesigner.Frames
                 "- Added some entries to attribut-list like 'foregroundColors' 'options' 'pixmaps' and more" + Environment.NewLine +
                 "- Added a option to enable showing full attribut-list" + Environment.NewLine +
                 "- Autocomplete attribut list - max preview set to 15 instead of 5" + Environment.NewLine +
-                "- Added render 'speedyAXBlueRunningText'" + Environment.NewLine +
-                "v3.2.3.4 by Humax" + Environment.NewLine +
+                "- Added render 'speedyAXBlueRunningText'" + Environment.NewLine + Environment.NewLine +
+                "v3.2.3.4 by Humax" + Environment.NewLine + 
                 "- Added render 'ChamaeleonRunningText'" + Environment.NewLine +
                 "- Bugfix: pixmap path" + Environment.NewLine +
                 "- Added all renders containing 'runningtext'" + Environment.NewLine +
