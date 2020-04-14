@@ -123,6 +123,14 @@ namespace OpenSkinDesigner.Structures
                     pixmap.Dispose();
                     pPixmapName = "@broken.png";
                 }
+                catch (OutOfMemoryException) // If Pixmap isn't a pixmap or broken
+                {
+                    MessageBox.Show("File: '" + pPixmapName + "' seems to be corrupt!","File corrupt?",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    Image pixmap = Image.FromFile(Application.StartupPath + cProperties.getProperty("path_skins").Replace("./", "\\").Replace("/", "\\") + "broken.png", true);
+                    pPixmap = pixmap.Size;
+                    pixmap.Dispose();
+                    pPixmapName = "@broken.png";
+                }
             }
             else if (node.Attributes["pixmaps"] != null)
             {
@@ -144,6 +152,14 @@ namespace OpenSkinDesigner.Structures
                 }
                 catch (FileNotFoundException)
                 {
+                    Image pixmap = Image.FromFile(Application.StartupPath + cProperties.getProperty("path_skins").Replace("./", "\\").Replace("/", "\\") + "broken.png", true);
+                    pPixmap = pixmap.Size;
+                    pixmap.Dispose();
+                    pPixmapName = "@broken.png";
+                }
+                catch (OutOfMemoryException) // If Pixmap isn't a pixmap or broken
+                {
+                    MessageBox.Show("File: '" + pPixmapName + "' seems to be corrupt!", "File corrupt?", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Image pixmap = Image.FromFile(Application.StartupPath + cProperties.getProperty("path_skins").Replace("./", "\\").Replace("/", "\\") + "broken.png", true);
                     pPixmap = pixmap.Size;
                     pixmap.Dispose();
@@ -212,8 +228,14 @@ namespace OpenSkinDesigner.Structures
                     pixmap.Dispose();
                     pPixmapName = "@broken.png";
                 }
-
-                //MessageBox.Show(node.Attributes["path"].Value);
+                catch (OutOfMemoryException) // If Pixmap isn't a pixmap or broken
+                {
+                    MessageBox.Show("File: '" + pPixmapName + "' seems to be corrupt!", "File corrupt?", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Image pixmap = Image.FromFile(Application.StartupPath + cProperties.getProperty("path_skins").Replace("./", "\\").Replace("/", "\\") + "broken.png", true);
+                    pPixmap = pixmap.Size;
+                    pixmap.Dispose();
+                    pPixmapName = "@broken.png";
+                }
             }
             else if (node.Attributes["render"] != null && node.Attributes["render"].Value.ToLower().Contains("picon"))
             {
@@ -245,6 +267,7 @@ namespace OpenSkinDesigner.Structures
                     pixmap.Dispose();
                     pPixmapName = "@broken.png";
                 }
+               
             }
            
             else if (node.Attributes["render"] != null && node.Attributes["render"].Value.ToLower().Contains("eventimage"))
@@ -268,6 +291,7 @@ namespace OpenSkinDesigner.Structures
                     pixmap.Dispose();
                     pPixmapName = "@broken.png";
                 }
+                
             }
 
 
