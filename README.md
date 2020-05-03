@@ -111,5 +111,5 @@ created by [Scrounger](https://github.com/Scrounger)
 * Notifying about unsafed changes
 
 ### 3.2.3.5 (14.04.2020) by Humax
-* Fixed an unhandled exception if pixmap is corrupt
+* Fixed an unhandled exception if image is corrupt
 * Only take 'jpg'; 'jpeg' and 'png' for random picture selection
