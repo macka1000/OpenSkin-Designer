@@ -52,6 +52,7 @@ namespace OpenSkinDesigner.Frames
         public fOpen()
         {
             InitializeComponent();
+            SetLanguage();
             
             search(skins);
             if (listView1.Items.Count > 0)
@@ -59,6 +60,14 @@ namespace OpenSkinDesigner.Frames
                 listView1.Items[0].Selected = true;
                 listView1_SelectedIndexChanged(null, null);
             }
+        }
+
+        private void SetLanguage()
+        {
+            this.Text = fMain.GetTranslation("Open project");
+            lblSkinName.Text = fMain.GetTranslation("No skin selected");
+            btnCancel.Text = fMain.GetTranslation("Cancel");
+            btnOpen.Text = fMain.GetTranslation("Cancel");
         }
 
         private void fOpen_Load(object sender, EventArgs e)
