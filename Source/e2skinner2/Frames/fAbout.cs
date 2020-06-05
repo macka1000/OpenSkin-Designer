@@ -140,8 +140,11 @@ namespace OpenSkinDesigner.Frames
                 "v3.2.4.0 by Humax" + Environment.NewLine +
                 "- Fixed Typos" + Environment.NewLine +
                 "- Fixed unhandled exception in 'Color Dialog'" + Environment.NewLine +
-                "- Allow only valid characters in Textboxes in 'Color Dialog'" + Environment.NewLine +               
-                "- Support for language file" + Environment.NewLine;
+                "- Allow only valid characters in Textboxes in 'Color Dialog'" + Environment.NewLine +
+                "- Support for language file" + Environment.NewLine + Environment.NewLine +
+                "v3.2.4.1 by Humax" + Environment.NewLine +
+                "-  Add search for searching text in code editor" + Environment.NewLine;
+          
 
         }
 

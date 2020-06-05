@@ -121,3 +121,6 @@ created by [Scrounger](https://github.com/Scrounger)
 * Fixed unhandled exception in 'Color Dialog'
 * Allow only valid characters in Textboxes in 'Color Dialog'
 * Support for language file (CustomLanguage.lng) in 'xml'-diretory
+
+### 3.2.4.1 (05.06.2020) by Humax
+* Add search for searching text in code editor
