@@ -12,7 +12,7 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.IO;
 using System.Linq;
-
+using OpenSkinDesigner.Frames;
 
 namespace OpenSkinDesigner.Logic
 {
@@ -271,9 +271,9 @@ namespace OpenSkinDesigner.Logic
                     }
                     catch (FileNotFoundException error)
                     {
-                        String errormessage = "PNG not found " + image + "!";
+                        String errormessage = fMain.GetTranslation("PNG not found") + " " + image + "!";
                         errormessage += cDataBase.getPath(image) + "\n\n";
-                        errormessage += "Error:\n";
+                        errormessage += fMain.GetTranslation("Error:") + "\n";
                         errormessage += error.Message;
 
                         MessageBox.Show(errormessage,
@@ -325,23 +325,23 @@ namespace OpenSkinDesigner.Logic
                         pColors.Add(color.pName, color);
                     else
                     {
-                        String errormessage = "More than one color defined with name " + color.pName;
+                        String errormessage = fMain.GetTranslation("More than one color defined with name") + " '" + color.pName + "'";
                         errormessage += "\n\n" + ((sColor)pColors[color.pName]).pName + "\t#" + Convert.ToString(((sColor)pColors[color.pName]).pValue, 16); ;
                         errormessage += "\n" + color.pName + "\t#" + Convert.ToString(color.pValue, 16);
 
                         errormessage += "\n";
-                        errormessage += "\n" + "The second definition will be deleted if you save manually.";
+                        errormessage += "\n" + fMain.GetTranslation("The second definition will be deleted if you save manually.");
 
                         errormessage += "\n";
-                        errormessage += "\n" + "Until you save the second definition is still shown in TreeView!";
+                        errormessage += "\n" + fMain.GetTranslation("Until you save, the second definition is still shown in TreeView!");
 
                         errormessage += "\n";
-                        errormessage += "\n" + "Do you want to save and reload the skin?";
+                        errormessage += "\n" + fMain.GetTranslation("Do you want to save and reload the skin?");
 
 
 
                         if (MessageBox.Show(errormessage,
-                             "Error while parsing color table",
+                             fMain.GetTranslation("Error while parsing color table"),
                              MessageBoxButtons.YesNo,
                              MessageBoxIcon.Information,
                              MessageBoxDefaultButton.Button1) == DialogResult.Yes)
@@ -658,10 +658,10 @@ namespace OpenSkinDesigner.Logic
                             }
                             else
                             {
-                                String errormessage = "More than one font defined with name " + myXmlNode.Attributes["name"].Value;
+                                String errormessage = fMain.GetTranslation("More than one font defined with name") + " '" + myXmlNode.Attributes["name"].Value + "'";
 
                                 MessageBox.Show(errormessage,
-                                     "Error while parsing font table",
+                                     fMain.GetTranslation("Error while parsing font table"),
                                      MessageBoxButtons.OK,
                                      MessageBoxIcon.Information,
                                      MessageBoxDefaultButton.Button1);
@@ -690,10 +690,10 @@ namespace OpenSkinDesigner.Logic
                             }
                             else
                             {
-                                String errormessage = "More than one font (alias) defined with name " + myXmlNode.Attributes["name"].Value;
+                                String errormessage = fMain.GetTranslation("More than one font (alias) defined with name") + " '" + myXmlNode.Attributes["name"].Value + "'";
 
                                 MessageBox.Show(errormessage,
-                                     "Error while parsing font table",
+                                     fMain.GetTranslation("Error while parsing font table"),
                                      MessageBoxButtons.OK,
                                      MessageBoxIcon.Information,
                                      MessageBoxDefaultButton.Button1);
@@ -724,8 +724,8 @@ namespace OpenSkinDesigner.Logic
                     if (MyGlobaleVariables.ShowMsgFallbackFont==true)
                     {
                         DialogResult dr = new DialogResult();
-                        dr = MessageBox.Show(String.Format("Font '{0}' is not defined or exist!\nUsing fallback font 'lcd.ttf; 25'" + Environment.NewLine + Environment.NewLine
-                            + "Show this message again?", name), "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        dr = MessageBox.Show(String.Format(fMain.GetTranslation("Font") + " '{0}' " + fMain.GetTranslation("is not defined or exist!") + "\n" + fMain.GetTranslation("Using 'fallback font'") + " 'lcd.ttf; 25'" + Environment.NewLine + Environment.NewLine
+                            + fMain.GetTranslation("Show this message again?"), name), fMain.GetTranslation("Error"), MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                         if (dr == DialogResult.No)
                             MyGlobaleVariables.ShowMsgFallbackFont = false;
 
@@ -754,8 +754,8 @@ namespace OpenSkinDesigner.Logic
                     if (MyGlobaleVariables.ShowMsgFallbackFont == true)
                     {
                         DialogResult dr = new DialogResult();
-                        dr = MessageBox.Show(String.Format("Font '{0}' is not defined or exist!\nUsing fallback font 'lcd.ttf; 25'" + Environment.NewLine + Environment.NewLine
-                            + "Show this message again?", name), "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        dr = MessageBox.Show(String.Format(fMain.GetTranslation("Font") + " '{0}' " + fMain.GetTranslation("is not defined or exist!") + "\n" + fMain.GetTranslation("Using 'fallback font'") + " 'lcd.ttf; 25'" + Environment.NewLine + Environment.NewLine
+                            + fMain.GetTranslation("Show this message again?"), name), fMain.GetTranslation("Error"), MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                         if (dr == DialogResult.No)
                             MyGlobaleVariables.ShowMsgFallbackFont = false;
 
@@ -810,8 +810,13 @@ namespace OpenSkinDesigner.Logic
             string[] path2 = { "skin" };
             XmlNode Node = XmlHandler.XmlGetRootNodeElement(path2);
 
-            if (Node.HasChildNodes)
-                checkLocations(Node.ChildNodes);
+            
+            if (Node != null)
+            {
+                if (Node.HasChildNodes)
+                    checkLocations(Node.ChildNodes);
+            }
+                
         }
 
         private static void checkLocations(XmlNodeList nodes)
