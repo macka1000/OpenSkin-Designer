@@ -35,6 +35,16 @@ namespace OpenSkinDesigner.Frames
             trackBarZoom.Enabled = false; //MOD
             numericUpDownZoom.Enabled = false; //MOD
             jToolStripMenuItem.Visible = false; //MOD
+            if (File.Exists("xml/CustomLanguage.lng"))
+            {
+                MyGlobaleVariables.Language = System.IO.File.ReadAllLines("xml/CustomLanguage.lng");
+                if (MyGlobaleVariables.Language.Length > 0 && MyGlobaleVariables.Language[0].StartsWith("Language: "))
+                {
+                    MiCustomLanguage_Name.Text = MyGlobaleVariables.Language[0].Substring(MyGlobaleVariables.Language[0].IndexOf("Language: ") + 10);
+                    MiCustomLanguage.Visible = true;
+                }
+            }
+
             if (Platform.sysPlatform != Platform.ePlatform.MONO)
                 textBoxEditor2.ConfigurationManager.Language = "xml";
 
@@ -44,7 +54,7 @@ namespace OpenSkinDesigner.Frames
 
             DirectoryInfo folder = new DirectoryInfo("elements");
 
-            buildAddElementsMenu(folder, elementToolStripMenuItem1);
+            buildAddElementsMenu(folder, MiElement);
 
             pQueue = new cCommandQueue();
             pQueue.UndoPossibleEvent += new cCommandQueue.UndoRedoHandler(eventUndoPossible);
@@ -74,13 +84,13 @@ namespace OpenSkinDesigner.Frames
 
         private void eventUndoPossible(bool sender, EventArgs e)
         {
-            undoToolStripMenuItem.Enabled = sender;
+            MiUndo.Enabled = sender;
             btnUndo.Enabled = sender;
         }
 
         private void eventRedoPossible(bool sender, EventArgs e)
         {
-            redoToolStripMenuItem.Enabled = sender;
+            MiRedo.Enabled = sender;
             btnRedo.Enabled = sender;
         }
 
@@ -88,7 +98,7 @@ namespace OpenSkinDesigner.Frames
         {
             bool ignoreEditor = false;
             checkChangesEditor(ref ignoreEditor);
-            if (ignoreEditor ==true)
+            if (ignoreEditor == true)
             {
                 bool ignore = false;
                 checkChanges(ref ignore);
@@ -102,7 +112,7 @@ namespace OpenSkinDesigner.Frames
                         cProperties.setProperty("path_skin_xml", ftmp.SkinName + "/skin.xml");
                         open(ftmp.SkinName);
                     }
-                    
+
                     pQueue.clear();
                 }
             }
@@ -124,8 +134,8 @@ namespace OpenSkinDesigner.Frames
                     pQueue.clear();
                 }
             }
-            
-                
+
+
         }
 
         private void fillImageList()
@@ -184,8 +194,8 @@ namespace OpenSkinDesigner.Frames
             // Close all open
             close();
 
-            trackBarZoom.Enabled=true; //MOD
-            numericUpDownZoom.Enabled=true; //MOD
+            trackBarZoom.Enabled = true; //MOD
+            numericUpDownZoom.Enabled = true; //MOD
             cProperties.setProperty("path_skin", path);
             cProperties.setProperty("path", "./skins");
             cProperties.setProperty("path_fonts", "./fonts");
@@ -217,7 +227,7 @@ namespace OpenSkinDesigner.Frames
             float yratio = (float)panelDesignerInner.Height / cDataBase.pResolution.getResolution().Yres;
             float zoom = xratio < yratio ? xratio : yratio;
             //if (trackBarZoom.Minimum > (int)((zoom - 1.0f) * 100.0f - 0.5f)) //MOD - Komisch war bei meiner Version nicht nötig???
-             //   trackBarZoom.Minimum = (int)((zoom - 1.0f) * 100.0f - 0.5f); //MOD
+            //   trackBarZoom.Minimum = (int)((zoom - 1.0f) * 100.0f - 0.5f); //MOD
             trackBarZoom.Value = (int)((zoom - 1.0f) * 100.0f - 0.5f);
             pDesigner.drawFrame();
 
@@ -232,10 +242,10 @@ namespace OpenSkinDesigner.Frames
             btnSave.Enabled = true;
             btnSaveEditor.Enabled = true;
 
-            this.addLabelToolStripMenuItem.Enabled = true;
-            this.addPixmapToolStripMenuItem.Enabled = true;
-            this.addWidgetToolStripMenuItem.Enabled = true;
-            this.deletToolStripMenuItem.Enabled = true;
+            this.MiAddLabel.Enabled = true;
+            this.MiAddPixmap.Enabled = true;
+            this.MiAddWidget.Enabled = true;
+            this.MiDeleteSelected.Enabled = true;
             this.btnEditRoot.Enabled = true;
             this.tbxTreeFilter.Enabled = true;
             this.btnAddLabel.Enabled = true;
@@ -260,8 +270,8 @@ namespace OpenSkinDesigner.Frames
             cDataBase.clear();
             treeView1.Nodes.Clear();
             treeView1.Invalidate();
-            trackBarZoom.Enabled=false;//MOD
-            numericUpDownZoom.Enabled=false;//MOD
+            trackBarZoom.Enabled = false;//MOD
+            numericUpDownZoom.Enabled = false;//MOD
 
             if (Platform.sysPlatform == Platform.ePlatform.MONO)
                 textBoxEditor.Clear();
@@ -283,10 +293,10 @@ namespace OpenSkinDesigner.Frames
             btnSave.Enabled = false;
             btnSaveEditor.Enabled = false;
 
-            this.addLabelToolStripMenuItem.Enabled = false;
-            this.addPixmapToolStripMenuItem.Enabled = false;
-            this.addWidgetToolStripMenuItem.Enabled = false;
-            this.deletToolStripMenuItem.Enabled = false;
+            this.MiAddLabel.Enabled = false;
+            this.MiAddPixmap.Enabled = false;
+            this.MiAddWidget.Enabled = false;
+            this.MiDeleteSelected.Enabled = false;
             this.btnAddLabel.Enabled = false;
             this.btnAddPixmap.Enabled = false;
             this.btnAddWidget.Enabled = false;
@@ -371,7 +381,7 @@ namespace OpenSkinDesigner.Frames
         {
             lbxSearch.Visible = false;
             refreshEditor();
-            tbxTreeFilter.Text = "Search...";
+            tbxTreeFilter.Text = GetTranslation("Search...");
             propertyGrid1.SelectedObject = null;
 
             TreeNode selectedNode = treeView1.SelectedNode;
@@ -527,8 +537,11 @@ namespace OpenSkinDesigner.Frames
 
         private void resolutionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DialogResult rst = MessageBox.Show("Note: The skin will be automatically saved if you want to continue!\nIt is recommented to create a backup of your skin first!\n\nPress Cancel to abort.",
-                "", MessageBoxButtons.OKCancel);
+
+            MessageBox.Show(GetTranslation("This function is not sufficiently tested and seems unstable. It is not recommended to use it!"),
+                GetTranslation("Warning"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            DialogResult rst = MessageBox.Show(GetTranslation("Note:") + " " + GetTranslation("The skin will be automatically saved if you want to continue!") + "\n" + GetTranslation("It is recommend to create a backup of your skin first!") + "\n\n" + GetTranslation("Press 'Cancel' to abort."),
+               GetTranslation("Warning"), MessageBoxButtons.OKCancel);
 
             if (rst == DialogResult.OK)
             {
@@ -624,7 +637,7 @@ namespace OpenSkinDesigner.Frames
             pSemaphorePropertyGrid = false;
 
             // This is a workaround, if a Do was made, an undo is possible, so activate it.
-            undoToolStripMenuItem.Enabled = pQueue.isUndoPossible();
+            MiUndo.Enabled = pQueue.isUndoPossible();
             btnUndo.Enabled = pQueue.isUndoPossible();
         }
 
@@ -747,7 +760,7 @@ namespace OpenSkinDesigner.Frames
             cProperties.setProperty("skinned_label", btnSkinned.Checked);
             cProperties.setProperty("skinned_pixmap", btnSkinned.Checked);
             cProperties.setProperty("skinned_widget", btnSkinned.Checked);
-            
+
 
 
 
@@ -854,8 +867,8 @@ namespace OpenSkinDesigner.Frames
         }
 
         private void btnOpen_Click(object sender, EventArgs e)
-        {            
-                openToolStripMenuItem_Click(sender, e);
+        {
+            openToolStripMenuItem_Click(sender, e);
         }
 
         private bool checkChanges(ref bool ignore)
@@ -864,7 +877,7 @@ namespace OpenSkinDesigner.Frames
             {
                 ignore = true;
                 return true;
-            }               
+            }
             else
             {
                 DialogResult dialog = new DialogResult();
@@ -873,7 +886,7 @@ namespace OpenSkinDesigner.Frames
                 {
                     ignore = true;
                     return true;
-                }                    
+                }
                 else
                     return false;
             }
@@ -930,7 +943,7 @@ namespace OpenSkinDesigner.Frames
                 else
                     e.Cancel = true;
             }
-            
+
         }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1167,7 +1180,7 @@ namespace OpenSkinDesigner.Frames
                             newXmlNode = pXmlHandler.XmlAppendNode(node, attributes);
                         }
 
-                        
+
                     }
                     else
                     {
@@ -1186,7 +1199,7 @@ namespace OpenSkinDesigner.Frames
                     //refreshEditor();
                     propertyGrid1.Refresh();
                     pictureBox1.Invalidate();
-                    
+
 
                 }
             }
@@ -1195,9 +1208,9 @@ namespace OpenSkinDesigner.Frames
                 tabControl1.SelectedIndex = 1;
                 treeView1.SelectedNode = treeView1.Nodes[0].Nodes[treeView1.Nodes[0].Nodes.Count - 1];
                 Console.WriteLine(treeView1.SelectedNode.Text);
-                
+
             }
-            
+
         }
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1269,7 +1282,7 @@ namespace OpenSkinDesigner.Frames
 
         private void btnSaveEditor_Click(object sender, EventArgs e)
         {
-            if ( treeView1.SelectedNode != null)
+            if (treeView1.SelectedNode != null)
             {
 
                 int hash = treeView1.SelectedNode.GetHashCode();
@@ -1290,7 +1303,7 @@ namespace OpenSkinDesigner.Frames
                         replaceXmlNode(hash, textBoxEditor2.Text);
                     }
 
-                    toolStripLabel1.Text = "No Errors.";
+                    TslStatus.Text = GetTranslation("No Errors.");
 
 
                     if (Platform.sysPlatform == Platform.ePlatform.MONO)
@@ -1302,18 +1315,18 @@ namespace OpenSkinDesigner.Frames
                         textBoxEditor2.AutoScrollOffset = p;
                     }
 
-                    pXmlHandler.XmlSyncTreeChilds(treeView1.SelectedNode.GetHashCode(), treeView1.SelectedNode);  
+                    pXmlHandler.XmlSyncTreeChilds(treeView1.SelectedNode.GetHashCode(), treeView1.SelectedNode);
                     MyGlobaleVariables.UnsafedChangesEditor = false;
                     MyGlobaleVariables.UnsafedChanges = true;
                     pQueue.clear();
                 }
                 catch (Exception ex)
                 {
-                    toolStripLabel1.Text = "Error: " + ex.Message;
+                    TslStatus.Text = GetTranslation("Error:") + " " + ex.Message;
                 }
             }
             else
-                toolStripLabel1.Text = "Error: " + "No element selected";
+                TslStatus.Text = GetTranslation("Error:") + " " + GetTranslation("No element selected");
         }
 
 
@@ -1326,7 +1339,7 @@ namespace OpenSkinDesigner.Frames
         }
 
         private void MiClose_Click(object sender, EventArgs e)
-        {            
+        {
             bool ignoreEditor = false;
             checkChangesEditor(ref ignoreEditor);
             if (ignoreEditor == true)
@@ -1334,7 +1347,7 @@ namespace OpenSkinDesigner.Frames
                 bool ignore = false;
                 checkChanges(ref ignore);
                 if (ignore == true)
-                    close();                
+                    close();
             }
             else
             {
@@ -1618,7 +1631,7 @@ namespace OpenSkinDesigner.Frames
             isResize = false;
             this.Cursor = Cursors.Default;
         }
- 
+
         private void pictureBox1_MouseLeave(object s, EventArgs e)
         {
             this.Cursor = Cursors.Default;
@@ -1751,7 +1764,7 @@ namespace OpenSkinDesigner.Frames
         private void tabControl1_Enter(object sender, EventArgs e)
         {
             lbxSearch.Visible = false;
-            tbxTreeFilter.Text = "Search...";
+            tbxTreeFilter.Text = GetTranslation("Search...");
             if (sender is TabControl)
             {
                 if (((TabControl)sender).SelectedIndex == 0)
@@ -1869,7 +1882,7 @@ namespace OpenSkinDesigner.Frames
         private void trackBarZoom_ValueChanged(object sender, EventArgs e)
         {
             setZoom(((System.Windows.Forms.TrackBar)sender).Value / 100.0f + 1.0f);
-           // if (numericUpDownZoom.Minimum > ((System.Windows.Forms.TrackBar)sender).Value) //MOD - Komisch war bei meiner Version nicht nötig???
+            // if (numericUpDownZoom.Minimum > ((System.Windows.Forms.TrackBar)sender).Value) //MOD - Komisch war bei meiner Version nicht nötig???
             //    numericUpDownZoom.Minimum = ((System.Windows.Forms.TrackBar)sender).Minimum; //MOD
 
             numericUpDownZoom.Value = ((System.Windows.Forms.TrackBar)sender).Value;
@@ -1909,7 +1922,7 @@ namespace OpenSkinDesigner.Frames
 
         private void tbxTreeFilter_Enter(object sender, EventArgs e)
         {
-            if (tbxTreeFilter.Text == "Search...")
+            if (tbxTreeFilter.Text == GetTranslation("Search..."))
             {
                 tbxTreeFilter.Text = "";
             }
@@ -1976,19 +1989,19 @@ namespace OpenSkinDesigner.Frames
                 }
                 if (lbxSearch.Height + lbxSearch.ItemHeight > treeView1.Height)
                     break;
-           }
+            }
         }
 
         private void tbxTreeFilter_TextChanged(object sender, EventArgs e)
         {
-            if (tbxTreeFilter.Text != "" && tbxTreeFilter.Text != "Search..." && tbxTreeFilter.Text.Length >= 3)
+            if (tbxTreeFilter.Text != "" && tbxTreeFilter.Text != GetTranslation("Search...") && tbxTreeFilter.Text.Length >= 3)
             {
-                lbxSearch.Width = treeView1.Width-4;
+                lbxSearch.Width = treeView1.Width - 4;
                 lbxSearch.Height = 4;
                 lbxSearch.Items.Clear();
                 lbxSearch.Visible = true;
                 doSearch(treeView1.Nodes[0].Nodes);
-            } 
+            }
             else
             {
                 lbxSearch.Visible = false;
@@ -2006,19 +2019,19 @@ namespace OpenSkinDesigner.Frames
 
         private void btnEditRoot_Click(object sender, EventArgs e)
         {
-            
+
             if (treeView1.Nodes.Count > 0)
             {
                 treeView1.GetNodeAt(0, 0).Expand();
                 treeView1.SelectedNode = treeView1.Nodes[0];
             }
-            
+
             foreach (ScintillaNET.Line linear in this.textBoxEditor2.Lines)
             {
                 if (linear.IsFoldPoint && linear.FoldExpanded && (linear.Text.Contains("<screen") || linear.Text.Contains("<output") || linear.Text.Contains("<colors") || linear.Text.Contains("<fonts") || linear.Text.Contains("<subtitles") || linear.Text.Contains("<windowstyle")))
                 {
                     linear.ToggleFoldExpanded();
-                        
+
                 }
             }
             tabControl1.SelectedIndex = 1;
@@ -2063,7 +2076,7 @@ namespace OpenSkinDesigner.Frames
 
         private void autoComplete(object sender, ScintillaNET.CharAddedEventArgs e)
         {
-            
+
             ScintillaNET.Scintilla txt = (ScintillaNET.Scintilla)sender;
             if (e.Ch == '<')
                 showElementsList(txt);
@@ -2088,8 +2101,8 @@ namespace OpenSkinDesigner.Frames
             words.Add("zPosition");
             words.Add("borderWidth");
             words.Add("borderColor");
-                        
-            words.Add("foregroundColor");            
+
+            words.Add("foregroundColor");
             words.Add("pixmap");
             words.Add("halign");
             words.Add("valign");
@@ -2173,7 +2186,7 @@ namespace OpenSkinDesigner.Frames
                 words.Add("EntryBackgroundColor");
                 words.Add("EntryBackgroundColorSelected");
                 words.Add("descriptionfont");
-                words.Add("animationMode"); 
+                words.Add("animationMode");
                 words.Add("scrollbarSliderForegroundColor");
                 words.Add("scrollbarSliderBorderColor");
                 words.Add("imageType");
@@ -2214,7 +2227,7 @@ namespace OpenSkinDesigner.Frames
                 words.Add("pixtype");
                 words.Add("plugin_pixmaps");
                 words.Add("colorEventProgressbarSelected");
-              
+
             }
 
             words.Sort();
@@ -2222,18 +2235,6 @@ namespace OpenSkinDesigner.Frames
             txt.AutoComplete.IsCaseSensitive = false;
             txt.AutoComplete.DropRestOfWord = false;
             txt.AutoComplete.Show();
-        }
-
-        private void cToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (addUndefinedColorsWithToolStripMenuItem.Checked == true)
-            {
-                MyGlobaleVariables.AddUndefinedColor = "#";
-            }
-            else
-            {
-                MyGlobaleVariables.AddUndefinedColor = "un";
-            }
         }
 
         private void setFallbackColorToolStripMenuItem_Click(object sender, EventArgs e)
@@ -2247,7 +2248,7 @@ namespace OpenSkinDesigner.Frames
 
         private void useFullAttributlistToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (useFullAttributlistToolStripMenuItem.Checked == true)
+            if (MiUseFullAttributlist.Checked == true)
             {
                 MyGlobaleVariables.UseFullAttList = true;
             }
@@ -2255,17 +2256,17 @@ namespace OpenSkinDesigner.Frames
             {
                 MyGlobaleVariables.UseFullAttList = false;
             }
-            
+
         }
 
         private void textBoxEditor2_TextChanged(object sender, EventArgs e)
-        {            
+        {
             MyGlobaleVariables.UnsafedChangesEditor = true;
         }
 
         private void textBoxEditor2_Leave(object sender, EventArgs e)
         {
-            
+
         }
 
         private void MiNew_Click(object sender, EventArgs e)
@@ -2275,7 +2276,7 @@ namespace OpenSkinDesigner.Frames
 
         private void treeView1_BeforeSelect(object sender, TreeViewCancelEventArgs e)
         {
-            if (MyGlobaleVariables.UnsafedChangesEditor==true)
+            if (MyGlobaleVariables.UnsafedChangesEditor == true)
             {
                 bool ignore = false;
                 checkChangesEditor(ref ignore);
@@ -2285,6 +2286,109 @@ namespace OpenSkinDesigner.Frames
                     MyGlobaleVariables.UnsafedChangesEditor = false;
 
 
+            }
+        }
+
+        private void TS_CustomLanguage_Name_Click(object sender, EventArgs e)
+        {
+            if (MiCustomLanguage_Name.Checked == true)
+            {
+                MyGlobaleVariables.CustomLanguage = true;
+                          
+            }
+            else
+            {
+                MyGlobaleVariables.CustomLanguage = false;
+            }
+            MiFile.Text = GetTranslation("File");
+            MiNew.Text = GetTranslation("New");
+            MiOpen.Text = GetTranslation("Open");
+            MiSave.Text = GetTranslation("Save");
+            MiSaveAs.Text = GetTranslation("Save as");
+            MiClose.Text = GetTranslation("Close");
+            MiExit.Text = GetTranslation("Exit");
+            MiEdit.Text = GetTranslation("Edit");
+            MiRedo.Text = GetTranslation("Redo");
+            MiUndo.Text = GetTranslation("Undo");
+            MiElement.Text = GetTranslation("Element");
+            MiAddLabel.Text = GetTranslation("Add Label");
+            MiAddPixmap.Text = GetTranslation("Add Pixmap");
+            MiAddWidget.Text = GetTranslation("Add Widget");
+            MiDeleteSelected.Text = GetTranslation("Delete selected");
+            MiSettings.Text = GetTranslation("Settings");
+            MiResolution.Text = GetTranslation("Resolution");
+            MiColors.Text = GetTranslation("Colors");
+            MiFonts.Text = GetTranslation("Fonts");
+            MiWindowStyles.Text = GetTranslation("WindowStyles");
+            MiPreferences.Text = GetTranslation("Preferences");
+            MiReloadConverterXml.Text = GetTranslation("Reload converter.xml");
+            MiReloadPreviewTextXml.Text = GetTranslation("Reload previewText.xml");
+            MiAddUndefinedColors.Text = GetTranslation("Add undefined color with '#'");
+            MiSetFallbackColor.Text = GetTranslation("Set 'Fallback'-Color");
+            MiUseFullAttributlist.Text = GetTranslation("Use full attribut-list");
+            MiCustomLanguage.Text = GetTranslation("Custom language");
+            btnOpen.Text = GetTranslation("Open");
+            btnSave.Text = GetTranslation("Save");
+            btnAddLabel.Text = GetTranslation("Add Label");
+            btnAddPanel.Text = GetTranslation("Add Panel");
+            btnAddPixmap.Text = GetTranslation("Add Pixmap");
+            btnAddScreen.Text = GetTranslation("Add Screen");
+            btnAddWidget.Text = GetTranslation("Add Widget");
+            btnDelete.Text = GetTranslation("Delete Element");
+            btnEditRoot.Text = GetTranslation("Edit Root");
+            btnUndo.Text = GetTranslation("Undo");
+            btnRedo.Text = GetTranslation("Redo");
+            keyCaptureNotifyButton.Text = GetTranslation("Capturing Keyboard Events");
+            tbxTreeFilter.Text = GetTranslation("Search...");
+            tabControl1.TabPages[0].Text = GetTranslation("Designer");
+            tabControl1.TabPages[1].Text = GetTranslation("Code");
+            btnSkinned.Text = GetTranslation("All");
+            TslMarker.Text = GetTranslation("Marker");
+            btnSkinned_Alpha.Text = GetTranslation("Alpha");
+            btnFading.Text = GetTranslation("Fading");
+            btnSkinnedShowPanels.Text = GetTranslation("Show panels");
+            btnSkinnedLabel.Text = GetTranslation("Show labels");
+            btnSkinnedPixmap.Text = GetTranslation("Show pixmaps");
+            btnSkinnedScreen.Text = GetTranslation("Show screens");
+            btnSkinnedWidget.Text = GetTranslation("Show widgets");
+            TslConditionalWidgets.Text = GetTranslation("Conditional widgets");
+            btnSkinned_Conditional_All.Text = GetTranslation("All");
+            btnSkinned_Conditional_Default.Text = GetTranslation("Default");
+            btnSkinned_Conditional_None.Text = GetTranslation("None");
+            btnSkinned_Conditional_Random.Text = GetTranslation("Random");
+            TslStatus.Text = GetTranslation("No Errors.");
+            btnSaveEditor.Text = GetTranslation("Sync");
+            btnFoldOff.Text = GetTranslation("Sync");
+            btnFoldOn.Text = GetTranslation("Sync");
+            btnFoldElementsOff.Text = GetTranslation("Sync");
+            btnFoldElementsOn.Text = GetTranslation("Sync");
+        }
+
+        public static string GetTranslation(string Word)
+        {
+            if (MyGlobaleVariables.CustomLanguage == false)
+                return Word;
+            string tmp = Array.Find(MyGlobaleVariables.Language, element => element.StartsWith(Word + ": "));
+            if (tmp == null)
+                return Word;
+            string translation = tmp.Substring(tmp.IndexOf(Word + ": ") + Word.Length + 2);
+            return translation;
+        }
+
+        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TSAddUndefinedColors_Click(object sender, EventArgs e)
+        {
+            if (MiAddUndefinedColors.Checked == true)
+            {
+                MyGlobaleVariables.AddUndefinedColor = "#";
+            }
+            else
+            {
+                MyGlobaleVariables.AddUndefinedColor = "un";
             }
         }
 
