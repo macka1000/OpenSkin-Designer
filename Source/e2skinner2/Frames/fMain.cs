@@ -13,6 +13,7 @@ using System.IO;
 using OpenSkinDesigner.Logic;
 using OpenSkinDesigner.Structures;
 using System.Reflection;
+using ScintillaNET;
 
 namespace OpenSkinDesigner.Frames
 {
@@ -1992,6 +1993,30 @@ namespace OpenSkinDesigner.Frames
             }
         }
 
+        private void doSearchCode()
+        {
+            int line = 0;
+            var found = new List<int>();
+            string message = GetTranslation("The search term was found in the following lines (only showing 30 lines!):") + Environment.NewLine;
+            foreach (Line ln in textBoxEditor2.Lines)
+            {
+                line += 1;
+                if (ln.Text.Contains(tbxSearchCode.Text))
+                {
+                    found.Add(line);
+                    message += line + Environment.NewLine;
+                    if (found.Count > 29) // Only show 30 items
+                        break;
+                }
+            }
+
+            if (found.Count > 0)
+                MessageBox.Show(message, GetTranslation("Ergebnis"),MessageBoxButtons.OK,MessageBoxIcon.Information);
+            else
+                MessageBox.Show(GetTranslation("The search term was not found!"), GetTranslation("Ergebnis"), MessageBoxButtons.OK, MessageBoxIcon.Information);
+            
+        }
+
         private void tbxTreeFilter_TextChanged(object sender, EventArgs e)
         {
             if (tbxTreeFilter.Text != "" && tbxTreeFilter.Text != GetTranslation("Search...") && tbxTreeFilter.Text.Length >= 3)
@@ -2391,6 +2416,25 @@ namespace OpenSkinDesigner.Frames
                 MyGlobaleVariables.AddUndefinedColor = "un";
             }
         }
+
+        
+        private void tbxSearchCode_Enter(object sender, EventArgs e)
+        {
+            if (tbxSearchCode.Text == GetTranslation("Search..."))
+            {
+                tbxSearchCode.Text = "";
+            }
+        }
+
+        private void tbxSearchCode_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Return)
+                if (textBoxEditor2.Text != null && textBoxEditor2.Text != "")
+                    doSearchCode();
+                else
+                    MessageBox.Show(GetTranslation("No text to browse!"), GetTranslation("Information"), MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+
 
         private void fMain_Load(object sender, EventArgs e)
         {
