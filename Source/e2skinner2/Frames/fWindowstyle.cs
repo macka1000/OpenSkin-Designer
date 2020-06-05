@@ -20,9 +20,18 @@ namespace OpenSkinDesigner.Frames
         public fWindowstyle()
         {
             InitializeComponent();
+            SetLanguage();
             pDesigner = new cDesigner(pictureBoxPreview.CreateGraphics());
         }
 
+        private void SetLanguage()
+        {
+            this.Text = fMain.GetTranslation("Window-Style settings");
+            labelStyle.Text = fMain.GetTranslation("Style");
+            labelPreview.Text = fMain.GetTranslation("Style");
+            tabControl1.TabPages[0].Text = fMain.GetTranslation("Table");
+            tabControl1.TabPages[1].Text = fMain.GetTranslation("View");
+        }
         public void setup(cXMLHandler xmlhandler)
         {
             pXmlHandler = xmlhandler;
