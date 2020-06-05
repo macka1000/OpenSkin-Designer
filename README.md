@@ -118,4 +118,4 @@ created by [Scrounger](https://github.com/Scrounger)
 * Fixed Typos
 * Fixed unhandled exception in 'Color Dialog'
 * Allow only valid characters in Textboxes in 'Color Dialog'
-* Support for language file (CustomLanguage.lng) in main-diretory
+* Support for language file (CustomLanguage.lng) in 'xml'-diretory
