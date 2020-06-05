@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OpenSkinDesigner.Structures;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -13,7 +14,8 @@ namespace OpenSkinDesigner.Frames
         public fAbout()
         {
             InitializeComponent();
-            this.Text = String.Format("Info über {0}", AssemblyTitle);
+            SetLanguage();
+            this.Text = String.Format(fMain.GetTranslation("Information about") + " {0}", AssemblyTitle);
             this.labelProductName.Text = AssemblyProduct;
             this.labelVersion.Text = String.Format("Version {0}", AssemblyVersion);
             this.labelCopyright.Text = AssemblyCopyright;
@@ -134,8 +136,18 @@ namespace OpenSkinDesigner.Frames
                 "- If pixmap have a path without specified filename, take random image" + Environment.NewLine + Environment.NewLine +
                 "v3.2.3.5 by Humax" + Environment.NewLine +
                 "- Fixed an unhandled exception if image is corrupt" + Environment.NewLine +
-                "- Only take 'jpg'; 'jpeg' and 'png' for random image selection" + Environment.NewLine;
+                "- Only take 'jpg'; 'jpeg' and 'png' for random image selection" + Environment.NewLine + Environment.NewLine +
+                "v3.2.4.0 by Humax" + Environment.NewLine +
+                "- Fixed Typos" + Environment.NewLine +
+                "- Fixed unhandled exception in 'Color Dialog'" + Environment.NewLine +
+                "- Allow only valid characters in Textboxes in 'Color Dialog'" + Environment.NewLine +               
+                "- Support for language file" + Environment.NewLine;
 
+        }
+
+        private void SetLanguage()
+        {
+            okButton.Text = fMain.GetTranslation("OK");          
         }
 
         #region Assemblyattributaccessoren
@@ -217,10 +229,5 @@ namespace OpenSkinDesigner.Frames
             }
         }
         #endregion
-
-        private void okButton_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
