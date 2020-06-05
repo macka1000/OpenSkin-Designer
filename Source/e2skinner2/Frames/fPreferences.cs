@@ -16,6 +16,7 @@ namespace OpenSkinDesigner.Frames
         public fPreferences()
         {
             InitializeComponent();
+            SetLanguage();
 
             foreach (DictionaryEntry key in cProperties.getProperties())
             {
@@ -25,6 +26,13 @@ namespace OpenSkinDesigner.Frames
 
             if(listView1.Items.Count > 0)
                 listView1.RedrawItems(0, listView1.Items.Count - 1, false);
+        }
+
+        private void SetLanguage()
+        {
+            this.Text = fMain.GetTranslation("Preferences");
+            listView1.Columns[0].Text = fMain.GetTranslation("Key");
+            listView1.Columns[1].Text = fMain.GetTranslation("Value");
         }
 
     }
