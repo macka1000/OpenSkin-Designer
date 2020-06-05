@@ -22,6 +22,8 @@ namespace OpenSkinDesigner.Structures
         public static bool ShowMsgFontNotFound { get; set; } = true; // Show Messagebox if a Font is not found
         public static bool UnsafedChanges { get; set; } = false; // If Changes are made 
         public static bool UnsafedChangesEditor { get; set; } = false; // If changes in Editor are made
+        public static string[] Language { get; set; } = null; // Custom language
+        public static bool CustomLanguage { get; set; } = false; // If custom language is enabled
 
         public static bool UseFullAttList { get; set; } = true; // Scintilla - autoComplete, use full Attribut list instead of normal / old one
         public static Color FallbackColor { get; set; } = Color.HotPink; 
