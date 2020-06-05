@@ -14,7 +14,7 @@ using System.IO;
 namespace OpenSkinDesigner.Frames
 {
     public partial class fFonts : Form
-    {
+    {        
         private cXMLHandler pXmlHandler = null;
         Font MyFont = new Font("Arial", 30.25F, FontStyle.Regular, GraphicsUnit.Pixel);
 
@@ -23,6 +23,7 @@ namespace OpenSkinDesigner.Frames
         public fFonts()
         {
             InitializeComponent();
+            SetLanguage();
         }
 
         public void setup(cXMLHandler xmlhandler)
@@ -86,13 +87,13 @@ namespace OpenSkinDesigner.Frames
                         found = pFont.Found; //MOD
                         if (found == true) //MOD
                         {
-                            PreviewText = "This is a preview-text to show the font";
-                            PreviewText2 = "Test-String SKY 1234567890 !#?ÜÖÄ$%/()";
+                            PreviewText = fMain.GetTranslation("This is a preview-text to show the font");
+                            PreviewText2 = fMain.GetTranslation("Test-String SKY 1234567890 !#?ÜÖÄ$%/()");
                             if (pSize == 0) //MOD if Size=0 set Size and show preview-text
                             {
                                 pSize = 20;
-                                PreviewText = "To be able to show this preview, the font size";
-                                PreviewText2 = "was temporarily changed from 0 to 20";
+                                PreviewText = fMain.GetTranslation("To be able to show this preview, the font size");
+                                PreviewText2 = fMain.GetTranslation("was temporarily changed from 0 to 20");
                             }
                             // font = new System.Drawing.Font(pFont.FontFamily, pSize, pFont.FontStyle, GraphicsUnit.Pixel);
                             MyFont = new System.Drawing.Font(pFont.FontFamily, pSize, pFont.FontStyle, GraphicsUnit.Pixel);
@@ -102,8 +103,8 @@ namespace OpenSkinDesigner.Frames
                         }
                         else
                         {
-                            Console.WriteLine("Font painting failed! (" + pFont.Name + ")");
-                            textBoxPreview.Text = "The font '" + pFont.Name + "' was not found." + Environment.NewLine + "Probably this is a default font on the image of your box";
+                            Console.WriteLine(fMain.GetTranslation("Font painting failed!") +" (" + pFont.Name + ")");
+                            textBoxPreview.Text = fMain.GetTranslation("The font") + " '" + pFont.Name + "' " + fMain.GetTranslation("was not found.") + Environment.NewLine + fMain.GetTranslation("Probably this is a default font on the image of your box");
                             textBoxPreview.Visible = true; //MOD
                         }
 
@@ -111,7 +112,7 @@ namespace OpenSkinDesigner.Frames
                     else
                     {
                         Console.WriteLine("Font painting failed! (" + pFont.Name + ")");
-                        textBoxPreview.Text = "The font '" + pFont.Name + "' was not found." + Environment.NewLine + "Probably this is a default font on the image of your box";
+                        textBoxPreview.Text = fMain.GetTranslation("The font") + " '" + pFont.Name + "' " + fMain.GetTranslation("was not found.") + Environment.NewLine + fMain.GetTranslation("Probably this is a default font on the image of your box");
                         textBoxPreview.Visible = true; //MOD
                     }
                 }
@@ -149,6 +150,27 @@ namespace OpenSkinDesigner.Frames
                 checkBoxReplacement.Checked = false;
             else
                 checkBoxReplacement.Checked = true;
+        }
+
+        private void SetLanguage()
+        {
+            this.Text = fMain.GetTranslation("Preview fonts");
+            labelName.Text = fMain.GetTranslation("Name");
+            labelPath.Text = fMain.GetTranslation("Path");
+            labelPreviewFonts.Text = fMain.GetTranslation("Preview fonts");
+            labelScale.Text = fMain.GetTranslation("Scale");
+            labelSize.Text = fMain.GetTranslation("Size");
+            checkBoxReplacement.Text = fMain.GetTranslation("Replacement");
+            listView1.Columns[0].Text = fMain.GetTranslation("isAlias");
+            listView1.Columns[1].Text = fMain.GetTranslation("Name");
+            listView1.Columns[2].Text = fMain.GetTranslation("Filename");
+            listView1.Columns[3].Text = fMain.GetTranslation("Font");
+            listView1.Columns[4].Text = fMain.GetTranslation("Size");
+            listView1.Columns[5].Text = fMain.GetTranslation("Path");
+            listView1.Columns[6].Text = fMain.GetTranslation("Scale");
+            listView1.Columns[7].Text = fMain.GetTranslation("Replacement");
+            listView1.Columns[8].Text = fMain.GetTranslation("Usage");
+
         }
     }
 }
