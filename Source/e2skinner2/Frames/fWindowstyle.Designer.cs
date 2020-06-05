@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelPreview = new System.Windows.Forms.Label();
             this.comboBoxStyles = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.labelStyle = new System.Windows.Forms.Label();
             this.pictureBoxPreview = new System.Windows.Forms.PictureBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageTable = new System.Windows.Forms.TabPage();
@@ -74,15 +74,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTop)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // labelPreview
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(482, 49);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(88, 25);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Preview";
+            this.labelPreview.AutoSize = true;
+            this.labelPreview.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPreview.Location = new System.Drawing.Point(482, 49);
+            this.labelPreview.Name = "labelPreview";
+            this.labelPreview.Size = new System.Drawing.Size(88, 25);
+            this.labelPreview.TabIndex = 1;
+            this.labelPreview.Text = "Preview";
             // 
             // comboBoxStyles
             // 
@@ -93,15 +93,15 @@
             this.comboBoxStyles.TabIndex = 26;
             this.comboBoxStyles.SelectedIndexChanged += new System.EventHandler(this.comboBoxStyles_SelectedIndexChanged);
             // 
-            // label2
+            // labelStyle
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 10);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(60, 25);
-            this.label2.TabIndex = 27;
-            this.label2.Text = "Style";
+            this.labelStyle.AutoSize = true;
+            this.labelStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelStyle.Location = new System.Drawing.Point(12, 10);
+            this.labelStyle.Name = "labelStyle";
+            this.labelStyle.Size = new System.Drawing.Size(60, 25);
+            this.labelStyle.TabIndex = 27;
+            this.labelStyle.Text = "Style";
             // 
             // pictureBoxPreview
             // 
@@ -417,9 +417,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(806, 394);
             this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.labelStyle);
             this.Controls.Add(this.comboBoxStyles);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelPreview);
             this.Controls.Add(this.pictureBoxPreview);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = global::OpenSkinDesigner.Properties.Resources.OpenSkinDesigner;
@@ -450,9 +450,9 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBoxPreview;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelPreview;
         private System.Windows.Forms.ComboBox comboBoxStyles;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelStyle;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPageTable;
         private System.Windows.Forms.PropertyGrid propertyGridTable;
