@@ -32,7 +32,7 @@ namespace OpenSkinDesigner.Frames
         {
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MiFile = new System.Windows.Forms.ToolStripMenuItem();
             this.MiNew = new System.Windows.Forms.ToolStripMenuItem();
             this.MiOpen = new System.Windows.Forms.ToolStripMenuItem();
             this.MiSave = new System.Windows.Forms.ToolStripMenuItem();
@@ -40,31 +40,33 @@ namespace OpenSkinDesigner.Frames
             this.MiClose = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.MiExit = new System.Windows.Forms.ToolStripMenuItem();
-            this.elementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.undoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.redoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MiEdit = new System.Windows.Forms.ToolStripMenuItem();
+            this.MiUndo = new System.Windows.Forms.ToolStripMenuItem();
+            this.MiRedo = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.elementToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.addLabelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addPixmapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addWidgetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MiElement = new System.Windows.Forms.ToolStripMenuItem();
+            this.MiAddLabel = new System.Windows.Forms.ToolStripMenuItem();
+            this.MiAddPixmap = new System.Windows.Forms.ToolStripMenuItem();
+            this.MiAddWidget = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
-            this.deletToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MiDeleteSelected = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
-            this.addUndefinedColorsWithToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MiSettings = new System.Windows.Forms.ToolStripMenuItem();
             this.MiResolution = new System.Windows.Forms.ToolStripMenuItem();
             this.MiColors = new System.Windows.Forms.ToolStripMenuItem();
             this.MiFonts = new System.Windows.Forms.ToolStripMenuItem();
             this.MiWindowStyles = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.reloadConverterxmlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reloadPreviewTextxmlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MiReloadConverterXml = new System.Windows.Forms.ToolStripMenuItem();
+            this.MiReloadPreviewTextXml = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.MiPreferences = new System.Windows.Forms.ToolStripMenuItem();
             this.jToolStripMenuItem = new System.Windows.Forms.ToolStripSeparator();
-            this.cToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.setFallbackColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.useFullAttributlistToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MiAddUndefinedColors = new System.Windows.Forms.ToolStripMenuItem();
+            this.MiSetFallbackColor = new System.Windows.Forms.ToolStripMenuItem();
+            this.MiUseFullAttributlist = new System.Windows.Forms.ToolStripMenuItem();
+            this.MiCustomLanguage = new System.Windows.Forms.ToolStripMenuItem();
+            this.MiCustomLanguage_Name = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -74,7 +76,7 @@ namespace OpenSkinDesigner.Frames
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.trackBarZoom = new System.Windows.Forms.TrackBar();
             this.toolStripDesigner = new System.Windows.Forms.ToolStrip();
-            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
+            this.TslMarker = new System.Windows.Forms.ToolStripLabel();
             this.btnSkinned = new System.Windows.Forms.ToolStripButton();
             this.btnSkinnedScreen = new System.Windows.Forms.ToolStripButton();
             this.btnSkinnedLabel = new System.Windows.Forms.ToolStripButton();
@@ -88,7 +90,7 @@ namespace OpenSkinDesigner.Frames
             this.keyCaptureNotifyButton = new System.Windows.Forms.ToolStripButton();
             this.btnSkinnedShowPanels = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator15 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
+            this.TslConditionalWidgets = new System.Windows.Forms.ToolStripLabel();
             this.btnSkinned_Conditional_Random = new System.Windows.Forms.ToolStripButton();
             this.btnSkinned_Conditional_All = new System.Windows.Forms.ToolStripButton();
             this.btnSkinned_Conditional_Default = new System.Windows.Forms.ToolStripButton();
@@ -106,7 +108,7 @@ namespace OpenSkinDesigner.Frames
             this.btnFoldElementsOn = new System.Windows.Forms.ToolStripButton();
             this.btnFoldElementsOff = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator16 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.TslStatus = new System.Windows.Forms.ToolStripLabel();
             this.textBoxEditor = new System.Windows.Forms.TextBox();
             this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
@@ -188,10 +190,10 @@ namespace OpenSkinDesigner.Frames
             this.menuStrip1.BackColor = System.Drawing.Color.Transparent;
             this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem,
-            this.elementToolStripMenuItem,
-            this.elementToolStripMenuItem1,
-            this.addUndefinedColorsWithToolStripMenuItem,
+            this.MiFile,
+            this.MiEdit,
+            this.MiElement,
+            this.MiSettings,
             this.toolStripMenuItemHelp});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -200,9 +202,9 @@ namespace OpenSkinDesigner.Frames
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // fileToolStripMenuItem
+            // MiFile
             // 
-            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MiFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MiNew,
             this.MiOpen,
             this.MiSave,
@@ -210,9 +212,9 @@ namespace OpenSkinDesigner.Frames
             this.MiClose,
             this.toolStripSeparator2,
             this.MiExit});
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem.Text = "File";
+            this.MiFile.Name = "MiFile";
+            this.MiFile.Size = new System.Drawing.Size(37, 20);
+            this.MiFile.Text = "File";
             // 
             // MiNew
             // 
@@ -267,119 +269,121 @@ namespace OpenSkinDesigner.Frames
             this.MiExit.Text = "Exit";
             this.MiExit.Click += new System.EventHandler(this.MiExit_Click);
             // 
-            // elementToolStripMenuItem
+            // MiEdit
             // 
-            this.elementToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.undoToolStripMenuItem,
-            this.redoToolStripMenuItem,
+            this.MiEdit.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MiUndo,
+            this.MiRedo,
             this.toolStripSeparator3});
-            this.elementToolStripMenuItem.Name = "elementToolStripMenuItem";
-            this.elementToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
-            this.elementToolStripMenuItem.Text = "Edit";
+            this.MiEdit.Name = "MiEdit";
+            this.MiEdit.Size = new System.Drawing.Size(39, 20);
+            this.MiEdit.Text = "Edit";
             // 
-            // undoToolStripMenuItem
+            // MiUndo
             // 
-            this.undoToolStripMenuItem.Enabled = false;
-            this.undoToolStripMenuItem.Image = global::OpenSkinDesigner.Properties.Resources.Undo;
-            this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
-            this.undoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.undoToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
-            this.undoToolStripMenuItem.Text = "Undo";
-            this.undoToolStripMenuItem.Click += new System.EventHandler(this.undoToolStripMenuItem_Click);
+            this.MiUndo.Enabled = false;
+            this.MiUndo.Image = global::OpenSkinDesigner.Properties.Resources.Undo;
+            this.MiUndo.Name = "MiUndo";
+            this.MiUndo.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
+            this.MiUndo.Size = new System.Drawing.Size(146, 22);
+            this.MiUndo.Text = "Undo";
+            this.MiUndo.Click += new System.EventHandler(this.undoToolStripMenuItem_Click);
             // 
-            // redoToolStripMenuItem
+            // MiRedo
             // 
-            this.redoToolStripMenuItem.Enabled = false;
-            this.redoToolStripMenuItem.Image = global::OpenSkinDesigner.Properties.Resources.Redo;
-            this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
-            this.redoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
-            this.redoToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
-            this.redoToolStripMenuItem.Text = "Redo";
-            this.redoToolStripMenuItem.Click += new System.EventHandler(this.redoToolStripMenuItem_Click);
+            this.MiRedo.Enabled = false;
+            this.MiRedo.Image = global::OpenSkinDesigner.Properties.Resources.Redo;
+            this.MiRedo.Name = "MiRedo";
+            this.MiRedo.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
+            this.MiRedo.Size = new System.Drawing.Size(146, 22);
+            this.MiRedo.Text = "Redo";
+            this.MiRedo.Click += new System.EventHandler(this.redoToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(143, 6);
             // 
-            // elementToolStripMenuItem1
+            // MiElement
             // 
-            this.elementToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addLabelToolStripMenuItem,
-            this.addPixmapToolStripMenuItem,
-            this.addWidgetToolStripMenuItem,
+            this.MiElement.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MiAddLabel,
+            this.MiAddPixmap,
+            this.MiAddWidget,
             this.toolStripSeparator8,
-            this.deletToolStripMenuItem,
+            this.MiDeleteSelected,
             this.toolStripSeparator9});
-            this.elementToolStripMenuItem1.Name = "elementToolStripMenuItem1";
-            this.elementToolStripMenuItem1.Size = new System.Drawing.Size(62, 20);
-            this.elementToolStripMenuItem1.Text = "Element";
+            this.MiElement.Name = "MiElement";
+            this.MiElement.Size = new System.Drawing.Size(62, 20);
+            this.MiElement.Text = "Element";
             // 
-            // addLabelToolStripMenuItem
+            // MiAddLabel
             // 
-            this.addLabelToolStripMenuItem.Enabled = false;
-            this.addLabelToolStripMenuItem.Image = global::OpenSkinDesigner.Properties.Resources.label;
-            this.addLabelToolStripMenuItem.Name = "addLabelToolStripMenuItem";
-            this.addLabelToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
-            this.addLabelToolStripMenuItem.Text = "Add Label";
-            this.addLabelToolStripMenuItem.Click += new System.EventHandler(this.addLabelToolStripMenuItem_Click);
+            this.MiAddLabel.Enabled = false;
+            this.MiAddLabel.Image = global::OpenSkinDesigner.Properties.Resources.label;
+            this.MiAddLabel.Name = "MiAddLabel";
+            this.MiAddLabel.Size = new System.Drawing.Size(180, 22);
+            this.MiAddLabel.Text = "Add Label";
+            this.MiAddLabel.Click += new System.EventHandler(this.addLabelToolStripMenuItem_Click);
             // 
-            // addPixmapToolStripMenuItem
+            // MiAddPixmap
             // 
-            this.addPixmapToolStripMenuItem.Enabled = false;
-            this.addPixmapToolStripMenuItem.Image = global::OpenSkinDesigner.Properties.Resources.pixmap;
-            this.addPixmapToolStripMenuItem.Name = "addPixmapToolStripMenuItem";
-            this.addPixmapToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
-            this.addPixmapToolStripMenuItem.Text = "Add Pixmap";
-            this.addPixmapToolStripMenuItem.Click += new System.EventHandler(this.addPixmapToolStripMenuItem_Click);
+            this.MiAddPixmap.Enabled = false;
+            this.MiAddPixmap.Image = global::OpenSkinDesigner.Properties.Resources.pixmap;
+            this.MiAddPixmap.Name = "MiAddPixmap";
+            this.MiAddPixmap.Size = new System.Drawing.Size(180, 22);
+            this.MiAddPixmap.Text = "Add Pixmap";
+            this.MiAddPixmap.Click += new System.EventHandler(this.addPixmapToolStripMenuItem_Click);
             // 
-            // addWidgetToolStripMenuItem
+            // MiAddWidget
             // 
-            this.addWidgetToolStripMenuItem.Enabled = false;
-            this.addWidgetToolStripMenuItem.Image = global::OpenSkinDesigner.Properties.Resources.widget;
-            this.addWidgetToolStripMenuItem.Name = "addWidgetToolStripMenuItem";
-            this.addWidgetToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
-            this.addWidgetToolStripMenuItem.Text = "Add Widget";
-            this.addWidgetToolStripMenuItem.Click += new System.EventHandler(this.widgetToolStripMenuItem_Click);
+            this.MiAddWidget.Enabled = false;
+            this.MiAddWidget.Image = global::OpenSkinDesigner.Properties.Resources.widget;
+            this.MiAddWidget.Name = "MiAddWidget";
+            this.MiAddWidget.Size = new System.Drawing.Size(180, 22);
+            this.MiAddWidget.Text = "Add Widget";
+            this.MiAddWidget.Click += new System.EventHandler(this.widgetToolStripMenuItem_Click);
             // 
             // toolStripSeparator8
             // 
             this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(150, 6);
+            this.toolStripSeparator8.Size = new System.Drawing.Size(177, 6);
             // 
-            // deletToolStripMenuItem
+            // MiDeleteSelected
             // 
-            this.deletToolStripMenuItem.Enabled = false;
-            this.deletToolStripMenuItem.Image = global::OpenSkinDesigner.Properties.Resources.delete;
-            this.deletToolStripMenuItem.Name = "deletToolStripMenuItem";
-            this.deletToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
-            this.deletToolStripMenuItem.Text = "Delete selected";
-            this.deletToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
+            this.MiDeleteSelected.Enabled = false;
+            this.MiDeleteSelected.Image = global::OpenSkinDesigner.Properties.Resources.delete;
+            this.MiDeleteSelected.Name = "MiDeleteSelected";
+            this.MiDeleteSelected.Size = new System.Drawing.Size(180, 22);
+            this.MiDeleteSelected.Text = "Delete selected";
+            this.MiDeleteSelected.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // toolStripSeparator9
             // 
             this.toolStripSeparator9.Name = "toolStripSeparator9";
-            this.toolStripSeparator9.Size = new System.Drawing.Size(150, 6);
+            this.toolStripSeparator9.Size = new System.Drawing.Size(177, 6);
             // 
-            // addUndefinedColorsWithToolStripMenuItem
+            // MiSettings
             // 
-            this.addUndefinedColorsWithToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MiSettings.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MiResolution,
             this.MiColors,
             this.MiFonts,
             this.MiWindowStyles,
             this.toolStripSeparator1,
-            this.reloadConverterxmlToolStripMenuItem,
-            this.reloadPreviewTextxmlToolStripMenuItem,
+            this.MiReloadConverterXml,
+            this.MiReloadPreviewTextXml,
             this.toolStripSeparator7,
             this.MiPreferences,
             this.jToolStripMenuItem,
-            this.cToolStripMenuItem,
-            this.setFallbackColorToolStripMenuItem,
-            this.useFullAttributlistToolStripMenuItem});
-            this.addUndefinedColorsWithToolStripMenuItem.Name = "addUndefinedColorsWithToolStripMenuItem";
-            this.addUndefinedColorsWithToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
-            this.addUndefinedColorsWithToolStripMenuItem.Text = "Settings";
+            this.MiAddUndefinedColors,
+            this.MiSetFallbackColor,
+            this.MiUseFullAttributlist,
+            this.MiCustomLanguage});
+            this.MiSettings.Name = "MiSettings";
+            this.MiSettings.Size = new System.Drawing.Size(61, 20);
+            this.MiSettings.Text = "Settings";
+            this.MiSettings.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
             // MiResolution
             // 
@@ -418,19 +422,19 @@ namespace OpenSkinDesigner.Frames
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(227, 6);
             // 
-            // reloadConverterxmlToolStripMenuItem
+            // MiReloadConverterXml
             // 
-            this.reloadConverterxmlToolStripMenuItem.Name = "reloadConverterxmlToolStripMenuItem";
-            this.reloadConverterxmlToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
-            this.reloadConverterxmlToolStripMenuItem.Text = "Reload converter.xml";
-            this.reloadConverterxmlToolStripMenuItem.Click += new System.EventHandler(this.reloadConverterxmlToolStripMenuItem_Click);
+            this.MiReloadConverterXml.Name = "MiReloadConverterXml";
+            this.MiReloadConverterXml.Size = new System.Drawing.Size(230, 22);
+            this.MiReloadConverterXml.Text = "Reload converter.xml";
+            this.MiReloadConverterXml.Click += new System.EventHandler(this.reloadConverterxmlToolStripMenuItem_Click);
             // 
-            // reloadPreviewTextxmlToolStripMenuItem
+            // MiReloadPreviewTextXml
             // 
-            this.reloadPreviewTextxmlToolStripMenuItem.Name = "reloadPreviewTextxmlToolStripMenuItem";
-            this.reloadPreviewTextxmlToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
-            this.reloadPreviewTextxmlToolStripMenuItem.Text = "Reload previewText.xml";
-            this.reloadPreviewTextxmlToolStripMenuItem.Click += new System.EventHandler(this.reloadPreviewTextxmlToolStripMenuItem_Click);
+            this.MiReloadPreviewTextXml.Name = "MiReloadPreviewTextXml";
+            this.MiReloadPreviewTextXml.Size = new System.Drawing.Size(230, 22);
+            this.MiReloadPreviewTextXml.Text = "Reload previewText.xml";
+            this.MiReloadPreviewTextXml.Click += new System.EventHandler(this.reloadPreviewTextxmlToolStripMenuItem_Click);
             // 
             // toolStripSeparator7
             // 
@@ -449,30 +453,47 @@ namespace OpenSkinDesigner.Frames
             this.jToolStripMenuItem.Name = "jToolStripMenuItem";
             this.jToolStripMenuItem.Size = new System.Drawing.Size(227, 6);
             // 
-            // cToolStripMenuItem
+            // MiAddUndefinedColors
             // 
-            this.cToolStripMenuItem.Checked = true;
-            this.cToolStripMenuItem.CheckOnClick = true;
-            this.cToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cToolStripMenuItem.Name = "cToolStripMenuItem";
-            this.cToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
-            this.cToolStripMenuItem.Text = "Add undefined colors with \'#\'";
-            this.cToolStripMenuItem.Click += new System.EventHandler(this.cToolStripMenuItem_Click);
+            this.MiAddUndefinedColors.Checked = true;
+            this.MiAddUndefinedColors.CheckOnClick = true;
+            this.MiAddUndefinedColors.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.MiAddUndefinedColors.Name = "MiAddUndefinedColors";
+            this.MiAddUndefinedColors.Size = new System.Drawing.Size(230, 22);
+            this.MiAddUndefinedColors.Text = "Add undefined colors with \'#\'";
+            this.MiAddUndefinedColors.Click += new System.EventHandler(this.TSAddUndefinedColors_Click);
             // 
-            // setFallbackColorToolStripMenuItem
+            // MiSetFallbackColor
             // 
-            this.setFallbackColorToolStripMenuItem.Name = "setFallbackColorToolStripMenuItem";
-            this.setFallbackColorToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
-            this.setFallbackColorToolStripMenuItem.Text = "Set \'Fallback\'-Color";
-            this.setFallbackColorToolStripMenuItem.Click += new System.EventHandler(this.setFallbackColorToolStripMenuItem_Click);
+            this.MiSetFallbackColor.Name = "MiSetFallbackColor";
+            this.MiSetFallbackColor.Size = new System.Drawing.Size(230, 22);
+            this.MiSetFallbackColor.Text = "Set \'Fallback\'-Color";
+            this.MiSetFallbackColor.Click += new System.EventHandler(this.setFallbackColorToolStripMenuItem_Click);
             // 
-            // useFullAttributlistToolStripMenuItem
+            // MiUseFullAttributlist
             // 
-            this.useFullAttributlistToolStripMenuItem.CheckOnClick = true;
-            this.useFullAttributlistToolStripMenuItem.Name = "useFullAttributlistToolStripMenuItem";
-            this.useFullAttributlistToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
-            this.useFullAttributlistToolStripMenuItem.Text = "Use full attribut-list";
-            this.useFullAttributlistToolStripMenuItem.Click += new System.EventHandler(this.useFullAttributlistToolStripMenuItem_Click);
+            this.MiUseFullAttributlist.CheckOnClick = true;
+            this.MiUseFullAttributlist.Name = "MiUseFullAttributlist";
+            this.MiUseFullAttributlist.Size = new System.Drawing.Size(230, 22);
+            this.MiUseFullAttributlist.Text = "Use full attribut-list";
+            this.MiUseFullAttributlist.Click += new System.EventHandler(this.useFullAttributlistToolStripMenuItem_Click);
+            // 
+            // MiCustomLanguage
+            // 
+            this.MiCustomLanguage.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MiCustomLanguage_Name});
+            this.MiCustomLanguage.Name = "MiCustomLanguage";
+            this.MiCustomLanguage.Size = new System.Drawing.Size(230, 22);
+            this.MiCustomLanguage.Text = "Custom language";
+            this.MiCustomLanguage.Visible = false;
+            // 
+            // MiCustomLanguage_Name
+            // 
+            this.MiCustomLanguage_Name.CheckOnClick = true;
+            this.MiCustomLanguage_Name.Name = "MiCustomLanguage_Name";
+            this.MiCustomLanguage_Name.Size = new System.Drawing.Size(126, 22);
+            this.MiCustomLanguage_Name.Text = "Language";
+            this.MiCustomLanguage_Name.Click += new System.EventHandler(this.TS_CustomLanguage_Name_Click);
             // 
             // toolStripMenuItemHelp
             // 
@@ -525,7 +546,7 @@ namespace OpenSkinDesigner.Frames
             // numericUpDownZoom
             // 
             this.numericUpDownZoom.Enabled = false;
-            this.numericUpDownZoom.Location = new System.Drawing.Point(698, 2);
+            this.numericUpDownZoom.Location = new System.Drawing.Point(724, 2);
             this.numericUpDownZoom.Minimum = new decimal(new int[] {
             60,
             0,
@@ -572,7 +593,7 @@ namespace OpenSkinDesigner.Frames
             // 
             this.trackBarZoom.BackColor = System.Drawing.Color.White;
             this.trackBarZoom.Enabled = false;
-            this.trackBarZoom.Location = new System.Drawing.Point(588, 0);
+            this.trackBarZoom.Location = new System.Drawing.Point(614, 0);
             this.trackBarZoom.Maximum = 100;
             this.trackBarZoom.Minimum = -60;
             this.trackBarZoom.Name = "trackBarZoom";
@@ -587,7 +608,7 @@ namespace OpenSkinDesigner.Frames
             this.toolStripDesigner.BackColor = System.Drawing.Color.White;
             this.toolStripDesigner.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStripDesigner.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripLabel2,
+            this.TslMarker,
             this.btnSkinned,
             this.btnSkinnedScreen,
             this.btnSkinnedLabel,
@@ -601,7 +622,7 @@ namespace OpenSkinDesigner.Frames
             this.keyCaptureNotifyButton,
             this.btnSkinnedShowPanels,
             this.toolStripSeparator15,
-            this.toolStripLabel3,
+            this.TslConditionalWidgets,
             this.btnSkinned_Conditional_Random,
             this.btnSkinned_Conditional_All,
             this.btnSkinned_Conditional_Default,
@@ -614,11 +635,11 @@ namespace OpenSkinDesigner.Frames
             this.toolStripDesigner.TabIndex = 1;
             this.toolStripDesigner.Text = "toolStrip3";
             // 
-            // toolStripLabel2
+            // TslMarker
             // 
-            this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(44, 22);
-            this.toolStripLabel2.Text = "Marker";
+            this.TslMarker.Name = "TslMarker";
+            this.TslMarker.Size = new System.Drawing.Size(44, 22);
+            this.TslMarker.Text = "Marker";
             // 
             // btnSkinned
             // 
@@ -628,8 +649,8 @@ namespace OpenSkinDesigner.Frames
             this.btnSkinned.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.btnSkinned.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSkinned.Name = "btnSkinned";
-            this.btnSkinned.Size = new System.Drawing.Size(25, 22);
-            this.btnSkinned.Text = "All";
+            this.btnSkinned.Size = new System.Drawing.Size(55, 22);
+            this.btnSkinned.Text = "Show all";
             this.btnSkinned.Click += new System.EventHandler(this.btnSkinned_Click);
             // 
             // btnSkinnedScreen
@@ -644,7 +665,7 @@ namespace OpenSkinDesigner.Frames
             this.btnSkinnedScreen.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSkinnedScreen.Name = "btnSkinnedScreen";
             this.btnSkinnedScreen.Size = new System.Drawing.Size(23, 22);
-            this.btnSkinnedScreen.Text = "Screens";
+            this.btnSkinnedScreen.Text = "Show screens";
             this.btnSkinnedScreen.Click += new System.EventHandler(this.btnSkinnedScreen_Click);
             // 
             // btnSkinnedLabel
@@ -658,7 +679,7 @@ namespace OpenSkinDesigner.Frames
             this.btnSkinnedLabel.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSkinnedLabel.Name = "btnSkinnedLabel";
             this.btnSkinnedLabel.Size = new System.Drawing.Size(23, 22);
-            this.btnSkinnedLabel.Text = "Label";
+            this.btnSkinnedLabel.Text = "Show labels";
             this.btnSkinnedLabel.Click += new System.EventHandler(this.btnSkinnedLabel_Click);
             // 
             // btnSkinnedPixmap
@@ -672,7 +693,7 @@ namespace OpenSkinDesigner.Frames
             this.btnSkinnedPixmap.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSkinnedPixmap.Name = "btnSkinnedPixmap";
             this.btnSkinnedPixmap.Size = new System.Drawing.Size(23, 22);
-            this.btnSkinnedPixmap.Text = "Pixmap";
+            this.btnSkinnedPixmap.Text = "Show pixmaps";
             this.btnSkinnedPixmap.Click += new System.EventHandler(this.btnSkinnedPixmap_Click);
             // 
             // btnSkinnedWidget
@@ -686,7 +707,7 @@ namespace OpenSkinDesigner.Frames
             this.btnSkinnedWidget.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSkinnedWidget.Name = "btnSkinnedWidget";
             this.btnSkinnedWidget.Size = new System.Drawing.Size(23, 22);
-            this.btnSkinnedWidget.Text = "Widget";
+            this.btnSkinnedWidget.Text = "Show widgets";
             this.btnSkinnedWidget.Click += new System.EventHandler(this.btnSkinnedWidget_Click);
             // 
             // toolStripSeparator18
@@ -748,7 +769,7 @@ namespace OpenSkinDesigner.Frames
             this.btnSkinnedShowPanels.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSkinnedShowPanels.Name = "btnSkinnedShowPanels";
             this.btnSkinnedShowPanels.Size = new System.Drawing.Size(23, 22);
-            this.btnSkinnedShowPanels.Text = "Show Panels";
+            this.btnSkinnedShowPanels.Text = "Show panels";
             this.btnSkinnedShowPanels.Click += new System.EventHandler(this.btnSkinnedShowPanels_Click);
             // 
             // toolStripSeparator15
@@ -756,11 +777,11 @@ namespace OpenSkinDesigner.Frames
             this.toolStripSeparator15.Name = "toolStripSeparator15";
             this.toolStripSeparator15.Size = new System.Drawing.Size(6, 25);
             // 
-            // toolStripLabel3
+            // TslConditionalWidgets
             // 
-            this.toolStripLabel3.Name = "toolStripLabel3";
-            this.toolStripLabel3.Size = new System.Drawing.Size(113, 22);
-            this.toolStripLabel3.Text = "Conditional widgets";
+            this.TslConditionalWidgets.Name = "TslConditionalWidgets";
+            this.TslConditionalWidgets.Size = new System.Drawing.Size(113, 22);
+            this.TslConditionalWidgets.Text = "Conditional widgets";
             // 
             // btnSkinned_Conditional_Random
             // 
@@ -880,7 +901,7 @@ namespace OpenSkinDesigner.Frames
             this.btnFoldElementsOn,
             this.btnFoldElementsOff,
             this.toolStripSeparator16,
-            this.toolStripLabel1});
+            this.TslStatus});
             this.toolStripEditor.Location = new System.Drawing.Point(0, 0);
             this.toolStripEditor.Name = "toolStripEditor";
             this.toolStripEditor.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
@@ -911,7 +932,7 @@ namespace OpenSkinDesigner.Frames
             this.btnFoldOn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnFoldOn.Name = "btnFoldOn";
             this.btnFoldOn.Size = new System.Drawing.Size(23, 22);
-            this.btnFoldOn.Text = "Fold All";
+            this.btnFoldOn.Text = "Fold all";
             this.btnFoldOn.Click += new System.EventHandler(this.FoldAll);
             // 
             // btnFoldOff
@@ -921,7 +942,7 @@ namespace OpenSkinDesigner.Frames
             this.btnFoldOff.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnFoldOff.Name = "btnFoldOff";
             this.btnFoldOff.Size = new System.Drawing.Size(23, 22);
-            this.btnFoldOff.Text = "Unfold All";
+            this.btnFoldOff.Text = "Unfold all";
             this.btnFoldOff.Click += new System.EventHandler(this.UnfoldAll);
             // 
             // toolStripSeparator14
@@ -936,7 +957,7 @@ namespace OpenSkinDesigner.Frames
             this.btnFoldElementsOn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnFoldElementsOn.Name = "btnFoldElementsOn";
             this.btnFoldElementsOn.Size = new System.Drawing.Size(23, 22);
-            this.btnFoldElementsOn.Text = "Fold All Elements";
+            this.btnFoldElementsOn.Text = "Fold all elements";
             this.btnFoldElementsOn.Click += new System.EventHandler(this.FoldAllWidgets);
             // 
             // btnFoldElementsOff
@@ -946,7 +967,7 @@ namespace OpenSkinDesigner.Frames
             this.btnFoldElementsOff.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnFoldElementsOff.Name = "btnFoldElementsOff";
             this.btnFoldElementsOff.Size = new System.Drawing.Size(23, 22);
-            this.btnFoldElementsOff.Text = "Unfold All Elements";
+            this.btnFoldElementsOff.Text = "Unfold all elements";
             this.btnFoldElementsOff.Click += new System.EventHandler(this.UnfoldAllWidgets);
             // 
             // toolStripSeparator16
@@ -954,11 +975,11 @@ namespace OpenSkinDesigner.Frames
             this.toolStripSeparator16.Name = "toolStripSeparator16";
             this.toolStripSeparator16.Size = new System.Drawing.Size(6, 25);
             // 
-            // toolStripLabel1
+            // TslStatus
             // 
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(59, 22);
-            this.toolStripLabel1.Text = "No Errors.";
+            this.TslStatus.Name = "TslStatus";
+            this.TslStatus.Size = new System.Drawing.Size(59, 22);
+            this.TslStatus.Text = "No Errors.";
             // 
             // textBoxEditor
             // 
@@ -1180,8 +1201,7 @@ namespace OpenSkinDesigner.Frames
             this.btnDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(36, 36);
-            this.btnDelete.Text = "Undo";
-            this.btnDelete.ToolTipText = "Delete Element";
+            this.btnDelete.Text = "Delete Element";
             this.btnDelete.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // toolStripSeparator11
@@ -1211,8 +1231,7 @@ namespace OpenSkinDesigner.Frames
             this.btnUndo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnUndo.Name = "btnUndo";
             this.btnUndo.Size = new System.Drawing.Size(36, 36);
-            this.btnUndo.Text = "Delete Element";
-            this.btnUndo.ToolTipText = "Undo";
+            this.btnUndo.Text = "Undo";
             this.btnUndo.Click += new System.EventHandler(this.undoToolStripMenuItem_Click);
             // 
             // toolStripSeparator12
@@ -1239,7 +1258,7 @@ namespace OpenSkinDesigner.Frames
             this.btnAddPanel.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnAddPanel.Name = "btnAddPanel";
             this.btnAddPanel.Size = new System.Drawing.Size(36, 36);
-            this.btnAddPanel.Text = "Add Screen";
+            this.btnAddPanel.Text = "Add Panel";
             this.btnAddPanel.Click += new System.EventHandler(this._addPanel);
             // 
             // toolStripSeparator17
@@ -1367,7 +1386,7 @@ namespace OpenSkinDesigner.Frames
 
         private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem MiFile;
         private System.Windows.Forms.ToolStripMenuItem MiNew;
         private System.Windows.Forms.ToolStripMenuItem MiOpen;
         private System.Windows.Forms.ToolStripMenuItem MiSave;
@@ -1378,7 +1397,7 @@ namespace OpenSkinDesigner.Frames
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.ToolStripMenuItem addUndefinedColorsWithToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem MiSettings;
         private System.Windows.Forms.ToolStripMenuItem MiResolution;
         private System.Windows.Forms.ToolStripMenuItem MiFonts;
         private System.Windows.Forms.ToolStripMenuItem MiColors;
@@ -1404,9 +1423,9 @@ namespace OpenSkinDesigner.Frames
         private System.Windows.Forms.ToolStripButton btnSkinnedLabel;
         private System.Windows.Forms.ToolStripButton btnSkinnedPixmap;
         private System.Windows.Forms.ToolStripButton btnSkinnedWidget;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.ToolStripLabel TslStatus;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemHelp;
-        private System.Windows.Forms.ToolStripMenuItem elementToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem MiEdit;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.Panel panelDesignerInner;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
@@ -1420,13 +1439,13 @@ namespace OpenSkinDesigner.Frames
         private System.Windows.Forms.ToolStripButton btnSkinned_Conditional_Default;
         private System.Windows.Forms.TrackBar trackBarZoom;
         private System.Windows.Forms.NumericUpDown numericUpDownZoom;
-        private System.Windows.Forms.ToolStripMenuItem reloadConverterxmlToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem reloadPreviewTextxmlToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem MiReloadConverterXml;
+        private System.Windows.Forms.ToolStripMenuItem MiReloadPreviewTextXml;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.ToolStripButton btnUndo;
         private System.Windows.Forms.ToolStripButton btnRedo;
-        private System.Windows.Forms.ToolStripMenuItem undoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem redoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem MiUndo;
+        private System.Windows.Forms.ToolStripMenuItem MiRedo;
         private System.Windows.Forms.ToolStripButton btnDelete;
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.ToolStripButton btnAddLabel;
@@ -1444,18 +1463,18 @@ namespace OpenSkinDesigner.Frames
         private System.Windows.Forms.ToolStripButton btnFoldOff;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator14;
         private System.Windows.Forms.ToolStripButton btnFoldElementsOn;
-        private System.Windows.Forms.ToolStripMenuItem elementToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem addLabelToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem addPixmapToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem addWidgetToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem MiElement;
+        private System.Windows.Forms.ToolStripMenuItem MiAddLabel;
+        private System.Windows.Forms.ToolStripMenuItem MiAddPixmap;
+        private System.Windows.Forms.ToolStripMenuItem MiAddWidget;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
-        private System.Windows.Forms.ToolStripMenuItem deletToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem MiDeleteSelected;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel2;
+        private System.Windows.Forms.ToolStripLabel TslMarker;
         private System.Windows.Forms.SplitContainer splitContainer3;
         private System.Windows.Forms.ToolStripButton btnSkinned_Alpha;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator15;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel3;
+        private System.Windows.Forms.ToolStripLabel TslConditionalWidgets;
         private System.Windows.Forms.ToolStripButton btnSkinned_Conditional_All;
         private System.Windows.Forms.ToolStripButton btnSkinned_Conditional_Random;
         private System.Windows.Forms.ToolStripButton btnSkinned_Conditional_None;
@@ -1466,9 +1485,11 @@ namespace OpenSkinDesigner.Frames
         private System.Windows.Forms.ToolStripButton btnAddPanel;
         private System.Windows.Forms.ToolStripButton btnSkinnedShowPanels;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator18;
-        private System.Windows.Forms.ToolStripMenuItem cToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem setFallbackColorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem MiAddUndefinedColors;
+        private System.Windows.Forms.ToolStripMenuItem MiSetFallbackColor;
         private System.Windows.Forms.ColorDialog colorDialog1;
-        private System.Windows.Forms.ToolStripMenuItem useFullAttributlistToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem MiUseFullAttributlist;
+        private System.Windows.Forms.ToolStripMenuItem MiCustomLanguage;
+        private System.Windows.Forms.ToolStripMenuItem MiCustomLanguage_Name;
     }
 }
