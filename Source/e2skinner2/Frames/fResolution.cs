@@ -18,6 +18,7 @@ namespace OpenSkinDesigner.Frames
         public fResolution()
         {
             InitializeComponent();
+            SetLanguage();
         }
 
         public void setup(cXMLHandler xmlhandler)
@@ -32,6 +33,15 @@ namespace OpenSkinDesigner.Frames
             else if (resolution.Xres == 1920 && resolution.Yres == 1080)
                 radioButton1080.Checked = true;
 
+        }
+
+        public void SetLanguage()
+        {
+            this.Text = fMain.GetTranslation("Resolution settings");
+            buttonChange.Text = fMain.GetTranslation("Change");
+            labelChooseResolution.Text = fMain.GetTranslation("Choose the resolution");
+            groupBoxResolution.Text = fMain.GetTranslation("Resolution");
+            labelNote.Text=fMain.GetTranslation("Note:") + " " + fMain.GetTranslation("Changing the Resolution will result in rescaling of the skin.");
         }
 
         private void button1_Click(object sender, EventArgs e)
