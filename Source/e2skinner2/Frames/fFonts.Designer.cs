@@ -42,11 +42,11 @@
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelPreviewFonts = new System.Windows.Forms.Label();
             this.labelScale = new System.Windows.Forms.Label();
             this.textBoxScale = new System.Windows.Forms.TextBox();
             this.checkBoxReplacement = new System.Windows.Forms.CheckBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.labelSize = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -139,7 +139,7 @@
             // 
             // columnHeader8
             // 
-            this.columnHeader8.Text = "font";
+            this.columnHeader8.Text = "Font";
             this.columnHeader8.Width = 85;
             // 
             // columnHeader7
@@ -171,15 +171,15 @@
             this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader3.Width = 45;
             // 
-            // label1
+            // labelPreviewFonts
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(148, 25);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Preview Fonts";
+            this.labelPreviewFonts.AutoSize = true;
+            this.labelPreviewFonts.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPreviewFonts.Location = new System.Drawing.Point(12, 9);
+            this.labelPreviewFonts.Name = "labelPreviewFonts";
+            this.labelPreviewFonts.Size = new System.Drawing.Size(148, 25);
+            this.labelPreviewFonts.TabIndex = 8;
+            this.labelPreviewFonts.Text = "Preview Fonts";
             // 
             // labelScale
             // 
@@ -212,15 +212,15 @@
             this.checkBoxReplacement.UseVisualStyleBackColor = true;
             this.checkBoxReplacement.Click += new System.EventHandler(this.checkBoxReplacement_Click);
             // 
-            // label2
+            // labelSize
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 435);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(27, 13);
-            this.label2.TabIndex = 20;
-            this.label2.Text = "Size";
+            this.labelSize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelSize.AutoSize = true;
+            this.labelSize.Location = new System.Drawing.Point(12, 435);
+            this.labelSize.Name = "labelSize";
+            this.labelSize.Size = new System.Drawing.Size(27, 13);
+            this.labelSize.TabIndex = 20;
+            this.labelSize.Text = "Size";
             // 
             // textBox1
             // 
@@ -278,7 +278,7 @@
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.labelSize);
             this.Controls.Add(this.checkBoxReplacement);
             this.Controls.Add(this.textBoxScale);
             this.Controls.Add(this.labelScale);
@@ -287,7 +287,7 @@
             this.Controls.Add(this.labelPath);
             this.Controls.Add(this.labelName);
             this.Controls.Add(this.listView1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelPreviewFonts);
             this.Icon = global::OpenSkinDesigner.Properties.Resources.OpenSkinDesigner;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1599, 978);
@@ -313,7 +313,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader4;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelPreviewFonts;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
@@ -322,7 +322,7 @@
         private System.Windows.Forms.CheckBox checkBoxReplacement;
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ColumnHeader columnHeader8;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelSize;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ColumnHeader columnHeader9;
         private System.Windows.Forms.PictureBox pictureBox1;
