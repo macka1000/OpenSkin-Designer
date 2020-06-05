@@ -19,12 +19,13 @@ namespace OpenSkinDesigner.Frames
         const Int32 COL_VALUE = 2;
 
         private cXMLHandler pXmlHandler = null;
-        // Eingefügt wenn Veränderungen an Farben gemacht wurde, damit man speichern und neu laden kann. 
+        // Added to be able to save and reload if colors were changed. 
         public bool Edited = false;
 
         public fColors()
         {
             InitializeComponent();
+            SetLanguage();
         }
 
         private void refresh()
@@ -54,7 +55,7 @@ namespace OpenSkinDesigner.Frames
                 item.UseItemStyleForSubItems = false;
                 listView1.Items.Add(item);
             }
-            // Falls keine Farben definiert sind, crasht es... deshalb hier geändert
+            // crash if no Colors are definied
             if (listView1.Items.Count > 0)
                 listView1.RedrawItems(0, listView1.Items.Count - 1, false);
         }
@@ -97,14 +98,14 @@ namespace OpenSkinDesigner.Frames
             if (Edited == true)
             {
                 MyGlobaleVariables.UnsafedChanges = false;
-                String Message = "You've made some changes, which will only take effect (show the color in the treeview)," ;
-                Message += "\n" + "after you have saved and reloaded the skin!";
+                String Message = fMain.GetTranslation("You've made some changes, which will only take effect (show the color in the treeview),") ;
+                Message += "\n" + fMain.GetTranslation("after you have saved and reloaded the skin!");
                 Message += "\n";
-                Message += "\n" + "Do you want to save and reload the skin now?";
+                Message += "\n" + fMain.GetTranslation("Do you want to save and reload the skin now?");
                 Message += "\n";
-                Message += "\n" + "Remember, however, that this will also save all previous changes you made!";
+                Message += "\n" + fMain.GetTranslation("Remember, however, that this will also save all previous changes you made!");
 
-                if (MessageBox.Show(Message,"Save and reload",
+                if (MessageBox.Show(Message, fMain.GetTranslation("Save and reload"),
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Question,
                     MessageBoxDefaultButton.Button1) == DialogResult.Yes)
@@ -121,12 +122,12 @@ namespace OpenSkinDesigner.Frames
             textBoxName.Text = textBoxName.Text.Replace(" ", ""); // Textboxtext trimmen, damit kein 'leerer' Farbname angewendet werden kann
             if (textBoxName.Text.Length == 0)
             {
-                MessageBox.Show("Name of the Color cannot be empty!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(fMain.GetTranslation("The name of the color cannot be empty!"), fMain.GetTranslation("Information"), MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             if (textBoxValue.Text.Length == 0)
             {
-                MessageBox.Show("Value of the Color cannot be empty!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(fMain.GetTranslation("The value of the color cannot be empty!"), fMain.GetTranslation("Information"), MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             else
@@ -137,7 +138,7 @@ namespace OpenSkinDesigner.Frames
 
                 if (Liste.Contains("LISTVIEWSUBITEM: {" + textBoxName.Text.ToUpper() + "}"))
                 {
-                    MessageBox.Show("This Color already exists!" + "\n" + "You can update this Color by pressing the 'Change'-Button.","Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(fMain.GetTranslation("This color already exists!") + "\n" + fMain.GetTranslation("You can update this color by pressing the 'Change'-Button."), fMain.GetTranslation("Information"), MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
                 else
@@ -173,7 +174,7 @@ namespace OpenSkinDesigner.Frames
             catch (Exception error)
             {
                 String errormessage = error.Message + ":\n\n";
-                errormessage += "Invalid format for value hexadecimal value!" + "\n";
+                errormessage += fMain.GetTranslation("Invalid format for value hexadecimal value!") + "\n";
                 errormessage += error.Message;
 
                 MessageBox.Show(errormessage,
@@ -193,120 +194,37 @@ namespace OpenSkinDesigner.Frames
             int blue = (int)color & 0xff;
             textBoxBlue.Text = blue.ToString();
             pictureBoxColor.BackColor = Color.FromArgb(255 - alpha, red, green, blue); 
-            try // TRY eingefügt, da es crasht wenn vorher kein Item in dem Listview ausgewählt wurde.
+            if (listView1.SelectedItems.Count != 0)
             {
                 listView1.SelectedItems[0].SubItems[COL_VALUE_AS_STRING].Text = "#" + textBoxValue.Text;
                 listView1.SelectedItems[0].SubItems[COL_VALUE].BackColor = pictureBoxColor.BackColor;
             }
-            catch (Exception) 
-            {
-            }
-             
+                     
         }
 
         private void textBoxAlpha_TextChanged(object sender, EventArgs e)
         {
-            UInt32 alpha = 0;
-            UInt32 red = 0;
-            UInt32 green = 0;
-            UInt32 blue = 0;
-            int help = 0;
-
+            Int32 help;
             Int32.TryParse(textBoxAlpha.Text, out help);
-            trackBar_Alpha.Value = help;
-            Int32.TryParse(textBoxRed.Text, out help);
-            trackBarRed.Value = help;
-            Int32.TryParse(textBoxBlue.Text, out help);
-            trackBarBlue.Value = help;
-            Int32.TryParse(textBoxGreen.Text, out help);
-            trackBarGreen.Value = help;
-            try
-            {
-                String alphaString = textBoxAlpha.Text.Length > 0 ? textBoxAlpha.Text.Trim() : "0";
-                alpha = Convert.ToUInt32(alphaString);
-                alpha &= 0xFF;
-            }
-            catch (Exception error)
-            {
-                String errormessage = error.Message + ":\n\n";
-                errormessage += "Invalid format for value alpha!" + "\n";
-                errormessage += error.Message;
+            SetMinMax(ref help);
+            textBoxAlpha.Text = help.ToString();
+            textBoxColor_TextChanged();
+        }
 
-                MessageBox.Show(errormessage,
-                    error.Message,
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information,
-                    MessageBoxDefaultButton.Button1);
+        private void SetMinMax(ref int value)
+        {
+            if (value < 0)
+                value = 0;
+            if (value > 255)
+                value = 255;
+        }
 
-                return;
-            }
-
-            try
-            {
-                String redString = textBoxRed.Text.Length > 0 ? textBoxRed.Text.Trim() : "0";
-                red = Convert.ToUInt32(redString);
-                red &= 0xFF;
-            }
-            catch (Exception error)
-            {
-                String errormessage = error.Message + ":\n\n";
-                errormessage += "Invalid format for value red!" + "\n";
-                errormessage += error.Message;
-
-                MessageBox.Show(errormessage,
-                    error.Message,
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information,
-                    MessageBoxDefaultButton.Button1);
-
-                return;
-            }
-
-            try
-            {
-                String greenString = textBoxGreen.Text.Length > 0 ? textBoxGreen.Text.Trim() : "0";
-                green = Convert.ToUInt32(greenString);
-                green &= 0xFF;
-            }
-            catch (Exception error)
-            {
-                String errormessage = error.Message + ":\n\n";
-                errormessage += "Invalid format for value green!" + "\n";
-                errormessage += error.Message;
-
-                MessageBox.Show(errormessage,
-                    error.Message,
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information,
-                    MessageBoxDefaultButton.Button1);
-
-                return;
-            }
-
-            try
-            {
-                String blueString = textBoxBlue.Text.Length > 0 ? textBoxBlue.Text.Trim() : "0";
-                blue = Convert.ToUInt32(blueString);
-                blue &= 0xFF;
-            }
-            catch (Exception error)
-            {
-                String errormessage = error.Message + ":\n\n";
-                errormessage += "Invalid format for value blue!" + "\n";
-                errormessage += error.Message;
-
-                MessageBox.Show(errormessage,
-                    error.Message,
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information,
-                    MessageBoxDefaultButton.Button1);
-
-                return;
-            }
-
-            UInt32 value = /*Convert.ToUInt32*/((alpha * 0x01000000) + (red * 0x00010000) + (green * 0x00000100) + blue);
-            textBoxValue.Text = value.ToString("x8");
-            pictureBoxColor.BackColor = Color.FromArgb(255 - (int)alpha, (int)red, (int)green, (int)blue); 
+        private void SetMinMaxUINT(ref UInt32 value)
+        {
+            if (value < 0)
+                value = 0;
+            if (value > 255)
+                value = 255;
         }
 
         private void buttonPallete_Click(object sender, EventArgs e)
@@ -331,7 +249,7 @@ namespace OpenSkinDesigner.Frames
                 textBoxRed.Text = Convert.ToString(colorDialog.Color.R);
                 textBoxGreen.Text = Convert.ToString(colorDialog.Color.G);
                 textBoxBlue.Text = Convert.ToString(colorDialog.Color.B);
-                textBoxAlpha.Text = "0"; // Wenn Auswahl in der Palette die Transparenz zurücksetzen
+                textBoxAlpha.Text = "0"; // After selecting a color, set transparency back to 0 
                 Edited = true;
             }
         }
@@ -347,7 +265,7 @@ namespace OpenSkinDesigner.Frames
             // MessageBox.Show("Unused colors are removed automatically (NOT TRUE!).\n\nThis Button is doing NOTHING!", "Information",MessageBoxButtons.OK,MessageBoxIcon.Information);
             if (listView1.SelectedItems.Count < 1) // Eingefügt, sonst crash, wenn noch kein Item ausgewählt wurde!
             {
-                MessageBox.Show("To do this, you must select a Color in the listview!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(fMain.GetTranslation("To do this, you must select a color in the listview!"), fMain.GetTranslation("Information"), MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
@@ -362,13 +280,13 @@ namespace OpenSkinDesigner.Frames
 
         private void buttonRename_Click(object sender, EventArgs e)
         {
-            if (listView1.SelectedItems.Count < 1) // Eingefügt, sonst crash, wenn noch kein Item ausgewählt wurde!
+            if (listView1.SelectedItems.Count < 1) // Crash if no Item is seleted!
             {
-                MessageBox.Show("To do this, you must select a Color in the listview!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(fMain.GetTranslation("To do this, you must select a color in the listview!"), fMain.GetTranslation("Information"), MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            else // oder der Farbname auf "" gesetzt wird wenn Textbox leer ist.  
+            else // ic color name is set to "" if textbox is empty.  
             {
-                textBoxName.Text = textBoxName.Text.Replace(" ", ""); // Textboxtext trimmen, damit kein 'leerer' Farbname angewendet werden kann
+                textBoxName.Text = textBoxName.Text.Replace(" ", ""); // trim to make sure that color nae is not empty
                 if (textBoxName.Text.Length > 0) 
                 {
                     cDataBase.pColors.rename(pXmlHandler, listView1.SelectedItems[0].SubItems[COL_NAME].Text, textBoxName.Text);
@@ -378,7 +296,7 @@ namespace OpenSkinDesigner.Frames
                 }
                 else
                 {
-                    MessageBox.Show("Name of the Color cannot be empty!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(fMain.GetTranslation("The name of the color cannot be empty!"), fMain.GetTranslation("Information"), MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
                        
@@ -391,11 +309,13 @@ namespace OpenSkinDesigner.Frames
 
         private void button1_Click(object sender, EventArgs e)
         {
-            String Message = "Hints:" + "\n\n";
-            Message += "- The color in the 'listview' can only be displayed without an alpha channel,";
-            Message += "i.e. the color representation is only displayed correctly (with transparency) in the 'picturebox' in the left lower corner!" + "\n\n";
-            Message += "- Alpha = transparency! I.e. the more alpha the more transparent the color becomes.";
-            MessageBox.Show(Message,"Hints",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            String Message = fMain.GetTranslation("Hints") + ": \n\n";
+            Message += "- ";
+            Message += fMain.GetTranslation("The color in the 'listview' can only be displayed without an alpha channel,");
+            Message += fMain.GetTranslation("i.e. the color representation is only displayed correctly (with transparency) in the 'picturebox' in the left lower corner!") + "\n\n";
+            Message += "- ";
+            Message += fMain.GetTranslation("Alpha = transparency! I.e. the more alpha the more transparent the color becomes.");
+            MessageBox.Show(Message, fMain.GetTranslation("Hints"), MessageBoxButtons.OK,MessageBoxIcon.Information);
         }
 
         private void trackBar1_ValueChanged(object sender, EventArgs e)
@@ -421,6 +341,270 @@ namespace OpenSkinDesigner.Frames
         private void fColors_Load(object sender, EventArgs e)
         {
             refresh();
+        }
+
+        private void SetLanguage()
+        {
+            this.Text = fMain.GetTranslation("Color settings");
+            labelAlpha.Text = fMain.GetTranslation("Alpha");
+            labelBlue.Text = fMain.GetTranslation("Blue");
+            labelDecimal1.Text = fMain.GetTranslation("(in decimal, min=0, max=255)");
+            labelDecimal2.Text = fMain.GetTranslation("(in decimal, min=0, max=255)");
+            labelDecimal3.Text = fMain.GetTranslation("(in decimal, min=0, max=255)");
+            labelDecimal4.Text = fMain.GetTranslation("(in decimal, min=0, max=255)");
+            labelEditColors.Text = fMain.GetTranslation("Edit colors");
+            labelGreen.Text = fMain.GetTranslation("Green");
+            labelHexadecimal.Text = fMain.GetTranslation("(in hexadecimal)");
+            labelName.Text = fMain.GetTranslation("Name");
+            labelRed.Text = fMain.GetTranslation("Red");
+            labelValue.Text = fMain.GetTranslation("Value");
+            buttonAdd.Text = fMain.GetTranslation("Add");
+            buttonHints.Text = fMain.GetTranslation("Hints");
+            buttonOK.Text = fMain.GetTranslation("OK");
+            buttonPalette.Text = fMain.GetTranslation("Palette");
+            buttonRemove.Text = fMain.GetTranslation("Remove");
+            buttonChange.Text = fMain.GetTranslation("Change");
+            groupBoxColor.Text = fMain.GetTranslation("Color");
+            listView1.Columns[0].Text = fMain.GetTranslation("Name");
+            listView1.Columns[1].Text = fMain.GetTranslation("Value");
+            listView1.Columns[02].Text = fMain.GetTranslation("Color");
+        }
+
+      
+        private void textBoxRed_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)8)
+                return;
+
+            if (!char.IsNumber(e.KeyChar))
+            {
+                e.Handled = true;
+                return;
+            }
+
+            if (textBoxRed.Text.Length > 2)
+                e.Handled = true;
+        }
+
+        private void textBoxGreen_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)8)
+                return;
+
+            if (!char.IsNumber(e.KeyChar))
+            {
+                e.Handled = true;
+                return;
+            }
+
+            if (textBoxGreen.Text.Length > 2)
+                e.Handled = true;
+        }
+
+        private void textBoxAlpha_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)8)
+                return;
+
+            if (!char.IsNumber(e.KeyChar))
+            {
+                e.Handled = true;
+                return;
+            }
+
+            if (textBoxAlpha.Text.Length > 2)
+                e.Handled = true;
+        }
+
+        private void textBoxRed_TextChanged(object sender, EventArgs e)
+        {
+            Int32 help;
+            Int32.TryParse(textBoxRed.Text, out help);
+            SetMinMax(ref help);
+            textBoxRed.Text = help.ToString();
+            textBoxColor_TextChanged();
+        }
+
+        private void textBoxColor_TextChanged()
+        {
+            UInt32 alpha = 0;
+            UInt32 red = 0;
+            UInt32 green = 0;
+            UInt32 blue = 0;
+            int help = 0;
+
+            Int32.TryParse(textBoxAlpha.Text, out help);
+            SetMinMax(ref help);
+            trackBar_Alpha.Value = help;
+            Int32.TryParse(textBoxRed.Text, out help);
+            SetMinMax(ref help);
+            trackBarRed.Value = help;
+            Int32.TryParse(textBoxBlue.Text, out help);
+            SetMinMax(ref help);
+            trackBarBlue.Value = help;
+            Int32.TryParse(textBoxGreen.Text, out help);
+            SetMinMax(ref help);
+            trackBarGreen.Value = help;
+            try
+            {
+                String alphaString = textBoxAlpha.Text.Length > 0 ? textBoxAlpha.Text.Trim() : "0";
+                alpha = Convert.ToUInt32(alphaString);
+                SetMinMaxUINT(ref alpha);
+                alpha &= 0xFF;
+            }
+            catch (Exception error)
+            {
+                String errormessage = error.Message + ":\n\n";
+                errormessage += fMain.GetTranslation("Invalid format for value alpha!") + "\n";
+                errormessage += error.Message;
+
+                MessageBox.Show(errormessage,
+                    error.Message,
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information,
+                    MessageBoxDefaultButton.Button1);
+
+                return;
+            }
+
+            try
+            {
+                String redString = textBoxRed.Text.Length > 0 ? textBoxRed.Text.Trim() : "0";
+                red = Convert.ToUInt32(redString);
+                SetMinMaxUINT(ref red);
+                red &= 0xFF;
+            }
+            catch (Exception error)
+            {
+                String errormessage = error.Message + ":\n\n";
+                errormessage += fMain.GetTranslation("Invalid format for value red!") + "\n";
+                errormessage += error.Message;
+
+                MessageBox.Show(errormessage,
+                    error.Message,
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information,
+                    MessageBoxDefaultButton.Button1);
+
+                return;
+            }
+
+            try
+            {
+                String greenString = textBoxGreen.Text.Length > 0 ? textBoxGreen.Text.Trim() : "0";
+                green = Convert.ToUInt32(greenString);
+                SetMinMaxUINT(ref green);
+                green &= 0xFF;
+            }
+            catch (Exception error)
+            {
+                String errormessage = error.Message + ":\n\n";
+                errormessage += fMain.GetTranslation("Invalid format for value green!") + "\n";
+                errormessage += error.Message;
+
+                MessageBox.Show(errormessage,
+                    error.Message,
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information,
+                    MessageBoxDefaultButton.Button1);
+
+                return;
+            }
+
+            try
+            {
+                String blueString = textBoxBlue.Text.Length > 0 ? textBoxBlue.Text.Trim() : "0";
+                blue = Convert.ToUInt32(blueString);
+                SetMinMaxUINT(ref blue);
+                blue &= 0xFF;
+            }
+            catch (Exception error)
+            {
+                String errormessage = error.Message + ":\n\n";
+                errormessage += fMain.GetTranslation("Invalid format for value blue!") + "\n";
+                errormessage += error.Message;
+
+                MessageBox.Show(errormessage,
+                    error.Message,
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information,
+                    MessageBoxDefaultButton.Button1);
+
+                return;
+            }
+
+            UInt32 value = /*Convert.ToUInt32*/((alpha * 0x01000000) + (red * 0x00010000) + (green * 0x00000100) + blue);
+            textBoxValue.Text = value.ToString("x8");
+            pictureBoxColor.BackColor = Color.FromArgb(255 - (int)alpha, (int)red, (int)green, (int)blue);
+        }
+
+        private void textBoxBlue_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)8)
+                return;
+
+            if (!char.IsNumber(e.KeyChar))
+            {
+                e.Handled = true;
+                return;
+            }
+
+            if (textBoxBlue.Text.Length > 2)
+                e.Handled = true;
+        }
+
+        private void textBoxGreen_TextChanged(object sender, EventArgs e)
+        {
+            Int32 help;
+            Int32.TryParse(textBoxGreen.Text, out help);
+            SetMinMax(ref help);
+            textBoxGreen.Text = help.ToString();
+            textBoxColor_TextChanged();
+        }
+
+        private void textBoxBlue_TextChanged(object sender, EventArgs e)
+        {
+            Int32 help;
+            Int32.TryParse(textBoxBlue.Text, out help);
+            SetMinMax(ref help);
+            textBoxBlue.Text = help.ToString();
+            textBoxColor_TextChanged();
+        }
+
+        private void textBoxValue_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)8)
+                return;
+            if (textBoxBlue.Text.Length > 8)
+                e.Handled = true;
+            if (char.IsNumber(e.KeyChar))
+                return;
+            switch (e.KeyChar)
+            {
+                case (char)65:
+                case (char)66:
+                case (char)67:
+                case (char)68:
+                case (char)69:
+                case (char)70:
+                case (char)97:
+                case (char)98:
+                case (char)99:
+                case (char)100:
+                case (char)101:
+                case (char)102:
+                    return;
+                default:
+                    e.Handled = true;
+                    break;
+            }
+                 
+            
+        }
+
+        private void textBoxValue_MaskInputRejected_1(object sender, MaskInputRejectedEventArgs e)
+        {
+
         }
     }
 }
