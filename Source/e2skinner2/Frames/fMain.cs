@@ -159,8 +159,6 @@ namespace OpenSkinDesigner.Frames
             String Dateiname = cProperties.getProperty("path") + "/" + cProperties.getProperty("path_skin_xml");
             String strTemp = string.Empty;
             String strVariablenName = string.Empty;
-            String strValue1 = string.Empty;
-            String strValue2 = string.Empty;
             if (!File.Exists(Dateiname))
                 return false;
             try
