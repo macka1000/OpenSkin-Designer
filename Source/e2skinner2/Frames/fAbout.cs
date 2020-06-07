@@ -143,8 +143,11 @@ namespace OpenSkinDesigner.Frames
                 "- Allow only valid characters in Textboxes in 'Color Dialog'" + Environment.NewLine +
                 "- Support for language file" + Environment.NewLine + Environment.NewLine +
                 "v3.2.4.1 by Humax" + Environment.NewLine +
-                "-  Add search for searching text in code editor" + Environment.NewLine;
-          
+                "- Add search for searching text in code editor" + Environment.NewLine + Environment.NewLine +
+                "v3.2.4.2 by Humax" + Environment.NewLine +
+                "- Upgraded search-function" + Environment.NewLine +
+                "- Added missing translation" + Environment.NewLine +
+                "- Fixed text from 'Open-Button' in 'Open-Dialog'" + Environment.NewLine;
 
         }
 
