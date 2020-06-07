@@ -67,7 +67,7 @@ namespace OpenSkinDesigner.Frames
             this.Text = fMain.GetTranslation("Open project");
             lblSkinName.Text = fMain.GetTranslation("No skin selected");
             btnCancel.Text = fMain.GetTranslation("Cancel");
-            btnOpen.Text = fMain.GetTranslation("Cancel");
+            btnOpen.Text = fMain.GetTranslation("Open");
         }
 
         private void fOpen_Load(object sender, EventArgs e)
