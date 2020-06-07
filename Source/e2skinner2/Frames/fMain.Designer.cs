@@ -98,6 +98,7 @@ namespace OpenSkinDesigner.Frames
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panelEditor = new System.Windows.Forms.Panel();
+            this.lbxSearchCodeEditor = new System.Windows.Forms.ListBox();
             this.textBoxEditor2 = new ScintillaNET.Scintilla();
             this.toolStripEditor = new System.Windows.Forms.ToolStrip();
             this.btnSaveEditor = new System.Windows.Forms.ToolStripButton();
@@ -109,6 +110,7 @@ namespace OpenSkinDesigner.Frames
             this.btnFoldElementsOff = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator16 = new System.Windows.Forms.ToolStripSeparator();
             this.tbxSearchCode = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripSeparator19 = new System.Windows.Forms.ToolStripSeparator();
             this.TslStatus = new System.Windows.Forms.ToolStripLabel();
             this.textBoxEditor = new System.Windows.Forms.TextBox();
             this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
@@ -384,7 +386,6 @@ namespace OpenSkinDesigner.Frames
             this.MiSettings.Name = "MiSettings";
             this.MiSettings.Size = new System.Drawing.Size(61, 20);
             this.MiSettings.Text = "Settings";
-            this.MiSettings.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
             // MiResolution
             // 
@@ -513,6 +514,7 @@ namespace OpenSkinDesigner.Frames
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1005, 687);
             this.tabControl1.TabIndex = 2;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             this.tabControl1.Enter += new System.EventHandler(this.tabControl1_Enter);
             this.tabControl1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tabControl1_KeyDown);
             this.tabControl1.Leave += new System.EventHandler(this.tabControl1_Leave);
@@ -844,6 +846,7 @@ namespace OpenSkinDesigner.Frames
             // 
             // panelEditor
             // 
+            this.panelEditor.Controls.Add(this.lbxSearchCodeEditor);
             this.panelEditor.Controls.Add(this.textBoxEditor2);
             this.panelEditor.Controls.Add(this.toolStripEditor);
             this.panelEditor.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -851,6 +854,20 @@ namespace OpenSkinDesigner.Frames
             this.panelEditor.Name = "panelEditor";
             this.panelEditor.Size = new System.Drawing.Size(991, 655);
             this.panelEditor.TabIndex = 2;
+            // 
+            // lbxSearchCodeEditor
+            // 
+            this.lbxSearchCodeEditor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbxSearchCodeEditor.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbxSearchCodeEditor.FormattingEnabled = true;
+            this.lbxSearchCodeEditor.ItemHeight = 15;
+            this.lbxSearchCodeEditor.Location = new System.Drawing.Point(3, 28);
+            this.lbxSearchCodeEditor.Name = "lbxSearchCodeEditor";
+            this.lbxSearchCodeEditor.Size = new System.Drawing.Size(534, 19);
+            this.lbxSearchCodeEditor.TabIndex = 3;
+            this.lbxSearchCodeEditor.Visible = false;
+            this.lbxSearchCodeEditor.DoubleClick += new System.EventHandler(this.lbxSearchCodeEditor_DoubleClick);
             // 
             // textBoxEditor2
             // 
@@ -860,6 +877,7 @@ namespace OpenSkinDesigner.Frames
             this.textBoxEditor2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxEditor2.ConfigurationManager.Language = "xml";
             this.textBoxEditor2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBoxEditor2.Enabled = false;
             this.textBoxEditor2.Folding.Flags = ScintillaNET.FoldFlag.LineAfterContracted;
             this.textBoxEditor2.Folding.UseCompactFolding = true;
             this.textBoxEditor2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
@@ -886,12 +904,14 @@ namespace OpenSkinDesigner.Frames
             this.textBoxEditor2.Styles.Max.FontName = "Verdana\0\0\0\0\0\0\0\0\0\0\0\0\0";
             this.textBoxEditor2.TabIndex = 2;
             this.textBoxEditor2.CharAdded += new System.EventHandler<ScintillaNET.CharAddedEventArgs>(this.autoComplete);
+            this.textBoxEditor2.Click += new System.EventHandler(this.textBoxEditor2_Click);
             // 
             // toolStripEditor
             // 
             this.toolStripEditor.AutoSize = false;
             this.toolStripEditor.BackColor = System.Drawing.Color.Transparent;
             this.toolStripEditor.CanOverflow = false;
+            this.toolStripEditor.Enabled = false;
             this.toolStripEditor.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStripEditor.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnSaveEditor,
@@ -903,6 +923,7 @@ namespace OpenSkinDesigner.Frames
             this.btnFoldElementsOff,
             this.toolStripSeparator16,
             this.tbxSearchCode,
+            this.toolStripSeparator19,
             this.TslStatus});
             this.toolStripEditor.Location = new System.Drawing.Point(0, 0);
             this.toolStripEditor.Name = "toolStripEditor";
@@ -981,16 +1002,23 @@ namespace OpenSkinDesigner.Frames
             // 
             this.tbxSearchCode.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.tbxSearchCode.Name = "tbxSearchCode";
-            this.tbxSearchCode.Size = new System.Drawing.Size(100, 25);
+            this.tbxSearchCode.Size = new System.Drawing.Size(150, 25);
             this.tbxSearchCode.Text = "Search...";
             this.tbxSearchCode.Enter += new System.EventHandler(this.tbxSearchCode_Enter);
             this.tbxSearchCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbxSearchCode_KeyDown);
+            this.tbxSearchCode.TextChanged += new System.EventHandler(this.tbxSearchCode_TextChanged);
+            // 
+            // toolStripSeparator19
+            // 
+            this.toolStripSeparator19.Name = "toolStripSeparator19";
+            this.toolStripSeparator19.Size = new System.Drawing.Size(6, 25);
             // 
             // TslStatus
             // 
             this.TslStatus.Name = "TslStatus";
             this.TslStatus.Size = new System.Drawing.Size(59, 22);
             this.TslStatus.Text = "No Errors.";
+            this.TslStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // textBoxEditor
             // 
@@ -1350,7 +1378,6 @@ namespace OpenSkinDesigner.Frames
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.fMain_FormClosing);
             this.Load += new System.EventHandler(this.fMain_Load);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.fMain_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.fMain_KeyUp);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -1503,5 +1530,7 @@ namespace OpenSkinDesigner.Frames
         private System.Windows.Forms.ToolStripMenuItem MiCustomLanguage;
         private System.Windows.Forms.ToolStripMenuItem MiCustomLanguage_Name;
         private System.Windows.Forms.ToolStripTextBox tbxSearchCode;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator19;
+        private System.Windows.Forms.ListBox lbxSearchCodeEditor;
     }
 }

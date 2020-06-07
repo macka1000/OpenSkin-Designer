@@ -14,6 +14,7 @@ using OpenSkinDesigner.Logic;
 using OpenSkinDesigner.Structures;
 using System.Reflection;
 using ScintillaNET;
+using System.Threading;
 
 namespace OpenSkinDesigner.Frames
 {
@@ -253,6 +254,9 @@ namespace OpenSkinDesigner.Frames
             this.btnDelete.Enabled = true;
             this.btnAddScreen.Enabled = true;
             this.btnAddPanel.Enabled = true;
+            this.toolStripEditor.Enabled = true;
+            this.textBoxEditor2.Enabled = true;
+
         }
 
         public void close()
@@ -304,8 +308,14 @@ namespace OpenSkinDesigner.Frames
             this.btnEditRoot.Enabled = false;
             this.tbxTreeFilter.Enabled = false;
             this.btnAddPanel.Enabled = false;
+            this.toolStripEditor.Enabled = false;
+            this.textBoxEditor2.Enabled = false;
+
             MyGlobaleVariables.UnsafedChanges = false;
             MyGlobaleVariables.UnsafedChangesEditor = false;
+
+            tbxSearchCode.Text = GetTranslation("Search...");
+            tbxTreeFilter.Text = GetTranslation("Search...");
 
             pQueue.clear();
         }
@@ -334,6 +344,8 @@ namespace OpenSkinDesigner.Frames
 
         private void refreshEditor()
         {
+            lbxSearchCodeEditor.Visible = false;
+            tbxSearchCode.Text = GetTranslation("Search...");
             TreeNode selectedNode = treeView1.SelectedNode;
             if (selectedNode != null)
             {
@@ -880,7 +892,7 @@ namespace OpenSkinDesigner.Frames
             else
             {
                 DialogResult dialog = new DialogResult();
-                dialog = MessageBox.Show("You have unsafed changes. Do you want to continue anyway?", "Continue", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                dialog = MessageBox.Show(GetTranslation("You have unsafed changes. Do you want to continue anyway?"), GetTranslation("Continue"), MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dialog == DialogResult.Yes)
                 {
                     ignore = true;
@@ -901,7 +913,7 @@ namespace OpenSkinDesigner.Frames
             else
             {
                 DialogResult dialog = new DialogResult();
-                dialog = MessageBox.Show("You have made changes in the editor. Do you want to continue anyway?", "Continue", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                dialog = MessageBox.Show(GetTranslation("You have made changes in the editor. Do you want to continue anyway?"), GetTranslation("Continue"), MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dialog == DialogResult.Yes)
                 {
                     ignore = true;
@@ -1784,6 +1796,8 @@ namespace OpenSkinDesigner.Frames
 
         private void tabControl1_Leave(object sender, EventArgs e)
         {
+            lbxSearchCodeEditor.Visible = false;
+            tbxSearchCode.Text = GetTranslation("Search...");
             //if (((TabPage)sender).Name.Equals("tabPage1"))
             {
                 this.keyCaptureNotifyButton.Image = global::OpenSkinDesigner.Properties.Resources.UnLock_icon;
@@ -1859,9 +1873,6 @@ namespace OpenSkinDesigner.Frames
                 togglePreviewFullscreen();
         }
 
-        private void fMain_KeyDown(object sender, KeyEventArgs e)
-        {
-        }
 
         private void btnSkinned_Alpha_Click(object sender, EventArgs e)
         {
@@ -1881,9 +1892,6 @@ namespace OpenSkinDesigner.Frames
         private void trackBarZoom_ValueChanged(object sender, EventArgs e)
         {
             setZoom(((System.Windows.Forms.TrackBar)sender).Value / 100.0f + 1.0f);
-            // if (numericUpDownZoom.Minimum > ((System.Windows.Forms.TrackBar)sender).Value) //MOD - Komisch war bei meiner Version nicht nötig???
-            //    numericUpDownZoom.Minimum = ((System.Windows.Forms.TrackBar)sender).Minimum; //MOD
-
             numericUpDownZoom.Value = ((System.Windows.Forms.TrackBar)sender).Value;
         }
 
@@ -1993,26 +2001,38 @@ namespace OpenSkinDesigner.Frames
 
         private void doSearchCode()
         {
-            int line = 0;
-            var found = new List<int>();
-            string message = GetTranslation("The search term was found in the following lines (only showing 30 lines!):") + Environment.NewLine;
-            foreach (Line ln in textBoxEditor2.Lines)
+            int count = 0;
+            string linecount = string.Empty;
+            if (!textBoxEditor2.Text.Contains(""))
             {
-                line += 1;
-                if (ln.Text.Contains(tbxSearchCode.Text))
-                {
-                    found.Add(line);
-                    message += line + Environment.NewLine;
-                    if (found.Count > 29) // Only show 30 items
-                        break;
-                }
+
+                lbxSearchCodeEditor.Visible = false;
+                return;
             }
 
-            if (found.Count > 0)
-                MessageBox.Show(message, GetTranslation("Ergebnis"),MessageBoxButtons.OK,MessageBoxIcon.Information);
+            foreach (ScintillaNET.Line linear in this.textBoxEditor2.Lines)
+            {
+                count += 1;
+                if (linear.Text.Contains(tbxSearchCode.Text))
+                {
+                    linecount = count.ToString();
+                    while (linecount.ToString().Length < 7)
+                    {
+                        linecount = "0" + linecount;
+                    }       
+                   
+                    lbxSearchCodeEditor.Items.Add(linecount + " " + linear.Text);
+                    lbxSearchCodeEditor.Height += lbxSearchCodeEditor.ItemHeight;
+                }
+                if (lbxSearchCodeEditor.Height + lbxSearchCodeEditor.ItemHeight > textBoxEditor2.Height)
+                    break;               
+                   
+            }
+            if (lbxSearchCodeEditor.Items.Count == 0)
+                lbxSearchCodeEditor.Visible = false;
             else
-                MessageBox.Show(GetTranslation("The search term was not found!"), GetTranslation("Ergebnis"), MessageBoxButtons.OK, MessageBoxIcon.Information);
-            
+                lbxSearchCodeEditor.Visible = true;
+           
         }
 
         private void tbxTreeFilter_TextChanged(object sender, EventArgs e)
@@ -2099,7 +2119,6 @@ namespace OpenSkinDesigner.Frames
 
         private void autoComplete(object sender, ScintillaNET.CharAddedEventArgs e)
         {
-
             ScintillaNET.Scintilla txt = (ScintillaNET.Scintilla)sender;
             if (e.Ch == '<')
                 showElementsList(txt);
@@ -2250,7 +2269,6 @@ namespace OpenSkinDesigner.Frames
                 words.Add("pixtype");
                 words.Add("plugin_pixmaps");
                 words.Add("colorEventProgressbarSelected");
-
             }
 
             words.Sort();
@@ -2287,10 +2305,6 @@ namespace OpenSkinDesigner.Frames
             MyGlobaleVariables.UnsafedChangesEditor = true;
         }
 
-        private void textBoxEditor2_Leave(object sender, EventArgs e)
-        {
-
-        }
 
         private void MiNew_Click(object sender, EventArgs e)
         {
@@ -2307,8 +2321,6 @@ namespace OpenSkinDesigner.Frames
                     e.Cancel = true;
                 else
                     MyGlobaleVariables.UnsafedChangesEditor = false;
-
-
             }
         }
 
@@ -2317,7 +2329,6 @@ namespace OpenSkinDesigner.Frames
             if (MiCustomLanguage_Name.Checked == true)
             {
                 MyGlobaleVariables.CustomLanguage = true;
-                          
             }
             else
             {
@@ -2398,11 +2409,6 @@ namespace OpenSkinDesigner.Frames
             return translation;
         }
 
-        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void TSAddUndefinedColors_Click(object sender, EventArgs e)
         {
             if (MiAddUndefinedColors.Checked == true)
@@ -2426,13 +2432,63 @@ namespace OpenSkinDesigner.Frames
 
         private void tbxSearchCode_KeyDown(object sender, KeyEventArgs e)
         {
+            if (e.KeyCode == Keys.Escape)
+            {
+                lbxSearchCodeEditor.Visible = false;
+                tbxSearchCode.Text = "";
+            }
+
+
             if (e.KeyCode == Keys.Return)
+            {
+                lbxSearchCodeEditor.Visible = true;
                 if (textBoxEditor2.Text != null && textBoxEditor2.Text != "")
+                {
+                    lbxSearchCodeEditor.Height = 18;
+                    lbxSearchCodeEditor.Items.Clear();
                     doSearchCode();
+                }
                 else
-                    MessageBox.Show(GetTranslation("No text to browse!"), GetTranslation("Information"), MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                {
+                    lbxSearchCodeEditor.Visible = false;
+                }
+            }
+
         }
 
+        private void tbxSearchCode_TextChanged(object sender, EventArgs e)
+        {
+            lbxSearchCodeEditor.Visible = false;
+        }
+
+            private void lbxSearchCodeEditor_DoubleClick(object sender, EventArgs e)
+        {
+            if (tbxSearchCode.Text != "")
+            {
+                string linecount = lbxSearchCodeEditor.SelectedItem.ToString().Substring(0,7);
+                while (linecount.Substring(0,1) == "0")
+                {
+                    linecount = linecount.Substring(1);
+                }
+                textBoxEditor2.Lines[Int32.Parse(linecount) - 1].Select();
+                
+            }
+            lbxSearchCodeEditor.Height = 18;
+            lbxSearchCodeEditor.Items.Clear();
+            lbxSearchCodeEditor.Visible = false;
+        }
+
+        private void textBoxEditor2_Click(object sender, EventArgs e)
+        {
+            lbxSearch.Visible = false;
+            tbxTreeFilter.Text = GetTranslation("Search...");
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lbxSearch.Visible = false;
+            tbxTreeFilter.Text = GetTranslation("Search...");
+        }
 
         private void fMain_Load(object sender, EventArgs e)
         {
@@ -2465,6 +2521,5 @@ namespace OpenSkinDesigner.Frames
             refresh();
         }
 
-        
     }
 }
