@@ -147,3 +147,6 @@ The search term was found in the following lines (only showing 30 lines!):: 在�
 The search term was not found!: 没有找到搜索词!
 Result: 结果
 No text to browse!: 没有文字可浏览!
+Continue: 继续
+You have made changes in the editor. Do you want to continue anyway?: 你已经在编辑器中进行了修改。你还想继续吗？
+You have unsafed changes. Do you want to continue anyway?: 你有不安全的变化。你还想继续吗？
