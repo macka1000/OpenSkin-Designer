@@ -69,6 +69,12 @@ namespace OpenSkinDesigner.Frames
 
         private void AddCustomLanguages()
         {
+            if (!(Directory.Exists("languages")))
+            {
+                Properties.Settings.Default.language = null;
+                return;
+            }
+                
             DirectoryInfo di = new DirectoryInfo("languages");
                 
             foreach (FileInfo fi in di.GetFiles())
@@ -1005,12 +1011,10 @@ namespace OpenSkinDesigner.Frames
             }
             Properties.Settings.Default.Save();
         }
-
         private void SelectCustomLanguage()
         {
             if (Properties.Settings.Default.language == null)
                 return;
-
 
             foreach (ToolStripMenuItem item in MiCustomLanguage.DropDownItems)
             {
