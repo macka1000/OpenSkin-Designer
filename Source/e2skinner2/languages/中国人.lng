@@ -1,4 +1,4 @@
-Language: 中国人
+Language: 语种
 File: 文件
 New: 新的
 Open: 开放式
@@ -26,7 +26,6 @@ Preferences: 首选
 Add undefined color with '#': 用'#'添加未定义的颜色
 Use full attribut-list: 使用完整的属性列表
 Set 'Fallback'-Color: 设置 "回落"-颜色
-Custom language: 自定义语言
 Search...: 搜索
 Designer: 设计师
 Code: 代码

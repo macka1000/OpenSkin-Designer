@@ -62,10 +62,10 @@ namespace OpenSkinDesigner.Frames
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.MiPreferences = new System.Windows.Forms.ToolStripMenuItem();
             this.jToolStripMenuItem = new System.Windows.Forms.ToolStripSeparator();
-            this.MiCustomLanguage = new System.Windows.Forms.ToolStripMenuItem();
-            this.MiSetFallbackColor = new System.Windows.Forms.ToolStripMenuItem();
+            this.MiLanguage = new System.Windows.Forms.ToolStripMenuItem();
             this.MiAddUndefinedColors = new System.Windows.Forms.ToolStripMenuItem();
             this.MiUseFullAttributlist = new System.Windows.Forms.ToolStripMenuItem();
+            this.MiSetFallbackColor = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -383,7 +383,7 @@ namespace OpenSkinDesigner.Frames
             this.toolStripSeparator7,
             this.MiPreferences,
             this.jToolStripMenuItem,
-            this.MiCustomLanguage,
+            this.MiLanguage,
             this.MiAddUndefinedColors,
             this.MiUseFullAttributlist,
             this.MiSetFallbackColor});
@@ -459,19 +459,12 @@ namespace OpenSkinDesigner.Frames
             this.jToolStripMenuItem.Name = "jToolStripMenuItem";
             this.jToolStripMenuItem.Size = new System.Drawing.Size(227, 6);
             // 
-            // MiCustomLanguage
+            // MiLanguage
             // 
-            this.MiCustomLanguage.Name = "MiCustomLanguage";
-            this.MiCustomLanguage.Size = new System.Drawing.Size(230, 22);
-            this.MiCustomLanguage.Text = "Language";
-            this.MiCustomLanguage.Visible = false;
-            // 
-            // MiSetFallbackColor
-            // 
-            this.MiSetFallbackColor.Name = "MiSetFallbackColor";
-            this.MiSetFallbackColor.Size = new System.Drawing.Size(230, 22);
-            this.MiSetFallbackColor.Text = "Set \'Fallback\'-Color";
-            this.MiSetFallbackColor.Click += new System.EventHandler(this.setFallbackColorToolStripMenuItem_Click);
+            this.MiLanguage.Name = "MiLanguage";
+            this.MiLanguage.Size = new System.Drawing.Size(230, 22);
+            this.MiLanguage.Text = "Language";
+            this.MiLanguage.Visible = false;
             // 
             // MiAddUndefinedColors
             // 
@@ -490,6 +483,13 @@ namespace OpenSkinDesigner.Frames
             this.MiUseFullAttributlist.Size = new System.Drawing.Size(230, 22);
             this.MiUseFullAttributlist.Text = "Use full attribut-list";
             this.MiUseFullAttributlist.Click += new System.EventHandler(this.useFullAttributlistToolStripMenuItem_Click);
+            // 
+            // MiSetFallbackColor
+            // 
+            this.MiSetFallbackColor.Name = "MiSetFallbackColor";
+            this.MiSetFallbackColor.Size = new System.Drawing.Size(230, 22);
+            this.MiSetFallbackColor.Text = "Set \'Fallback\'-Color";
+            this.MiSetFallbackColor.Click += new System.EventHandler(this.setFallbackColorToolStripMenuItem_Click);
             // 
             // toolStripMenuItemHelp
             // 
@@ -1553,7 +1553,7 @@ namespace OpenSkinDesigner.Frames
         private System.Windows.Forms.ToolStripMenuItem MiSetFallbackColor;
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.ToolStripMenuItem MiUseFullAttributlist;
-        private System.Windows.Forms.ToolStripMenuItem MiCustomLanguage;
+        private System.Windows.Forms.ToolStripMenuItem MiLanguage;
         private System.Windows.Forms.ToolStripTextBox tbxSearchCode;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator19;
         private System.Windows.Forms.ListBox lbxSearchCodeEditor;

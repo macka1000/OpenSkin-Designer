@@ -81,12 +81,12 @@ namespace OpenSkinDesigner.Frames
             {
                 if (fi.Extension.ToLower()==".lng")
                 {
-                    MiCustomLanguage.Visible = true;
+                    MiLanguage.Visible = true;
                     ToolStripMenuItem a = new ToolStripMenuItem();
                     a.Text = Path.GetFileNameWithoutExtension(fi.Name);
                     // a.CheckOnClick = true;
                     a.Click += new System.EventHandler(this.AddCustomLanguages_Click);
-                    MiCustomLanguage.DropDownItems.Add(a);
+                    MiLanguage.DropDownItems.Add(a);
                 }
             }
 
@@ -986,7 +986,7 @@ namespace OpenSkinDesigner.Frames
         }
         private void AddCustomLanguages_Click(object sender, EventArgs e)
         {
-            foreach (ToolStripMenuItem item in MiCustomLanguage.DropDownItems)
+            foreach (ToolStripMenuItem item in MiLanguage.DropDownItems)
             {
                 if (item.Text == (sender as ToolStripDropDownItem).Text)
                 {
@@ -1016,7 +1016,7 @@ namespace OpenSkinDesigner.Frames
             if (Properties.Settings.Default.language == null)
                 return;
 
-            foreach (ToolStripMenuItem item in MiCustomLanguage.DropDownItems)
+            foreach (ToolStripMenuItem item in MiLanguage.DropDownItems)
             {
                 if (item.Text == Properties.Settings.Default.language)
                 {
@@ -2300,7 +2300,7 @@ namespace OpenSkinDesigner.Frames
             MiAddUndefinedColors.Text = GetTranslation("Add undefined color with '#'");
             MiSetFallbackColor.Text = GetTranslation("Set 'Fallback'-Color");
             MiUseFullAttributlist.Text = GetTranslation("Use full attribut-list");
-            MiCustomLanguage.Text = GetTranslation("Custom language");
+            MiLanguage.Text = GetTranslation("Language");
             btnOpen.Text = GetTranslation("Open");
             btnSave.Text = GetTranslation("Save");
             btnAddLabel.Text = GetTranslation("Add Label");

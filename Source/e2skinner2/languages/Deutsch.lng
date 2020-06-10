@@ -1,4 +1,4 @@
-Language: German
+Language: Sprache
 File: Datei
 New: Neu
 Open: Öffnen
@@ -25,8 +25,7 @@ Reload previewText.xml: previewText.xml neu laden
 Preferences: Präferenzen
 Add undefined color with '#': Undefinierte Farbe mit '#' hinzufügen
 Use full attribut-list: Vollständige Attribut-Liste verwenden
-Set 'Fallback'-Color: 'Fallback'-Farbe einstellen
-Custom language: Benutzerdefinierte Sprache
+Set 'Fallback'-Color: 'Fallback'-Farbe ändern
 Search...: Suchen...
 Designer: Designer
 Code: Code
