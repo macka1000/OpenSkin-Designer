@@ -147,7 +147,13 @@ namespace OpenSkinDesigner.Frames
                 "v3.2.4.2 by Humax" + Environment.NewLine +
                 "- Upgraded search-function" + Environment.NewLine +
                 "- Added missing translation" + Environment.NewLine +
-                "- Fixed text from 'Open-Button' in 'Open-Dialog'" + Environment.NewLine;
+                "- Fixed text from 'Open-Button' in 'Open-Dialog'" + Environment.NewLine + Environment.NewLine +
+                "v3.2.4.3 by Humax" + Environment.NewLine +
+                "- Added missing translation" + Environment.NewLine +
+                "- Settings are now saved" + Environment.NewLine +
+                "- Multilanguage support" + Environment.NewLine;
+
+            
 
         }
 
