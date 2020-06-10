@@ -7,6 +7,7 @@ using OpenSkinDesigner.Logic;
 using System.Drawing.Text;
 using System.IO;
 using System.Windows.Forms;
+using OpenSkinDesigner.Frames;
 
 namespace OpenSkinDesigner.Structures
 {
@@ -128,16 +129,16 @@ namespace OpenSkinDesigner.Structures
                 SizeF StringSize = g.MeasureString(pText, font);
                 if (pColor == null) //MOD 
                 {
-                    pColor = new sColor(MyGlobaleVariables.FallbackColor);
+                    pColor = new sColor(Properties.Settings.Default.FallbackColor);
                     if (MyGlobaleVariables.ShowMsgFallbackColor == true)
                     {
                         DialogResult dr = new DialogResult();
                         if (pAttr != null)
-                            dr = MessageBox.Show("Using 'Fallback-Color' for: '" + pAttr.Name + "'" + Environment.NewLine + Environment.NewLine +
-                            "Show this Message again?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                            dr = MessageBox.Show(fMain.GetTranslation("Using 'fallback color' for: '") + pAttr.Name + "'" + Environment.NewLine + Environment.NewLine +
+                            fMain.GetTranslation("Show this message again?"), fMain.GetTranslation("Information"), MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                         else
-                            dr = MessageBox.Show("Using 'Fallback-Color'" + Environment.NewLine + Environment.NewLine +
-                                "Show this Message again?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                            dr = MessageBox.Show(fMain.GetTranslation("Using 'fallback color'") + Environment.NewLine + Environment.NewLine +
+                                fMain.GetTranslation("Show this message again?"), fMain.GetTranslation("Information"), MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (dr == DialogResult.No)
                             MyGlobaleVariables.ShowMsgFallbackColor = false;
