@@ -15,7 +15,6 @@ namespace OpenSkinDesigner.Structures
 {
     public static class MyGlobaleVariables
     {
-        public static string AddUndefinedColor { get; set; } = "#"; // Prefix how to add undefined color ('#' or 'un') 
         public static bool Reload { get; set; } = false; // Ask if Skin should be saved and reloaded
         public static bool ShowMsgFallbackFont { get; set; } = true; // Show Messagebox if OSD uses a 'Fallback-Font' (when font not found / declared)
         public static bool ShowMsgFallbackColor { get; set; } = true; // Show Messagebox if OSD uses a 'Fallback-Color' (When missing Color)
@@ -23,10 +22,7 @@ namespace OpenSkinDesigner.Structures
         public static bool UnsafedChanges { get; set; } = false; // If Changes are made 
         public static bool UnsafedChangesEditor { get; set; } = false; // If changes in Editor are made
         public static string[] Language { get; set; } = null; // Custom language
-        public static bool CustomLanguage { get; set; } = false; // If custom language is enabled
 
-        public static bool UseFullAttList { get; set; } = true; // Scintilla - autoComplete, use full Attribut list instead of normal / old one
-        public static Color FallbackColor { get; set; } = Color.HotPink; 
         public static List<String> SkinName = new List<String>();
         public static List<String> SkinValue1 = new List<String>();
         public static List<String> SkinValue2 = new List<String>();
