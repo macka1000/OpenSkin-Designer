@@ -58,19 +58,19 @@
             // textBoxPath
             // 
             this.textBoxPath.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBoxPath.Location = new System.Drawing.Point(56, 378);
+            this.textBoxPath.Location = new System.Drawing.Point(82, 378);
             this.textBoxPath.Name = "textBoxPath";
             this.textBoxPath.ReadOnly = true;
-            this.textBoxPath.Size = new System.Drawing.Size(178, 20);
+            this.textBoxPath.Size = new System.Drawing.Size(233, 20);
             this.textBoxPath.TabIndex = 13;
             // 
             // textBoxName
             // 
             this.textBoxName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBoxName.Location = new System.Drawing.Point(56, 352);
+            this.textBoxName.Location = new System.Drawing.Point(82, 352);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.ReadOnly = true;
-            this.textBoxName.Size = new System.Drawing.Size(178, 20);
+            this.textBoxName.Size = new System.Drawing.Size(233, 20);
             this.textBoxName.TabIndex = 12;
             // 
             // labelPath
@@ -194,17 +194,17 @@
             // textBoxScale
             // 
             this.textBoxScale.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBoxScale.Location = new System.Drawing.Point(56, 404);
+            this.textBoxScale.Location = new System.Drawing.Point(82, 404);
             this.textBoxScale.Name = "textBoxScale";
             this.textBoxScale.ReadOnly = true;
-            this.textBoxScale.Size = new System.Drawing.Size(178, 20);
+            this.textBoxScale.Size = new System.Drawing.Size(233, 20);
             this.textBoxScale.TabIndex = 16;
             // 
             // checkBoxReplacement
             // 
             this.checkBoxReplacement.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.checkBoxReplacement.AutoSize = true;
-            this.checkBoxReplacement.Location = new System.Drawing.Point(56, 455);
+            this.checkBoxReplacement.Location = new System.Drawing.Point(82, 455);
             this.checkBoxReplacement.Name = "checkBoxReplacement";
             this.checkBoxReplacement.Size = new System.Drawing.Size(89, 17);
             this.checkBoxReplacement.TabIndex = 17;
@@ -225,19 +225,19 @@
             // textBox1
             // 
             this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBox1.Location = new System.Drawing.Point(56, 431);
+            this.textBox1.Location = new System.Drawing.Point(82, 431);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(178, 20);
+            this.textBox1.Size = new System.Drawing.Size(233, 20);
             this.textBox1.TabIndex = 21;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Location = new System.Drawing.Point(240, 340);
+            this.pictureBox1.Location = new System.Drawing.Point(321, 340);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(805, 61);
+            this.pictureBox1.Size = new System.Drawing.Size(724, 61);
             this.pictureBox1.TabIndex = 26;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
@@ -246,9 +246,9 @@
             // 
             this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox2.Location = new System.Drawing.Point(240, 407);
+            this.pictureBox2.Location = new System.Drawing.Point(321, 407);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(805, 61);
+            this.pictureBox2.Size = new System.Drawing.Size(724, 61);
             this.pictureBox2.TabIndex = 27;
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox2_Paint);
@@ -259,11 +259,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxPreview.Enabled = false;
             this.textBoxPreview.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPreview.Location = new System.Drawing.Point(240, 340);
+            this.textBoxPreview.Location = new System.Drawing.Point(321, 340);
             this.textBoxPreview.Multiline = true;
             this.textBoxPreview.Name = "textBoxPreview";
             this.textBoxPreview.ReadOnly = true;
-            this.textBoxPreview.Size = new System.Drawing.Size(805, 128);
+            this.textBoxPreview.Size = new System.Drawing.Size(724, 128);
             this.textBoxPreview.TabIndex = 28;
             this.textBoxPreview.Text = "Font failed !";
             this.textBoxPreview.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
