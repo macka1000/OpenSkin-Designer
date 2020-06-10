@@ -1,0 +1,154 @@
+Language: Jezyk
+File: Plik
+New: Nowy
+Open: Otworz
+Save: Zapisz
+Save as: Zapisz jako
+Close: Zamknij
+Exit: Wyjdz
+Edit: Edytuj
+Undo: Cofnij
+Redo: Przerob
+Element: Element
+Add Label: Dodaj etykiety
+Add Pixmap: Dodaj mapy pikseli
+Add Widget: Dodaj widzety
+Add Panel: Dodaj Panel
+Delete selected: Usun zaznaczone
+Settings: Ustawienia
+Resolution: Rozdzielczosc
+Colors: Kolory
+Fonts: Czcionka
+WindowStyles: Styl okna
+Reload converter.xml: Przeladowac converter.xml
+Reload previewText.xml: Przeladowac previewText.xml
+Preferences: Preferencje
+Add undefined color with '#': Dodaj niezdefiniowany kolor za pomoca '#'
+Use full attribut-list: Uzyj pelnej listy atrybutow
+Set 'Fallback'-Color: Ustaw kolor 'Fallback'
+Custom language: Niestandardowy jezyk
+Search...: Szukaj
+Designer: Projekt
+Code: Kod
+Marker: Znacznik
+Show all: Poka¿ wszystko
+Show screens: Pokaz ekrany
+Show labels: Pokaz etykiety
+Show pixmaps: Pokaz mapy pikseli
+Show panels: Pokaz panele
+Show widgets: Pokaz widzety
+Alpha: Alfa
+Fading: Zblakly
+Conditional widgets: Widzety warunkowe
+Random: Losowy
+Default: Domyslna
+None: Zaden
+Capturing Keyboard Events: Przechwytywanie zdarzen klawiatury
+Cancel: Anuluj
+OK: Ok
+Open: Otworz
+Edit Root: Edytuj root
+Add Screen: Dodaj obraz
+Delete Element: Usun element
+All: Wszystko
+No Errors.: Bez bledow
+Error:: Blad
+No element selected: Nie wybrano zadnego elementu
+Sync: Synchronizacja
+Fold all: Zlozyc wszystko
+Unfold all: Rozlozyc wszystko
+Fold all elements: Zlozyc wszystkie elementy
+Unfold all elements: Rozlozyc wszystkie elementy
+Color settings: Ustawienia kolorow
+Edit colors: Edytuj kolory
+Name: Nazwa
+Value: Wartosc
+Color: Kolor
+Add: Dodaj 
+Remove: Usun
+Change: Zmien
+Red: Czerwony
+Green: Zielony
+Blue: Niebieski
+Palette: Paleta
+Hints: Wskazowki
+(in decimal, min=0, max=255): (dziesietnie, min = 0, max = 255)
+(in hexadecimal): (w systemie szesnastkowym)
+The color in the 'listview' can only be displayed without an alpha channel,: Kolor w 'widoku listy' moze byc wyswietlany tylko bez kanalu alfa,
+i.e. the color representation is only displayed correctly (with transparency) in the 'picturebox' in the left lower corner!: 
+tzn. reprezentacja kolorow jest wyswietlana poprawnie (z przezroczystoscia) tylko w „ramce obrazu” w lewym dolnym rogu!
+Alpha = transparency! I.e. the more alpha the more transparent the color becomes.: Alfa = przezroczystosc! To znaczy im bardziej alfa, tym bardziej przezroczysty staje sie kolor.
+Information: Informacja
+The name of the color cannot be empty!: Nazwa koloru nie moze byc pusta!
+The value of the color cannot be empty!: Wartosc koloru nie moze byc pusta!
+This color already exists! Ten kolor juz istnieje!
+You can update this color by pressing the 'Change'-Button.: Mo¿esz zaktualizowac ten kolor, naciskajac przycisk 'Zmien'.
+Invalid format for value hexadecimal value!: Niepoprawny format wartosci szesnastkowej!
+To do this, you must select a color in the listview!: Aby to zrobic, musisz wybrac kolor w widoku listy!
+Invalid format for value alpha!: Nieprawidlowy format wartosci alfa!
+Invalid format for value red!: Nieprawidlowy format wartosci czerwonej!
+Invalid format for value blue!: Nieprawidlowy format wartosci niebieskiej!
+Invalid format for value green!: Nieprawidlowy format wartosci zielonej!
+You've made some changes, which will only take effect (show the color in the treeview): Wprowadziles kilka zmian, ktore zostana zastosowane (pokaz kolor w widoku treeview)
+after you have saved and reloaded the skin!: po zapisaniu i ponownym zaladowaniu skory!
+Do you want to save and reload the skin now?: Czy chcesz teraz zapisac i ponownie zaladowac skorke?
+Remember, however, that this will also save all previous changes you made!: Pamietaj jednak, ze spowoduje to rowniez zapisanie wszystkich wprowadzonych wczesniej zmian!
+Save and reload: Zapisz i zaladuj ponownie
+Information about: Informacja o
+Path: Sciezka
+Scale: Skala
+Size: Rozmiar
+Replacement: Zastapienie
+isAlias: W zwiazku z tym
+Filename: Nazwa
+Preview fonts: Zobacz czcionke
+Usage: Stosowanie
+Font: Czcionka
+This is a preview-text to show the font: To jest podglad tekstu pokazujacy czcionke
+Test-String SKY 1234567890 !#?ÃœÃ–Ã„$%/(): Ciag testowy SKY 1234567890 !#?ÃœÃ–Ã„$%/()
+To be able to show this preview, the font size: Aby moc wyswietlic ten podglad, rozmiar czcionki
+was temporarily changed from 0 to 20: zostal tymczasowo zmieniony z 0 na 20
+Font painting failed!: Malowanie czcionek nie powiodlo sie!
+The font: Czcionka
+was not found.: nie znaleziono.
+Probably this is a default font on the image of your box: Prawdopodobnie jest to domyslna czcionka w obrazie twojego dekodera
+Warning: Ostrzezenie
+This function is not sufficiently tested and seems unstable. It is not recommended to use it!: Ta funkcja nie jest wystarczajaco przetestowana i jest niestabilna. Nie zaleca sie korzystania z niej!
+Note:: Uwaga:
+The skin will be automatically saved if you want to continue!: 
+Skorka zostanie automatycznie zapisana, jesli chcesz kontynuowac!
+It is recommend to create a backup of your skin first!: Zaleca sie, aby najpierw utworzyc kopie zapasowa skory!
+Press 'Cancel' to abort.: Nacisnij 'Anuluj', aby przerwac.
+Resolution settings: Ustawienia rozdzielczosci
+Choose the resolution: Wybierz rozdzielczosc
+Resolution: Rozdzielczosc
+Changing the Resolution will result in rescaling of the skin.: Zmiana rozdzielczosci spowoduje przeskalowanie skory.
+PNG not found: Nie znaleziono PNG
+More than one color defined with name: Wiecej niz jeden kolor zdefiniowany za pomoca nazwy
+The second definition will be deleted if you save manually.: Druga definicja zostanie usunieta, jesli zapiszesz recznie.
+Until you save, the second definition is still shown in TreeView!: Do momentu zapisania druga definicja jest nadal wyœwietlana w TreeView!
+Do you want to save and reload the skin?: Czy chcesz zapisac i ponownie zaladowac skore?
+Error while parsing color table: Blad podczas analizowania tabeli kolorow
+Error while parsing font table: Blad podczas analizowania tabeli czcionek
+More than one font (alias) defined with name: Wiecej niz jedna czcionka (alias) zdefiniowana za pomoca nazwy
+More than one font defined with name: Wiecej niz jedna czcionka zdefiniowana za pomoca nazwy
+Show this message again?: Wyswietlic te wiadomosc ponownie?
+is not defined or exist!: nie jest zdefiniowane lub istnieje!
+Using 'fallback font': Korzystanie z 'zastepczej czcionki'
+Using 'fallback color': Użycie 'koloru awaryjnego'
+Error: Blad
+Open project: Otwarty projekt
+No skin selected: Nie wybrano skory
+Open: Otwarty
+Window-Style settings: Ustawienia stylu okna
+Style: Styl
+Preview: Podglad
+Table: Stol
+View: Widok
+Key: Klucz
+The search term was found in the following lines (only showing 30 lines!): Wyszukiwane haslo zostalo znalezione w nastêpujacych wierszach (pokazuje tylko 30 wierszy!)
+The search term was not found!: Wyszukiwane has³o nie zostalo znalezione!
+Result: Wynik
+No text to browse!: Brak tekstu do przegladania!
+Continue: Kontynuuj
+You have unsafed changes. Do you want to continue anyway?: Masz niezabezpieczone zmiany.

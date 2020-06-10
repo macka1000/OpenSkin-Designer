@@ -1,0 +1,152 @@
+Language: German
+File: Datei
+New: Neu
+Open: Öffnen
+Save: Speichern
+Save as: Speichern unter
+Close: Schließen
+Exit: Beenden
+Edit: Bearbeiten
+Undo: Rückgängig machen
+Redo: Wiederholen
+Element: Element
+Add Label: Label hinzufügen
+Add Pixmap: Pixmap hinzufügen
+Add Widget: Widget hinzufügen
+Add Panel: Panel hinzufügen
+Delete selected: Ausgewählte löschen
+Settings: Einstellungen
+Resolution: Auflösung
+Colors: Farben
+Fonts: Schriftarten
+WindowStyles: Fenster-Stil
+Reload converter.xml: converter.xml neu laden
+Reload previewText.xml: previewText.xml neu laden
+Preferences: Präferenzen
+Add undefined color with '#': Undefinierte Farbe mit '#' hinzufügen
+Use full attribut-list: Vollständige Attribut-Liste verwenden
+Set 'Fallback'-Color: 'Fallback'-Farbe einstellen
+Custom language: Benutzerdefinierte Sprache
+Search...: Suchen...
+Designer: Designer
+Code: Code
+Marker: Marker
+Show all: Alle anzeigen
+Show screens: Screens anzeigen
+Show labels: Lebels anzeigen
+Show pixmaps: Pixmaps anzeigen
+Show panels: Panels anzeigen
+Show widgets: Widgets anzeigen
+Alpha: Alpha
+Fading: Ausblenden
+Conditional widgets: Bedingte Widgets
+Random: Zufällig
+Default: Vorgabe
+None: Keine
+Capturing Keyboard Events: Erfassen von Tastaturereignissen
+Cancel: Abbrechen
+OK: OK
+Open: Öffnen
+Edit Root: Root bearbeiten
+Add Screen: Screen hinzufügen
+Delete Element: Element löschen
+All: Alle
+No Errors.: Keine Fehler.
+Error:: Fehler:
+No element selected: Kein Element ausgewählt
+Sync: Synchronisieren
+Fold all: Alle einklappen
+Unfold all: Alle ausklappen
+Fold all elements: Alle Elemente einklappen
+Unfold all elements: Alle Elemente ausklappen
+Color settings: Farb-Einstellungen
+Edit colors: Farben bearbeiten
+Name: Name
+Value: Wert
+Color: Farbe
+Add: Hinzufügen
+Remove: Entfernen
+Change: Ändern
+Red: Rot
+Green: Grün
+Blue: Blau
+Palette: Palette
+Hints: Hinweise
+(in decimal, min=0, max=255): (in dezimal, min=0, max=255)
+(in hexadecimal): (in hexadezimaler Schreibweise)
+The color in the 'listview' can only be displayed without an alpha channel,: Die Farbe in der 'Listenansicht' kann nur ohne Alphakanal dargestellt werden,
+i.e. the color representation is only displayed correctly (with transparency) in the 'picturebox' in the left lower corner!: d.h. die Farbdarstellung wird nur in der 'Picturebox' in der linken unteren Ecke korrekt (mit Transparenz) dargestellt! 
+Alpha = transparency! I.e. the more alpha the more transparent the color becomes.: Alpha = Durchsichtigkeit! D.h. je mehr Alpha, desto transparenter wird die Farbe.
+Information: Information
+The name of the color cannot be empty!: Der Name der Farbe darf nicht leer sein! 
+The value of the color cannot be empty!: Der value (Wert) der Farbe kann nicht leer sein!
+This color already exists! Diese Farbe existiert bereits!
+You can update this color by pressing the 'Change'-Button.: Sie können diese Farbe aktualisieren, indem Sie den 'Ändern'-Button drücken
+Invalid format for value hexadecimal value!: Ungültiges Format für value hexadezimaler Wert! 
+To do this, you must select a color in the listview!: Dazu müssen Sie in der Listenansicht eine Farbe auswählen! 
+Invalid format for value alpha!: Ungültiges Format für den Wert alpha!
+Invalid format for value red!: Ungültiges Format für den Wert rot!
+Invalid format for value blue!: Ungültiges Format für den Wert blau!
+Invalid format for value green!: Ungültiges Format für den Wert grün!
+You've made some changes, which will only take effect (show the color in the treeview),: Sie haben einige Änderungen vorgenommen, die erst wirksam werden (Anzeigen der Farbe in der Baumansicht)
+after you have saved and reloaded the skin!: nachdem Sie den Skin gespeichert und wieder geladen haben!
+Do you want to save and reload the skin now?: Wollen Sie den Skin jetzt speichern und wieder laden? 
+Remember, however, that this will also save all previous changes you made!: Denken Sie aber daran, dass damit auch alle bisherigen Änderungen, die Sie vorgenommen haben, gespeichert werden!
+Save and reload: Speichern und neu laden
+Information about: Informationen über
+Path: Pfad
+Scale: Skalierung
+Size: Größe
+Replacement: Ersetzen
+isAlias: ist Alias
+Filename: Dateiname
+Preview fonts: Vorschau der Schriftarten
+Usage: Verwendung
+Font: Schriftart
+This is a preview-text to show the font: Dies ist ein Vorschau-Text zur Anzeige der Schriftart
+Test-String SKY 1234567890 !#?ÜÖÄ$%/(): Test-String SKY 1234567890 !#?ÜÖÄ$%/()
+To be able to show this preview, the font size: Um diese Vorschau anzeigen zu können, wurde die Schriftgröße
+was temporarily changed from 0 to 20: vorübergehend von 0 auf 20 geändert
+Font painting failed!: Das Malen der Schrift ist fehlgeschlagen!
+The font: Die Schriftart
+was not found.: wurde nicht gefunden.
+Probably this is a default font on the image of your box: Wahrscheinlich ist dies eine Standardschriftart in Ihrer Box
+Warning: Warnung
+This function is not sufficiently tested and seems unstable. It is not recommended to use it!: Diese Funktion ist nicht ausreichend getestet und scheint instabil zu sein. Es wird nicht empfohlen, sie zu benutzen! 
+Note:: Anmerkung
+The skin will be automatically saved if you want to continue!: Wenn Sie fortfahren, wird der Skin automatisch gespeichert! 
+It is recommend to create a backup of your skin first!: Es wird empfohlen, zuerst ein Backup Ihres Skins zu erstellen!
+Press 'Cancel' to abort.: Drücken Sie 'Abbrechen', um abzubrechen..
+Resolution settings: Einstellungen der Auflösung
+Choose the resolution: Wählen Sie die Auflösung
+Resolution: Auflösung
+Changing the Resolution will result in rescaling of the skin.: Eine Änderung der Auflösung führt zu einer Neuskalierung des Skins
+PNG not found: PNG nicht gefunden
+More than one color defined with name: Im Skin ist mehr als eine Farbe mit diesem Namen definiert.
+The second definition will be deleted if you save manually.: Die zweite definierte wird gelöscht, wenn Sie manuell speichern.
+Until you save, the second definition is still shown in TreeView!: Bis Sie speichern, wird die zweite Farbe noch in der Baumansicht angezeigt! 
+Do you want to save and reload the skin?: Möchten Sie den Skin speichern und wieder laden?
+Error while parsing color table: Fehler beim Parsen der Farbtabelle
+Error while parsing font table: Fehler beim Parsen der Schriftartentabelle
+More than one font (alias) defined with name: Mehr als eine Schriftart (Alias) mit Namen definiert
+More than one font defined with name: Im Skin ist mehr als eine Schriftart mit diesem Namen definiert
+Show this message again?: Diese Meldung erneut anzeigen?
+is not defined or exist!: ist nicht definiert oder existiert nicht! 
+Using 'fallback font': Die 'Fallback-Schriftart' wird verwendet!
+Using 'fallback color': Die 'Fallback-Farbe' wird verwendet!
+Error: Fehler
+Open project: Projekt öffnen
+No skin selected: Kein Skin ausgewählt
+Open: Öffnen
+Window-Style settings: Fenster-Stil-Einstellungen
+Style: Stil
+Preview: Vorschau
+Table: Tabelle
+View: Ansicht
+Key: Key
+The search term was found in the following lines (only showing 30 lines!):: Der Suchbegriff wurde in den folgenden Zeilen gefunden (es werden nur 30 Zeilen angezeigt!)
+The search term was not found!: Der Suchbegriff wurde nicht gefunden! 
+Result: Ergebnis
+No text to browse!: Kein Text zum Durchsuchen vorhanden.
+Continue: Fortfahren
+You have unsafed changes. Do you want to continue anyway?: Sie haben ihre Änderungen noch nicht gespeichert. Wollen sie trotzdem fortfahren?
