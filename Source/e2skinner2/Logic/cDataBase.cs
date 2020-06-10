@@ -449,8 +449,10 @@ namespace OpenSkinDesigner.Logic
                     return null;
                 if (name[0] == '#')
                 {
-                    if (MyGlobaleVariables.AddUndefinedColor == "#") //MOD
-                    { //MOD
+
+                   // if (MyGlobaleVariables.AddUndefinedColor == "#") //MOD
+                    if (Properties.Settings.Default.addUndefinedColor == true) //MOD
+                        { //MOD
                         add(new sColor(name, Convert.ToUInt32(name.Substring(1), 16))); //MOD
                         return new sColor(name, Convert.ToUInt32(name.Substring(1), 16)); //MOD
                     } //MOD
@@ -480,7 +482,10 @@ namespace OpenSkinDesigner.Logic
                         return color.pName;
                 }
                 //   return add(new sColor("un" + Convert.ToString(value, 16), value)); // Original
-                return add(new sColor(MyGlobaleVariables.AddUndefinedColor + Convert.ToString(value, 16), value));
+                if (Properties.Settings.Default.addUndefinedColor == false)
+                    return add(new sColor("un" + Convert.ToString(value, 16), value));
+                else
+                    return add(new sColor("#" + Convert.ToString(value, 16), value));
             }
 
             public override String add(Object element)
