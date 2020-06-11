@@ -134,3 +134,6 @@ created by [Scrounger](https://github.com/Scrounger)
 * Multilanguage support
 * Added missing translation
 * Settings are now saved
+
+### 3.2.4.4 by Humax
+* Added missing translation

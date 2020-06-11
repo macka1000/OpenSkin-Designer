@@ -254,7 +254,7 @@
     <Content Include="languages\Deutsch.lng">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="languages\Jezyk.lng">
+    <Content Include="languages\Polski.lng">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="languages\中国人.lng">
