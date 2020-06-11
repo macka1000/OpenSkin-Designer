@@ -60,7 +60,7 @@ namespace OpenSkinDesigner.Frames
 
             DirectoryInfo folder = new DirectoryInfo("elements");
 
-            buildAddElementsMenu(folder, MiElement);
+            buildAddElementsMenu(folder, MiAddElement);
 
             pQueue = new cCommandQueue();
             pQueue.UndoPossibleEvent += new cCommandQueue.UndoRedoHandler(eventUndoPossible);
@@ -97,7 +97,7 @@ namespace OpenSkinDesigner.Frames
             foreach (DirectoryInfo f in folder.GetDirectories())
             {
                 ToolStripMenuItem a = new ToolStripMenuItem();
-                a.Text = f.Name;
+                a.Text = GetTranslation(f.Name);
                 a.Tag = f;
                 toolStripMenuItem.DropDownItems.Add(a);
                 buildAddElementsMenu(f, a);
@@ -106,7 +106,7 @@ namespace OpenSkinDesigner.Frames
             foreach (FileInfo f in folder.GetFiles("*.ess"))
             {
                 ToolStripMenuItem a = new ToolStripMenuItem();
-                a.Text = "Add " + f.Name.Remove(f.Name.Length - f.Extension.Length);
+                a.Text = GetTranslation(f.Name.Remove(f.Name.Length - f.Extension.Length));
                 a.Tag = f;
                 a.Click += new System.EventHandler(this.addUserElement_Click);
                 toolStripMenuItem.DropDownItems.Add(a);
@@ -209,7 +209,6 @@ namespace OpenSkinDesigner.Frames
                 return false;
             }
         }
-
         public void open(String path)
         {
             // Close all open
@@ -252,7 +251,7 @@ namespace OpenSkinDesigner.Frames
             trackBarZoom.Value = (int)((zoom - 1.0f) * 100.0f - 0.5f);
             pDesigner.drawFrame();
 
-            MiOpen.Enabled = true;//MOD
+            MiOpen.Enabled = true;
             MiSave.Enabled = true;
             MiSaveAs.Enabled = true;
             MiClose.Enabled = true;
@@ -262,7 +261,7 @@ namespace OpenSkinDesigner.Frames
             MiWindowStyles.Enabled = true;
             btnSave.Enabled = true;
             btnSaveEditor.Enabled = true;
-
+            MiAddElement.Enabled = true;
             this.MiAddLabel.Enabled = true;
             this.MiAddPixmap.Enabled = true;
             this.MiAddWidget.Enabled = true;
@@ -304,7 +303,7 @@ namespace OpenSkinDesigner.Frames
             pictureBox1.Invalidate();
 
             MiOpen.Enabled = true;
-
+            MiAddElement.Enabled = false;
             MiSave.Enabled = false;
             MiSaveAs.Enabled = false;
             MiClose.Enabled = false;
@@ -2273,7 +2272,8 @@ namespace OpenSkinDesigner.Frames
             }
         }
         private void UseCustomLanguage()
-        {            
+        {
+            MiAddElement.Text = GetTranslation("Add Element");
             MiFile.Text = GetTranslation("File");
             MiNew.Text = GetTranslation("New");
             MiOpen.Text = GetTranslation("Open");
@@ -2314,6 +2314,7 @@ namespace OpenSkinDesigner.Frames
             btnRedo.Text = GetTranslation("Redo");
             keyCaptureNotifyButton.Text = GetTranslation("Capturing Keyboard Events");
             tbxTreeFilter.Text = GetTranslation("Search...");
+            tbxSearchCode.Text = GetTranslation("Search...");
             tabControl1.TabPages[0].Text = GetTranslation("Designer");
             tabControl1.TabPages[1].Text = GetTranslation("Code");
             btnSkinned.Text = GetTranslation("All");

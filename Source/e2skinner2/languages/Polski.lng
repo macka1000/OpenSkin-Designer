@@ -8,12 +8,12 @@ Close: Zamknij
 Exit: Wyjdz
 Edit: Edytuj
 Undo: Cofnij
-Redo: Przerob
+Redo: Gotowe
 Element: Element
 Add Label: Dodaj etykiety
 Add Pixmap: Dodaj mapy pikseli
 Add Widget: Dodaj widzety
-Add Panel: Dodaj Panel
+Add Panel: Dodaj panel
 Delete selected: Usun zaznaczone
 Settings: Ustawienia
 Resolution: Rozdzielczosc
@@ -30,7 +30,7 @@ Search...: Szukaj
 Designer: Projekt
 Code: Kod
 Marker: Znacznik
-Show all: Poka¿ wszystko
+Show all: Pokaz wszystko
 Show screens: Pokaz ekrany
 Show labels: Pokaz etykiety
 Show pixmaps: Pokaz mapy pikseli
@@ -63,7 +63,11 @@ Edit colors: Edytuj kolory
 Name: Nazwa
 Value: Wartosc
 Color: Kolor
-Add: Dodaj 
+Add Element: Dodaj element
+current: aktualny
+current date: aktualna data
+current time: aktualny czas
+colored buttons: kolorowe przyciski
 Remove: Usun
 Change: Zmien
 Red: Czerwony
@@ -71,11 +75,11 @@ Green: Zielony
 Blue: Niebieski
 Palette: Paleta
 Hints: Wskazowki
-(in decimal, min=0, max=255): (dziesietnie, min = 0, max = 255)
+(in decimal, min=0, max=255): (w systemie dziesietnym, min = 0, max = 255)
 (in hexadecimal): (w systemie szesnastkowym)
 The color in the 'listview' can only be displayed without an alpha channel,: Kolor w 'widoku listy' moze byc wyswietlany tylko bez kanalu alfa,
 i.e. the color representation is only displayed correctly (with transparency) in the 'picturebox' in the left lower corner!: 
-tzn. reprezentacja kolorow jest wyswietlana poprawnie (z przezroczystoscia) tylko w „ramce obrazu” w lewym dolnym rogu!
+tzn. reprezentacja kolorow jest wyswietlana poprawnie (z przezroczystoscia) tylko w 'ramce obrazu' w lewym dolnym rogu!
 Alpha = transparency! I.e. the more alpha the more transparent the color becomes.: Alfa = przezroczystosc! To znaczy im bardziej alfa, tym bardziej przezroczysty staje sie kolor.
 Information: Informacja
 The name of the color cannot be empty!: Nazwa koloru nie moze byc pusta!
@@ -104,7 +108,7 @@ Preview fonts: Zobacz czcionke
 Usage: Stosowanie
 Font: Czcionka
 This is a preview-text to show the font: To jest podglad tekstu pokazujacy czcionke
-Test-String SKY 1234567890 !#?ÃœÃ–Ã„$%/(): Ciag testowy SKY 1234567890 !#?ÃœÃ–Ã„$%/()
+Test-String SKY 1234567890 !#?ÃƒÅ“Ãƒâ€“Ãƒâ€ž$%/(): Ciag testowy SKY 1234567890 !#?ÃƒÅ“Ãƒâ€“Ãƒâ€ž$%/()
 To be able to show this preview, the font size: Aby moc wyswietlic ten podglad, rozmiar czcionki
 was temporarily changed from 0 to 20: zostal tymczasowo zmieniony z 0 na 20
 Font painting failed!: Malowanie czcionek nie powiodlo sie!
@@ -125,16 +129,16 @@ Changing the Resolution will result in rescaling of the skin.: Zmiana rozdzielcz
 PNG not found: Nie znaleziono PNG
 More than one color defined with name: Wiecej niz jeden kolor zdefiniowany za pomoca nazwy
 The second definition will be deleted if you save manually.: Druga definicja zostanie usunieta, jesli zapiszesz recznie.
-Until you save, the second definition is still shown in TreeView!: Do momentu zapisania druga definicja jest nadal wyœwietlana w TreeView!
+Until you save, the second definition is still shown in TreeView!: Do momentu zapisania druga definicja jest nadal wyswietlana w TreeView!
 Do you want to save and reload the skin?: Czy chcesz zapisac i ponownie zaladowac skore?
 Error while parsing color table: Blad podczas analizowania tabeli kolorow
 Error while parsing font table: Blad podczas analizowania tabeli czcionek
 More than one font (alias) defined with name: Wiecej niz jedna czcionka (alias) zdefiniowana za pomoca nazwy
 More than one font defined with name: Wiecej niz jedna czcionka zdefiniowana za pomoca nazwy
-Show this message again?: Wyswietlic te wiadomosc ponownie?
+Show this message again?: Wyswietlic ta wiadomosc ponownie?
 is not defined or exist!: nie jest zdefiniowane lub istnieje!
-Using 'fallback font': Korzystanie z 'zastepczej czcionki'
-Using 'fallback color': Użycie 'koloru awaryjnego'
+Using 'fallback font': Uzycie 'czcionki zastepczej'
+Using 'fallback color': Uzycie 'koloru zastepczego'
 Error: Blad
 Open project: Otwarty projekt
 No skin selected: Nie wybrano skory
@@ -145,9 +149,10 @@ Preview: Podglad
 Table: Stol
 View: Widok
 Key: Klucz
-The search term was found in the following lines (only showing 30 lines!): Wyszukiwane haslo zostalo znalezione w nastêpujacych wierszach (pokazuje tylko 30 wierszy!)
-The search term was not found!: Wyszukiwane has³o nie zostalo znalezione!
+The search term was found in the following lines (only showing 30 lines!): Wyszukiwane haslo zostalo znalezione w nastepujacych wierszach (pokazuje tylko 30 wierszy!)
+The search term was not found!: Wyszukiwane haslo nie zostalo znalezione!
 Result: Wynik
 No text to browse!: Brak tekstu do przegladania!
 Continue: Kontynuuj
-You have unsafed changes. Do you want to continue anyway?: Masz niezabezpieczone zmiany.
+You have unsafed changes. Do you want to continue anyway?: Masz niezapisane zmiany. Czy mimo to chcesz kontynuowac?
+You have made changes in the editor. Do you want to continue anyway?: Wprowadziłeś zmiany w edytorze. I tak chcesz kontynuować? 

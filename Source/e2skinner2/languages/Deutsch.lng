@@ -63,7 +63,11 @@ Edit colors: Farben bearbeiten
 Name: Name
 Value: Wert
 Color: Farbe
-Add: Hinzufügen
+Add Element: Element hinzufügen
+current: Aktuell
+current date: Aktuelles Datum
+current time: Aktuelle Zeit
+colored buttons: Farbige Buttons
 Remove: Entfernen
 Change: Ändern
 Red: Rot
@@ -149,3 +153,4 @@ Result: Ergebnis
 No text to browse!: Kein Text zum Durchsuchen vorhanden.
 Continue: Fortfahren
 You have unsafed changes. Do you want to continue anyway?: Sie haben ihre Änderungen noch nicht gespeichert. Wollen sie trotzdem fortfahren?
+You have made changes in the editor. Do you want to continue anyway?: Sie haben ihre Änderungen im Code-Editor noch nicht gespeichert. Wollen sie trotzdem fortfahren?

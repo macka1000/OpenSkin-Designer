@@ -63,7 +63,11 @@ Edit colors: 编辑颜色
 Name: 名称
 Value: 价值
 Color: 颜色
-Add: 添加
+Add Element: 添加元素
+current: 当前
+current date: 当前日期
+current time: 当前时间
+colored buttons: 彩钮
 Remove: 移除
 Change: 变化
 Red: 红色
@@ -149,3 +153,4 @@ Result: 结果
 No text to browse!: 没有文字可浏览!
 Continue: 继续
 You have unsafed changes. Do you want to continue anyway?: 你有不安全的变化。
+You have made changes in the editor. Do you want to continue anyway?: 你已经在小编这里做了修改。你还想继续吗？

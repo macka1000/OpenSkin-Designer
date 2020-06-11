@@ -145,6 +145,7 @@ namespace OpenSkinDesigner.Frames
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.MiAddElement = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -319,7 +320,8 @@ namespace OpenSkinDesigner.Frames
             this.MiAddWidget,
             this.toolStripSeparator8,
             this.MiDeleteSelected,
-            this.toolStripSeparator9});
+            this.toolStripSeparator9,
+            this.MiAddElement});
             this.MiElement.Name = "MiElement";
             this.MiElement.Size = new System.Drawing.Size(62, 20);
             this.MiElement.Text = "Element";
@@ -329,7 +331,7 @@ namespace OpenSkinDesigner.Frames
             this.MiAddLabel.Enabled = false;
             this.MiAddLabel.Image = global::OpenSkinDesigner.Properties.Resources.label;
             this.MiAddLabel.Name = "MiAddLabel";
-            this.MiAddLabel.Size = new System.Drawing.Size(153, 22);
+            this.MiAddLabel.Size = new System.Drawing.Size(180, 22);
             this.MiAddLabel.Text = "Add Label";
             this.MiAddLabel.Click += new System.EventHandler(this.addLabelToolStripMenuItem_Click);
             // 
@@ -338,7 +340,7 @@ namespace OpenSkinDesigner.Frames
             this.MiAddPixmap.Enabled = false;
             this.MiAddPixmap.Image = global::OpenSkinDesigner.Properties.Resources.pixmap;
             this.MiAddPixmap.Name = "MiAddPixmap";
-            this.MiAddPixmap.Size = new System.Drawing.Size(153, 22);
+            this.MiAddPixmap.Size = new System.Drawing.Size(180, 22);
             this.MiAddPixmap.Text = "Add Pixmap";
             this.MiAddPixmap.Click += new System.EventHandler(this.addPixmapToolStripMenuItem_Click);
             // 
@@ -347,28 +349,28 @@ namespace OpenSkinDesigner.Frames
             this.MiAddWidget.Enabled = false;
             this.MiAddWidget.Image = global::OpenSkinDesigner.Properties.Resources.widget;
             this.MiAddWidget.Name = "MiAddWidget";
-            this.MiAddWidget.Size = new System.Drawing.Size(153, 22);
+            this.MiAddWidget.Size = new System.Drawing.Size(180, 22);
             this.MiAddWidget.Text = "Add Widget";
             this.MiAddWidget.Click += new System.EventHandler(this.widgetToolStripMenuItem_Click);
             // 
             // toolStripSeparator8
             // 
             this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(150, 6);
+            this.toolStripSeparator8.Size = new System.Drawing.Size(177, 6);
             // 
             // MiDeleteSelected
             // 
             this.MiDeleteSelected.Enabled = false;
             this.MiDeleteSelected.Image = global::OpenSkinDesigner.Properties.Resources.delete;
             this.MiDeleteSelected.Name = "MiDeleteSelected";
-            this.MiDeleteSelected.Size = new System.Drawing.Size(153, 22);
+            this.MiDeleteSelected.Size = new System.Drawing.Size(180, 22);
             this.MiDeleteSelected.Text = "Delete selected";
             this.MiDeleteSelected.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // toolStripSeparator9
             // 
             this.toolStripSeparator9.Name = "toolStripSeparator9";
-            this.toolStripSeparator9.Size = new System.Drawing.Size(150, 6);
+            this.toolStripSeparator9.Size = new System.Drawing.Size(177, 6);
             // 
             // MiSettings
             // 
@@ -1388,6 +1390,13 @@ namespace OpenSkinDesigner.Frames
             this.splitter1.TabIndex = 4;
             this.splitter1.TabStop = false;
             // 
+            // MiAddElement
+            // 
+            this.MiAddElement.Enabled = false;
+            this.MiAddElement.Name = "MiAddElement";
+            this.MiAddElement.Size = new System.Drawing.Size(180, 22);
+            this.MiAddElement.Text = "Add Element";
+            // 
             // fMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1562,5 +1571,6 @@ namespace OpenSkinDesigner.Frames
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator22;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator23;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator21;
+        private System.Windows.Forms.ToolStripMenuItem MiAddElement;
     }
 }
