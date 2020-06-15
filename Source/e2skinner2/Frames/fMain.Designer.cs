@@ -51,6 +51,7 @@ namespace OpenSkinDesigner.Frames
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.MiDeleteSelected = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
+            this.MiAddElement = new System.Windows.Forms.ToolStripMenuItem();
             this.MiSettings = new System.Windows.Forms.ToolStripMenuItem();
             this.MiResolution = new System.Windows.Forms.ToolStripMenuItem();
             this.MiColors = new System.Windows.Forms.ToolStripMenuItem();
@@ -140,12 +141,14 @@ namespace OpenSkinDesigner.Frames
             this.btnAddPanel = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator17 = new System.Windows.Forms.ToolStripSeparator();
             this.btnEditRoot = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator25 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripSeparator();
+            this.lblSkinName = new System.Windows.Forms.ToolStripLabel();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.MiAddElement = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -187,7 +190,7 @@ namespace OpenSkinDesigner.Frames
             this.treeView1.HotTracking = true;
             this.treeView1.Location = new System.Drawing.Point(0, 0);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(274, 433);
+            this.treeView1.Size = new System.Drawing.Size(250, 301);
             this.treeView1.TabIndex = 1;
             this.treeView1.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.treeView1_BeforeSelect);
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
@@ -206,7 +209,7 @@ namespace OpenSkinDesigner.Frames
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.menuStrip1.Size = new System.Drawing.Size(1283, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1174, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -331,7 +334,7 @@ namespace OpenSkinDesigner.Frames
             this.MiAddLabel.Enabled = false;
             this.MiAddLabel.Image = global::OpenSkinDesigner.Properties.Resources.label;
             this.MiAddLabel.Name = "MiAddLabel";
-            this.MiAddLabel.Size = new System.Drawing.Size(180, 22);
+            this.MiAddLabel.Size = new System.Drawing.Size(153, 22);
             this.MiAddLabel.Text = "Add Label";
             this.MiAddLabel.Click += new System.EventHandler(this.addLabelToolStripMenuItem_Click);
             // 
@@ -340,7 +343,7 @@ namespace OpenSkinDesigner.Frames
             this.MiAddPixmap.Enabled = false;
             this.MiAddPixmap.Image = global::OpenSkinDesigner.Properties.Resources.pixmap;
             this.MiAddPixmap.Name = "MiAddPixmap";
-            this.MiAddPixmap.Size = new System.Drawing.Size(180, 22);
+            this.MiAddPixmap.Size = new System.Drawing.Size(153, 22);
             this.MiAddPixmap.Text = "Add Pixmap";
             this.MiAddPixmap.Click += new System.EventHandler(this.addPixmapToolStripMenuItem_Click);
             // 
@@ -349,28 +352,35 @@ namespace OpenSkinDesigner.Frames
             this.MiAddWidget.Enabled = false;
             this.MiAddWidget.Image = global::OpenSkinDesigner.Properties.Resources.widget;
             this.MiAddWidget.Name = "MiAddWidget";
-            this.MiAddWidget.Size = new System.Drawing.Size(180, 22);
+            this.MiAddWidget.Size = new System.Drawing.Size(153, 22);
             this.MiAddWidget.Text = "Add Widget";
             this.MiAddWidget.Click += new System.EventHandler(this.widgetToolStripMenuItem_Click);
             // 
             // toolStripSeparator8
             // 
             this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator8.Size = new System.Drawing.Size(150, 6);
             // 
             // MiDeleteSelected
             // 
             this.MiDeleteSelected.Enabled = false;
             this.MiDeleteSelected.Image = global::OpenSkinDesigner.Properties.Resources.delete;
             this.MiDeleteSelected.Name = "MiDeleteSelected";
-            this.MiDeleteSelected.Size = new System.Drawing.Size(180, 22);
+            this.MiDeleteSelected.Size = new System.Drawing.Size(153, 22);
             this.MiDeleteSelected.Text = "Delete selected";
             this.MiDeleteSelected.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // toolStripSeparator9
             // 
             this.toolStripSeparator9.Name = "toolStripSeparator9";
-            this.toolStripSeparator9.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator9.Size = new System.Drawing.Size(150, 6);
+            // 
+            // MiAddElement
+            // 
+            this.MiAddElement.Enabled = false;
+            this.MiAddElement.Name = "MiAddElement";
+            this.MiAddElement.Size = new System.Drawing.Size(153, 22);
+            this.MiAddElement.Text = "Add Element";
             // 
             // MiSettings
             // 
@@ -508,7 +518,7 @@ namespace OpenSkinDesigner.Frames
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1005, 687);
+            this.tabControl1.Size = new System.Drawing.Size(920, 486);
             this.tabControl1.TabIndex = 2;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             this.tabControl1.Enter += new System.EventHandler(this.tabControl1_Enter);
@@ -521,7 +531,7 @@ namespace OpenSkinDesigner.Frames
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(997, 661);
+            this.tabPage1.Size = new System.Drawing.Size(912, 460);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Designer";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -539,14 +549,14 @@ namespace OpenSkinDesigner.Frames
             this.panelDesigner.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDesigner.Location = new System.Drawing.Point(3, 3);
             this.panelDesigner.Name = "panelDesigner";
-            this.panelDesigner.Size = new System.Drawing.Size(991, 655);
+            this.panelDesigner.Size = new System.Drawing.Size(906, 454);
             this.panelDesigner.TabIndex = 1;
             // 
             // numericUpDownZoom
             // 
             this.numericUpDownZoom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.numericUpDownZoom.Enabled = false;
-            this.numericUpDownZoom.Location = new System.Drawing.Point(911, 2);
+            this.numericUpDownZoom.Location = new System.Drawing.Point(826, 2);
             this.numericUpDownZoom.Minimum = new decimal(new int[] {
             60,
             0,
@@ -569,7 +579,7 @@ namespace OpenSkinDesigner.Frames
             this.panelDesignerInner.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDesignerInner.Location = new System.Drawing.Point(0, 25);
             this.panelDesignerInner.Name = "panelDesignerInner";
-            this.panelDesignerInner.Size = new System.Drawing.Size(989, 628);
+            this.panelDesignerInner.Size = new System.Drawing.Size(904, 427);
             this.panelDesignerInner.TabIndex = 2;
             // 
             // pictureBox1
@@ -578,7 +588,7 @@ namespace OpenSkinDesigner.Frames
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.pictureBox1.Size = new System.Drawing.Size(989, 628);
+            this.pictureBox1.Size = new System.Drawing.Size(904, 427);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -594,7 +604,7 @@ namespace OpenSkinDesigner.Frames
             this.trackBarZoom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.trackBarZoom.BackColor = System.Drawing.Color.White;
             this.trackBarZoom.Enabled = false;
-            this.trackBarZoom.Location = new System.Drawing.Point(745, 0);
+            this.trackBarZoom.Location = new System.Drawing.Point(660, 0);
             this.trackBarZoom.Maximum = 100;
             this.trackBarZoom.Minimum = -60;
             this.trackBarZoom.Name = "trackBarZoom";
@@ -637,7 +647,7 @@ namespace OpenSkinDesigner.Frames
             this.toolStripDesigner.Location = new System.Drawing.Point(0, 0);
             this.toolStripDesigner.Name = "toolStripDesigner";
             this.toolStripDesigner.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStripDesigner.Size = new System.Drawing.Size(989, 25);
+            this.toolStripDesigner.Size = new System.Drawing.Size(904, 25);
             this.toolStripDesigner.TabIndex = 1;
             this.toolStripDesigner.Text = "toolStrip3";
             // 
@@ -867,7 +877,7 @@ namespace OpenSkinDesigner.Frames
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(997, 661);
+            this.tabPage2.Size = new System.Drawing.Size(912, 460);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Code";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -880,7 +890,7 @@ namespace OpenSkinDesigner.Frames
             this.panelEditor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelEditor.Location = new System.Drawing.Point(3, 3);
             this.panelEditor.Name = "panelEditor";
-            this.panelEditor.Size = new System.Drawing.Size(991, 655);
+            this.panelEditor.Size = new System.Drawing.Size(906, 454);
             this.panelEditor.TabIndex = 2;
             // 
             // lbxSearchCodeEditor
@@ -892,7 +902,7 @@ namespace OpenSkinDesigner.Frames
             this.lbxSearchCodeEditor.ItemHeight = 15;
             this.lbxSearchCodeEditor.Location = new System.Drawing.Point(3, 28);
             this.lbxSearchCodeEditor.Name = "lbxSearchCodeEditor";
-            this.lbxSearchCodeEditor.Size = new System.Drawing.Size(534, 19);
+            this.lbxSearchCodeEditor.Size = new System.Drawing.Size(449, 19);
             this.lbxSearchCodeEditor.TabIndex = 3;
             this.lbxSearchCodeEditor.Visible = false;
             this.lbxSearchCodeEditor.DoubleClick += new System.EventHandler(this.lbxSearchCodeEditor_DoubleClick);
@@ -919,7 +929,7 @@ namespace OpenSkinDesigner.Frames
             this.textBoxEditor2.Margins.Margin1.Width = 2;
             this.textBoxEditor2.Margins.Margin2.Width = 30;
             this.textBoxEditor2.Name = "textBoxEditor2";
-            this.textBoxEditor2.Size = new System.Drawing.Size(991, 630);
+            this.textBoxEditor2.Size = new System.Drawing.Size(906, 429);
             this.textBoxEditor2.Styles.BraceBad.FontName = "Verdana\0\0\0\0\0\0\0\0\0\0\0\0\0";
             this.textBoxEditor2.Styles.BraceLight.FontName = "Verdana\0\0\0\0\0\0\0\0\0\0\0\0\0";
             this.textBoxEditor2.Styles.CallTip.FontName = "Segoe UI\0\0\0\0\0\0\0\0\0\0\0\0";
@@ -956,7 +966,7 @@ namespace OpenSkinDesigner.Frames
             this.toolStripEditor.Location = new System.Drawing.Point(0, 0);
             this.toolStripEditor.Name = "toolStripEditor";
             this.toolStripEditor.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStripEditor.Size = new System.Drawing.Size(991, 25);
+            this.toolStripEditor.Size = new System.Drawing.Size(906, 25);
             this.toolStripEditor.TabIndex = 1;
             this.toolStripEditor.Text = "toolStrip2";
             // 
@@ -1063,7 +1073,7 @@ namespace OpenSkinDesigner.Frames
             this.propertyGrid1.Location = new System.Drawing.Point(0, 0);
             this.propertyGrid1.Name = "propertyGrid1";
             this.propertyGrid1.PropertySort = System.Windows.Forms.PropertySort.Categorized;
-            this.propertyGrid1.Size = new System.Drawing.Size(274, 221);
+            this.propertyGrid1.Size = new System.Drawing.Size(250, 152);
             this.propertyGrid1.TabIndex = 2;
             this.propertyGrid1.ViewBackColor = System.Drawing.SystemColors.InactiveBorder;
             this.propertyGrid1.PropertyValueChanged += new System.Windows.Forms.PropertyValueChangedEventHandler(this.propertyGrid1_PropertyValueChanged);
@@ -1091,8 +1101,8 @@ namespace OpenSkinDesigner.Frames
             this.splitContainer1.Panel2.Controls.Add(this.tabControl1);
             this.splitContainer1.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.splitContainer1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.splitContainer1.Size = new System.Drawing.Size(1283, 687);
-            this.splitContainer1.SplitterDistance = 274;
+            this.splitContainer1.Size = new System.Drawing.Size(1174, 486);
+            this.splitContainer1.SplitterDistance = 250;
             this.splitContainer1.TabIndex = 3;
             // 
             // splitContainer2
@@ -1112,7 +1122,7 @@ namespace OpenSkinDesigner.Frames
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.splitContainer3);
-            this.splitContainer2.Size = new System.Drawing.Size(274, 687);
+            this.splitContainer2.Size = new System.Drawing.Size(250, 486);
             this.splitContainer2.SplitterDistance = 25;
             this.splitContainer2.SplitterWidth = 2;
             this.splitContainer2.TabIndex = 2;
@@ -1125,7 +1135,7 @@ namespace OpenSkinDesigner.Frames
             this.tbxTreeFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxTreeFilter.Location = new System.Drawing.Point(0, 0);
             this.tbxTreeFilter.Name = "tbxTreeFilter";
-            this.tbxTreeFilter.Size = new System.Drawing.Size(274, 24);
+            this.tbxTreeFilter.Size = new System.Drawing.Size(250, 24);
             this.tbxTreeFilter.TabIndex = 0;
             this.tbxTreeFilter.Text = "Search...";
             this.tbxTreeFilter.TextChanged += new System.EventHandler(this.tbxTreeFilter_TextChanged);
@@ -1147,8 +1157,8 @@ namespace OpenSkinDesigner.Frames
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.propertyGrid1);
-            this.splitContainer3.Size = new System.Drawing.Size(274, 660);
-            this.splitContainer3.SplitterDistance = 433;
+            this.splitContainer3.Size = new System.Drawing.Size(250, 459);
+            this.splitContainer3.SplitterDistance = 301;
             this.splitContainer3.SplitterWidth = 6;
             this.splitContainer3.TabIndex = 3;
             // 
@@ -1187,11 +1197,14 @@ namespace OpenSkinDesigner.Frames
             this.btnAddScreen,
             this.btnAddPanel,
             this.toolStripSeparator17,
-            this.btnEditRoot});
+            this.btnEditRoot,
+            this.toolStripSeparator25,
+            this.toolStripDropDownButton1,
+            this.lblSkinName});
             this.toolStripMain.Location = new System.Drawing.Point(0, 24);
             this.toolStripMain.Name = "toolStripMain";
             this.toolStripMain.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStripMain.Size = new System.Drawing.Size(1283, 39);
+            this.toolStripMain.Size = new System.Drawing.Size(1174, 39);
             this.toolStripMain.Stretch = true;
             this.toolStripMain.TabIndex = 4;
             this.toolStripMain.Text = "toolStrip1";
@@ -1344,6 +1357,26 @@ namespace OpenSkinDesigner.Frames
             this.btnEditRoot.Text = "Edit Root";
             this.btnEditRoot.Click += new System.EventHandler(this.btnEditRoot_Click);
             // 
+            // toolStripSeparator25
+            // 
+            this.toolStripSeparator25.Name = "toolStripSeparator25";
+            this.toolStripSeparator25.Size = new System.Drawing.Size(6, 39);
+            // 
+            // toolStripDropDownButton1
+            // 
+            this.toolStripDropDownButton1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
+            this.toolStripDropDownButton1.Size = new System.Drawing.Size(6, 39);
+            // 
+            // lblSkinName
+            // 
+            this.lblSkinName.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.lblSkinName.AutoSize = false;
+            this.lblSkinName.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSkinName.Name = "lblSkinName";
+            this.lblSkinName.Size = new System.Drawing.Size(740, 36);
+            this.lblSkinName.Text = "Name of the Skin";
+            // 
             // saveFileDialog1
             // 
             this.saveFileDialog1.DefaultExt = "xml";
@@ -1369,11 +1402,11 @@ namespace OpenSkinDesigner.Frames
             this.toolStripContainer1.ContentPanel.Controls.Add(this.splitter1);
             this.toolStripContainer1.ContentPanel.Controls.Add(this.splitContainer1);
             this.toolStripContainer1.ContentPanel.Margin = new System.Windows.Forms.Padding(0);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(1283, 687);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(1174, 486);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
             this.toolStripContainer1.Name = "toolStripContainer1";
-            this.toolStripContainer1.Size = new System.Drawing.Size(1283, 750);
+            this.toolStripContainer1.Size = new System.Drawing.Size(1174, 549);
             this.toolStripContainer1.TabIndex = 5;
             this.toolStripContainer1.Text = "toolStripContainer1";
             // 
@@ -1386,33 +1419,29 @@ namespace OpenSkinDesigner.Frames
             // 
             this.splitter1.Location = new System.Drawing.Point(0, 0);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 687);
+            this.splitter1.Size = new System.Drawing.Size(3, 486);
             this.splitter1.TabIndex = 4;
             this.splitter1.TabStop = false;
-            // 
-            // MiAddElement
-            // 
-            this.MiAddElement.Enabled = false;
-            this.MiAddElement.Name = "MiAddElement";
-            this.MiAddElement.Size = new System.Drawing.Size(180, 22);
-            this.MiAddElement.Text = "Add Element";
             // 
             // fMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.ClientSize = new System.Drawing.Size(1283, 750);
+            this.ClientSize = new System.Drawing.Size(1174, 549);
             this.Controls.Add(this.toolStripContainer1);
             this.Icon = global::OpenSkinDesigner.Properties.Resources.OpenSkinDesigner;
             this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip1;
+            this.MinimumSize = new System.Drawing.Size(1180, 355);
             this.Name = "fMain";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Text = "OpenSkin Designer x.x.x.x";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.fMain_FormClosing);
             this.Load += new System.EventHandler(this.fMain_Load);
+            this.ResizeEnd += new System.EventHandler(this.fMain_ResizeEnd);
+            this.SizeChanged += new System.EventHandler(this.fMain_SizeChanged);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.fMain_KeyUp);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -1572,5 +1601,8 @@ namespace OpenSkinDesigner.Frames
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator23;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator21;
         private System.Windows.Forms.ToolStripMenuItem MiAddElement;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator25;
+        private System.Windows.Forms.ToolStripSeparator toolStripDropDownButton1;
+        private System.Windows.Forms.ToolStripLabel lblSkinName;
     }
 }

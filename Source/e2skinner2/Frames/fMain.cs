@@ -40,6 +40,9 @@ namespace OpenSkinDesigner.Frames
                 Properties.Settings.Default.UpgradeRequired = false;
                 Properties.Settings.Default.Save();
             }
+
+            lblSkinName.Text = null;
+            lblSkinName.Visible = false;
             MiSetFallbackColor.BackColor = Properties.Settings.Default.FallbackColor;
             MiUseFullAttributlist.Checked = Properties.Settings.Default.useFullAttribList;
             MiAddUndefinedColors.Checked = Properties.Settings.Default.addUndefinedColor;
@@ -276,6 +279,8 @@ namespace OpenSkinDesigner.Frames
             this.btnAddPanel.Enabled = true;
             this.toolStripEditor.Enabled = true;
             this.textBoxEditor2.Enabled = true;
+            lblSkinName.Visible = true;
+            lblSkinName.Text = cProperties.getProperty("path_skin");
         }
         public void close()
         {
@@ -313,6 +318,8 @@ namespace OpenSkinDesigner.Frames
             MiWindowStyles.Enabled = false;
             btnSave.Enabled = false;
             btnSaveEditor.Enabled = false;
+            lblSkinName.Text = null;
+            lblSkinName.Visible = false;
 
             this.MiAddLabel.Enabled = false;
             this.MiAddPixmap.Enabled = false;
@@ -2416,6 +2423,22 @@ namespace OpenSkinDesigner.Frames
         {
             lbxSearch.Visible = false;
             tbxTreeFilter.Text = GetTranslation("Search...");
+        }
+        private void fMain_SizeChanged(object sender, EventArgs e)
+        {
+            CenterLabel();
+        }
+        private void fMain_ResizeEnd(object sender, EventArgs e)
+        {
+            CenterLabel();
+        }
+        private void CenterLabel()
+        {
+            // This.Width 1190 = lblSkinNAme.Width 740
+
+            lblSkinName.Width = this.Width - 450;
+            lblSkinName.Text = null;
+            lblSkinName.Text = cProperties.getProperty("path_skin");
         }
         private void fMain_Load(object sender, EventArgs e)
         {
