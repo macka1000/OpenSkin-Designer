@@ -151,11 +151,12 @@ namespace OpenSkinDesigner.Frames
                 "v3.2.4.3 by Humax" + Environment.NewLine +
                 "- Added missing translations" + Environment.NewLine +
                 "- Settings are now saved" + Environment.NewLine +
-                "- Multilanguage support" + Environment.NewLine +
+                "- Multilanguage support" + Environment.NewLine + Environment.NewLine +
                 "v3.2.4.4 by Humax" + Environment.NewLine +
-                "- Added missing translations" + Environment.NewLine;
+                "- Added missing translations" + Environment.NewLine + Environment.NewLine +
+                "v3.2.4.5 by Humax" + Environment.NewLine +
+                "- Display skin-name" + Environment.NewLine;
 
-            
 
         }
 
