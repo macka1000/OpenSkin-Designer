@@ -1,0 +1,156 @@
+Language: dil
+File: dosya
+New: yeni
+Open: Açık
+Save: Kaydet
+Save as: Farklı kaydet
+Close: Kapat
+Exit: Çıkış
+Edit: Düzenle
+Undo: Geri al
+Redo: Tekrarla
+Element: Öğe
+Add Label: Label ekle
+Add Pixmap: Pixmap Ekle
+Add Widget: Widget ekle
+Add Panel: Panel ekle
+Delete selected: Seçileni sil
+Settings: Ayarlar
+Resolution: Çözünürlük
+Colors: Renkler
+Fonts: Yazı tipleri/fonts
+WindowStyles: Pencere stili
+Reload converter.xml: Converter.xml dosyasını yeniden yükle
+Reload previewText.xml: PreviewText.xml dosyasını yeniden yükle
+Preferences: Tercihler
+Add undefined color with '#': '#' İle tanımlanmamış renk ekle
+Use full attribut-list: Tam özellik listesini kullan
+Set 'Fallback'-Color: 'Yedek' rengini ayarlama
+Search...: Arama...
+Designer: Tasarımcı
+Code: Kod
+Marker: Marker
+Show all: Tümünü göster
+Show screens: Ekranları (screens) göster
+Show labels: Lebels'i (pixmaps) göster
+Show pixmaps: Pikselleri (pixmaps) göster
+Show panels: Panelleri göster
+Show widgets: Widget'ları göster
+Alpha: Alfa
+Fading: Gizle
+Conditional widgets: Koşullu widget'lar
+Random: Rastgele
+Default: Varsayılan
+None: Yok
+Capturing Keyboard Events: Klavye Olaylarını Yakalama
+Cancel: İptal
+OK: Açık
+Open: Açık
+Edit Root: Kökü (Root) Düzenle
+Add Screen: Ekran ekle
+Delete Element: öğeyi sil
+All: Tümü
+No Errors.: Hata yok.
+Error: Hata
+No element selected: Hiçbir öğe seçilmedi
+Sync: Senkronize et
+Fold all: Tümünü katla
+Unfold all: Tümünü aç
+Fold all elements: Tüm öğeleri katla
+Unfold all elements: Tüm elemanları aç
+Color settings: Renk ayarları
+Edit colors: Renkleri düzenle
+Name: İsim
+Value: Değer
+Color: Renk
+Add Element: Öğe Ekle
+current: şimdiki
+current date: şimdiki tarih
+current time: şimdiki zaman
+colored buttons: renkli düğmeler
+Remove: Kaldır
+Change: Değiştir
+Red: Kırmızı
+Green: Yeşil
+Blue: Mavi
+Palette: Palet
+Hints: İpuçları
+(in decimal, min=0, max=255): (decimal/ondalık olarak, min = 0, maks = 255)
+(in hexadecimal): (hexadecimal/onaltılı olarak)
+The color in the 'listview' can only be displayed without an alpha channel,: Liste Görünümü'ndeki renk yalnızca alfa kanalı olmadan görüntülenebilir,
+i.e. the color representation is only displayed correctly (with transparency) in the 'picturebox' in the left lower corner!: yani renk gösterimi sol alt köşedeki 'Resim Kutusu'nda yalnızca doğru şekilde (saydamlıkla) görüntülenir! 
+Alpha = transparency! I.e. the more alpha the more transparent the color becomes.: Alfa = şeffaflık! Yani alfa ne kadar çok şeffaflaşırsa renk o kadar şeffaf olur.
+Information: Bilgi
+The name of the color cannot be empty!: Rengin adı boş olamaz!
+The value of the color cannot be empty!: Rengin değeri boş olamaz!
+This color already exists!: Bu renk zaten var!
+You can update this color by pressing the 'Change'-Button.: Bu rengi 'Değiştir' düğmesine basarak güncelleyebilirsiniz
+Invalid format for value hexadecimal value!: Onaltılık/hexadecimal değer için geçersiz biçim! 
+To do this, you must select a color in the listview!: Bunu yapmak için, liste görünümünde bir renk seçmelisiniz!
+Invalid format for value alpha!: Değeri için geçersiz biçim
+Invalid format for value red!: Kırmızı değer için geçersiz biçim!
+Invalid format for value blue!: Değer mavi için geçersiz biçim!
+Invalid format for value green!: Yeşil değer için geçersiz biçim!
+You've made some changes, which will only take effect (show the color in the treeview),: Yalnızca etkili olacak bazı değişiklikler yaptınız (renk görüntüsünde göster)
+after you have saved and reloaded the skin!: cildi kaydettikten ve yeniden yükledikten sonra!
+Do you want to save and reload the skin now?: Cildi şimdi kaydetmek ve yeniden yüklemek ister misiniz?
+Remember, however, that this will also save all previous changes you made!: Ancak bunun, yaptığınız tüm değişiklikleri de kaydedeceğini unutmayın!
+Save and reload: Kaydet ve yeniden yükle
+Information about: Hakkında bilgi
+Path: Yol
+Scale: Ölçek
+Size: Boyut
+Replacement: Değiştirme
+isAlias: bir takma addır
+Filename: Dosya adı
+Preview fonts: Yazı tiplerini önizleme
+Usage: Kullanım
+Font: Yazı tipi
+This is a preview-text to show the font: Bu yazı tipini görüntülemek için bir önizleme metnidir
+Test-String SKY 1234567890 !#?ÜÖÄ$%/(): Test dizesi SKY 1234567890 !#?ÜÖÄ$%/()
+To be able to show this preview, the font size: Bu önizlemeyi, yazı tipi boyutunu gösterebilmek için
+was temporarily changed from 0 to 20: geçici olarak 0'dan 20'ye değiştirildi
+Font painting failed!: Yazı tipi boyama başarısız!
+The font: Yazı tipi
+was not found.: bulunamadı.
+Probably this is a default font on the image of your box: Muhtemelen bu, kutunuzdaki standart bir yazı tipidir
+Warning: Uyarı
+This function is not sufficiently tested and seems unstable. It is not recommended to use it!: Bu işlev yeterince test edilmemiştir ve dengesiz görünmektedir. Bunları kullanmanız önerilmez!
+Note: Not
+The skin will be automatically saved if you want to continue!: Devam etmek isterseniz, cilt otomatik olarak kaydedilir!
+It is recommend to create a backup of your skin first!: Önce cildinizin yedeğini almanız önerilir!
+Press 'Cancel' to abort.: İptal etmek için' İptal'e basın.
+Resolution settings: Çözünürlük ayarları
+Choose the resolution: Çözünürlüğü seçin
+Resolution: Çözünürlük
+Changing the Resolution will result in rescaling of the skin.: Çözünürlüğün değiştirilmesi cildin yeni bir şekilde ölçeklenmesine yol açar.
+PNG not found: PNG bulunamadı
+More than one color defined with name: Kaplamada bu adla birden fazla renk tanımlandı.
+The second definition will be deleted if you save manually.: Manuel olarak kaydederseniz, ikinci tanım silinir.
+Until you save, the second definition is still shown in TreeView!: Kaydetene kadar ikinci tanım yine de TreeView!'da gösterilir
+Do you want to save and reload the skin?: Cildi kaydetmek ve yeniden yüklemek ister misiniz?
+Error while parsing color table: Renk tablosunu ayrıştırırken hata
+Error while parsing font table: Yazı tipi tablosunu ayrıştırırken hata
+More than one font (alias) defined with name: Birden çok yazı tipi (diğer ad) adıyla tanımlandı
+More than one font defined with name: Dış görünüm, bu ada sahip birden fazla yazı tipi tanımlar
+Show this message again?: Bu mesaj tekrar gösterilsin mi?
+is not defined or exist!: tanımlanmamış veya mevcut değil! 
+Using 'fallback font': 'Yedek yazı tipi' kullanılır!
+Using 'fallback color': 'Yedek renk' kullanılır!
+Error: Hata
+Open project: Açık proje
+No skin selected: Hiçbir cilt seçilmedi
+Open: Açık
+Window-Style settings: Pencere Stili ayarları
+Style: Stil
+Preview: Önizleme
+Table: Tablo
+View: Görüntüle
+Key: Anahtar
+The search term was found in the following lines (only showing 30 lines!): Arama terimi aşağıdaki satırlarda bulundu (sadece 30 satır görüntüleniyor!)
+The search term was not found!: Arama terimi bulunamadı! 
+Result: Sonuç
+No text to browse!: Taranacak metin yok.
+Continue: Devam et
+You have unsafed changes. Do you want to continue anyway?: Değişikliklerinizi henüz kaydetmediniz. Yine de devam etmek istiyor musun?
+You have made changes in the editor. Do you want to continue anyway?: Editörde değişiklikler yaptınız. Yine de devam etmek istiyor musunuz?
