@@ -140,3 +140,9 @@ created by [Scrounger](https://github.com/Scrounger)
 
 ### 3.2.4.5 by Humax
 * Displaying the name of the loaded skin.
+
+### 3.2.4.6 by Humax
+* Fixed unhandled exception when using right-click in designer
+* Add turkish language
+* Bugfix: restoring language only searches for first language file in languages-directory
+* Translate existing element-items after changing language
