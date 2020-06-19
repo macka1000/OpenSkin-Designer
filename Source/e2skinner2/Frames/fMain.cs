@@ -94,7 +94,6 @@ namespace OpenSkinDesigner.Frames
             }
 
         }
-
         private void buildAddElementsMenu(DirectoryInfo folder, ToolStripMenuItem toolStripMenuItem)
         {
             foreach (DirectoryInfo f in folder.GetDirectories())
@@ -110,7 +109,7 @@ namespace OpenSkinDesigner.Frames
             {
                 ToolStripMenuItem a = new ToolStripMenuItem();
                 a.Text = GetTranslation(f.Name.Remove(f.Name.Length - f.Extension.Length));
-                a.Tag = f;
+                a.Tag = f.Name.Remove(f.Name.Length - f.Extension.Length);
                 a.Click += new System.EventHandler(this.addUserElement_Click);
                 toolStripMenuItem.DropDownItems.Add(a);
             }
@@ -1021,7 +1020,6 @@ namespace OpenSkinDesigner.Frames
         {
             if (Properties.Settings.Default.language == null)
                 return;
-
             foreach (ToolStripMenuItem item in MiLanguage.DropDownItems)
             {
                 if (item.Text == Properties.Settings.Default.language)
@@ -1031,10 +1029,11 @@ namespace OpenSkinDesigner.Frames
                     UseCustomLanguage();
                     return;
                 }
-                // Selected language not found
-                Properties.Settings.Default.language = null;
-                Properties.Settings.Default.Save();
+                
             }
+            // Selected language not found
+            Properties.Settings.Default.language = null;
+            Properties.Settings.Default.Save();
         }
         private void addUserElement_Click(object sender, EventArgs e)
         {
@@ -1441,6 +1440,8 @@ namespace OpenSkinDesigner.Frames
             }
             else if (e.Button == MouseButtons.Right)
             {
+                if (propertyGrid1.SelectedObject == null)
+                    return;
                 if (propertyGrid1.SelectedObject.GetType() != typeof(sAttributeScreen))
                     if ((propertyGrid1.SelectedObject as sAttribute).Parent != null)
                     {
@@ -2344,6 +2345,14 @@ namespace OpenSkinDesigner.Frames
             btnFoldOn.Text = GetTranslation("Sync");
             btnFoldElementsOff.Text = GetTranslation("Sync");
             btnFoldElementsOn.Text = GetTranslation("Sync");
+            foreach (ToolStripMenuItem t in MiAddElement.DropDownItems)
+            {
+                t.Text = GetTranslation(t.Tag.ToString());
+                foreach (ToolStripMenuItem ts in t.DropDownItems)
+                {
+                    ts.Text = GetTranslation(ts.Tag.ToString());
+                }
+            }
             //trackBarZoom.Left = btnSkinned_Conditional_None.Left + btnSkinned_Conditional_None.Width + 5;
             //numericUpDownZoom.Left = trackBarZoom.Right + 5;
         }
