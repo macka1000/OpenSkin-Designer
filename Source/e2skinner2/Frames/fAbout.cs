@@ -155,8 +155,14 @@ namespace OpenSkinDesigner.Frames
                 "v3.2.4.4 by Humax" + Environment.NewLine +
                 "- Added missing translations" + Environment.NewLine + Environment.NewLine +
                 "v3.2.4.5 by Humax" + Environment.NewLine +
-                "- Display skin-name" + Environment.NewLine;
+                "- Display skin-name" + Environment.NewLine + Environment.NewLine +
+                "v3.2.4.6 by Humax" + Environment.NewLine +
+                "- Add turkish language" + Environment.NewLine +
+                "- Bugfix: restoring language only searches for first language file in languages - directory" + Environment.NewLine +
+                "- Translate existing element-items after changing language" + Environment.NewLine +
+                "- Fixed unhandled exception when using right-click in designer" + Environment.NewLine;
 
+        
 
         }
 
