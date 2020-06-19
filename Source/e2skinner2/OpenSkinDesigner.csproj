@@ -260,7 +260,7 @@
     <Content Include="languages\中国人.lng">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="languages\Turkish.lng">
+    <Content Include="languages\Türk.lng">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="OpenSkinDesigner_TemporaryKey.pfx" />
