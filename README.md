@@ -143,6 +143,12 @@ created by [Scrounger](https://github.com/Scrounger)
 
 ### 3.2.4.6 by Humax
 * Fixed unhandled exception when using right-click in designer
-* Add turkish language
+* Add turkish language (thanks to 'audi06)
 * Bugfix: restoring language only searches for first language file in languages-directory
 * Translate existing element-items after changing language
+
+### 3.2.4.7 by Humax
+* Add albanian language (thanks to 'kqiqi1')
+* Fixed polish language
+* Added missing translations
+* Bugfix: now displaying an error message if a font is not valid

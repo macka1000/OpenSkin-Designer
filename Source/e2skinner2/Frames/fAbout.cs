@@ -157,12 +157,15 @@ namespace OpenSkinDesigner.Frames
                 "v3.2.4.5 by Humax" + Environment.NewLine +
                 "- Display skin-name" + Environment.NewLine + Environment.NewLine +
                 "v3.2.4.6 by Humax" + Environment.NewLine +
-                "- Add turkish language" + Environment.NewLine +
+                "- Add turkish language (thanks to 'audi06')" + Environment.NewLine +
                 "- Bugfix: restoring language only searches for first language file in languages-directory" + Environment.NewLine +
                 "- Translate existing element-items after changing language" + Environment.NewLine +
-                "- Fixed unhandled exception when using right-click in designer" + Environment.NewLine;
-
-        
+                "- Fixed unhandled exception when using right-click in designer" + Environment.NewLine + Environment.NewLine +
+                "v3.2.4.7 by Humax" + Environment.NewLine +
+                "- Fixed polish language" + Environment.NewLine +
+                "- Added missing translations" + Environment.NewLine +
+                "- Bugfix: now displaying an error message if a font is not valid" + Environment.NewLine +
+                "- Add albanian language (thanks to 'kqiqi1')" + Environment.NewLine;
 
         }
 
