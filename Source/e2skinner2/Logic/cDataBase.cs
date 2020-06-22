@@ -674,8 +674,24 @@ namespace OpenSkinDesigner.Logic
 
 
                         }
-                        catch
+                        catch 
                         {
+                            String errorMessage = "";
+                            errorMessage += fMain.GetTranslation("OpenSkinDesigner has tried to open the font") + " '" + myXmlNode.Attributes["name"].Value + "'.\n\n";
+                            errorMessage += fMain.GetTranslation("Unfortunatly this was not successful!") + "\n";
+                            errorMessage += fMain.GetTranslation("Either the font type is not supported by OpenSkinDesigner") + " ";
+                            errorMessage += fMain.GetTranslation("or it's not a valid font.") + "\n\n";
+                            errorMessage += "\n";
+                            errorMessage += fMain.GetTranslation("Location") + ":\n";
+                            errorMessage += myXmlNode.Attributes["filename"].Value;
+
+                            MessageBox.Show(errorMessage,
+                                fMain.GetTranslation("Error while loading fonts"),
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information,
+                                MessageBoxDefaultButton.Button1);
+
+                            return;
                         }
                     else if (myXmlNode.Name == "alias")//MOD
                         try
