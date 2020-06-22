@@ -1,4 +1,4 @@
-Language: Sprache
+﻿Language: Sprache
 File: Datei
 New: Neu
 Open: Öffnen
@@ -83,7 +83,7 @@ Alpha = transparency! I.e. the more alpha the more transparent the color becomes
 Information: Information
 The name of the color cannot be empty!: Der Name der Farbe darf nicht leer sein! 
 The value of the color cannot be empty!: Der value (Wert) der Farbe kann nicht leer sein!
-This color already exists! Diese Farbe existiert bereits!
+This color already exists!: Diese Farbe existiert bereits!
 You can update this color by pressing the 'Change'-Button.: Sie können diese Farbe aktualisieren, indem Sie den 'Ändern'-Button drücken
 Invalid format for value hexadecimal value!: Ungültiges Format für value hexadezimaler Wert! 
 To do this, you must select a color in the listview!: Dazu müssen Sie in der Listenansicht eine Farbe auswählen! 
@@ -147,10 +147,19 @@ Preview: Vorschau
 Table: Tabelle
 View: Ansicht
 Key: Key
-The search term was found in the following lines (only showing 30 lines!):: Der Suchbegriff wurde in den folgenden Zeilen gefunden (es werden nur 30 Zeilen angezeigt!)
-The search term was not found!: Der Suchbegriff wurde nicht gefunden! 
 Result: Ergebnis
 No text to browse!: Kein Text zum Durchsuchen vorhanden.
 Continue: Fortfahren
 You have unsafed changes. Do you want to continue anyway?: Sie haben ihre Änderungen noch nicht gespeichert. Wollen sie trotzdem fortfahren?
 You have made changes in the editor. Do you want to continue anyway?: Sie haben ihre Änderungen im Code-Editor noch nicht gespeichert. Wollen sie trotzdem fortfahren?
+Add: Hinzufügen
+OpenSkinDesigner has searched in several places for the font: OpenSkinDesigner hat in mehreren Verzeichnissen nach folgender Schriftart gesucht
+Unfortunatly the search was not successful!: Leider war die Suche nicht erfolgreich.
+Search locations: Durchsuchte Verzeichnisse
+It uses 'lcd.tff' instead.: Es wird stattdessen 'lcd.ttf' benutzt.
+Error while loading fonts: Fehler beim Einlesen der Schriftarten.
+OpenSkinDesigner has tried to open the font: OpenSkinDesigner hat versucht folgende Schriftart zu öffnen
+Unfortunatly this was not successful!: Leider war dies nicht erfolgreich!
+Either the font type is not supported by OpenSkinDesigner: Entweder die Schriftart wird vom OpenSkinDesigner nicht unterstützt
+or it's not a valid font.: oder es ist keine gültige Schriftart.
+Location: Pfad

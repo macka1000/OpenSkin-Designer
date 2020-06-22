@@ -78,13 +78,12 @@ Hints: Wskazowki
 (in decimal, min=0, max=255): (w systemie dziesietnym, min = 0, max = 255)
 (in hexadecimal): (w systemie szesnastkowym)
 The color in the 'listview' can only be displayed without an alpha channel,: Kolor w 'widoku listy' moze byc wyswietlany tylko bez kanalu alfa,
-i.e. the color representation is only displayed correctly (with transparency) in the 'picturebox' in the left lower corner!: 
-tzn. reprezentacja kolorow jest wyswietlana poprawnie (z przezroczystoscia) tylko w 'ramce obrazu' w lewym dolnym rogu!
+i.e. the color representation is only displayed correctly (with transparency) in the 'picturebox' in the left lower corner!: tzn. reprezentacja kolorow jest wyswietlana poprawnie (z przezroczystoscia) tylko w 'ramce obrazu' w lewym dolnym rogu!
 Alpha = transparency! I.e. the more alpha the more transparent the color becomes.: Alfa = przezroczystosc! To znaczy im bardziej alfa, tym bardziej przezroczysty staje sie kolor.
 Information: Informacja
 The name of the color cannot be empty!: Nazwa koloru nie moze byc pusta!
 The value of the color cannot be empty!: Wartosc koloru nie moze byc pusta!
-This color already exists! Ten kolor juz istnieje!
+This color already exists!: Ten kolor juz istnieje!
 You can update this color by pressing the 'Change'-Button.: Mo¿esz zaktualizowac ten kolor, naciskajac przycisk 'Zmien'.
 Invalid format for value hexadecimal value!: Niepoprawny format wartosci szesnastkowej!
 To do this, you must select a color in the listview!: Aby to zrobic, musisz wybrac kolor w widoku listy!
@@ -118,8 +117,7 @@ Probably this is a default font on the image of your box: Prawdopodobnie jest to
 Warning: Ostrzezenie
 This function is not sufficiently tested and seems unstable. It is not recommended to use it!: Ta funkcja nie jest wystarczajaco przetestowana i jest niestabilna. Nie zaleca sie korzystania z niej!
 Note:: Uwaga:
-The skin will be automatically saved if you want to continue!: 
-Skorka zostanie automatycznie zapisana, jesli chcesz kontynuowac!
+The skin will be automatically saved if you want to continue!: Skorka zostanie automatycznie zapisana, jesli chcesz kontynuowac!
 It is recommend to create a backup of your skin first!: Zaleca sie, aby najpierw utworzyc kopie zapasowa skory!
 Press 'Cancel' to abort.: Nacisnij 'Anuluj', aby przerwac.
 Resolution settings: Ustawienia rozdzielczosci
@@ -149,10 +147,19 @@ Preview: Podglad
 Table: Stol
 View: Widok
 Key: Klucz
-The search term was found in the following lines (only showing 30 lines!): Wyszukiwane haslo zostalo znalezione w nastepujacych wierszach (pokazuje tylko 30 wierszy!)
-The search term was not found!: Wyszukiwane haslo nie zostalo znalezione!
 Result: Wynik
 No text to browse!: Brak tekstu do przegladania!
 Continue: Kontynuuj
 You have unsafed changes. Do you want to continue anyway?: Masz niezapisane zmiany. Czy mimo to chcesz kontynuowac?
-You have made changes in the editor. Do you want to continue anyway?: Wprowadziłeś zmiany w edytorze. I tak chcesz kontynuować? 
+You have made changes in the editor. Do you want to continue anyway?: Wprowadziłeś zmiany w edytorze. I tak chcesz kontynuować?
+Add: Dodaj
+OpenSkinDesigner has searched in several places for the font: OpenSkinDesigner przeszukal kilka katalog�w pod katem nastepujacej czcionki
+Unfortunatly the search was not successful!: Niestety poszukiwania nie powiodly sie.
+Search locations: Przeszukiwane katalogi
+It uses 'lcd.tff' instead.: Zamiast tego uzywa 'lcd.ttf'.
+Error while loading fonts: Blad w odczytywaniu czcionek.
+OpenSkinDesigner has tried to open the font: OpenSkinDesigner pr�bowal otworzyc nastepujaca czcionke
+Unfortunatly this was not successful!: Niestety to sie nie udalo!
+Either the font type is not supported by OpenSkinDesigner: Albo czcionka nie jest obslugiwana przez OpenSkinDesigner.
+or it's not a valid font.: albo to nie jest wazna czcionka.
+Location: Sciezka

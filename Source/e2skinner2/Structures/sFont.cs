@@ -6,6 +6,7 @@ using System.Drawing.Text;
 using System.IO;
 using OpenSkinDesigner.Logic;
 using System.Windows.Forms;
+using OpenSkinDesigner.Frames;
 
 namespace OpenSkinDesigner.Structures
 {
@@ -88,10 +89,10 @@ namespace OpenSkinDesigner.Structures
             {
                 Found = false;
                 String errorMessage = "";
-                errorMessage += "OpenSkinDesigner has searched in several places for the font \"" + Filename + ".\"\n";
-                errorMessage += "Unfortunatly the search was not successful.\n";
+                errorMessage += fMain.GetTranslation("OpenSkinDesigner has searched in several places for the font") + ": '" + Filename + "'.\"\n\n";
+                errorMessage += fMain.GetTranslation("Unfortunatly the search was not successful!") + "\n";
                 errorMessage += "\n";
-                errorMessage += "Search Locations:\n\n";
+                errorMessage += fMain.GetTranslation("Search locations") + ":\n\n";
                 errorMessage += new FileInfo(AbsolutPathFont).FullName + "\n\n";
                 errorMessage += new FileInfo(AbsolutPathSkinPathFont).FullName + "\n\n";
                 errorMessage += new FileInfo(RelativPathFont).FullName + "\n\n";
@@ -100,14 +101,14 @@ namespace OpenSkinDesigner.Structures
                 // Openskindesigner contains lcd.ttf by default and should be existing...
                 AbsolutPathFont = fontPath + "/" + "lcd.ttf";
                 if (File.Exists(AbsolutPathFont))
-                    errorMessage += "\n" + "Using 'lcd.tff' instead of " + Filename + "\n";
+                    errorMessage += "\n" + fMain.GetTranslation("It uses 'lcd.tff' instead.") + "\n";
 
-                errorMessage += Environment.NewLine + Environment.NewLine + "Show this message again?";
+                errorMessage += Environment.NewLine + Environment.NewLine + fMain.GetTranslation("Show this message again?");
 
                 DialogResult dr = new DialogResult();
                 if (MyGlobaleVariables.ShowMsgFontNotFound == true)
                 dr = MessageBox.Show(errorMessage,
-                    "Error while loading fonts",
+                    fMain.GetTranslation("Error while loading fonts"),
                     MessageBoxButtons.YesNo ,
                     MessageBoxIcon.Information,
                     MessageBoxDefaultButton.Button1);
@@ -125,19 +126,19 @@ namespace OpenSkinDesigner.Structures
             {
                 pfc.AddFontFile(lookupPath);
             }
-            catch (FileNotFoundException error)
+            catch (Exception error)
             {
                 String errorMessage = "";
-                errorMessage += "OpenSkinDesigner has tried to open the font \"" + Filename + "\".\n";
-                errorMessage += "Unfortunatly this was not successful.\n";
-                errorMessage += "Either the font type is not supported by OpenSkinDesigner,\n";
-                errorMessage += "or it is not a valid font.\n";
+                errorMessage += fMain.GetTranslation("OpenSkinDesigner has tried to open the font") + " '" + Filename + "'.\n";
+                errorMessage += fMain.GetTranslation("Unfortunatly this was not successful!") + "\n";
+                errorMessage += fMain.GetTranslation("Either the font type is not supported by OpenSkinDesigner,") +" \n";
+                errorMessage += fMain.GetTranslation("or it's not a valid font.") + "\n";
                 errorMessage += "\n";
-                errorMessage += "Location:\n";
+                errorMessage += fMain.GetTranslation("Location") + ":\n";
                 errorMessage += "\t" + new FileInfo(lookupPath).FullName + "\n" + error + "\n";
 
                 MessageBox.Show(errorMessage,
-                    "Error while loading fonts",
+                    fMain.GetTranslation("Error while loading fonts"),
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information,
                     MessageBoxDefaultButton.Button1);

@@ -1,4 +1,4 @@
-Language: 语种
+﻿Language: 语种
 File: 文件
 New: 新的
 Open: 开放式
@@ -83,7 +83,7 @@ Alpha = transparency! I.e. the more alpha the more transparent the color becomes
 Information: 信息
 The name of the color cannot be empty!: 颜色的名字不能是空的!
 The value of the color cannot be empty!: 颜色的值不能是空的!
-This color already exists! 这个颜色已经存在!
+This color already exists!: 这个颜色已经存在!
 You can update this color by pressing the 'Change'-Button.: 您可以通过按 "更改"-按钮来更新这个颜色。
 Invalid format for value hexadecimal value!: 值的格式为十六进制值无效!
 To do this, you must select a color in the listview!: 要进行此操作，必须在列表视图中选择一个颜色!
@@ -147,10 +147,19 @@ Preview: 预览
 Table: 表
 View: 查看#
 Key: 钥匙
-The search term was found in the following lines (only showing 30 lines!):: 在以下几行中找到了搜索词（只显示30行！）。
-The search term was not found!: 没有找到搜索词!
 Result: 结果
 No text to browse!: 没有文字可浏览!
 Continue: 继续
 You have unsafed changes. Do you want to continue anyway?: 你有不安全的变化。
 You have made changes in the editor. Do you want to continue anyway?: 你已经在小编这里做了修改。你还想继续吗？
+Add: 添加
+OpenSkinDesigner has searched in several places for the font: OpenSkinDesigner已经为以下字体搜索了几个目录
+Unfortunatly the search was not successful!: 可惜没有搜索成功。
+Search locations: 搜索的目录
+It uses 'lcd.tff' instead.: 它使用'lcd.ttf'代替。
+Error while loading fonts: 读取字体错误
+OpenSkinDesigner has tried to open the font: OpenSkinDesigner试图打开以下字体。
+Unfortunatly this was not successful!: 可惜没有成功!
+Either the font type is not supported by OpenSkinDesigner: 要么是OpenSkinDesigner不支持该字体。
+or it's not a valid font.: 或者它不是有效的字体。
+Location: 路径

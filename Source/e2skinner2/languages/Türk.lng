@@ -1,4 +1,4 @@
-Language: dil
+﻿Language: dil
 File: dosya
 New: yeni
 Open: Açık
@@ -147,10 +147,19 @@ Preview: Önizleme
 Table: Tablo
 View: Görüntüle
 Key: Anahtar
-The search term was found in the following lines (only showing 30 lines!): Arama terimi aşağıdaki satırlarda bulundu (sadece 30 satır görüntüleniyor!)
-The search term was not found!: Arama terimi bulunamadı! 
 Result: Sonuç
 No text to browse!: Taranacak metin yok.
 Continue: Devam et
 You have unsafed changes. Do you want to continue anyway?: Değişikliklerinizi henüz kaydetmediniz. Yine de devam etmek istiyor musun?
 You have made changes in the editor. Do you want to continue anyway?: Editörde değişiklikler yaptınız. Yine de devam etmek istiyor musunuz?
+Add: Ekle
+OpenSkinDesigner has searched in several places for the font: OpenSkinDesigner birkaç dizinde aşağıdaki yazı tipini aradı
+Unfortunatly the search was not successful!: Maalesef arama başarısız oldu.
+Search locations: Aranan dizinler
+It uses 'lcd.tff' instead.: Bunun yerine 'Lcd.ttf' kullanılır.
+Error while loading fonts: Yazı tipleri okunurken hata oluştu.
+OpenSkinDesigner has tried to open the font: OpenSkinDesigner aşağıdaki yazı tipini açmaya çalıştı
+Unfortunatly this was not successful!: Ne yazık ki, bu başarılı olmadı!
+Either the font type is not supported by OpenSkinDesigner: Yazı tipi OpenSkinDesigner tarafından desteklenmiyor
+or it's not a valid font.: veya geçerli bir yazı tipi değil.
+Location: yol

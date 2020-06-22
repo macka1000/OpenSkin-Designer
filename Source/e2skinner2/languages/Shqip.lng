@@ -1,0 +1,165 @@
+﻿Language: Gjuha
+File: Skedari
+New: E Re
+Open: Hape
+Save: Ruaje
+Save as: Ruaje në
+Close: Mbylle
+Exit: Dil
+Edit: Edito
+Undo: Rikthe
+Redo: Përserite
+Element: Elementi
+Add Label: Shto një Label
+Add Pixmap: Shto një Pixmap
+Add Widget: Shto një Widget
+Add Panel: Shto një Panel
+Delete selected: Shlyj përzgjedhjen
+Settings: Konfigurimet
+Resolution: Rezoluta
+Colors: Ngjyrat
+Fonts: Llojet e shkrimit
+WindowStyles: Stili i dritares
+Reload converter.xml: Ngargo edhe një here converter.xml
+Reload previewText.xml: Ngargo edhe një here previewText.xml
+Preferences: Preferencat
+Add undefined color with '#': Vendos ngjyrat e pa definuëra me '#'
+Use full attribut-list: Përdorni listën e plotë të atributeve
+Set 'Fallback'-Color: Ndrysho ngjyrën e sfondit
+Search...: Kërkim...
+Designer: Dezajneri
+Code: Kodet
+Marker: Shenjuesi
+Show all: Trego të gjitha
+Show screens: Trego ekranin
+Show labels: Trego Lebels
+Show pixmaps: Trego Pixmaps 
+Show panels: Trego Panels 
+Show widgets: Trego Widgets 
+Alpha: Alfa
+Fading: Zhduke
+Conditional widgets: Widgets të duhur
+Random: Rastësisht
+Default: Specifikim
+None: Asnjë
+Capturing Keyboard Events: Kapni ngjarjet e tastierës
+Cancel: Anulo
+OK: OK
+Open: Hape
+Edit Root: Edito Root
+Add Screen: Shto një ekran
+Delete Element: Shlyje elementin
+All: Të gjitha
+No Errors.: Nuk ka gabim.
+Error:: Gabim:
+No element selected: Nuk keni zgjedhur asnjë element
+Sync: Sinbkronizim
+Fold all: Rrëzoni të gjitha
+Unfold all: Ringrit të gjitha
+Fold all elements: Rrëzoni të gjitha elementet
+Unfold all elements: Ngrit të gjitha elementet
+Color settings: Konfigurimet e ngjyrave
+Edit colors: Editimi i ngjyrave
+Name: Emri
+Value: Vlerat
+Color: Ngjyrat
+Add Element: Shtoni elementin
+current: i tanishëm
+current date: data aktuale
+current time: koha e tanishme
+colored buttons: butona me ngjyra
+Remove: Shlyje
+Change: Ndrysho
+Red: Kuqe
+Green: Gjelbert
+Blue: Kaltert
+Palette: Paleta
+Hints: Paralajmrim
+(in decimal, min=0, max=255): (në decimal, min=0, max=255)
+(in hexadecimal): (në shënimin heksadecimal)
+The color in the 'listview' can only be displayed without an alpha channel,: Ngjyra në 'Pamja e listës' mund të shfaqet vetëm pa një kanal alfa,
+i.e. the color representation is only displayed correctly (with transparency) in the 'picturebox' in the left lower corner!: d.m.th. përfaqësimi i ngjyrave shfaqet vetëm saktë (me transparencë) në 'Boxbox' në këndin e poshtëm të majtë!
+Alpha = transparency! I.e. the more alpha the more transparent the color becomes.: Alpha = transparencë! Dmth sa më shumë alfa, aq më transparent do të jetë ngjyra.
+Information: Information
+The name of the color cannot be empty!: Emri i ngjyrës nuk duhet të jetë bosh!
+The value of the color cannot be empty!: Vlera e ngjyrës nuk mund të jetë e zbrazët!
+This color already exists!: Kjo ngjr ekzistoni tashmë!
+You can update this color by pressing the 'Change'-Button.: Ju mund ta azhurnoni këtë ngjyrë duke shtypur butonin 'Ndrysho'
+Invalid format for value hexadecimal value!: Format i pavlefshëm për vlerën hexadecimal me vlerë! 
+To do this, you must select a color in the listview!: Ju duhet të zgjidhni një ngjyrë në pamjen e listës!
+Invalid format for value alpha!: Format i pavlefshëm për vlerat alpha!
+Invalid format for value red!: Format i pavlefshëm për vlerat rot!
+Invalid format for value blue!: Format i pavlefshëm për vlerat blau!
+Invalid format for value green!: Format i pavlefshëm për vlerat grün!
+You've made some changes, which will only take effect (show the color in the treeview),: Ju keni bërë disa ndryshime që do të hyjnë në fuqi (shfaqni ngjyrën në pamjen e pemës)
+after you have saved and reloaded the skin!: pasi të keni ruajtur dhe rimbushur lëkurën!
+Do you want to save and reload the skin now?: A doni të ruani dhe rifreskoni lëkurën tani?
+Remember, however, that this will also save all previous changes you made!: Por mos harroni se të gjitha ndryshimet e mëparshme që keni bërë do të ruhen!
+Save and reload: Ruaje dhe ristarto përsëri
+Information about: Informacione nga ne
+Path: Burimi
+Scale: Skalimi
+Size: Madhësia
+Replacement: Zavendëso
+isAlias: është Alias
+Filename: Emri i skedarit
+Preview fonts: Parashije për llojet e shkrimeve
+Usage: Përdorim
+Font: Llojet e shkrimit
+This is a preview-text to show the font: Ky është një tekst preview për të shfaqur fontin
+Test-String SKY 1234567890 !#?ÜÖÄ$%/(): Test-String SKY 1234567890 !#?ÜÖÄ$%/()
+To be able to show this preview, the font size: Për të qenë në gjendje të shfaqni këtë vrojtim, madhësia e fontit
+was temporarily changed from 0 to 20: ndryshuar përkohësisht nga 0 në 20
+Font painting failed!: Shkrimi i skenarit dështoi!
+The font: Lloi i shkrimit
+was not found.: Nuk u gjind.
+Probably this is a default font on the image of your box: Ky është ndoshta një font standard në paisjen tuaj
+Warning: Kujdes
+This function is not sufficiently tested and seems unstable. It is not recommended to use it!: Kjo veçori nuk është testuar në mënyrë të duhur dhe duket se është e paqëndrueshme. Nuk rekomandohet përdorimi i tyre!
+Note:: Noto
+The skin will be automatically saved if you want to continue!: Nëse vazhdoni, lëkura do të ruhet automatikisht!
+It is recommend to create a backup of your skin first!: Rekomandohet të rezervoni së pari lëkurën tuaj!
+Press 'Cancel' to abort.: Shtypni 'Anulo' për të anuluar.
+Resolution settings: Konfigurimet e rezplutës
+Choose the resolution: Zgjidhni një rezolut
+Resolution: Rezoluta
+Changing the Resolution will result in rescaling of the skin.: Një ndryshim në rezolutë çon në një shkallëzim të lëkurës
+PNG not found: PNG nuk u gjind
+More than one color defined with name: Më shumë se një ngjyrë me këtë emër përcaktohet në lëkurë.
+The second definition will be deleted if you save manually.: E dyta e përcaktuar do të fshihet nëse kurseni manualisht.
+Until you save, the second definition is still shown in TreeView!: Derisa të kurseni, ngjyra e dytë shfaqet ende në pamjen e pemës!
+Do you want to save and reload the skin?: Dëshironi të kurseni dhe rimbushni lëkurën?
+Error while parsing color table: Gabim gjatë analizimit të tabelës së ngjyrave
+Error while parsing font table: Gabim në analizimin e shkronjave të tabelës
+More than one font (alias) defined with name: Më shumë se një font (alias) i përcaktuar me emër
+More than one font defined with name: Më shumë se një font me këtë emër përcaktohet në lëkurë
+Show this message again?: Trego këtë mesazh përsëri?
+is not defined or exist!: Nuk është e definuar ose nuk ekziston! 
+Using 'fallback font': Përdoret 'fonti i kthimit'!
+Using 'fallback color': Përdoret 'ngjyra e kthimit'!
+Error: Gabim
+Open project: Hape projektin
+No skin selected: Nuk keni zgjedhur asnjë lëkur
+Open: Hape
+Window-Style settings: Konfigurimete e stilit të dritares
+Style: Stili
+Preview: Për shije
+Table: Tabela
+View: Pamja
+Key: Key
+Result: Ergebnis
+No text to browse!: Asnjë tekst për të kërkuar.
+Continue: Vazhdo
+You have unsafed changes. Do you want to continue anyway?: Ju nuk keni ruajtur akoma konfigurimet. Doni të dilni megjithatë?
+You have made changes in the editor. Do you want to continue anyway?: Ju keni bërë ndryshime në redaktues. Dëshiron të vazhdosh gjithsesi?
+Add: shtoj
+OpenSkinDesigner has searched in several places for the font: OpenSkinDesigner kërkoi për fontin e mëposhtëm në disa drejtori
+Unfortunatly the search was not successful!: Fatkeqësisht, kërkimi ishte i pasuksesshëm.
+Search locations: Drejtoritë e kërkuara
+It uses 'lcd.tff' instead.: Në vend të kësaj përdoret 'Lcd.ttf'.
+Error while loading fonts: Gabim në leximin e shkronjave.
+OpenSkinDesigner has tried to open the font: OpenSkinDesigner u përpoq të hapte fontin e mëposhtëm
+Unfortunatly this was not successful!: Fatkeqësisht, kjo nuk ishte e suksesshme!
+Either the font type is not supported by OpenSkinDesigner: Ose fonti nuk mbështetet nga OpenSkinDesigner
+or it's not a valid font.: ose nuk është një font i vlefshëm.
+Location: rrugë
