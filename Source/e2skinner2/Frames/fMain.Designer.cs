@@ -67,6 +67,8 @@ namespace OpenSkinDesigner.Frames
             this.MiAddUndefinedColors = new System.Windows.Forms.ToolStripMenuItem();
             this.MiUseFullAttributlist = new System.Windows.Forms.ToolStripMenuItem();
             this.MiSetFallbackColor = new System.Windows.Forms.ToolStripMenuItem();
+            this.MiShowNotificationUnsafedChanges = new System.Windows.Forms.ToolStripMenuItem();
+            this.MiShowNotificationUnsafedChangesEditor = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -334,7 +336,7 @@ namespace OpenSkinDesigner.Frames
             this.MiAddLabel.Enabled = false;
             this.MiAddLabel.Image = global::OpenSkinDesigner.Properties.Resources.label;
             this.MiAddLabel.Name = "MiAddLabel";
-            this.MiAddLabel.Size = new System.Drawing.Size(153, 22);
+            this.MiAddLabel.Size = new System.Drawing.Size(180, 22);
             this.MiAddLabel.Text = "Add Label";
             this.MiAddLabel.Click += new System.EventHandler(this.addLabelToolStripMenuItem_Click);
             // 
@@ -343,7 +345,7 @@ namespace OpenSkinDesigner.Frames
             this.MiAddPixmap.Enabled = false;
             this.MiAddPixmap.Image = global::OpenSkinDesigner.Properties.Resources.pixmap;
             this.MiAddPixmap.Name = "MiAddPixmap";
-            this.MiAddPixmap.Size = new System.Drawing.Size(153, 22);
+            this.MiAddPixmap.Size = new System.Drawing.Size(180, 22);
             this.MiAddPixmap.Text = "Add Pixmap";
             this.MiAddPixmap.Click += new System.EventHandler(this.addPixmapToolStripMenuItem_Click);
             // 
@@ -352,34 +354,34 @@ namespace OpenSkinDesigner.Frames
             this.MiAddWidget.Enabled = false;
             this.MiAddWidget.Image = global::OpenSkinDesigner.Properties.Resources.widget;
             this.MiAddWidget.Name = "MiAddWidget";
-            this.MiAddWidget.Size = new System.Drawing.Size(153, 22);
+            this.MiAddWidget.Size = new System.Drawing.Size(180, 22);
             this.MiAddWidget.Text = "Add Widget";
             this.MiAddWidget.Click += new System.EventHandler(this.widgetToolStripMenuItem_Click);
             // 
             // toolStripSeparator8
             // 
             this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(150, 6);
+            this.toolStripSeparator8.Size = new System.Drawing.Size(177, 6);
             // 
             // MiDeleteSelected
             // 
             this.MiDeleteSelected.Enabled = false;
             this.MiDeleteSelected.Image = global::OpenSkinDesigner.Properties.Resources.delete;
             this.MiDeleteSelected.Name = "MiDeleteSelected";
-            this.MiDeleteSelected.Size = new System.Drawing.Size(153, 22);
+            this.MiDeleteSelected.Size = new System.Drawing.Size(180, 22);
             this.MiDeleteSelected.Text = "Delete selected";
             this.MiDeleteSelected.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // toolStripSeparator9
             // 
             this.toolStripSeparator9.Name = "toolStripSeparator9";
-            this.toolStripSeparator9.Size = new System.Drawing.Size(150, 6);
+            this.toolStripSeparator9.Size = new System.Drawing.Size(177, 6);
             // 
             // MiAddElement
             // 
             this.MiAddElement.Enabled = false;
             this.MiAddElement.Name = "MiAddElement";
-            this.MiAddElement.Size = new System.Drawing.Size(153, 22);
+            this.MiAddElement.Size = new System.Drawing.Size(180, 22);
             this.MiAddElement.Text = "Add Element";
             // 
             // MiSettings
@@ -398,6 +400,8 @@ namespace OpenSkinDesigner.Frames
             this.MiLanguage,
             this.MiAddUndefinedColors,
             this.MiUseFullAttributlist,
+            this.MiShowNotificationUnsafedChanges,
+            this.MiShowNotificationUnsafedChangesEditor,
             this.MiSetFallbackColor});
             this.MiSettings.Name = "MiSettings";
             this.MiSettings.Size = new System.Drawing.Size(61, 20);
@@ -407,7 +411,7 @@ namespace OpenSkinDesigner.Frames
             // 
             this.MiResolution.Enabled = false;
             this.MiResolution.Name = "MiResolution";
-            this.MiResolution.Size = new System.Drawing.Size(230, 22);
+            this.MiResolution.Size = new System.Drawing.Size(292, 22);
             this.MiResolution.Text = "Resolution";
             this.MiResolution.Click += new System.EventHandler(this.resolutionToolStripMenuItem_Click);
             // 
@@ -415,7 +419,7 @@ namespace OpenSkinDesigner.Frames
             // 
             this.MiColors.Enabled = false;
             this.MiColors.Name = "MiColors";
-            this.MiColors.Size = new System.Drawing.Size(230, 22);
+            this.MiColors.Size = new System.Drawing.Size(292, 22);
             this.MiColors.Text = "Colors";
             this.MiColors.Click += new System.EventHandler(this.colorsToolStripMenuItem_Click);
             // 
@@ -423,7 +427,7 @@ namespace OpenSkinDesigner.Frames
             // 
             this.MiFonts.Enabled = false;
             this.MiFonts.Name = "MiFonts";
-            this.MiFonts.Size = new System.Drawing.Size(230, 22);
+            this.MiFonts.Size = new System.Drawing.Size(292, 22);
             this.MiFonts.Text = "Fonts";
             this.MiFonts.Click += new System.EventHandler(this.fontsToolStripMenuItem_Click);
             // 
@@ -431,50 +435,50 @@ namespace OpenSkinDesigner.Frames
             // 
             this.MiWindowStyles.Enabled = false;
             this.MiWindowStyles.Name = "MiWindowStyles";
-            this.MiWindowStyles.Size = new System.Drawing.Size(230, 22);
+            this.MiWindowStyles.Size = new System.Drawing.Size(292, 22);
             this.MiWindowStyles.Text = "WindowStyles";
             this.MiWindowStyles.Click += new System.EventHandler(this.windowStylesToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(227, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(289, 6);
             // 
             // MiReloadConverterXml
             // 
             this.MiReloadConverterXml.Name = "MiReloadConverterXml";
-            this.MiReloadConverterXml.Size = new System.Drawing.Size(230, 22);
+            this.MiReloadConverterXml.Size = new System.Drawing.Size(292, 22);
             this.MiReloadConverterXml.Text = "Reload converter.xml";
             this.MiReloadConverterXml.Click += new System.EventHandler(this.reloadConverterxmlToolStripMenuItem_Click);
             // 
             // MiReloadPreviewTextXml
             // 
             this.MiReloadPreviewTextXml.Name = "MiReloadPreviewTextXml";
-            this.MiReloadPreviewTextXml.Size = new System.Drawing.Size(230, 22);
+            this.MiReloadPreviewTextXml.Size = new System.Drawing.Size(292, 22);
             this.MiReloadPreviewTextXml.Text = "Reload previewText.xml";
             this.MiReloadPreviewTextXml.Click += new System.EventHandler(this.reloadPreviewTextxmlToolStripMenuItem_Click);
             // 
             // toolStripSeparator7
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(227, 6);
+            this.toolStripSeparator7.Size = new System.Drawing.Size(289, 6);
             // 
             // MiPreferences
             // 
             this.MiPreferences.Name = "MiPreferences";
-            this.MiPreferences.Size = new System.Drawing.Size(230, 22);
+            this.MiPreferences.Size = new System.Drawing.Size(292, 22);
             this.MiPreferences.Text = "Preferences";
             this.MiPreferences.Click += new System.EventHandler(this.MiPreferences_Click);
             // 
             // jToolStripMenuItem
             // 
             this.jToolStripMenuItem.Name = "jToolStripMenuItem";
-            this.jToolStripMenuItem.Size = new System.Drawing.Size(227, 6);
+            this.jToolStripMenuItem.Size = new System.Drawing.Size(289, 6);
             // 
             // MiLanguage
             // 
             this.MiLanguage.Name = "MiLanguage";
-            this.MiLanguage.Size = new System.Drawing.Size(230, 22);
+            this.MiLanguage.Size = new System.Drawing.Size(292, 22);
             this.MiLanguage.Text = "Language";
             this.MiLanguage.Visible = false;
             // 
@@ -484,7 +488,7 @@ namespace OpenSkinDesigner.Frames
             this.MiAddUndefinedColors.CheckOnClick = true;
             this.MiAddUndefinedColors.CheckState = System.Windows.Forms.CheckState.Checked;
             this.MiAddUndefinedColors.Name = "MiAddUndefinedColors";
-            this.MiAddUndefinedColors.Size = new System.Drawing.Size(230, 22);
+            this.MiAddUndefinedColors.Size = new System.Drawing.Size(292, 22);
             this.MiAddUndefinedColors.Text = "Add undefined colors with \'#\'";
             this.MiAddUndefinedColors.Click += new System.EventHandler(this.TSAddUndefinedColors_Click);
             // 
@@ -492,16 +496,36 @@ namespace OpenSkinDesigner.Frames
             // 
             this.MiUseFullAttributlist.CheckOnClick = true;
             this.MiUseFullAttributlist.Name = "MiUseFullAttributlist";
-            this.MiUseFullAttributlist.Size = new System.Drawing.Size(230, 22);
+            this.MiUseFullAttributlist.Size = new System.Drawing.Size(292, 22);
             this.MiUseFullAttributlist.Text = "Use full attribut-list";
             this.MiUseFullAttributlist.Click += new System.EventHandler(this.useFullAttributlistToolStripMenuItem_Click);
             // 
             // MiSetFallbackColor
             // 
             this.MiSetFallbackColor.Name = "MiSetFallbackColor";
-            this.MiSetFallbackColor.Size = new System.Drawing.Size(230, 22);
+            this.MiSetFallbackColor.Size = new System.Drawing.Size(292, 22);
             this.MiSetFallbackColor.Text = "Set \'Fallback\'-Color";
             this.MiSetFallbackColor.Click += new System.EventHandler(this.setFallbackColorToolStripMenuItem_Click);
+            // 
+            // MiShowNotificationUnsafedChanges
+            // 
+            this.MiShowNotificationUnsafedChanges.Checked = true;
+            this.MiShowNotificationUnsafedChanges.CheckOnClick = true;
+            this.MiShowNotificationUnsafedChanges.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.MiShowNotificationUnsafedChanges.Name = "MiShowNotificationUnsafedChanges";
+            this.MiShowNotificationUnsafedChanges.Size = new System.Drawing.Size(292, 22);
+            this.MiShowNotificationUnsafedChanges.Text = "Notification of unsaved changes";
+            this.MiShowNotificationUnsafedChanges.Click += new System.EventHandler(this.MiShowNotificationUnsafedChanges_Click);
+            // 
+            // MiShowNotificationUnsafedChangesEditor
+            // 
+            this.MiShowNotificationUnsafedChangesEditor.Checked = true;
+            this.MiShowNotificationUnsafedChangesEditor.CheckOnClick = true;
+            this.MiShowNotificationUnsafedChangesEditor.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.MiShowNotificationUnsafedChangesEditor.Name = "MiShowNotificationUnsafedChangesEditor";
+            this.MiShowNotificationUnsafedChangesEditor.Size = new System.Drawing.Size(292, 22);
+            this.MiShowNotificationUnsafedChangesEditor.Text = "Notification of unsaved changes in editor";
+            this.MiShowNotificationUnsafedChangesEditor.Click += new System.EventHandler(this.MiShowNotificationUnsafedChangesEditor_Click);
             // 
             // toolStripMenuItemHelp
             // 
@@ -1604,5 +1628,7 @@ namespace OpenSkinDesigner.Frames
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator25;
         private System.Windows.Forms.ToolStripSeparator toolStripDropDownButton1;
         private System.Windows.Forms.ToolStripLabel lblSkinName;
+        private System.Windows.Forms.ToolStripMenuItem MiShowNotificationUnsafedChanges;
+        private System.Windows.Forms.ToolStripMenuItem MiShowNotificationUnsafedChangesEditor;
     }
 }

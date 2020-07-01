@@ -46,6 +46,8 @@ namespace OpenSkinDesigner.Frames
             MiSetFallbackColor.BackColor = Properties.Settings.Default.FallbackColor;
             MiUseFullAttributlist.Checked = Properties.Settings.Default.useFullAttribList;
             MiAddUndefinedColors.Checked = Properties.Settings.Default.addUndefinedColor;
+            MiShowNotificationUnsafedChanges.Checked = Properties.Settings.Default.ShowChanges;
+            MiShowNotificationUnsafedChangesEditor.Checked = Properties.Settings.Default.ShowChangesEditor;
             btnSkinned_Alpha.Checked = cProperties.getPropertyBool("enable_alpha");
             
             trackBarZoom.Enabled = false;
@@ -876,7 +878,7 @@ namespace OpenSkinDesigner.Frames
         }
         private bool checkChanges(ref bool ignore)
         {
-            if (MyGlobaleVariables.UnsafedChanges == false)
+            if (MyGlobaleVariables.UnsafedChanges == false || Properties.Settings.Default.ShowChanges == false)
             {
                 ignore = true;
                 return true;
@@ -896,7 +898,7 @@ namespace OpenSkinDesigner.Frames
         }
         private bool checkChangesEditor(ref bool ignore)
         {
-            if (MyGlobaleVariables.UnsafedChangesEditor == false)
+            if (MyGlobaleVariables.UnsafedChangesEditor == false || Properties.Settings.Default.ShowChangesEditor == false)
             {
                 ignore = true;
                 return true;
@@ -2309,6 +2311,8 @@ namespace OpenSkinDesigner.Frames
             MiSetFallbackColor.Text = GetTranslation("Set 'Fallback'-Color");
             MiUseFullAttributlist.Text = GetTranslation("Use full attribut-list");
             MiLanguage.Text = GetTranslation("Language");
+            MiShowNotificationUnsafedChanges.Text = GetTranslation("Notification of unsaved changes");
+            MiShowNotificationUnsafedChangesEditor.Text = GetTranslation("Notification of unsaved changes in editor");
             btnOpen.Text = GetTranslation("Open");
             btnSave.Text = GetTranslation("Save");
             btnAddLabel.Text = GetTranslation("Add Label");
@@ -2448,6 +2452,16 @@ namespace OpenSkinDesigner.Frames
             lblSkinName.Width = this.Width - 450;
             lblSkinName.Text = null;
             lblSkinName.Text = cProperties.getProperty("path_skin");
+        }
+        private void MiShowNotificationUnsafedChanges_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.ShowChanges = MiShowNotificationUnsafedChanges.Checked;
+            Properties.Settings.Default.Save();
+        }
+        private void MiShowNotificationUnsafedChangesEditor_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.ShowChangesEditor = MiShowNotificationUnsafedChangesEditor.Checked;
+            Properties.Settings.Default.Save();
         }
         private void fMain_Load(object sender, EventArgs e)
         {
