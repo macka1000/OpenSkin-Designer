@@ -163,3 +163,5 @@ Unfortunatly this was not successful!: Ne yazık ki, bu başarılı olmadı!
 Either the font type is not supported by OpenSkinDesigner: Yazı tipi OpenSkinDesigner tarafından desteklenmiyor
 or it's not a valid font.: veya geçerli bir yazı tipi değil.
 Location: yol
+Notification of unsaved changes: Kaydedilmemiş değişikliklerin bildirilmesi
+Notification of unsaved changes in editor: Editördeki kaydedilmemiş değişikliklerin bildirilmesi

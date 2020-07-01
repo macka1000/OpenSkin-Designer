@@ -163,3 +163,5 @@ Unfortunatly this was not successful!: Leider war dies nicht erfolgreich!
 Either the font type is not supported by OpenSkinDesigner: Entweder die Schriftart wird vom OpenSkinDesigner nicht unterstützt
 or it's not a valid font.: oder es ist keine gültige Schriftart.
 Location: Pfad
+Notification of unsaved changes: Benachrichtigung über nicht gespeicherte Änderungen
+Notification of unsaved changes in editor: Benachrichtigung über nicht gespeicherte Änderungen im Codeeditor

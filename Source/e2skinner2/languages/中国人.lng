@@ -163,3 +163,5 @@ Unfortunatly this was not successful!: 可惜没有成功!
 Either the font type is not supported by OpenSkinDesigner: 要么是OpenSkinDesigner不支持该字体。
 or it's not a valid font.: 或者它不是有效的字体。
 Location: 路径
+Notification of unsaved changes: 通知未保存的更改
+Notification of unsaved changes in editor: 通知编辑器中未保存的更改

@@ -163,3 +163,5 @@ Unfortunatly this was not successful!: Niestety to sie nie udalo!
 Either the font type is not supported by OpenSkinDesigner: Albo czcionka nie jest obslugiwana przez OpenSkinDesigner.
 or it's not a valid font.: albo to nie jest wazna czcionka.
 Location: Sciezka
+Notification of unsaved changes: Powiadomienie o niezapisanych zmianach
+Notification of unsaved changes in editor: Powiadomienie o niezapisanych zmianach w edytorze
