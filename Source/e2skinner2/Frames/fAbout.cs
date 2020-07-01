@@ -165,8 +165,12 @@ namespace OpenSkinDesigner.Frames
                 "- Fixed polish language" + Environment.NewLine +
                 "- Added missing translations" + Environment.NewLine +
                 "- Bugfix: now displaying an error message if a font is not valid" + Environment.NewLine +
-                "- Add albanian language (thanks to 'kqiqi1')" + Environment.NewLine;
-
+                "- Add albanian language (thanks to 'kqiqi1')" + Environment.NewLine + Environment.NewLine +
+                "v3.2.4.8 by Humax" + Environment.NewLine +
+                "- Added missing translations" + Environment.NewLine +
+                "- Added 'ExtEvent' to converter.xml" + Environment.NewLine +
+                "- Bugfix: Now also a notification is shown, if colors are changed" + Environment.NewLine +
+                "- Add options to show notifications about unsafed changes" + Environment.NewLine;
         }
 
         private void SetLanguage()
