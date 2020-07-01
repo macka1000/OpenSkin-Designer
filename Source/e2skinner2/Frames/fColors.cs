@@ -96,8 +96,7 @@ namespace OpenSkinDesigner.Frames
 
             cDataBase.pColors.sync(pXmlHandler);
             if (Edited == true)
-            {
-                MyGlobaleVariables.UnsafedChanges = false;
+            {                
                 String Message = fMain.GetTranslation("You've made some changes, which will only take effect (show the color in the treeview),") ;
                 Message += "\n" + fMain.GetTranslation("after you have saved and reloaded the skin!");
                 Message += "\n";
@@ -111,6 +110,10 @@ namespace OpenSkinDesigner.Frames
                     MessageBoxDefaultButton.Button1) == DialogResult.Yes)
                 {
                     MyGlobaleVariables.Reload = true;
+                }
+                else
+                {
+                    MyGlobaleVariables.UnsafedChanges = true;
                 }
             }
             
