@@ -114,7 +114,7 @@ Rick searches for his family after emerging from a coma into a world terrorized 
     <entry source="ExtEvent" converterName="MetrixReloadedExtEventEPG" converterParameter="PowerDescription[true][EpisodeNum(S[ss]E[ee]\,)Subtitle(10)Genre(\,)Rating(\,Bewertung )Country(\,)Year(\,)ExtendedDescription(\n)]" value="#MetrixReloadedEventEpg_gmepg_Description#"/>
     <entry source="ExtEvent" converterName="MetrixReloadedExtEventEPG" converterParameter="PowerDescription[false][EpisodeNum(S[ss]E[ee]\,)Subtitle(10)Genre(\,)Rating(\,Bewertung )Country(\,)Year(\,)ExtendedDescription(\n)]" value="#MetrixReloadedEventEpg_gmepg_Description#"/>
     <entry source="ExtEvent" converterName="MetrixReloadedExtEventEPG" converterParameter="PowerDescription[EpisodeNum(S[ss]E[ee]\,)Subtitle(10)Genre(\,)Rating(\,Bewertung )Country(\,)Year(\,)ExtendedDescription(\n\n)]" value="#MetrixReloadedEventEpg_gmepg_Description#"/>
-
+    
     <!-- Converter MetrixReloadedVersion -->
     <entry source="Title" converterName="MetrixReloadedVersion" converterParameter="" value="Version: 0.7.0"/>
     
