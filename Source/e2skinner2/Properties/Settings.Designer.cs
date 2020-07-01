@@ -82,5 +82,29 @@ namespace OpenSkinDesigner.Properties {
                 this["FallbackColor"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ShowChanges {
+            get {
+                return ((bool)(this["ShowChanges"]));
+            }
+            set {
+                this["ShowChanges"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ShowChangesEditor {
+            get {
+                return ((bool)(this["ShowChangesEditor"]));
+            }
+            set {
+                this["ShowChangesEditor"] = value;
+            }
+        }
     }
 }

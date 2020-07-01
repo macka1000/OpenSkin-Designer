@@ -17,5 +17,11 @@
     <Setting Name="FallbackColor" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">Fuchsia</Value>
     </Setting>
+    <Setting Name="ShowChanges" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="ShowChangesEditor" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
