@@ -1245,6 +1245,10 @@ namespace OpenSkinDesigner.Frames
         }
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            deleteSelectedElement();
+        }
+        private void deleteSelectedElement()
+        {
             TreeNode selectedNode = treeView1.SelectedNode;
             if (selectedNode != null)
             {
@@ -1691,7 +1695,11 @@ namespace OpenSkinDesigner.Frames
         private bool isF10(KeyEventArgs e)
         {
             return e.KeyCode == Keys.F10;
-        }        
+        }
+        private bool isEntf(KeyEventArgs e)
+        {
+            return e.KeyCode == Keys.Delete;
+        }
         private void tabControl1_KeyDown(object sender, KeyEventArgs e)
         {
             if (!this.keyCapture)
@@ -1862,6 +1870,9 @@ namespace OpenSkinDesigner.Frames
                 toggleFullscreen();
             else if (isF10(e))
                 togglePreviewFullscreen();
+            else if (isEntf(e))
+                if (tabControl1.SelectedIndex==0) // Do not do this in Codeeditor
+                    deleteSelectedElement();
         }
         private void btnSkinned_Alpha_Click(object sender, EventArgs e)
         {
