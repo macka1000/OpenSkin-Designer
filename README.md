@@ -158,3 +158,6 @@ created by [Scrounger](https://github.com/Scrounger)
 * Added missing translations
 * Bugfix: Now also a notification is shown, if colors are changed
 * Added 'ExtEvent' to converter.xml
+
+### 3.2.4.9 by Humax
+* Using 'delete'-key to delete select element

@@ -170,7 +170,9 @@ namespace OpenSkinDesigner.Frames
                 "- Added missing translations" + Environment.NewLine +
                 "- Added 'ExtEvent' to converter.xml" + Environment.NewLine +
                 "- Bugfix: Now also a notification is shown, if colors are changed" + Environment.NewLine +
-                "- Add options to show notifications about unsafed changes" + Environment.NewLine;
+                "- Add options to show notifications about unsafed changes" + Environment.NewLine + Environment.NewLine +
+                "v3.2.4.9 by Humax" + Environment.NewLine +
+                "- Using 'delete'-key to delete select element" + Environment.NewLine;
         }
 
         private void SetLanguage()
