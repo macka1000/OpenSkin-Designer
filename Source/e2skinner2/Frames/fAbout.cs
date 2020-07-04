@@ -173,9 +173,9 @@ namespace OpenSkinDesigner.Frames
                 "- Add options to show notifications about unsafed changes" + Environment.NewLine + Environment.NewLine +
                 "v3.2.4.9 by Humax" + Environment.NewLine +
                 "- Using 'delete'-key to delete select element" + Environment.NewLine + Environment.NewLine +
-                "v3.2.5.0 by Humax" + Environment.NewLine +
+                "v3.2.5.0 by Humax (beta!)" + Environment.NewLine +
                 "- Bugfix: Dont delete root-node" + Environment.NewLine +
-                "- Added 'experimental delete-mode' (beta!)" + Environment.NewLine;
+                "- Added 'experimental delete-mode' (beta2!)" + Environment.NewLine;
         }
 
         private void SetLanguage()
