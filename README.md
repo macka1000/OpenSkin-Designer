@@ -163,4 +163,5 @@ created by [Scrounger](https://github.com/Scrounger)
 * Using 'delete'-key to delete select element
 
 ### 3.2.5.0 by Humax
-* Added 'experimental delete-mode (beta!)
+* Added 'experimental delete-mode' (beta!)
+* Bugfix: Don't delete root-node

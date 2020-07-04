@@ -174,6 +174,7 @@ namespace OpenSkinDesigner.Frames
                 "v3.2.4.9 by Humax" + Environment.NewLine +
                 "- Using 'delete'-key to delete select element" + Environment.NewLine + Environment.NewLine +
                 "v3.2.5.0 by Humax" + Environment.NewLine +
+                "- Bugfix: Dont delete root-node" + Environment.NewLine +
                 "- Added 'experimental delete-mode' (beta!)" + Environment.NewLine;
         }
 
