@@ -165,3 +165,5 @@ or it's not a valid font.: ose nuk është një font i vlefshëm.
 Location: rrugë
 Notification of unsaved changes: Njoftim për ndryshimet e pasakta
 Notification of unsaved changes in editor: Njoftim për ndryshimet e pashmangshme në redaktor
+Deleting main node is not allowed!: Nyja kryesore nuk mund të fshihet!
+Experimental delete-mode: modaliteti i fshirjes eksperimentale

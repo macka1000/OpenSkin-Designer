@@ -1,4 +1,4 @@
-Language: Jezyk
+﻿Language: Jezyk
 File: Plik
 New: Nowy
 Open: Otworz
@@ -84,7 +84,7 @@ Information: Informacja
 The name of the color cannot be empty!: Nazwa koloru nie moze byc pusta!
 The value of the color cannot be empty!: Wartosc koloru nie moze byc pusta!
 This color already exists!: Ten kolor juz istnieje!
-You can update this color by pressing the 'Change'-Button.: Mo¿esz zaktualizowac ten kolor, naciskajac przycisk 'Zmien'.
+You can update this color by pressing the 'Change'-Button.: MoÂ¿esz zaktualizowac ten kolor, naciskajac przycisk 'Zmien'.
 Invalid format for value hexadecimal value!: Niepoprawny format wartosci szesnastkowej!
 To do this, you must select a color in the listview!: Aby to zrobic, musisz wybrac kolor w widoku listy!
 Invalid format for value alpha!: Nieprawidlowy format wartosci alfa!
@@ -107,7 +107,7 @@ Preview fonts: Zobacz czcionke
 Usage: Stosowanie
 Font: Czcionka
 This is a preview-text to show the font: To jest podglad tekstu pokazujacy czcionke
-Test-String SKY 1234567890 !#?ÃƒÅ“Ãƒâ€“Ãƒâ€ž$%/(): Ciag testowy SKY 1234567890 !#?ÃƒÅ“Ãƒâ€“Ãƒâ€ž$%/()
+Test-String SKY 1234567890 !#?ÃƒÆ’Ã…â€œÃƒÆ’Ã¢â‚¬â€œÃƒÆ’Ã¢â‚¬Å¾$%/(): Ciag testowy SKY 1234567890 !#?ÃƒÆ’Ã…â€œÃƒÆ’Ã¢â‚¬â€œÃƒÆ’Ã¢â‚¬Å¾$%/()
 To be able to show this preview, the font size: Aby moc wyswietlic ten podglad, rozmiar czcionki
 was temporarily changed from 0 to 20: zostal tymczasowo zmieniony z 0 na 20
 Font painting failed!: Malowanie czcionek nie powiodlo sie!
@@ -151,17 +151,19 @@ Result: Wynik
 No text to browse!: Brak tekstu do przegladania!
 Continue: Kontynuuj
 You have unsafed changes. Do you want to continue anyway?: Masz niezapisane zmiany. Czy mimo to chcesz kontynuowac?
-You have made changes in the editor. Do you want to continue anyway?: Wprowadziłeś zmiany w edytorze. I tak chcesz kontynuować?
+You have made changes in the editor. Do you want to continue anyway?: WprowadziÅ‚eÅ› zmiany w edytorze. I tak chcesz kontynuowaÄ‡?
 Add: Dodaj
-OpenSkinDesigner has searched in several places for the font: OpenSkinDesigner przeszukal kilka katalog�w pod katem nastepujacej czcionki
+OpenSkinDesigner has searched in several places for the font: OpenSkinDesigner przeszukal kilka katalogów pod katem nastepujacej czcionki
 Unfortunatly the search was not successful!: Niestety poszukiwania nie powiodly sie.
 Search locations: Przeszukiwane katalogi
 It uses 'lcd.tff' instead.: Zamiast tego uzywa 'lcd.ttf'.
 Error while loading fonts: Blad w odczytywaniu czcionek.
-OpenSkinDesigner has tried to open the font: OpenSkinDesigner pr�bowal otworzyc nastepujaca czcionke
+OpenSkinDesigner has tried to open the font: OpenSkinDesigner próbowal otworzyc nastepujaca czcionke
 Unfortunatly this was not successful!: Niestety to sie nie udalo!
 Either the font type is not supported by OpenSkinDesigner: Albo czcionka nie jest obslugiwana przez OpenSkinDesigner.
 or it's not a valid font.: albo to nie jest wazna czcionka.
 Location: Sciezka
 Notification of unsaved changes: Powiadomienie o niezapisanych zmianach
 Notification of unsaved changes in editor: Powiadomienie o niezapisanych zmianach w edytorze
+Deleting main node is not allowed!: Usuwanie głównego węzła jest niedozwolone!
+Experimental delete-mode: Eksperymentalny tryb usuwania

@@ -165,3 +165,5 @@ or it's not a valid font.: oder es ist keine gültige Schriftart.
 Location: Pfad
 Notification of unsaved changes: Benachrichtigung über nicht gespeicherte Änderungen
 Notification of unsaved changes in editor: Benachrichtigung über nicht gespeicherte Änderungen im Codeeditor
+Deleting main node is not allowed!: Der Hauptknoten darf nicht gelöscht werden!
+Experimental delete-mode: Experimenteller 'Löschen-Modus'
