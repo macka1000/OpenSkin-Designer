@@ -1247,7 +1247,13 @@ namespace OpenSkinDesigner.Frames
         }
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            deleteSelectedElement();
+            if (tabControl1.SelectedIndex == 0) // Do not do this in Codeeditor
+            {
+                if (MiExperimentalDeleteMode.Checked == false)
+                    deleteSelectedElement();
+                else
+                    SearchCheckedElement(treeView1.Nodes[0]);
+            }
         }
         private void deleteSelectedElement()
         {
@@ -1281,14 +1287,19 @@ namespace OpenSkinDesigner.Frames
         }
         private void SearchCheckedElement(TreeNode node)
         {
-            if (node == null)
-                return;
-            foreach (TreeNode TN in node.Nodes)
+            if (node != null)
             {
-                if (TN != null && TN.Checked == true)
-                    deleteCheckedElement(TN);
-                SearchCheckedElement(TN);
+                foreach (TreeNode TN in node.Nodes)
+                {
+                    if (TN != null && TN.Checked == true)
+                    {
+                        deleteCheckedElement(TN);
+                        SearchCheckedElement(treeView1.Nodes[0]);
+                    }
+                        
+                }
             }
+
         }
 
         private void deleteCheckedElement(TreeNode node)
