@@ -68,6 +68,7 @@ namespace OpenSkinDesigner.Frames
             this.MiUseFullAttributlist = new System.Windows.Forms.ToolStripMenuItem();
             this.MiShowNotificationUnsafedChanges = new System.Windows.Forms.ToolStripMenuItem();
             this.MiShowNotificationUnsafedChangesEditor = new System.Windows.Forms.ToolStripMenuItem();
+            this.MiExperimentalDeleteMode = new System.Windows.Forms.ToolStripMenuItem();
             this.MiSetFallbackColor = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -186,6 +187,7 @@ namespace OpenSkinDesigner.Frames
             // 
             this.treeView1.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.treeView1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.treeView1.CheckBoxes = true;
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeView1.FullRowSelect = true;
             this.treeView1.HideSelection = false;
@@ -336,7 +338,7 @@ namespace OpenSkinDesigner.Frames
             this.MiAddLabel.Enabled = false;
             this.MiAddLabel.Image = global::OpenSkinDesigner.Properties.Resources.label;
             this.MiAddLabel.Name = "MiAddLabel";
-            this.MiAddLabel.Size = new System.Drawing.Size(153, 22);
+            this.MiAddLabel.Size = new System.Drawing.Size(180, 22);
             this.MiAddLabel.Text = "Add Label";
             this.MiAddLabel.Click += new System.EventHandler(this.addLabelToolStripMenuItem_Click);
             // 
@@ -345,7 +347,7 @@ namespace OpenSkinDesigner.Frames
             this.MiAddPixmap.Enabled = false;
             this.MiAddPixmap.Image = global::OpenSkinDesigner.Properties.Resources.pixmap;
             this.MiAddPixmap.Name = "MiAddPixmap";
-            this.MiAddPixmap.Size = new System.Drawing.Size(153, 22);
+            this.MiAddPixmap.Size = new System.Drawing.Size(180, 22);
             this.MiAddPixmap.Text = "Add Pixmap";
             this.MiAddPixmap.Click += new System.EventHandler(this.addPixmapToolStripMenuItem_Click);
             // 
@@ -354,34 +356,34 @@ namespace OpenSkinDesigner.Frames
             this.MiAddWidget.Enabled = false;
             this.MiAddWidget.Image = global::OpenSkinDesigner.Properties.Resources.widget;
             this.MiAddWidget.Name = "MiAddWidget";
-            this.MiAddWidget.Size = new System.Drawing.Size(153, 22);
+            this.MiAddWidget.Size = new System.Drawing.Size(180, 22);
             this.MiAddWidget.Text = "Add Widget";
             this.MiAddWidget.Click += new System.EventHandler(this.widgetToolStripMenuItem_Click);
             // 
             // toolStripSeparator8
             // 
             this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(150, 6);
+            this.toolStripSeparator8.Size = new System.Drawing.Size(177, 6);
             // 
             // MiDeleteSelected
             // 
             this.MiDeleteSelected.Enabled = false;
             this.MiDeleteSelected.Image = global::OpenSkinDesigner.Properties.Resources.delete;
             this.MiDeleteSelected.Name = "MiDeleteSelected";
-            this.MiDeleteSelected.Size = new System.Drawing.Size(153, 22);
+            this.MiDeleteSelected.Size = new System.Drawing.Size(180, 22);
             this.MiDeleteSelected.Text = "Delete selected";
             this.MiDeleteSelected.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // toolStripSeparator9
             // 
             this.toolStripSeparator9.Name = "toolStripSeparator9";
-            this.toolStripSeparator9.Size = new System.Drawing.Size(150, 6);
+            this.toolStripSeparator9.Size = new System.Drawing.Size(177, 6);
             // 
             // MiAddElement
             // 
             this.MiAddElement.Enabled = false;
             this.MiAddElement.Name = "MiAddElement";
-            this.MiAddElement.Size = new System.Drawing.Size(153, 22);
+            this.MiAddElement.Size = new System.Drawing.Size(180, 22);
             this.MiAddElement.Text = "Add Element";
             // 
             // MiSettings
@@ -402,6 +404,7 @@ namespace OpenSkinDesigner.Frames
             this.MiUseFullAttributlist,
             this.MiShowNotificationUnsafedChanges,
             this.MiShowNotificationUnsafedChangesEditor,
+            this.MiExperimentalDeleteMode,
             this.MiSetFallbackColor});
             this.MiSettings.Name = "MiSettings";
             this.MiSettings.Size = new System.Drawing.Size(61, 20);
@@ -519,6 +522,14 @@ namespace OpenSkinDesigner.Frames
             this.MiShowNotificationUnsafedChangesEditor.Size = new System.Drawing.Size(292, 22);
             this.MiShowNotificationUnsafedChangesEditor.Text = "Notification of unsaved changes in editor";
             this.MiShowNotificationUnsafedChangesEditor.Click += new System.EventHandler(this.MiShowNotificationUnsafedChangesEditor_Click);
+            // 
+            // MiExperimentalDeleteMode
+            // 
+            this.MiExperimentalDeleteMode.CheckOnClick = true;
+            this.MiExperimentalDeleteMode.Name = "MiExperimentalDeleteMode";
+            this.MiExperimentalDeleteMode.Size = new System.Drawing.Size(292, 22);
+            this.MiExperimentalDeleteMode.Text = "Experimental delete mode";
+            this.MiExperimentalDeleteMode.Click += new System.EventHandler(this.MiExperimentalDeleteMode_Click);
             // 
             // MiSetFallbackColor
             // 
@@ -1630,5 +1641,6 @@ namespace OpenSkinDesigner.Frames
         private System.Windows.Forms.ToolStripLabel lblSkinName;
         private System.Windows.Forms.ToolStripMenuItem MiShowNotificationUnsafedChanges;
         private System.Windows.Forms.ToolStripMenuItem MiShowNotificationUnsafedChangesEditor;
+        private System.Windows.Forms.ToolStripMenuItem MiExperimentalDeleteMode;
     }
 }

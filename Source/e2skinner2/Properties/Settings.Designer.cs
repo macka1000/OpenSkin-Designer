@@ -106,5 +106,17 @@ namespace OpenSkinDesigner.Properties {
                 this["ShowChangesEditor"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ExperimentalDelete {
+            get {
+                return ((bool)(this["ExperimentalDelete"]));
+            }
+            set {
+                this["ExperimentalDelete"] = value;
+            }
+        }
     }
 }
