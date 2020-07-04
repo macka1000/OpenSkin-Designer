@@ -48,6 +48,8 @@ namespace OpenSkinDesigner.Frames
             MiAddUndefinedColors.Checked = Properties.Settings.Default.addUndefinedColor;
             MiShowNotificationUnsafedChanges.Checked = Properties.Settings.Default.ShowChanges;
             MiShowNotificationUnsafedChangesEditor.Checked = Properties.Settings.Default.ShowChangesEditor;
+            MiExperimentalDeleteMode.Checked = Properties.Settings.Default.ExperimentalDelete;
+            treeView1.CheckBoxes = Properties.Settings.Default.ExperimentalDelete;
             btnSkinned_Alpha.Checked = cProperties.getPropertyBool("enable_alpha");
             
             trackBarZoom.Enabled = false;
@@ -1250,6 +1252,11 @@ namespace OpenSkinDesigner.Frames
         private void deleteSelectedElement()
         {
             TreeNode selectedNode = treeView1.SelectedNode;
+            if (treeView1.SelectedNode == treeView1.Nodes[0])
+            {
+                MessageBox.Show(GetTranslation("Deleting main node is not allowed!"), GetTranslation("Information"),MessageBoxButtons.OK,MessageBoxIcon.Information);
+                return;
+            }
             if (selectedNode != null)
             {
                 pQueue.clearUndo(); // We need to clear the UndoList. The problem is that we readded elements an these elements now have different hashes :-(
@@ -1271,6 +1278,37 @@ namespace OpenSkinDesigner.Frames
                 MyGlobaleVariables.UnsafedChanges = true;
                 pQueue.addSilentCmd(cmd);
             }
+        }
+        private void SearchCheckedElement(TreeNode node)
+        {
+            if (node == null)
+                return;
+            foreach (TreeNode TN in node.Nodes)
+            {
+                if (TN != null && TN.Checked == true)
+                    deleteCheckedElement(TN);
+                SearchCheckedElement(TN);
+            }
+        }
+
+        private void deleteCheckedElement(TreeNode node)
+        {
+            pQueue.clearUndo(); // We need to clear the UndoList. The problem is that we readded elements an these elements now have different hashes :-(
+            XmlNode xnode = pXmlHandler.getXmlNode(node); // The element we want to delete
+            int nodeHash = pXmlHandler.getHash(xnode);
+            XmlNode parentNode = xnode.ParentNode;
+            int parentNodeHash = pXmlHandler.getHash(parentNode);
+            cCommandQueue.cCommand cmd = new cCommandQueue.cCommand("deleteElement");
+            cmd.DoEvent += new cCommandQueue.EventHandler(eventDoElement);
+            cmd.UndoEvent += new cCommandQueue.EventHandler(eventUndoElement); 
+            
+            cmd.Helper = parentNodeHash;
+            cmd.From = parentNode.OuterXml; // For from we need the parent outerxml, for to we dont need it
+            replaceXmlNode(nodeHash, ""); // Delete Element
+            cmd.To = parentNode.OuterXml; // Set the result
+            
+            MyGlobaleVariables.UnsafedChanges = true;
+            pQueue.addSilentCmd(cmd);
         }
         private void eventDoElement(cCommandQueue.cCommand sender, EventArgs e)
         {
@@ -1872,7 +1910,13 @@ namespace OpenSkinDesigner.Frames
                 togglePreviewFullscreen();
             else if (isEntf(e))
                 if (tabControl1.SelectedIndex==0) // Do not do this in Codeeditor
-                    deleteSelectedElement();
+                {
+                    if (MiExperimentalDeleteMode.Checked == false)
+                        deleteSelectedElement();
+                    else
+                        SearchCheckedElement(treeView1.Nodes[0]);
+                }
+                    
         }
         private void btnSkinned_Alpha_Click(object sender, EventArgs e)
         {
@@ -2295,6 +2339,7 @@ namespace OpenSkinDesigner.Frames
         private void UseCustomLanguage()
         {
             MiAddElement.Text = GetTranslation("Add Element");
+            MiExperimentalDeleteMode.Text = GetTranslation("Experimental delete-mode");
             MiFile.Text = GetTranslation("File");
             MiNew.Text = GetTranslation("New");
             MiOpen.Text = GetTranslation("Open");
@@ -2473,6 +2518,12 @@ namespace OpenSkinDesigner.Frames
         {
             Properties.Settings.Default.ShowChangesEditor = MiShowNotificationUnsafedChangesEditor.Checked;
             Properties.Settings.Default.Save();
+        }
+        private void MiExperimentalDeleteMode_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.ExperimentalDelete = MiExperimentalDeleteMode.Checked;
+            Properties.Settings.Default.Save();
+            treeView1.CheckBoxes = Properties.Settings.Default.ExperimentalDelete;
         }
         private void fMain_Load(object sender, EventArgs e)
         {
