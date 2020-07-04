@@ -161,3 +161,6 @@ created by [Scrounger](https://github.com/Scrounger)
 
 ### 3.2.4.9 by Humax
 * Using 'delete'-key to delete select element
+
+### 3.2.5.0 by Humax
+* Added 'experimental delete-mode (beta!)

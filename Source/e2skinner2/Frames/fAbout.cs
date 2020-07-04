@@ -172,7 +172,9 @@ namespace OpenSkinDesigner.Frames
                 "- Bugfix: Now also a notification is shown, if colors are changed" + Environment.NewLine +
                 "- Add options to show notifications about unsafed changes" + Environment.NewLine + Environment.NewLine +
                 "v3.2.4.9 by Humax" + Environment.NewLine +
-                "- Using 'delete'-key to delete select element" + Environment.NewLine;
+                "- Using 'delete'-key to delete select element" + Environment.NewLine + Environment.NewLine +
+                "v3.2.5.0 by Humax" + Environment.NewLine +
+                "- Added 'experimental delete-mode' (beta!)" + Environment.NewLine;
         }
 
         private void SetLanguage()
