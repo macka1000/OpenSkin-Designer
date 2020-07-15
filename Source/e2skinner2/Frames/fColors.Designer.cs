@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
             this.labelEditColors = new System.Windows.Forms.Label();
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnHeaderName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -61,7 +61,7 @@
             this.trackBarGreen = new System.Windows.Forms.TrackBar();
             this.trackBarRed = new System.Windows.Forms.TrackBar();
             this.trackBar_Alpha = new System.Windows.Forms.TrackBar();
-            this.buttonChange = new System.Windows.Forms.Button();
+            this.buttonRename = new System.Windows.Forms.Button();
             this.buttonPalette = new System.Windows.Forms.Button();
             this.buttonHints = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxColor)).BeginInit();
@@ -95,10 +95,10 @@
             this.listView1.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
-            listViewGroup4.Header = "ListViewGroup";
-            listViewGroup4.Name = "listViewGroup1";
+            listViewGroup2.Header = "ListViewGroup";
+            listViewGroup2.Name = "listViewGroup1";
             this.listView1.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup4});
+            listViewGroup2});
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(12, 37);
             this.listView1.MultiSelect = false;
@@ -143,7 +143,7 @@
             this.textBoxName.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxName.Location = new System.Drawing.Point(54, 21);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(357, 20);
+            this.textBoxName.Size = new System.Drawing.Size(342, 20);
             this.textBoxName.TabIndex = 6;
             // 
             // pictureBoxColor
@@ -185,9 +185,9 @@
             // buttonAdd
             // 
             this.buttonAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonAdd.Location = new System.Drawing.Point(417, 19);
+            this.buttonAdd.Location = new System.Drawing.Point(402, 19);
             this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(75, 23);
+            this.buttonAdd.Size = new System.Drawing.Size(80, 23);
             this.buttonAdd.TabIndex = 11;
             this.buttonAdd.Text = "Add";
             this.buttonAdd.UseVisualStyleBackColor = true;
@@ -357,9 +357,9 @@
             // buttonRemove
             // 
             this.buttonRemove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonRemove.Location = new System.Drawing.Point(498, 19);
+            this.buttonRemove.Location = new System.Drawing.Point(490, 19);
             this.buttonRemove.Name = "buttonRemove";
-            this.buttonRemove.Size = new System.Drawing.Size(75, 23);
+            this.buttonRemove.Size = new System.Drawing.Size(80, 23);
             this.buttonRemove.TabIndex = 27;
             this.buttonRemove.Text = "Remove";
             this.buttonRemove.UseVisualStyleBackColor = true;
@@ -373,7 +373,7 @@
             this.groupBoxColor.Controls.Add(this.trackBarGreen);
             this.groupBoxColor.Controls.Add(this.trackBarRed);
             this.groupBoxColor.Controls.Add(this.trackBar_Alpha);
-            this.groupBoxColor.Controls.Add(this.buttonChange);
+            this.groupBoxColor.Controls.Add(this.buttonRename);
             this.groupBoxColor.Controls.Add(this.buttonRemove);
             this.groupBoxColor.Controls.Add(this.buttonPalette);
             this.groupBoxColor.Controls.Add(this.labelDecimal4);
@@ -458,16 +458,16 @@
             this.trackBar_Alpha.Value = 255;
             this.trackBar_Alpha.ValueChanged += new System.EventHandler(this.trackBar1_ValueChanged);
             // 
-            // buttonChange
+            // buttonRename
             // 
-            this.buttonChange.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonChange.Location = new System.Drawing.Point(579, 19);
-            this.buttonChange.Name = "buttonChange";
-            this.buttonChange.Size = new System.Drawing.Size(75, 23);
-            this.buttonChange.TabIndex = 27;
-            this.buttonChange.Text = "Change";
-            this.buttonChange.UseVisualStyleBackColor = true;
-            this.buttonChange.Click += new System.EventHandler(this.buttonRename_Click);
+            this.buttonRename.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonRename.Location = new System.Drawing.Point(578, 19);
+            this.buttonRename.Name = "buttonRename";
+            this.buttonRename.Size = new System.Drawing.Size(80, 23);
+            this.buttonRename.TabIndex = 27;
+            this.buttonRename.Text = "Rename";
+            this.buttonRename.UseVisualStyleBackColor = true;
+            this.buttonRename.Click += new System.EventHandler(this.buttonRename_Click);
             // 
             // buttonPalette
             // 
@@ -554,7 +554,7 @@
         private System.Windows.Forms.GroupBox groupBoxColor;
         private System.Windows.Forms.Button buttonPalette;
         private System.Windows.Forms.ColumnHeader columnHeaderColor;
-        private System.Windows.Forms.Button buttonChange;
+        private System.Windows.Forms.Button buttonRename;
         private System.Windows.Forms.Button buttonHints;
         private System.Windows.Forms.TrackBar trackBar_Alpha;
         private System.Windows.Forms.TrackBar trackBarBlue;
