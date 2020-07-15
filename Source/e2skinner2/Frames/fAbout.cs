@@ -173,9 +173,15 @@ namespace OpenSkinDesigner.Frames
                 "- Add options to show notifications about unsafed changes" + Environment.NewLine + Environment.NewLine +
                 "v3.2.4.9 by Humax" + Environment.NewLine +
                 "- Using 'delete'-key to delete select element" + Environment.NewLine + Environment.NewLine +
-                "v3.2.5.0 by Humax (beta!)" + Environment.NewLine +
+                "v3.2.5.0 by Humax" + Environment.NewLine +
                 "- Bugfix: Dont delete root-node" + Environment.NewLine +
-                "- Added 'experimental delete-mode' (beta2!)" + Environment.NewLine;
+                "- Bugfix: 'Color-Dialog': changed 'Change' - button to 'Rename' - button" + Environment.NewLine +
+                "- Bugfix: 'Color-Dialog': changing a color now triggers unsafed-changes - notification" + Environment.NewLine +
+                "- Closing 'Color-Dialog' instead of hiding" + Environment.NewLine +
+                "- Nomore saveing and reloading needed if a color is defined two times." + Environment.NewLine +
+                "- Added 'experimental delete-mode'" + Environment.NewLine;
+
+     
         }
 
         private void SetLanguage()
