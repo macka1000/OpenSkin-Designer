@@ -168,5 +168,5 @@ created by [Scrounger](https://github.com/Scrounger)
 * Bugfix: 'Color-Dialog': changed 'Change'-button to 'Rename'-button
 * Bugfix: 'Color-Dialog': changing a color now triggers unsafed-changes-notification
 * Closing 'Color-Dialog' instead of hiding
-* Changes in 'Color-Dialog' now take emmidiatly effect without the need to save and reload
+* Changes in 'Color-Dialog' now take immediatly effect without the need to save and reload
 * Nomore saveing and reloading needed if a color is defined two times.
