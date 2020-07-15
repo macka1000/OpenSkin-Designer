@@ -231,15 +231,11 @@ namespace OpenSkinDesigner.Frames
             // Evtl. vorhandene Variablen einlesen
             getVariables();
             //treeview TO Xml
-            pXmlHandler.XmlToTreeView(cProperties.getProperty("path") + "/" + cProperties.getProperty("path_skin_xml"), treeView1);
+            pXmlHandler.XmlPathToTreeView(cProperties.getProperty("path") + "/" + cProperties.getProperty("path_skin_xml"), treeView1);
             cDataBase.init(pXmlHandler);
 
-            if (MyGlobaleVariables.Reload == true)
-            {
-                reload();
-                return;
-            }
-            //fillTreeView();
+            pXmlHandler.XmlToTreeView(treeView1); // Update if double defined colors found
+           
             foreach (TreeNode node in treeView1.Nodes)
             {
                 treeViewCache.Nodes.Add((TreeNode)node.Clone());
@@ -252,8 +248,6 @@ namespace OpenSkinDesigner.Frames
             float xratio = (float)panelDesignerInner.Width / cDataBase.pResolution.getResolution().Xres;
             float yratio = (float)panelDesignerInner.Height / cDataBase.pResolution.getResolution().Yres;
             float zoom = xratio < yratio ? xratio : yratio;
-            //if (trackBarZoom.Minimum > (int)((zoom - 1.0f) * 100.0f - 0.5f)) //MOD - Komisch war bei meiner Version nicht nötig???
-            //   trackBarZoom.Minimum = (int)((zoom - 1.0f) * 100.0f - 0.5f); //MOD
             trackBarZoom.Value = (int)((zoom - 1.0f) * 100.0f - 0.5f);
             pDesigner.drawFrame();
 
@@ -622,11 +616,8 @@ namespace OpenSkinDesigner.Frames
             fColors ftmp = new fColors();
             ftmp.setup(pXmlHandler);
             ftmp.ShowDialog();
-            if (MyGlobaleVariables.Reload == true)
-            {
-                reload();
-                return;
-            }
+            pXmlHandler.XmlToTreeView(treeView1);
+            treeView1.GetNodeAt(0, 0).Expand();
             refresh();
         }
         private void fontsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -693,7 +684,6 @@ namespace OpenSkinDesigner.Frames
 
             refresh();
             //pDesigner.sort();
-            //refreshEditor();
             propertyGrid1.Refresh();
             pictureBox1.Invalidate();
         }
@@ -1295,13 +1285,35 @@ namespace OpenSkinDesigner.Frames
                     {
                         deleteCheckedElement(TN);
                         SearchCheckedElement(treeView1.Nodes[0]);
+                        return;
                     }
+                    else
+                    {
+                        foreach (TreeNode TN1 in TN.Nodes)
+                            if (TN1 != null && TN1.Checked == true)
+                            {
+                                deleteCheckedElement(TN1);
+                                SearchCheckedElement(treeView1.Nodes[0]);
+                                return;
+                            }
+                            else
+                            {
+                                foreach (TreeNode TN2 in TN1.Nodes)
+                                    if (TN2 != null && TN2.Checked == true)
+                                    {
+                                        deleteCheckedElement(TN2);
+                                        SearchCheckedElement(treeView1.Nodes[0]);
+                                        return;
+                                    }
+                            }
+                    }
+
                         
                 }
             }
+            
 
         }
-
         private void deleteCheckedElement(TreeNode node)
         {
             pQueue.clearUndo(); // We need to clear the UndoList. The problem is that we readded elements an these elements now have different hashes :-(

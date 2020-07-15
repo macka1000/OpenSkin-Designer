@@ -330,24 +330,25 @@ namespace OpenSkinDesigner.Logic
                         errormessage += "\n" + color.pName + "\t#" + Convert.ToString(color.pValue, 16);
 
                         errormessage += "\n";
-                        errormessage += "\n" + fMain.GetTranslation("The second definition will be deleted if you save manually.");
+                        //errormessage += "\n" + fMain.GetTranslation("The second definition will be deleted if you save manually.");
+                        errormessage += "\n" + fMain.GetTranslation("The second definition will be deleted!");
 
-                        errormessage += "\n";
-                        errormessage += "\n" + fMain.GetTranslation("Until you save, the second definition is still shown in TreeView!");
+                        // errormessage += "\n";
+                        // errormessage += "\n" + fMain.GetTranslation("Until you save, the second definition is still shown in TreeView!");
 
-                        errormessage += "\n";
-                        errormessage += "\n" + fMain.GetTranslation("Do you want to save and reload the skin?");
+                        // errormessage += "\n";
+                        // errormessage += "\n" + fMain.GetTranslation("Do you want to save and reload the skin?");
 
 
 
-                        if (MessageBox.Show(errormessage,
-                             fMain.GetTranslation("Error while parsing color table"),
-                             MessageBoxButtons.YesNo,
-                             MessageBoxIcon.Information,
-                             MessageBoxDefaultButton.Button1) == DialogResult.Yes)
-                        {
-                            MyGlobaleVariables.Reload = true;
-                        }
+                        // if (MessageBox.Show(errormessage,
+                        //    fMain.GetTranslation("Error while parsing color table"),
+                        //  MessageBoxButtons.YesNo,
+                        //MessageBoxIcon.Information,
+                        //MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+                        // {
+                        //     MyGlobaleVariables.Reload = true;
+                        // }
                     }
                 }
 

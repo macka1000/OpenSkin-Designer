@@ -20,7 +20,7 @@ namespace OpenSkinDesigner.Frames
 
         private cXMLHandler pXmlHandler = null;
         // Added to be able to save and reload if colors were changed. 
-        public bool Edited = false;
+        private bool OnlyIndexChanged = false;
 
         public fColors()
         {
@@ -74,8 +74,10 @@ namespace OpenSkinDesigner.Frames
             {
                 textBoxName.Text = listView1.SelectedItems[0].SubItems[COL_NAME].Text;
                 Color color = listView1.SelectedItems[0].SubItems[COL_VALUE].BackColor;
-                color = Color.FromArgb(255 - color.A, color); 
+                color = Color.FromArgb(255 - color.A, color);
+                OnlyIndexChanged = true;
                 textBoxValue.Text = color.ToArgb().ToString("x8");
+                OnlyIndexChanged = false;
                 // Changing the above causes all the others to be changed.
             }
         }
@@ -93,31 +95,8 @@ namespace OpenSkinDesigner.Frames
             }
 
             refresh();
-
             cDataBase.pColors.sync(pXmlHandler);
-            if (Edited == true)
-            {                
-                String Message = fMain.GetTranslation("You've made some changes, which will only take effect (show the color in the treeview),") ;
-                Message += "\n" + fMain.GetTranslation("after you have saved and reloaded the skin!");
-                Message += "\n";
-                Message += "\n" + fMain.GetTranslation("Do you want to save and reload the skin now?");
-                Message += "\n";
-                Message += "\n" + fMain.GetTranslation("Remember, however, that this will also save all previous changes you made!");
-
-                if (MessageBox.Show(Message, fMain.GetTranslation("Save and reload"),
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question,
-                    MessageBoxDefaultButton.Button1) == DialogResult.Yes)
-                {
-                    MyGlobaleVariables.Reload = true;
-                }
-                else
-                {
-                    MyGlobaleVariables.UnsafedChanges = true;
-                }
-            }
-            
-            Hide();
+            Close();
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
@@ -149,13 +128,10 @@ namespace OpenSkinDesigner.Frames
                     String itmName = textBoxName.Text;
                     UInt32 itmColor = Convert.ToUInt32(textBoxValue.Text, 16);
 
-                    cDataBase.pColors.add((Object)new sColor(itmName, itmColor));                   
-                    Edited = true;                   
+                    cDataBase.pColors.add((Object)new sColor(itmName, itmColor));
+                                     
                 }
-                
-                
 
-                
             }
 
             refresh();
@@ -253,7 +229,7 @@ namespace OpenSkinDesigner.Frames
                 textBoxGreen.Text = Convert.ToString(colorDialog.Color.G);
                 textBoxBlue.Text = Convert.ToString(colorDialog.Color.B);
                 textBoxAlpha.Text = "0"; // After selecting a color, set transparency back to 0 
-                Edited = true;
+                //Edited = true;
             }
         }
 
@@ -275,11 +251,9 @@ namespace OpenSkinDesigner.Frames
                 cDataBase.pColors.removeColor(pXmlHandler, listView1.SelectedItems[0].SubItems[COL_NAME].Text, textBoxName.Text);
                 listView1.Items.Remove(listView1.SelectedItems[0]);
                 Refresh();
-                Edited = true;
+                //Edited = true;
             }
         }
-
-
 
         private void buttonRename_Click(object sender, EventArgs e)
         {
@@ -295,7 +269,6 @@ namespace OpenSkinDesigner.Frames
                     cDataBase.pColors.rename(pXmlHandler, listView1.SelectedItems[0].SubItems[COL_NAME].Text, textBoxName.Text);
                     listView1.SelectedItems[0].SubItems[COL_NAME].Text = textBoxName.Text;
                     Refresh();
-                    Edited = true;
                 }
                 else
                 {
@@ -366,13 +339,12 @@ namespace OpenSkinDesigner.Frames
             buttonOK.Text = fMain.GetTranslation("OK");
             buttonPalette.Text = fMain.GetTranslation("Palette");
             buttonRemove.Text = fMain.GetTranslation("Remove");
-            buttonChange.Text = fMain.GetTranslation("Change");
+            buttonRename.Text = fMain.GetTranslation("Rename");
             groupBoxColor.Text = fMain.GetTranslation("Color");
             listView1.Columns[0].Text = fMain.GetTranslation("Name");
             listView1.Columns[1].Text = fMain.GetTranslation("Value");
             listView1.Columns[02].Text = fMain.GetTranslation("Color");
         }
-
       
         private void textBoxRed_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -539,6 +511,8 @@ namespace OpenSkinDesigner.Frames
             UInt32 value = /*Convert.ToUInt32*/((alpha * 0x01000000) + (red * 0x00010000) + (green * 0x00000100) + blue);
             textBoxValue.Text = value.ToString("x8");
             pictureBoxColor.BackColor = Color.FromArgb(255 - (int)alpha, (int)red, (int)green, (int)blue);
+            if (listView1.SelectedItems.Count > 0 && OnlyIndexChanged == false) // only do this if a color value was changed! ANDALSO Not Only another item has been chosen
+                MyGlobaleVariables.UnsafedChanges=true; 
         }
 
         private void textBoxBlue_KeyPress(object sender, KeyPressEventArgs e)

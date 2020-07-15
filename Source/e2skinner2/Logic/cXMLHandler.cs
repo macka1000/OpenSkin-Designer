@@ -31,11 +31,31 @@ namespace OpenSkinDesigner.Logic
         /// <param name="path">Der Quellpfad der Xml Datei</param>
         /// <param name="treeView">Ein TreeView in dem der Inhalt der Xml Datei wieder angezeigt werden soll</param>
         /// <exception cref="FileNotFoundException">gibt an das die Datei nicht gefunden werden konnte</exception>
-        public void XmlToTreeView(String path, TreeView treeView)
+        public void XmlPathToTreeView(String path, TreeView treeView)
         {
             xmlDocument = new XmlDocument();
             
             xmlDocument.Load(path);
+            treeView.Nodes.Clear();
+            ElementList = new ArrayList();
+
+            TreeNode treeNode;
+            treeNode = new TreeNode("skin");
+            treeView.Nodes.Add(treeNode);
+
+            rootNode = treeNode.GetHashCode();
+            sElementList element = new sElementList(rootNode, 0, treeNode, xmlDocument.DocumentElement/*.ParentNode*/);
+            ElementList.Add(element);
+
+
+            XmlRekursivImport(treeNode.Nodes, xmlDocument.DocumentElement.ChildNodes);
+
+            xmlTreeView = treeView;
+        }
+
+        public void XmlToTreeView(TreeView treeView)
+        {
+           
             treeView.Nodes.Clear();
             ElementList = new ArrayList();
 
