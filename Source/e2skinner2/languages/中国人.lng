@@ -167,3 +167,5 @@ Notification of unsaved changes: 通知未保存的更改
 Notification of unsaved changes in editor: 通知编辑器中未保存的更改
 Deleting main node is not allowed!: 主节点不能删除!
 Experimental delete-mode: 删模试验
+Rename: 重命名
+The second definition will be deleted!: 第二种定义的颜色被删除!

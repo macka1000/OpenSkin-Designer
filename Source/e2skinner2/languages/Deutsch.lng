@@ -126,7 +126,7 @@ Resolution: Auflösung
 Changing the Resolution will result in rescaling of the skin.: Eine Änderung der Auflösung führt zu einer Neuskalierung des Skins
 PNG not found: PNG nicht gefunden
 More than one color defined with name: Im Skin ist mehr als eine Farbe mit diesem Namen definiert.
-The second definition will be deleted if you save manually.: Die zweite definierte wird gelöscht, wenn Sie manuell speichern.
+The second definition will be deleted if you save manually.: Die zweite definierte Farbe wird gelöscht, wenn Sie manuell speichern.
 Until you save, the second definition is still shown in TreeView!: Bis Sie speichern, wird die zweite Farbe noch in der Baumansicht angezeigt! 
 Do you want to save and reload the skin?: Möchten Sie den Skin speichern und wieder laden?
 Error while parsing color table: Fehler beim Parsen der Farbtabelle
@@ -167,3 +167,5 @@ Notification of unsaved changes: Benachrichtigung über nicht gespeicherte Ände
 Notification of unsaved changes in editor: Benachrichtigung über nicht gespeicherte Änderungen im Codeeditor
 Deleting main node is not allowed!: Der Hauptknoten darf nicht gelöscht werden!
 Experimental delete-mode: Experimenteller 'Löschen-Modus'
+Rename: Umbenennen
+The second definition will be deleted!: Die zweite definierte Farbe wird gelöscht!

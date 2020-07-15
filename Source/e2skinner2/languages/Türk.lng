@@ -167,3 +167,5 @@ Notification of unsaved changes: Kaydedilmemiş değişikliklerin bildirilmesi
 Notification of unsaved changes in editor: Editördeki kaydedilmemiş değişikliklerin bildirilmesi
 Deleting main node is not allowed!: Ana düğüm silinemez!
 Experimental delete-mode: deneysel silme modu
+Rename: Adını değiştirmek
+The second definition will be deleted!: İkinci tanımlanan renk silinir!
