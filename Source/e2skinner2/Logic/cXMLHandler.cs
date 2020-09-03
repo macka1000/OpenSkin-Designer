@@ -164,24 +164,20 @@ namespace OpenSkinDesigner.Logic
                 {
                     XmlDocument incDocument = new XmlDocument();
                     string fname = myXmlNode.Attributes["filename"].Value;
-                    if (File.Exists(cDataBase.getPath(fname)))
-                    {
-                        incDocument.Load(cDataBase.getPath(fname));
-                        string pname = cProperties.getProperty("path_skin_xml");
-                        string sname = pname.Substring(0, pname.Length - 4) + "_"; // "Name-of-skin/skin_"
-                        if (!fname.StartsWith(sname))
-                            sname = "skin_";
-                        string iname = fname.StartsWith(sname) && fname.EndsWith(".xml") ? fname.Substring(sname.Length, fname.Length - 4 - sname.Length) : fname;
-                        treeNode = new TreeNode(name + " : " + iname);
-                        treeNode.Tag = incDocument;
-                        setImageIndex(myXmlNode, treeNode);
-                        XmlRekursivImport(treeNode.Nodes, incDocument.DocumentElement.ChildNodes);
-                        elem.Add(treeNode);
-                        element = new sElementList(treeNode.GetHashCode(), treeNode.Parent.GetHashCode(), treeNode, myXmlNode);
-                        ElementList.Add(element);
-                        continue;
-                    }
-                    
+                    incDocument.Load(cDataBase.getPath(fname));
+                    string pname = cProperties.getProperty("path_skin_xml");
+                    string sname = pname.Substring(0, pname.Length - 4) + "_"; // "Name-of-skin/skin_"
+                    if (!fname.StartsWith(sname))
+                        sname = "skin_";
+                    string iname = fname.StartsWith(sname) && fname.EndsWith(".xml") ? fname.Substring(sname.Length, fname.Length - 4 - sname.Length) : fname;
+                    treeNode = new TreeNode(name + " : " + iname);
+                    treeNode.Tag = incDocument;
+                    setImageIndex(myXmlNode, treeNode);
+                    XmlRekursivImport(treeNode.Nodes, incDocument.DocumentElement.ChildNodes);
+                    elem.Add(treeNode);
+                    element = new sElementList(treeNode.GetHashCode(), treeNode.Parent.GetHashCode(), treeNode, myXmlNode);
+                    ElementList.Add(element);
+                    continue;
                 }
 
                 treeNode = new TreeNode(name/*Attributes["value"].Value*/);
