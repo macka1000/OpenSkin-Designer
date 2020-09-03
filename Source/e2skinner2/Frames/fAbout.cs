@@ -179,9 +179,11 @@ namespace OpenSkinDesigner.Frames
                 "- Bugfix: 'Color-Dialog': changing a color now triggers unsafed-changes - notification" + Environment.NewLine +
                 "- Closing 'Color-Dialog' instead of hiding" + Environment.NewLine +
                 "- Nomore saveing and reloading needed if a color is defined two times." + Environment.NewLine +
-                "- Added 'experimental delete-mode'" + Environment.NewLine;
+                "- Added 'experimental delete-mode'" + Environment.NewLine + Environment.NewLine +
+                "v3.2.x.x by Humax" + Environment.NewLine +
+                 "- Bugix: fixed unhandled exception if file (include) was not found" + Environment.NewLine +
+                 "- Bugix: fixed unhandeld exception if * is used for integer value" + Environment.NewLine;
 
-     
         }
 
         private void SetLanguage()
