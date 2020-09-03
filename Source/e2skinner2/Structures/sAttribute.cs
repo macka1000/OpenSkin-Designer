@@ -499,7 +499,14 @@ namespace OpenSkinDesigner.Structures
                 if (coord.Length != 0)
                 {
                     if (coord.EndsWith("%"))
+                    {
                         n += parent * Convert.ToInt32(coord.Substring(0, coord.Length - 1)) / 100;
+                    }
+                    else if (coord.EndsWith("*"))
+                    {
+                        // Not sure for what value * should stand for so, using 0  
+                        n = 0;
+                    }
                     else
                         n += Convert.ToInt32(coord);
                     
