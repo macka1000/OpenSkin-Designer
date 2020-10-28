@@ -172,6 +172,7 @@ created by [Scrounger](https://github.com/Scrounger)
 * Changes in 'Color-Dialog' now take immediatly effect without the need to save and reload
 * Nomore saveing and reloading needed if a color is defined two times.
 
-### 3.2.x.x by Humax
+### 3.2.5.1 by Humax
 * Bugix: fixed unhandled exception if file (include) was not found
 * Bugix: fixed unhandeld exception if * is used for integer value
+* Added an example in converterSimple.xml for converter-preview-text

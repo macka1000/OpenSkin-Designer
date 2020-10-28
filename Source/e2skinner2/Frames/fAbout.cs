@@ -180,9 +180,10 @@ namespace OpenSkinDesigner.Frames
                 "- Closing 'Color-Dialog' instead of hiding" + Environment.NewLine +
                 "- Nomore saveing and reloading needed if a color is defined two times." + Environment.NewLine +
                 "- Added 'experimental delete-mode'" + Environment.NewLine + Environment.NewLine +
-                "v3.2.x.x by Humax" + Environment.NewLine +
+                "v3.2.5.1 by Humax" + Environment.NewLine +
                  "- Bugix: fixed unhandled exception if file (include) was not found" + Environment.NewLine +
-                 "- Bugix: fixed unhandeld exception if * is used for integer value" + Environment.NewLine;
+                 "- Bugix: fixed unhandeld exception if * is used for integer value" + Environment.NewLine +
+                 "- Added an example in converterSimple.xml for converter-preview-text" + Environment.NewLine;
 
         }
 
