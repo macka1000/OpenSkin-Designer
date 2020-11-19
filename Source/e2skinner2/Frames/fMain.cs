@@ -49,6 +49,8 @@ namespace OpenSkinDesigner.Frames
             MiShowNotificationUnsafedChanges.Checked = Properties.Settings.Default.ShowChanges;
             MiShowNotificationUnsafedChangesEditor.Checked = Properties.Settings.Default.ShowChangesEditor;
             MiExperimentalDeleteMode.Checked = Properties.Settings.Default.ExperimentalDelete;
+            MiLinewrapping.Checked = Properties.Settings.Default.LineWrapping;
+            SetLineWrapping();
             treeView1.CheckBoxes = Properties.Settings.Default.ExperimentalDelete;
             btnSkinned_Alpha.Checked = cProperties.getPropertyBool("enable_alpha");
             
@@ -2363,6 +2365,7 @@ namespace OpenSkinDesigner.Frames
         {
             MiAddElement.Text = GetTranslation("Add Element");
             MiExperimentalDeleteMode.Text = GetTranslation("Experimental delete-mode");
+            MiLinewrapping.Text = GetTranslation("Linewrapping");
             MiFile.Text = GetTranslation("File");
             MiNew.Text = GetTranslation("New");
             MiOpen.Text = GetTranslation("Open");
@@ -2548,6 +2551,28 @@ namespace OpenSkinDesigner.Frames
             Properties.Settings.Default.Save();
             treeView1.CheckBoxes = Properties.Settings.Default.ExperimentalDelete;
         }
+
+        private void MiLinewrapping_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.LineWrapping = MiLinewrapping.Checked;
+            Properties.Settings.Default.Save();
+            SetLineWrapping();            
+        }
+
+        private void SetLineWrapping()
+        {
+            switch (Properties.Settings.Default.LineWrapping)
+            {
+                case true:
+                    textBoxEditor2.LineWrapping.Mode = LineWrappingMode.Word;
+                    break;
+                case false:
+                    textBoxEditor2.LineWrapping.Mode = LineWrappingMode.None;
+                    break;
+            }
+        }
+
+
         private void fMain_Load(object sender, EventArgs e)
         {
             textBoxEditor2.Styles.LineNumber.BackColor = Color.LightGray;

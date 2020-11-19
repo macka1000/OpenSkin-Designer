@@ -118,5 +118,17 @@ namespace OpenSkinDesigner.Properties {
                 this["ExperimentalDelete"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool LineWrapping {
+            get {
+                return ((bool)(this["LineWrapping"]));
+            }
+            set {
+                this["LineWrapping"] = value;
+            }
+        }
     }
 }
