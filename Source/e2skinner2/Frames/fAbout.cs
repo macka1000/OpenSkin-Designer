@@ -181,9 +181,14 @@ namespace OpenSkinDesigner.Frames
                 "- Nomore saveing and reloading needed if a color is defined two times." + Environment.NewLine +
                 "- Added 'experimental delete-mode'" + Environment.NewLine + Environment.NewLine +
                 "v3.2.5.1 by Humax" + Environment.NewLine +
-                 "- Bugix: fixed unhandled exception if file (include) was not found" + Environment.NewLine +
-                 "- Bugix: fixed unhandeld exception if * is used for integer value" + Environment.NewLine +
-                 "- Added an example in converterSimple.xml for converter-preview-text" + Environment.NewLine;
+                 "- Bugfix: fixed unhandled exception if file (include) was not found" + Environment.NewLine +
+                 "- Bugfix: fixed unhandeld exception if * is used for integer value" + Environment.NewLine +
+                 "- Added an example in converterSimple.xml for converter-preview-text" + Environment.NewLine + Environment.NewLine +
+                 "v3.2.5.2 by Humax" + Environment.NewLine +
+                 "- Typos" + Environment.NewLine +
+                 "- Added missing translations" + Environment.NewLine +
+                 "- Added an option for linewrapping in code - editor" + Environment.NewLine;
+            
 
         }
 
