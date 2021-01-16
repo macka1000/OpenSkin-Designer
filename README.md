@@ -174,10 +174,14 @@ created by [Scrounger](https://github.com/Scrounger)
 
 ### 3.2.5.1 by Humax
 * Bugfix: fixed unhandled exception if file (include) was not found
-* Bugfix: fixed unhandeld exception if * is used for integer value
+* Bugfix: fixed unhandled exception if * is used for integer value
 * Added an example in converterSimple.xml for converter-preview-text
 
 ### 3.2.5.2 by Humax
 * Added an option for linewrapping in code-editor
 * Typos
 * Added missing translations
+
+### 3.2.5.3 by Humax
+* Bugfix: fixed unhandled exception if using delete - key without selected item
+* Bugfix: using delete-key no longer deletes a selected item in propertygrid
