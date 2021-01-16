@@ -1239,12 +1239,18 @@ namespace OpenSkinDesigner.Frames
         }
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (tabControl1.SelectedIndex == 0) // Do not do this in Codeeditor
+            if (treeView1.SelectedNode == null) // No Item selected to delete
+                return;
+            if (tabControl1.SelectedIndex != 1) // // Do this only in Designer-Mode 
             {
-                if (MiExperimentalDeleteMode.Checked == false)
+                if (MyGlobaleVariables.PropertyGridHasFocus == false) // And do not do this if propertygrid has focus
+                {
+                    if (MiExperimentalDeleteMode.Checked == false)
                     deleteSelectedElement();
                 else
                     SearchCheckedElement(treeView1.Nodes[0]);
+                }
+                    
             }
         }
         private void deleteSelectedElement()
@@ -1934,12 +1940,19 @@ namespace OpenSkinDesigner.Frames
             else if (isF10(e))
                 togglePreviewFullscreen();
             else if (isEntf(e))
-                if (tabControl1.SelectedIndex==0) // Do not do this in Codeeditor
+                if (treeView1.SelectedNode == null) // Nothing selected to delete
+                    return;
+                if (tabControl1.SelectedIndex != 1) // Do this only in Designer-Mode 
                 {
-                    if (MiExperimentalDeleteMode.Checked == false)
+                   if (MyGlobaleVariables.PropertyGridHasFocus == false) // And do not do this if propertygrid has focus
+                    {
+                        if (MiExperimentalDeleteMode.Checked == false)
                         deleteSelectedElement();
                     else
                         SearchCheckedElement(treeView1.Nodes[0]);
+                    }
+                    
+                    
                 }
                     
         }
@@ -2551,14 +2564,12 @@ namespace OpenSkinDesigner.Frames
             Properties.Settings.Default.Save();
             treeView1.CheckBoxes = Properties.Settings.Default.ExperimentalDelete;
         }
-
         private void MiLinewrapping_Click(object sender, EventArgs e)
         {
             Properties.Settings.Default.LineWrapping = MiLinewrapping.Checked;
             Properties.Settings.Default.Save();
             SetLineWrapping();            
         }
-
         private void SetLineWrapping()
         {
             switch (Properties.Settings.Default.LineWrapping)
@@ -2571,8 +2582,14 @@ namespace OpenSkinDesigner.Frames
                     break;
             }
         }
-
-
+        private void propertyGrid1_Enter(object sender, EventArgs e)
+        {
+            MyGlobaleVariables.PropertyGridHasFocus = true;
+        }
+        private void propertyGrid1_Leave(object sender, EventArgs e)
+        {
+            MyGlobaleVariables.PropertyGridHasFocus = false;
+        }
         private void fMain_Load(object sender, EventArgs e)
         {
             textBoxEditor2.Styles.LineNumber.BackColor = Color.LightGray;
