@@ -22,6 +22,7 @@ namespace OpenSkinDesigner.Structures
         public static bool UnsafedChanges { get; set; } = false; // If Changes are made 
         public static bool UnsafedChangesEditor { get; set; } = false; // If changes in Editor are made
         public static string[] Language { get; set; } = null; // Custom language
+        public static bool PropertyGridHasFocus { get; set; } = false; 
 
         public static List<String> SkinName = new List<String>();
         public static List<String> SkinValue1 = new List<String>();
