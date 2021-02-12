@@ -1940,20 +1940,25 @@ namespace OpenSkinDesigner.Frames
             else if (isF10(e))
                 togglePreviewFullscreen();
             else if (isEntf(e))
+            {
                 if (treeView1.SelectedNode == null) // Nothing selected to delete
                     return;
                 if (tabControl1.SelectedIndex != 1) // Do this only in Designer-Mode 
                 {
-                   if (MyGlobaleVariables.PropertyGridHasFocus == false) // And do not do this if propertygrid has focus
+                    if (MyGlobaleVariables.PropertyGridHasFocus == false) // And do not do this if propertygrid has focus
                     {
                         if (MiExperimentalDeleteMode.Checked == false)
-                        deleteSelectedElement();
-                    else
-                        SearchCheckedElement(treeView1.Nodes[0]);
+                            deleteSelectedElement();
+                        else
+                            SearchCheckedElement(treeView1.Nodes[0]);
                     }
-                    
-                    
+
+
                 }
+            }
+                
+                
+
                     
         }
         private void btnSkinned_Alpha_Click(object sender, EventArgs e)
