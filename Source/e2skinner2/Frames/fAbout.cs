@@ -190,8 +190,9 @@ namespace OpenSkinDesigner.Frames
                  "- Added an option for linewrapping in code - editor" + Environment.NewLine + Environment.NewLine +
                  "v3.2.5.3 by Humax" + Environment.NewLine +
                  "- Bugfix: fixed unhandled exception if using delete - key without selected item" + Environment.NewLine +
-                 "- Bugfix: using delete-key no longer deletes a selected item in propertygrid" + Environment.NewLine;
-
+                 "- Bugfix: using delete-key no longer deletes a selected item in propertygrid" + Environment.NewLine + Environment.NewLine +
+                 "v3.2.5.4 by Humax" + Environment.NewLine +
+                 "-Bugfix: Selected Treeviewnode was deleted when pressing any key in Designer - Mode" + Environment.NewLine;
         }
 
         private void SetLanguage()

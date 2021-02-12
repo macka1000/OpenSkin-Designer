@@ -185,3 +185,5 @@ created by [Scrounger](https://github.com/Scrounger)
 ### 3.2.5.3 by Humax
 * Bugfix: fixed unhandled exception if using delete - key without selected item
 * Bugfix: using delete-key no longer deletes a selected item in propertygrid
+### 3.2.5.4 by Humax
+* Bugfix: Selected Treeviewnode was deleted when pressing any key in Designer-Mode
