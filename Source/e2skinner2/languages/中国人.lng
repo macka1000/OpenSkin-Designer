@@ -169,4 +169,6 @@ Deleting main node is not allowed!: 主节点不能删除!
 Experimental delete-mode: 删模试验
 Rename: 重命名
 The second definition will be deleted!: 第二种定义的颜色被删除!
-Linewrapping: 换行 
+Linewrapping: 换行
+Dont replace colors beginning with '#': 不要用定义的颜色代替以'#'开头的颜色。
+An invalid colour was specified!: 指定了一个无效的颜色!
