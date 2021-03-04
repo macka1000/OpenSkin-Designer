@@ -192,7 +192,9 @@ namespace OpenSkinDesigner.Frames
                  "- Bugfix: fixed unhandled exception if using delete - key without selected item" + Environment.NewLine +
                  "- Bugfix: using delete-key no longer deletes a selected item in propertygrid" + Environment.NewLine + Environment.NewLine +
                  "v3.2.5.4 by Humax" + Environment.NewLine +
-                 "-Bugfix: Selected Treeviewnode was deleted when pressing any key in Designer - Mode" + Environment.NewLine;
+                 "-Bugfix: Selected Treeviewnode was deleted when pressing any key in Designer - Mode" + Environment.NewLine + Environment.NewLine +
+                 "v3.2.5.5 by Humax" + Environment.NewLine +
+                 "-Add an option to not replace color beginning with '#'" + Environment.NewLine;
         }
 
         private void SetLanguage()
