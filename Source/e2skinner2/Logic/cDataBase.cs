@@ -376,16 +376,22 @@ namespace OpenSkinDesigner.Logic
                         if (myXmlNode.Attributes[color] != null)
                         {
                             if (myXmlNode.Attributes[color].Value[0] == '#')
-                            {
-                                String colorString = myXmlNode.Attributes[color].Value.Substring(1);
-                                try
+                            {                                                        
+                                if (Properties.Settings.Default.DontReplaceColors == false)                                   
                                 {
-                                    uint colorValue = Convert.ToUInt32(colorString, 16);
-                                    myXmlNode.Attributes[color].Value = get(colorValue);
-                                }
-                                catch (Exception)
-                                {
-                                    myXmlNode.Attributes[color].Value = colorString;
+                                    String colorString = myXmlNode.Attributes[color].Value.Substring(1);
+                                    try
+                                    {
+                                        uint colorValue = Convert.ToUInt32(colorString, 16);
+                                        myXmlNode.Attributes[color].Value = get(colorValue);
+                                    }
+                                    catch (Exception)
+                                    {
+                                        // If a color begun with '#' but was not able to convert then new colorname is without '#' to 
+                                        // prevent an exception when trying to displaying the screen
+                                        myXmlNode.Attributes[color].Value = colorString;
+
+                                    }
                                 }
                             }
                         }
@@ -449,19 +455,36 @@ namespace OpenSkinDesigner.Logic
                 if (name == "(none)")
                     return null;
                 if (name[0] == '#')
-                {
-
-                   // if (MyGlobaleVariables.AddUndefinedColor == "#") //MOD
-                    if (Properties.Settings.Default.addUndefinedColor == true) //MOD
-                        { //MOD
-                        add(new sColor(name, Convert.ToUInt32(name.Substring(1), 16))); //MOD
-                        return new sColor(name, Convert.ToUInt32(name.Substring(1), 16)); //MOD
-                    } //MOD
-                    else //MOD
-                    { //MOD
-                        add(new sColor(name.Replace("#", "un"), Convert.ToUInt32(name.Substring(1), 16))); //MOD
-                        return new sColor(name.Replace("#", "un"), Convert.ToUInt32(name.Substring(1), 16)); //MOD
-                    } //MOD
+                {                                       
+                    // if (MyGlobaleVariables.AddUndefinedColor == "#")
+                    if (Properties.Settings.Default.addUndefinedColor == true) // Add undifined color with '#'
+                    {
+                        try
+                        {
+                            uint colorValue = Convert.ToUInt32(name.Substring(1), 16);
+                            add(new sColor(name, colorValue));
+                            return new sColor(name, colorValue);
+                        }
+                        catch (Exception)
+                        {
+                            MessageBox.Show(fMain.GetTranslation("An invalid colour was specified!"));
+                        }
+                        
+                    }
+                    else // Add undifined color with 'un'
+                    {
+                        try
+                        {
+                            uint colorValue = Convert.ToUInt32(name.Substring(1), 16);
+                            add(new sColor(name.Replace("#", "un"), colorValue));
+                            return new sColor(name.Replace("#", "un"), colorValue);
+                        }
+                        catch (Exception)
+                        {
+                            MessageBox.Show(fMain.GetTranslation("An invalid colour was specified!"));
+                        }
+                        
+                    } 
                       // add(new sColor(name, Convert.ToUInt32(name.Substring(1), 16))); //MOD
                       // return new sColor("undefined", Convert.ToUInt32(name.Substring(1), 16)); // Original
                       // return new sColor(name, Convert.ToUInt32(name.Substring(1), 16)); //MOD                    
