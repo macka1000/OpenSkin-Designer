@@ -130,5 +130,17 @@ namespace OpenSkinDesigner.Properties {
                 this["LineWrapping"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool DontReplaceColors {
+            get {
+                return ((bool)(this["DontReplaceColors"]));
+            }
+            set {
+                this["DontReplaceColors"] = value;
+            }
+        }
     }
 }

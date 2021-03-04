@@ -50,6 +50,7 @@ namespace OpenSkinDesigner.Frames
             MiShowNotificationUnsafedChangesEditor.Checked = Properties.Settings.Default.ShowChangesEditor;
             MiExperimentalDeleteMode.Checked = Properties.Settings.Default.ExperimentalDelete;
             MiLinewrapping.Checked = Properties.Settings.Default.LineWrapping;
+            MiDontReplaceColors.Checked = Properties.Settings.Default.DontReplaceColors;
             SetLineWrapping();
             treeView1.CheckBoxes = Properties.Settings.Default.ExperimentalDelete;
             btnSkinned_Alpha.Checked = cProperties.getPropertyBool("enable_alpha");
@@ -319,6 +320,7 @@ namespace OpenSkinDesigner.Frames
             btnSaveEditor.Enabled = false;
             lblSkinName.Text = null;
             lblSkinName.Visible = false;
+            TslStatus.Text = GetTranslation("No Errors.");
 
             this.MiAddLabel.Enabled = false;
             this.MiAddPixmap.Enabled = false;
@@ -2398,6 +2400,7 @@ namespace OpenSkinDesigner.Frames
             MiAddLabel.Text = GetTranslation("Add Label");
             MiAddPixmap.Text = GetTranslation("Add Pixmap");
             MiAddWidget.Text = GetTranslation("Add Widget");
+            MiDontReplaceColors.Text = GetTranslation("Dont replace colors beginning with '#'");
             MiDeleteSelected.Text = GetTranslation("Delete selected");
             MiSettings.Text = GetTranslation("Settings");
             MiResolution.Text = GetTranslation("Resolution");
@@ -2465,7 +2468,7 @@ namespace OpenSkinDesigner.Frames
             if (Properties.Settings.Default.language== null)
                 return Word;
             string tmp = Array.Find(MyGlobaleVariables.Language, element => element.StartsWith(Word + ": "));
-            if (tmp == null)
+            if (tmp == null) // Maybe adding a notification if a translation is not existing
                 return Word;
             string translation = tmp.Substring(tmp.IndexOf(Word + ": ") + Word.Length + 2);
             return translation;
@@ -2595,6 +2598,13 @@ namespace OpenSkinDesigner.Frames
         {
             MyGlobaleVariables.PropertyGridHasFocus = false;
         }
+
+        private void MiDontReplaceColors_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.DontReplaceColors = MiDontReplaceColors.Checked;
+            Properties.Settings.Default.Save();
+        }
+
         private void fMain_Load(object sender, EventArgs e)
         {
             textBoxEditor2.Styles.LineNumber.BackColor = Color.LightGray;
