@@ -23,7 +23,7 @@ WindowStyles: 窗口样式
 Reload converter.xml: 重载 converter.xml
 Reload previewText.xml: 重载 previewText.xml
 Preferences: 首选
-Add undefined color with '#': 用'#'添加未定义的颜色
+Add undefined color with '#' instead of 'un': 用'#'代替'un'添加未定义的颜色。
 Use full attribut-list: 使用完整的属性列表
 Set 'Fallback'-Color: 设置 "回落"-颜色
 Search...: 搜索

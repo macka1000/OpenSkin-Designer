@@ -23,7 +23,7 @@ WindowStyles: Stili i dritares
 Reload converter.xml: Ngargo edhe një here converter.xml
 Reload previewText.xml: Ngargo edhe një here previewText.xml
 Preferences: Preferencat
-Add undefined color with '#': Vendos ngjyrat e pa definuëra me '#'
+Add undefined color with '#' instead of 'un': Shto ngjyrë të padefinuar me '#' në vend të 'un'
 Use full attribut-list: Përdorni listën e plotë të atributeve
 Set 'Fallback'-Color: Ndrysho ngjyrën e sfondit
 Search...: Kërkim...

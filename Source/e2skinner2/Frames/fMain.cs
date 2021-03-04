@@ -2407,7 +2407,7 @@ namespace OpenSkinDesigner.Frames
             MiPreferences.Text = GetTranslation("Preferences");
             MiReloadConverterXml.Text = GetTranslation("Reload converter.xml");
             MiReloadPreviewTextXml.Text = GetTranslation("Reload previewText.xml");
-            MiAddUndefinedColors.Text = GetTranslation("Add undefined color with '#'");
+            MiAddUndefinedColors.Text = GetTranslation("Add undefined color with '#' instead of 'un'");
             MiSetFallbackColor.Text = GetTranslation("Set 'Fallback'-Color");
             MiUseFullAttributlist.Text = GetTranslation("Use full attribut-list");
             MiLanguage.Text = GetTranslation("Language");

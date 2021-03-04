@@ -23,7 +23,7 @@ WindowStyles: Styl okna
 Reload converter.xml: Przeladowac converter.xml
 Reload previewText.xml: Przeladowac previewText.xml
 Preferences: Preferencje
-Add undefined color with '#': Dodaj niezdefiniowany kolor za pomoca '#'
+Add undefined color with '#' instead of 'un': Dodaj niezdefiniowany kolor z '#' zamiast 'un'.
 Use full attribut-list: Uzyj pelnej listy atrybutow
 Set 'Fallback'-Color: Ustaw kolor 'Fallback'
 Search...: Szukaj

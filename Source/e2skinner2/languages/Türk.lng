@@ -23,7 +23,7 @@ WindowStyles: Pencere stili
 Reload converter.xml: Converter.xml dosyasını yeniden yükle
 Reload previewText.xml: PreviewText.xml dosyasını yeniden yükle
 Preferences: Tercihler
-Add undefined color with '#': '#' İle tanımlanmamış renk ekle
+Add undefined color with '#' instead of 'un': 'Un' yerine '#' ile tanımsız renk ekleyin
 Use full attribut-list: Tam özellik listesini kullan
 Set 'Fallback'-Color: 'Yedek' rengini ayarlama
 Search...: Arama...
