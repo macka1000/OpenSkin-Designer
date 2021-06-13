@@ -45,7 +45,7 @@ namespace OpenSkinDesigner.Logic
         public void setZoomLevel(float level)
         {
             pScale = level;
-            if (pScale < 0.4f) pScale = 0.4f;
+            if (pScale < 0.35f) pScale = 0.35f;
             else if (pScale > 2.0f) pScale = 2.0f;
         }
 
@@ -128,7 +128,11 @@ namespace OpenSkinDesigner.Logic
             sResolution res = cDataBase.pResolution.getResolution();
             sAttribute attr = new sAttribute(0, 0, (Int32)res.Xres, (Int32)res.Yres, "Background");
             attr.pZPosition = -1000;
-            if (res.Xres == 1920 && res.Yres == 1080 && System.IO.File.Exists(cDataBase.getPath("background1920.jpg")))
+            if (res.Xres == 3840 && res.Yres == 2160 && System.IO.File.Exists(cDataBase.getPath("background3840.jpg"))) //4k
+                pDrawList.Add(new sGraphicImage(attr, "background3840.jpg"));
+            else if (res.Xres == 2560 && res.Yres == 1440 && System.IO.File.Exists(cDataBase.getPath("background2560.jpg"))) //QHD (WQHD)
+                pDrawList.Add(new sGraphicImage(attr, "background2560.jpg"));
+            else if (res.Xres == 1920 && res.Yres == 1080 && System.IO.File.Exists(cDataBase.getPath("background1920.jpg"))) // FHD 
                 pDrawList.Add(new sGraphicImage(attr, "background1920.jpg"));
             else
                 pDrawList.Add(new sGraphicImage(attr, "background.jpg"));

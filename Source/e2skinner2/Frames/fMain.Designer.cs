@@ -340,7 +340,7 @@ namespace OpenSkinDesigner.Frames
             this.MiAddLabel.Enabled = false;
             this.MiAddLabel.Image = global::OpenSkinDesigner.Properties.Resources.label;
             this.MiAddLabel.Name = "MiAddLabel";
-            this.MiAddLabel.Size = new System.Drawing.Size(180, 22);
+            this.MiAddLabel.Size = new System.Drawing.Size(153, 22);
             this.MiAddLabel.Text = "Add Label";
             this.MiAddLabel.Click += new System.EventHandler(this.addLabelToolStripMenuItem_Click);
             // 
@@ -349,7 +349,7 @@ namespace OpenSkinDesigner.Frames
             this.MiAddPixmap.Enabled = false;
             this.MiAddPixmap.Image = global::OpenSkinDesigner.Properties.Resources.pixmap;
             this.MiAddPixmap.Name = "MiAddPixmap";
-            this.MiAddPixmap.Size = new System.Drawing.Size(180, 22);
+            this.MiAddPixmap.Size = new System.Drawing.Size(153, 22);
             this.MiAddPixmap.Text = "Add Pixmap";
             this.MiAddPixmap.Click += new System.EventHandler(this.addPixmapToolStripMenuItem_Click);
             // 
@@ -358,34 +358,34 @@ namespace OpenSkinDesigner.Frames
             this.MiAddWidget.Enabled = false;
             this.MiAddWidget.Image = global::OpenSkinDesigner.Properties.Resources.widget;
             this.MiAddWidget.Name = "MiAddWidget";
-            this.MiAddWidget.Size = new System.Drawing.Size(180, 22);
+            this.MiAddWidget.Size = new System.Drawing.Size(153, 22);
             this.MiAddWidget.Text = "Add Widget";
             this.MiAddWidget.Click += new System.EventHandler(this.widgetToolStripMenuItem_Click);
             // 
             // toolStripSeparator8
             // 
             this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator8.Size = new System.Drawing.Size(150, 6);
             // 
             // MiDeleteSelected
             // 
             this.MiDeleteSelected.Enabled = false;
             this.MiDeleteSelected.Image = global::OpenSkinDesigner.Properties.Resources.delete;
             this.MiDeleteSelected.Name = "MiDeleteSelected";
-            this.MiDeleteSelected.Size = new System.Drawing.Size(180, 22);
+            this.MiDeleteSelected.Size = new System.Drawing.Size(153, 22);
             this.MiDeleteSelected.Text = "Delete selected";
             this.MiDeleteSelected.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // toolStripSeparator9
             // 
             this.toolStripSeparator9.Name = "toolStripSeparator9";
-            this.toolStripSeparator9.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator9.Size = new System.Drawing.Size(150, 6);
             // 
             // MiAddElement
             // 
             this.MiAddElement.Enabled = false;
             this.MiAddElement.Name = "MiAddElement";
-            this.MiAddElement.Size = new System.Drawing.Size(180, 22);
+            this.MiAddElement.Size = new System.Drawing.Size(153, 22);
             this.MiAddElement.Text = "Add Element";
             // 
             // MiSettings
@@ -613,7 +613,7 @@ namespace OpenSkinDesigner.Frames
             this.numericUpDownZoom.Enabled = false;
             this.numericUpDownZoom.Location = new System.Drawing.Point(826, 2);
             this.numericUpDownZoom.Minimum = new decimal(new int[] {
-            60,
+            65,
             0,
             0,
             -2147483648});
@@ -661,7 +661,7 @@ namespace OpenSkinDesigner.Frames
             this.trackBarZoom.Enabled = false;
             this.trackBarZoom.Location = new System.Drawing.Point(660, 0);
             this.trackBarZoom.Maximum = 100;
-            this.trackBarZoom.Minimum = -60;
+            this.trackBarZoom.Minimum = -65;
             this.trackBarZoom.Name = "trackBarZoom";
             this.trackBarZoom.Size = new System.Drawing.Size(160, 45);
             this.trackBarZoom.TabIndex = 1;
