@@ -194,7 +194,9 @@ namespace OpenSkinDesigner.Frames
                  "v3.2.5.4 by Humax" + Environment.NewLine +
                  "-Bugfix: Selected Treeviewnode was deleted when pressing any key in Designer - Mode" + Environment.NewLine + Environment.NewLine +
                  "v3.2.5.5 by Humax" + Environment.NewLine +
-                 "-Add an option to not replace color beginning with '#'" + Environment.NewLine;
+                 "-Add an option to not replace color beginning with '#'" + Environment.NewLine +
+                 "v3.2.5.6 by Humax" + Environment.NewLine +
+                 "-Support for QHD (WQHD) and 4K UHD (Ultra HD)" + Environment.NewLine;
         }
 
         private void SetLanguage()

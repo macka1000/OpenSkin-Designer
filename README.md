@@ -189,3 +189,5 @@ created by [Scrounger](https://github.com/Scrounger)
 * Bugfix: Selected Treeviewnode was deleted when pressing any key in Designer-Mode
 ### 3.2.5.5 by Humax
 * Add an option to not replace color beginning with '#'
+### 3.2.5.6 by Humax
+Support for QHD (WQHD) and 4K UHD (Ultra HD)
