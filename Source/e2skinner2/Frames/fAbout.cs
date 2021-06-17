@@ -193,10 +193,13 @@ namespace OpenSkinDesigner.Frames
                  "- Bugfix: using delete-key no longer deletes a selected item in propertygrid" + Environment.NewLine + Environment.NewLine +
                  "v3.2.5.4 by Humax" + Environment.NewLine +
                  "-Bugfix: Selected Treeviewnode was deleted when pressing any key in Designer - Mode" + Environment.NewLine + Environment.NewLine +
-                 "v3.2.5.5 by Humax" + Environment.NewLine +
-                 "-Add an option to not replace color beginning with '#'" + Environment.NewLine +
+                 "v3.2.5.5 by Humax" + Environment.NewLine + 
+                 "-Add an option to not replace color beginning with '#'" + Environment.NewLine + Environment.NewLine +
                  "v3.2.5.6 by Humax" + Environment.NewLine +
-                 "-Support for QHD (WQHD) and 4K UHD (Ultra HD)" + Environment.NewLine;
+                 "-Support for QHD (WQHD) and 4K UHD (Ultra HD)" + Environment.NewLine + Environment.NewLine +
+                 "v3.2.5.7 by Humax" + Environment.NewLine +
+                 "-Support for resolution 3200 x 1800" + Environment.NewLine +
+                 "-Fixed unhandled Exception when borderset has no filename" + Environment.NewLine;
         }
 
         private void SetLanguage()

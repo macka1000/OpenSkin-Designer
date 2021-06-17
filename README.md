@@ -191,3 +191,6 @@ created by [Scrounger](https://github.com/Scrounger)
 * Add an option to not replace color beginning with '#'
 ### 3.2.5.6 by Humax
 Support for QHD (WQHD) and 4K UHD (Ultra HD)
+### 3.2.5.7 by Humax
+* Support for resolution 3200 x 1800
+* Fixed unhandled Exception when borderset has no filename
