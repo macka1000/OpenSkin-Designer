@@ -130,6 +130,8 @@ namespace OpenSkinDesigner.Logic
             attr.pZPosition = -1000;
             if (res.Xres == 3840 && res.Yres == 2160 && System.IO.File.Exists(cDataBase.getPath("background3840.jpg"))) //4k
                 pDrawList.Add(new sGraphicImage(attr, "background3840.jpg"));
+            else if (res.Xres == 3200 && res.Yres == 1800 && System.IO.File.Exists(cDataBase.getPath("background3200.jpg"))) 
+                pDrawList.Add(new sGraphicImage(attr, "background2560.jpg"));
             else if (res.Xres == 2560 && res.Yres == 1440 && System.IO.File.Exists(cDataBase.getPath("background2560.jpg"))) //QHD (WQHD)
                 pDrawList.Add(new sGraphicImage(attr, "background2560.jpg"));
             else if (res.Xres == 1920 && res.Yres == 1080 && System.IO.File.Exists(cDataBase.getPath("background1920.jpg"))) // FHD 

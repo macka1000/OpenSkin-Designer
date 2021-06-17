@@ -147,35 +147,98 @@ namespace OpenSkinDesigner.Logic
                             {
                                 if (myXmlNode2.Attributes["pos"].Value == "bpTopLeft")
                                 {
-                                    pbpTopLeftName = myXmlNode2.Attributes["filename"].Value;
+                                    try
+                                    {
+                                        pbpTopLeftName = myXmlNode2.Attributes["filename"].Value;
+                                    }
+                                    catch
+                                    {
+
+                                    }
+                                    
                                 }
                                 else if (myXmlNode2.Attributes["pos"].Value == "bpTop")
                                 {
-                                    pbpTopName = myXmlNode2.Attributes["filename"].Value;
+                                    try
+                                    {
+                                        pbpTopName = myXmlNode2.Attributes["filename"].Value;
+                                    }
+                                    catch
+                                    {
+                                        pbpTopName = null;
+                                    }
+
+                                       
                                 }
                                 else if (myXmlNode2.Attributes["pos"].Value == "bpTopRight")
                                 {
-                                    pbpTopRightName = myXmlNode2.Attributes["filename"].Value;
+                                    try
+                                    {
+                                        pbpTopRightName = myXmlNode2.Attributes["filename"].Value;
+                                    }
+                                    catch
+                                    {
+
+                                    }
+                                    
                                 }
                                 else if (myXmlNode2.Attributes["pos"].Value == "bpLeft")
                                 {
-                                    pbpLeftName = myXmlNode2.Attributes["filename"].Value;
+                                    try
+                                    {
+                                        pbpLeftName = myXmlNode2.Attributes["filename"].Value;
+                                    }
+                                    catch
+                                    {
+
+                                    }
+                                    
                                 }
                                 else if (myXmlNode2.Attributes["pos"].Value == "bpRight")
                                 {
-                                    pbpRightName = myXmlNode2.Attributes["filename"].Value;
+                                    try
+                                    {
+                                        pbpRightName = myXmlNode2.Attributes["filename"].Value;
+                                    }
+                                    catch
+                                    {
+
+                                    }
+                                    
                                 }
                                 else if (myXmlNode2.Attributes["pos"].Value == "bpBottomLeft")
                                 {
-                                    pbpBottomLeftName = myXmlNode2.Attributes["filename"].Value;
+                                    try
+                                    {
+                                        pbpBottomLeftName = myXmlNode2.Attributes["filename"].Value;
+                                    }
+                                    catch
+                                    {
+
+                                    }
+                                    
                                 }
                                 else if (myXmlNode2.Attributes["pos"].Value == "bpBottom")
                                 {
-                                    pbpBottomName = myXmlNode2.Attributes["filename"].Value;
+                                    try
+                                    {
+                                        pbpBottomName = myXmlNode2.Attributes["filename"].Value;
+                                    }
+                                    catch
+                                    {
+
+                                    }
+                                    
                                 }
                                 else if (myXmlNode2.Attributes["pos"].Value == "bpBottomRight")
                                 {
-                                    pbpBottomRightName = myXmlNode2.Attributes["filename"].Value;
+                                    try
+                                    {
+                                        pbpBottomRightName = myXmlNode2.Attributes["filename"].Value;
+                                    }
+                                    catch
+                                    {  }
+                                    
                                 }
                             }
 
