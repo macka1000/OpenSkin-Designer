@@ -132,116 +132,102 @@ namespace OpenSkinDesigner.Logic
                         }
                         else if (myXmlNode.Name == "borderset")
                         {
-                            String pbpTopLeftName = "";
-                            String pbpTopName = "";
-                            String pbpTopRightName = "";
-                            String pbpLeftName = "";
-                            String pbpRightName = "";
-                            String pbpBottomLeftName = "";
-                            String pbpBottomName = "";
-                            String pbpBottomRightName = "";
+                            String pbpTopLeftName = Application.StartupPath + cProperties.getProperty("path_skins").Replace("./", "\\").Replace("/", "\\") + "broken.png";
+                            String pbpTopName = Application.StartupPath + cProperties.getProperty("path_skins").Replace("./", "\\").Replace("/", "\\") + "broken.png";
+                            String pbpTopRightName = Application.StartupPath + cProperties.getProperty("path_skins").Replace("./", "\\").Replace("/", "\\") + "broken.png";
+                            String pbpLeftName = Application.StartupPath + cProperties.getProperty("path_skins").Replace("./", "\\").Replace("/", "\\") + "broken.png";
+                            String pbpRightName = Application.StartupPath + cProperties.getProperty("path_skins").Replace("./", "\\").Replace("/", "\\") + "broken.png";
+                            String pbpBottomLeftName = Application.StartupPath + cProperties.getProperty("path_skins").Replace("./", "\\").Replace("/", "\\") + "broken.png";
+                            String pbpBottomName = Application.StartupPath + cProperties.getProperty("path_skins").Replace("./", "\\").Replace("/", "\\") + "broken.png";
+                            String pbpBottomRightName = Application.StartupPath + cProperties.getProperty("path_skins").Replace("./", "\\").Replace("/", "\\") + "broken.png";
 
                             //string[] path2 = { "skin", "windowstyle", "borderset" };
                             //XmlNode fontNode2 = XmlHandler.XmlGetRootNodeElement(path2);
+                            int anz = 0;
                             foreach (XmlNode myXmlNode2 in /*fontNode2*/myXmlNode.ChildNodes)
                             {
                                 if (myXmlNode2.Attributes["pos"].Value == "bpTopLeft")
                                 {
-                                    try
-                                    {
+                                    if (myXmlNode2.OuterXml.Contains("filename="))
                                         pbpTopLeftName = myXmlNode2.Attributes["filename"].Value;
-                                    }
-                                    catch
+                                    else
                                     {
-
+                                        anz += 1;
                                     }
-                                    
                                 }
+                                
                                 else if (myXmlNode2.Attributes["pos"].Value == "bpTop")
                                 {
-                                    try
-                                    {
+                                    if (myXmlNode2.OuterXml.Contains("filename="))
                                         pbpTopName = myXmlNode2.Attributes["filename"].Value;
-                                    }
-                                    catch
+                                    else
                                     {
-                                        pbpTopName = null;
+                                        anz += 1;
                                     }
-
-                                       
                                 }
                                 else if (myXmlNode2.Attributes["pos"].Value == "bpTopRight")
                                 {
-                                    try
-                                    {
+                                    if (myXmlNode2.OuterXml.Contains("filename="))
                                         pbpTopRightName = myXmlNode2.Attributes["filename"].Value;
-                                    }
-                                    catch
+                                    else
                                     {
-
+                                        anz += 1;
                                     }
-                                    
                                 }
                                 else if (myXmlNode2.Attributes["pos"].Value == "bpLeft")
                                 {
-                                    try
-                                    {
+                                    if (myXmlNode2.OuterXml.Contains("filename="))
                                         pbpLeftName = myXmlNode2.Attributes["filename"].Value;
-                                    }
-                                    catch
+                                    else
                                     {
-
+                                        anz += 1;
                                     }
-                                    
                                 }
                                 else if (myXmlNode2.Attributes["pos"].Value == "bpRight")
                                 {
-                                    try
-                                    {
+                                    if (myXmlNode2.OuterXml.Contains("filename="))
                                         pbpRightName = myXmlNode2.Attributes["filename"].Value;
-                                    }
-                                    catch
+                                    else
                                     {
-
+                                        anz += 1;
                                     }
-                                    
                                 }
                                 else if (myXmlNode2.Attributes["pos"].Value == "bpBottomLeft")
                                 {
-                                    try
-                                    {
+                                    if (myXmlNode2.OuterXml.Contains("filename="))
                                         pbpBottomLeftName = myXmlNode2.Attributes["filename"].Value;
-                                    }
-                                    catch
+                                    else
                                     {
-
+                                        anz += 1;
                                     }
-                                    
                                 }
                                 else if (myXmlNode2.Attributes["pos"].Value == "bpBottom")
                                 {
-                                    try
-                                    {
+                                    if (myXmlNode2.OuterXml.Contains("filename="))
                                         pbpBottomName = myXmlNode2.Attributes["filename"].Value;
-                                    }
-                                    catch
+                                    else
                                     {
-
+                                        anz += 1;
                                     }
-                                    
                                 }
                                 else if (myXmlNode2.Attributes["pos"].Value == "bpBottomRight")
                                 {
-                                    try
-                                    {
+                                    if (myXmlNode2.OuterXml.Contains("filename="))
                                         pbpBottomRightName = myXmlNode2.Attributes["filename"].Value;
+                                    else
+                                    {
+                                        anz += 1;
                                     }
-                                    catch
-                                    {  }
-                                    
                                 }
+                                    
                             }
-
+                            if (anz > 0)
+                            {
+                                MessageBox.Show("The path of " + anz + " borderset-files is not specified!" + "\n\n",
+                                "Path(s) not specified",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                            }
                             sWindowStyle.sBorderSet borderset = new sWindowStyle.sBorderSet(
                                 myXmlNode.Attributes["name"].Value,
                                 pbpTopLeftName,
