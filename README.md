@@ -194,3 +194,5 @@ Support for QHD (WQHD) and 4K UHD (Ultra HD)
 ### 3.2.5.7 by Humax
 * Support for resolution 3200 x 1800
 * Fixed unhandled Exception when borderset has no filename
+### 3.2.5.8 by Humax
+* Fixed unhandled Exception when borderset path has not been specified
