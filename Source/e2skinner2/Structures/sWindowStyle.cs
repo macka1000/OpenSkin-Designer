@@ -102,20 +102,13 @@ namespace OpenSkinDesigner.Structures
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
                 }
-                bool shown = false; // Only show ones
                 if (pbpTopLeftName.Length > 0 && System.IO.File.Exists(cDataBase.getPath(pbpTopLeftName)))
                 {
                     if (cDataBase.getPath(pbpTopLeftName).EndsWith("svg"))
-                        if (shown==false)
-                        {
-                            shown = true;
-                            MessageBox.Show("'.svg'-images are not supported!");
-                            Application.Exit();
-                        }
-                        else
-                        {
-
-                        }
+                    {
+                        MessageBox.Show("'.svg'-images are not supported!");
+                        Application.Exit();
+                    }
                     else
                     {
                         Image pixmap = Image.FromFile(cDataBase.getPath(pbpTopLeftName));
@@ -127,17 +120,11 @@ namespace OpenSkinDesigner.Structures
                 if (pbpTopName.Length > 0 && System.IO.File.Exists(cDataBase.getPath(pbpTopName)))
                 {
                     if (cDataBase.getPath(pbpTopName).EndsWith("svg"))
-                        if (shown == false)
-                        {
-                            shown = true;
-                            MessageBox.Show("'.svg'-images are not supported!");
-                            Application.Exit();
-                        }
-                        else
-                        {
-                        }
+                    {
+                        MessageBox.Show("'.svg'-images are not supported!");
+                        Application.Exit();
+                    }
                     else
-
                     {
                         Image pixmap = Image.FromFile(cDataBase.getPath(pbpTopName));
                         pbpTop = pixmap.Size;
@@ -148,17 +135,11 @@ namespace OpenSkinDesigner.Structures
                 if (pbpTopRightName.Length > 0 && System.IO.File.Exists(cDataBase.getPath(pbpTopRightName)))
                 {
                     if (cDataBase.getPath(pbpTopRightName).EndsWith("svg"))
-                        if (shown == false)
-                        {
-                            shown = true;
-                            MessageBox.Show("'.svg'-images are not supported!");
-                            Application.Exit();
-                        }
-                        else
-                        { 
-                        }
+                    {
+                        MessageBox.Show("'.svg'-images are not supported!");
+                        Application.Exit();
+                    }
                     else
-
                     {
                         Image pixmap = Image.FromFile(cDataBase.getPath(pbpTopRightName));
                         pbpTopRight = pixmap.Size;
@@ -171,17 +152,10 @@ namespace OpenSkinDesigner.Structures
                 if (pbpLeftName.Length > 0 && System.IO.File.Exists(cDataBase.getPath(pbpLeftName)))
                 {
                     if (cDataBase.getPath(pbpLeftName).EndsWith("svg"))
-                        if (shown == false)
-                        {
-                            shown = true;
-                            MessageBox.Show("'.svg'-images are not supported!");
-                            Application.Exit();
-                        }
-
-                        else
-                        {
-
-                        }
+                    {
+                        MessageBox.Show("'.svg'-images are not supported!");
+                        Application.Exit();
+                    }
                     else
                     {
                         Image pixmap = Image.FromFile(cDataBase.getPath(pbpLeftName));
@@ -193,17 +167,11 @@ namespace OpenSkinDesigner.Structures
                 if (pbpRightName.Length > 0 && System.IO.File.Exists(cDataBase.getPath(pbpRightName)))
                 {
                     if (cDataBase.getPath(pbpRightName).EndsWith("svg"))
-                        if (shown == false)
-                        {
-                            shown = true;
-                            MessageBox.Show("'.svg'-images are not supported!");
-                            Application.Exit();
-                        }
+                    {
+                        MessageBox.Show("'.svg'-images are not supported!");
+                        Application.Exit();
+                    }
 
-                        else
-                        {
-
-                        }
                     else
                     {
                         Image pixmap = Image.FromFile(cDataBase.getPath(pbpRightName));
@@ -217,16 +185,10 @@ namespace OpenSkinDesigner.Structures
                 if (pbpBottomLeftName.Length > 0 && System.IO.File.Exists(cDataBase.getPath(pbpBottomLeftName)))
                 {
                     if (cDataBase.getPath(pbpBottomLeftName).EndsWith("svg"))
-                        if (shown == false)
-                        {
-                            shown = true;
-                            MessageBox.Show("'.svg'-images are not supported!");
-                            Application.Exit();
-                        }
-                        else
-                        {
-
-                        }
+                    {
+                        MessageBox.Show("'.svg'-images are not supported!");
+                        Application.Exit();
+                    }
                     else
                     {
                         Image pixmap = Image.FromFile(cDataBase.getPath(pbpBottomLeftName));
@@ -238,16 +200,11 @@ namespace OpenSkinDesigner.Structures
                 if (pbpBottomName.Length > 0 && System.IO.File.Exists(cDataBase.getPath(pbpBottomName)))
                 {
                     if (cDataBase.getPath(pbpBottomName).EndsWith("svg"))
-                        if (shown == false)
-                        {
-                            shown = true;
-                            MessageBox.Show("'.svg'-images are not supported!");
-                            Application.Exit();
-                        }
-                        else
-                        {
-
-                        }
+                        
+                    {
+                        MessageBox.Show("'.svg'-images are not supported!");
+                        Application.Exit();
+                    }
                     else
                     {
                         Image pixmap = Image.FromFile(cDataBase.getPath(pbpBottomName));
@@ -259,17 +216,10 @@ namespace OpenSkinDesigner.Structures
                 if (pbpBottomRightName.Length > 0 && System.IO.File.Exists(cDataBase.getPath(pbpBottomRightName)))
                 {
                     if (cDataBase.getPath(pbpBottomRightName).EndsWith("svg"))
-                        if (shown == false)
-                        {
-                            shown = true;
-                            MessageBox.Show("'.svg'-images are not supported!");
-                            Application.Exit();
-                        }
-
-                        else
-                        {
-
-                        }
+                    {
+                        MessageBox.Show("'.svg'-images are not supported!");
+                        Application.Exit();
+                    }
                     else
                     {
                         Image pixmap = Image.FromFile(cDataBase.getPath(pbpBottomRightName));
