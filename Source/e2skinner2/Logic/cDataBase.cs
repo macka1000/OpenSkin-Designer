@@ -132,14 +132,14 @@ namespace OpenSkinDesigner.Logic
                         }
                         else if (myXmlNode.Name == "borderset")
                         {
-                            String pbpTopLeftName = Application.StartupPath + cProperties.getProperty("path_skins").Replace("./", "\\").Replace("/", "\\") + "broken.png";
-                            String pbpTopName = Application.StartupPath + cProperties.getProperty("path_skins").Replace("./", "\\").Replace("/", "\\") + "broken.png";
-                            String pbpTopRightName = Application.StartupPath + cProperties.getProperty("path_skins").Replace("./", "\\").Replace("/", "\\") + "broken.png";
-                            String pbpLeftName = Application.StartupPath + cProperties.getProperty("path_skins").Replace("./", "\\").Replace("/", "\\") + "broken.png";
-                            String pbpRightName = Application.StartupPath + cProperties.getProperty("path_skins").Replace("./", "\\").Replace("/", "\\") + "broken.png";
-                            String pbpBottomLeftName = Application.StartupPath + cProperties.getProperty("path_skins").Replace("./", "\\").Replace("/", "\\") + "broken.png";
-                            String pbpBottomName = Application.StartupPath + cProperties.getProperty("path_skins").Replace("./", "\\").Replace("/", "\\") + "broken.png";
-                            String pbpBottomRightName = Application.StartupPath + cProperties.getProperty("path_skins").Replace("./", "\\").Replace("/", "\\") + "broken.png";
+                            String pbpTopLeftName = "";
+                            String pbpTopName = "";
+                            String pbpTopRightName = "";
+                            String pbpLeftName = "";
+                            String pbpRightName = "";
+                            String pbpBottomLeftName = "";
+                            String pbpBottomName = "";
+                            String pbpBottomRightName = "";
 
                             //string[] path2 = { "skin", "windowstyle", "borderset" };
                             //XmlNode fontNode2 = XmlHandler.XmlGetRootNodeElement(path2);
