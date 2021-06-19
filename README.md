@@ -196,3 +196,5 @@ Support for QHD (WQHD) and 4K UHD (Ultra HD)
 * Fixed unhandled Exception when borderset has no filename
 ### 3.2.5.8 by Humax
 * Fixed unhandled Exception when borderset path has not been specified
+### 3.2.5.9 by Humax
+* Fixed borderset - bug

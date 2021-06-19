@@ -201,7 +201,9 @@ namespace OpenSkinDesigner.Frames
                  "-Support for resolution 3200 x 1800" + Environment.NewLine +
                  "-Fixed unhandled Exception when borderset has no filename" + Environment.NewLine + Environment.NewLine +
                  "v3.2.5.8 by Humax" + Environment.NewLine +
-                 "-Fixed unhandled Exception when borderset path has not been specified" + Environment.NewLine;
+                 "-Fixed unhandled Exception when borderset path has not been specified" + Environment.NewLine + Environment.NewLine +
+                 "v3.2.5.9 by Humax" + Environment.NewLine +
+                 "-Fixed borderset - bug" ;
         }
 
         private void SetLanguage()
