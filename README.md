@@ -198,3 +198,4 @@ Support for QHD (WQHD) and 4K UHD (Ultra HD)
 * Fixed unhandled Exception when borderset path has not been specified
 ### 3.2.5.9 by Humax
 * Fixed borderset - bug
+* application will be terminated if a '.svg' graphic is used in the 'borderset's

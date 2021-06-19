@@ -192,18 +192,20 @@ namespace OpenSkinDesigner.Frames
                  "- Bugfix: fixed unhandled exception if using delete - key without selected item" + Environment.NewLine +
                  "- Bugfix: using delete-key no longer deletes a selected item in propertygrid" + Environment.NewLine + Environment.NewLine +
                  "v3.2.5.4 by Humax" + Environment.NewLine +
-                 "-Bugfix: Selected Treeviewnode was deleted when pressing any key in Designer - Mode" + Environment.NewLine + Environment.NewLine +
+                 "- Bugfix: Selected Treeviewnode was deleted when pressing any key in Designer - Mode" + Environment.NewLine + Environment.NewLine +
                  "v3.2.5.5 by Humax" + Environment.NewLine +
-                 "-Add an option to not replace color beginning with '#'" + Environment.NewLine + Environment.NewLine +
+                 "- Add an option to not replace color beginning with '#'" + Environment.NewLine + Environment.NewLine +
                  "v3.2.5.6 by Humax" + Environment.NewLine +
-                 "-Support for QHD (WQHD) and 4K UHD (Ultra HD)" + Environment.NewLine + Environment.NewLine +
+                 "- Support for QHD (WQHD) and 4K UHD (Ultra HD)" + Environment.NewLine + Environment.NewLine +
                  "v3.2.5.7 by Humax" + Environment.NewLine +
-                 "-Support for resolution 3200 x 1800" + Environment.NewLine +
-                 "-Fixed unhandled Exception when borderset has no filename" + Environment.NewLine + Environment.NewLine +
+                 "- Support for resolution 3200 x 1800" + Environment.NewLine +
+                 "- Fixed unhandled Exception when borderset has no filename" + Environment.NewLine + Environment.NewLine +
                  "v3.2.5.8 by Humax" + Environment.NewLine +
-                 "-Fixed unhandled Exception when borderset path has not been specified" + Environment.NewLine + Environment.NewLine +
+                 "- Fixed unhandled Exception when borderset path has not been specified" + Environment.NewLine + Environment.NewLine +
                  "v3.2.5.9 by Humax" + Environment.NewLine +
-                 "-Fixed borderset - bug" ;
+                 "- Fixed borderset - bug" + Environment.NewLine +
+                 "- Application will be terminated if a '.svg' graphic is used in the 'borderset's";
+
         }
 
         private void SetLanguage()
