@@ -146,79 +146,86 @@ namespace OpenSkinDesigner.Logic
                             int anz = 0;
                             foreach (XmlNode myXmlNode2 in /*fontNode2*/myXmlNode.ChildNodes)
                             {
-                                if (myXmlNode2.Attributes["pos"].Value == "bpTopLeft")
+                                try
                                 {
-                                    if (myXmlNode2.OuterXml.Contains("filename="))
-                                        pbpTopLeftName = myXmlNode2.Attributes["filename"].Value;
-                                    else
+                                    if (myXmlNode2.Attributes["pos"].Value == "bpTopLeft")
                                     {
-                                        anz += 1;
+                                        if (myXmlNode2.OuterXml.Contains("filename="))
+                                        pbpTopLeftName = myXmlNode2.Attributes["filename"].Value;
+                                        else
+                                        {
+                                            anz += 1;
+                                        }
                                     }
+                                    else if (myXmlNode2.Attributes["pos"].Value == "bpTop")
+                                    {
+                                        if (myXmlNode2.OuterXml.Contains("filename="))
+                                            pbpTopName = myXmlNode2.Attributes["filename"].Value;
+                                        else
+                                        {
+                                            anz += 1;
+                                        }
+                                    }
+                                    else if (myXmlNode2.Attributes["pos"].Value == "bpTopRight")
+                                    {
+                                        if (myXmlNode2.OuterXml.Contains("filename="))
+                                            pbpTopRightName = myXmlNode2.Attributes["filename"].Value;
+                                        else
+                                        {
+                                            anz += 1;
+                                        }
+                                    }
+                                    else if (myXmlNode2.Attributes["pos"].Value == "bpLeft")
+                                    {
+                                        if (myXmlNode2.OuterXml.Contains("filename="))
+                                            pbpLeftName = myXmlNode2.Attributes["filename"].Value;
+                                        else
+                                        {
+                                            anz += 1;
+                                        }
+                                    }
+                                    else if (myXmlNode2.Attributes["pos"].Value == "bpRight")
+                                    {
+                                        if (myXmlNode2.OuterXml.Contains("filename="))
+                                            pbpRightName = myXmlNode2.Attributes["filename"].Value;
+                                        else
+                                        {
+                                            anz += 1;
+                                        }
+                                    }
+                                    else if (myXmlNode2.Attributes["pos"].Value == "bpBottomLeft")
+                                    {
+                                        if (myXmlNode2.OuterXml.Contains("filename="))
+                                            pbpBottomLeftName = myXmlNode2.Attributes["filename"].Value;
+                                        else
+                                        {
+                                            anz += 1;
+                                        }
+                                    }
+                                    else if (myXmlNode2.Attributes["pos"].Value == "bpBottom")
+                                    {
+                                        if (myXmlNode2.OuterXml.Contains("filename="))
+                                            pbpBottomName = myXmlNode2.Attributes["filename"].Value;
+                                        else
+                                        {
+                                            anz += 1;
+                                        }
+                                    }
+                                    else if (myXmlNode2.Attributes["pos"].Value == "bpBottomRight")
+                                    {
+                                        if (myXmlNode2.OuterXml.Contains("filename="))
+                                            pbpBottomRightName = myXmlNode2.Attributes["filename"].Value;
+                                        else
+                                        {
+                                            anz += 1;
+                                        }
+                                    }
+                                }
+                                catch (NullReferenceException err)
+                                {
+                                    MessageBox.Show("There is something wrong with your borderset" + "\n\n" + err.Message);
                                 }
                                 
-                                else if (myXmlNode2.Attributes["pos"].Value == "bpTop")
-                                {
-                                    if (myXmlNode2.OuterXml.Contains("filename="))
-                                        pbpTopName = myXmlNode2.Attributes["filename"].Value;
-                                    else
-                                    {
-                                        anz += 1;
-                                    }
-                                }
-                                else if (myXmlNode2.Attributes["pos"].Value == "bpTopRight")
-                                {
-                                    if (myXmlNode2.OuterXml.Contains("filename="))
-                                        pbpTopRightName = myXmlNode2.Attributes["filename"].Value;
-                                    else
-                                    {
-                                        anz += 1;
-                                    }
-                                }
-                                else if (myXmlNode2.Attributes["pos"].Value == "bpLeft")
-                                {
-                                    if (myXmlNode2.OuterXml.Contains("filename="))
-                                        pbpLeftName = myXmlNode2.Attributes["filename"].Value;
-                                    else
-                                    {
-                                        anz += 1;
-                                    }
-                                }
-                                else if (myXmlNode2.Attributes["pos"].Value == "bpRight")
-                                {
-                                    if (myXmlNode2.OuterXml.Contains("filename="))
-                                        pbpRightName = myXmlNode2.Attributes["filename"].Value;
-                                    else
-                                    {
-                                        anz += 1;
-                                    }
-                                }
-                                else if (myXmlNode2.Attributes["pos"].Value == "bpBottomLeft")
-                                {
-                                    if (myXmlNode2.OuterXml.Contains("filename="))
-                                        pbpBottomLeftName = myXmlNode2.Attributes["filename"].Value;
-                                    else
-                                    {
-                                        anz += 1;
-                                    }
-                                }
-                                else if (myXmlNode2.Attributes["pos"].Value == "bpBottom")
-                                {
-                                    if (myXmlNode2.OuterXml.Contains("filename="))
-                                        pbpBottomName = myXmlNode2.Attributes["filename"].Value;
-                                    else
-                                    {
-                                        anz += 1;
-                                    }
-                                }
-                                else if (myXmlNode2.Attributes["pos"].Value == "bpBottomRight")
-                                {
-                                    if (myXmlNode2.OuterXml.Contains("filename="))
-                                        pbpBottomRightName = myXmlNode2.Attributes["filename"].Value;
-                                    else
-                                    {
-                                        anz += 1;
-                                    }
-                                }
                                     
                             }
                             if (anz > 0)

@@ -102,58 +102,181 @@ namespace OpenSkinDesigner.Structures
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
                 }
-
+                bool shown = false; // Only show ones
                 if (pbpTopLeftName.Length > 0 && System.IO.File.Exists(cDataBase.getPath(pbpTopLeftName)))
                 {
-                    Image pixmap = Image.FromFile(cDataBase.getPath(pbpTopLeftName));
-                    pbpTopLeft = pixmap.Size;
-                    pixmap.Dispose();
+                    if (cDataBase.getPath(pbpTopLeftName).EndsWith("svg"))
+                        if (shown==false)
+                        {
+                            shown = true;
+                            MessageBox.Show("'.svg'-images are not supported!");
+                            Application.Exit();
+                        }
+                        else
+                        {
+
+                        }
+                    else
+                    {
+                        Image pixmap = Image.FromFile(cDataBase.getPath(pbpTopLeftName));
+                        pbpTopLeft = pixmap.Size;
+                        pixmap.Dispose();
+                    }
+                        
                 }
                 if (pbpTopName.Length > 0 && System.IO.File.Exists(cDataBase.getPath(pbpTopName)))
                 {
-                    Image pixmap = Image.FromFile(cDataBase.getPath(pbpTopName));
-                    pbpTop = pixmap.Size;
-                    pixmap.Dispose();
+                    if (cDataBase.getPath(pbpTopName).EndsWith("svg"))
+                        if (shown == false)
+                        {
+                            shown = true;
+                            MessageBox.Show("'.svg'-images are not supported!");
+                            Application.Exit();
+                        }
+                        else
+                        {
+                        }
+                    else
+
+                    {
+                        Image pixmap = Image.FromFile(cDataBase.getPath(pbpTopName));
+                        pbpTop = pixmap.Size;
+                        pixmap.Dispose();
+                    }
+                    
                 }
                 if (pbpTopRightName.Length > 0 && System.IO.File.Exists(cDataBase.getPath(pbpTopRightName)))
                 {
-                    Image pixmap = Image.FromFile(cDataBase.getPath(pbpTopRightName));
-                    pbpTopRight = pixmap.Size;
-                    pixmap.Dispose();
+                    if (cDataBase.getPath(pbpTopRightName).EndsWith("svg"))
+                        if (shown == false)
+                        {
+                            shown = true;
+                            MessageBox.Show("'.svg'-images are not supported!");
+                            Application.Exit();
+                        }
+                        else
+                        { 
+                        }
+                    else
+
+                    {
+                        Image pixmap = Image.FromFile(cDataBase.getPath(pbpTopRightName));
+                        pbpTopRight = pixmap.Size;
+                        pixmap.Dispose();
+                    }
+                    
                 }
 
 
                 if (pbpLeftName.Length > 0 && System.IO.File.Exists(cDataBase.getPath(pbpLeftName)))
                 {
-                    Image pixmap = Image.FromFile(cDataBase.getPath(pbpLeftName));
-                    pbpLeft = pixmap.Size;
-                    pixmap.Dispose();
+                    if (cDataBase.getPath(pbpLeftName).EndsWith("svg"))
+                        if (shown == false)
+                        {
+                            shown = true;
+                            MessageBox.Show("'.svg'-images are not supported!");
+                            Application.Exit();
+                        }
+
+                        else
+                        {
+
+                        }
+                    else
+                    {
+                        Image pixmap = Image.FromFile(cDataBase.getPath(pbpLeftName));
+                        pbpLeft = pixmap.Size;
+                        pixmap.Dispose();
+                    }
+                    
                 }
                 if (pbpRightName.Length > 0 && System.IO.File.Exists(cDataBase.getPath(pbpRightName)))
                 {
-                    Image pixmap = Image.FromFile(cDataBase.getPath(pbpRightName));
-                    pbpRight = pixmap.Size;
-                    pixmap.Dispose();
+                    if (cDataBase.getPath(pbpRightName).EndsWith("svg"))
+                        if (shown == false)
+                        {
+                            shown = true;
+                            MessageBox.Show("'.svg'-images are not supported!");
+                            Application.Exit();
+                        }
+
+                        else
+                        {
+
+                        }
+                    else
+                    {
+                        Image pixmap = Image.FromFile(cDataBase.getPath(pbpRightName));
+                        pbpRight = pixmap.Size;
+                        pixmap.Dispose();
+                    }
+                    
                 }
 
 
                 if (pbpBottomLeftName.Length > 0 && System.IO.File.Exists(cDataBase.getPath(pbpBottomLeftName)))
                 {
-                    Image pixmap = Image.FromFile(cDataBase.getPath(pbpBottomLeftName));
-                    pbpBottomLeft = pixmap.Size;
-                    pixmap.Dispose();
+                    if (cDataBase.getPath(pbpBottomLeftName).EndsWith("svg"))
+                        if (shown == false)
+                        {
+                            shown = true;
+                            MessageBox.Show("'.svg'-images are not supported!");
+                            Application.Exit();
+                        }
+                        else
+                        {
+
+                        }
+                    else
+                    {
+                        Image pixmap = Image.FromFile(cDataBase.getPath(pbpBottomLeftName));
+                        pbpBottomLeft = pixmap.Size;
+                        pixmap.Dispose();
+                    }
+                    
                 }
                 if (pbpBottomName.Length > 0 && System.IO.File.Exists(cDataBase.getPath(pbpBottomName)))
                 {
-                    Image pixmap = Image.FromFile(cDataBase.getPath(pbpBottomName));
-                    pbpBottom = pixmap.Size;
-                    pixmap.Dispose();
+                    if (cDataBase.getPath(pbpBottomName).EndsWith("svg"))
+                        if (shown == false)
+                        {
+                            shown = true;
+                            MessageBox.Show("'.svg'-images are not supported!");
+                            Application.Exit();
+                        }
+                        else
+                        {
+
+                        }
+                    else
+                    {
+                        Image pixmap = Image.FromFile(cDataBase.getPath(pbpBottomName));
+                        pbpBottom = pixmap.Size;
+                        pixmap.Dispose();
+                    }
+                   
                 }
                 if (pbpBottomRightName.Length > 0 && System.IO.File.Exists(cDataBase.getPath(pbpBottomRightName)))
                 {
-                    Image pixmap = Image.FromFile(cDataBase.getPath(pbpBottomRightName));
-                    pbpBottomRight = pixmap.Size;
-                    pixmap.Dispose();
+                    if (cDataBase.getPath(pbpBottomRightName).EndsWith("svg"))
+                        if (shown == false)
+                        {
+                            shown = true;
+                            MessageBox.Show("'.svg'-images are not supported!");
+                            Application.Exit();
+                        }
+
+                        else
+                        {
+
+                        }
+                    else
+                    {
+                        Image pixmap = Image.FromFile(cDataBase.getPath(pbpBottomRightName));
+                        pbpBottomRight = pixmap.Size;
+                        pixmap.Dispose();
+                    }
+                    
                 }
             }
         }

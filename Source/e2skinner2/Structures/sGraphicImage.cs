@@ -21,23 +21,26 @@ namespace OpenSkinDesigner.Structures
             : base(attr)
         {
             //Console.WriteLine("sGraphicImage: " + x + ":" + y + " " + w + "x" + h);
-
-            try
+            if (!cDataBase.getPath(image).EndsWith(".svg"))
             {
-                pImage = Image.FromFile(cDataBase.getPath(image));
+                try
+                {
+                    pImage = Image.FromFile(cDataBase.getPath(image));
+                }
+                catch (FileNotFoundException ex)
+                {
+                    Console.WriteLine("File not found! (" + cDataBase.getPath(image) + ")\n" + ex);
+                    return;
+                }
+
+                pX = x;
+                pY = y;
+
+                pWidth = w < (Int32)pImage.Width ? w : (Int32)pImage.Width;
+                pHeight = h < (Int32)pImage.Height ? h : (Int32)pImage.Height;
 
             }
-            catch (FileNotFoundException ex)
-            {
-                Console.WriteLine("File not found! (" + cDataBase.getPath(image) + ")\n" + ex);
-                return;
-            }
-            pX = x;
-            pY = y;
-
-
-            pWidth = w < (Int32)pImage.Width ? w : (Int32)pImage.Width;
-            pHeight = h < (Int32)pImage.Height ? h : (Int32)pImage.Height; ;
+            
         }
 
         public sGraphicImage(sAttribute attr, String image, Int32 x, Int32 y)
@@ -55,6 +58,11 @@ namespace OpenSkinDesigner.Structures
             catch (FileNotFoundException)
             {
                 Console.WriteLine("File not found! (" + cDataBase.getPath(image) + ")");
+                return;
+            }
+            catch (OutOfMemoryException)
+            {
+                Console.WriteLine("Unsupported (" + cDataBase.getPath(image) + ")");
                 return;
             }
 
