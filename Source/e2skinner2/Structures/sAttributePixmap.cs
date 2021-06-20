@@ -97,6 +97,8 @@ namespace OpenSkinDesigner.Structures
             if (node.Attributes["pixmap"] != null)
             {
                 pPixmapName = node.Attributes["pixmap"].Value;
+                if (pPixmapName.ToLower().EndsWith(".svg"))
+                    pPixmapName = pPixmapName.ToLower().Replace(".svg", ".png");
                 try
                 {
                     //PVMC Workaround
@@ -138,6 +140,8 @@ namespace OpenSkinDesigner.Structures
                 pPixmapName = node.Attributes["pixmaps"].Value.Split(',')[0];
                 try
                 {
+                    if (pPixmapName.ToLower().EndsWith(".svg"))
+                        pPixmapName = pPixmapName.ToLower().Replace(".svg", ".png");
                     Image pixmap = Image.FromFile(cDataBase.getPath(pPixmapName));
 
                     // Element has scale attribute -> take size attribute
