@@ -199,3 +199,6 @@ Support for QHD (WQHD) and 4K UHD (Ultra HD)
 ### 3.2.5.9 by Humax
 * Fixed borderset - bug
 * application will be terminated if a '.svg' graphic is used in the 'borderset's
+### 3.2.6.0 by Humax
+* Undo application termination if a '.svg' graphic is used in the 'borderset's
+* If '.svg' graphic is used in borderset's, now the application searches for a corresponding '.png' graphic', otherwise it will be ignored
