@@ -21,27 +21,25 @@ namespace OpenSkinDesigner.Structures
             : base(attr)
         {
             //Console.WriteLine("sGraphicImage: " + x + ":" + y + " " + w + "x" + h);
-            if (!cDataBase.getPath(image).EndsWith(".svg"))
+            if (cDataBase.getPath(image).ToLower().EndsWith(".svg"))
+                image = cDataBase.getPNGPath(image);
+            try
             {
-                try
-                {
-                    pImage = Image.FromFile(cDataBase.getPath(image));
-                }
-                catch (FileNotFoundException ex)
-                {
-                    Console.WriteLine("File not found! (" + cDataBase.getPath(image) + ")\n" + ex);
-                    return;
-                }
-
-                pX = x;
-                pY = y;
-
-                pWidth = w < (Int32)pImage.Width ? w : (Int32)pImage.Width;
-                pHeight = h < (Int32)pImage.Height ? h : (Int32)pImage.Height;
-
+                pImage = Image.FromFile(cDataBase.getPath(image));
             }
+            catch (FileNotFoundException ex)
+            {
+                Console.WriteLine("File not found! (" + cDataBase.getPath(image) + ")\n" + ex);
+                return;
+            }
+            pX = x;
+            pY = y;
             
+            pWidth = w < (Int32)pImage.Width ? w : (Int32)pImage.Width;
+            pHeight = h < (Int32)pImage.Height ? h : (Int32)pImage.Height;
         }
+            
+        
 
         public sGraphicImage(sAttribute attr, String image, Int32 x, Int32 y)
             : base(attr)
@@ -51,6 +49,10 @@ namespace OpenSkinDesigner.Structures
             //pAttr = attr;
             if (image == null || image.Length == 0)
                 return;
+            if (image.ToUpper().EndsWith(".SVG"))
+            {
+                image = image.ToUpper().Replace(".SVG", ".PNG");
+            }
             try
             {
                 pImage = Image.FromFile(cDataBase.getPath(image));

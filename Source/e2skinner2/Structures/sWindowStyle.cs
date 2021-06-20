@@ -6,6 +6,7 @@ using System.Collections;
 using System.Drawing;
 using System.Windows.Forms;
 using OpenSkinDesigner.Logic;
+using System.IO;
 
 namespace OpenSkinDesigner.Structures
 {
@@ -102,12 +103,27 @@ namespace OpenSkinDesigner.Structures
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
                 }
+                string PNGPath = "";
+                bool shown = false; // Only show ones
                 if (pbpTopLeftName.Length > 0 && System.IO.File.Exists(cDataBase.getPath(pbpTopLeftName)))
                 {
-                    if (cDataBase.getPath(pbpTopLeftName).EndsWith("svg"))
+                    if (cDataBase.getPath(pbpTopLeftName).ToLower().EndsWith(".svg"))
                     {
-                        MessageBox.Show("'.svg'-images are not supported!");
-                        Application.Exit();
+                        if (shown == false)
+                        {
+                            shown = true;
+                            MessageBox.Show("'.svg'-graphics can't be displayed by OSD, searching for '.png' graphics instead.","svg-graphics",
+                            MessageBoxButtons.OK,MessageBoxIcon.Information );
+                        }
+                        
+                        PNGPath = cDataBase.getPNGPath(cDataBase.getPath(pbpTopLeftName));
+                        if (File.Exists(PNGPath))
+                        {
+                            Image pixmap = Image.FromFile(PNGPath);
+                            pbpTopLeft = pixmap.Size;
+                            pixmap.Dispose();
+                        }
+                        //Application.Exit();
                     }
                     else
                     {
@@ -119,10 +135,22 @@ namespace OpenSkinDesigner.Structures
                 }
                 if (pbpTopName.Length > 0 && System.IO.File.Exists(cDataBase.getPath(pbpTopName)))
                 {
-                    if (cDataBase.getPath(pbpTopName).EndsWith("svg"))
+                    if (cDataBase.getPath(pbpTopName).ToLower().EndsWith(".svg"))
                     {
-                        MessageBox.Show("'.svg'-images are not supported!");
-                        Application.Exit();
+                        if (shown == false)
+                        {
+                            shown = true;
+                            MessageBox.Show("'.svg'-graphics can't be displayed by OSD, searching for '.png' graphics instead.", "svg-graphics",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        PNGPath = cDataBase.getPNGPath(cDataBase.getPath(pbpTopName));
+                        if (File.Exists(PNGPath))
+                        {
+                            Image pixmap = Image.FromFile(PNGPath);
+                            pbpTop = pixmap.Size;
+                            pixmap.Dispose();
+                        }
+                        //Application.Exit();
                     }
                     else
                     {
@@ -134,10 +162,22 @@ namespace OpenSkinDesigner.Structures
                 }
                 if (pbpTopRightName.Length > 0 && System.IO.File.Exists(cDataBase.getPath(pbpTopRightName)))
                 {
-                    if (cDataBase.getPath(pbpTopRightName).EndsWith("svg"))
+                    if (cDataBase.getPath(pbpTopRightName).ToLower().EndsWith(".svg"))
                     {
-                        MessageBox.Show("'.svg'-images are not supported!");
-                        Application.Exit();
+                        if (shown == false)
+                        {
+                            shown = true;
+                            MessageBox.Show("'.svg'-graphics can't be displayed by OSD, searching for '.png' graphics instead.", "svg-graphics",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        PNGPath = cDataBase.getPNGPath(cDataBase.getPath(pbpTopRightName));
+                        if (File.Exists(PNGPath))
+                        {
+                            Image pixmap = Image.FromFile(PNGPath);
+                            pbpTopRight = pixmap.Size;
+                            pixmap.Dispose();
+                        }
+                        //Application.Exit();
                     }
                     else
                     {
@@ -151,10 +191,22 @@ namespace OpenSkinDesigner.Structures
 
                 if (pbpLeftName.Length > 0 && System.IO.File.Exists(cDataBase.getPath(pbpLeftName)))
                 {
-                    if (cDataBase.getPath(pbpLeftName).EndsWith("svg"))
+                    if (cDataBase.getPath(pbpLeftName).ToLower().EndsWith(".svg"))
                     {
-                        MessageBox.Show("'.svg'-images are not supported!");
-                        Application.Exit();
+                        if (shown == false)
+                        {
+                            shown = true;
+                            MessageBox.Show("'.svg'-graphics can't be displayed by OSD, searching for '.png' graphics instead.", "svg-graphics",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        PNGPath = cDataBase.getPNGPath(cDataBase.getPath(pbpLeftName));
+                        if (File.Exists(PNGPath))
+                        {
+                            Image pixmap = Image.FromFile(PNGPath);
+                            pbpLeft = pixmap.Size;
+                            pixmap.Dispose();
+                        }
+                        //Application.Exit();
                     }
                     else
                     {
@@ -166,10 +218,22 @@ namespace OpenSkinDesigner.Structures
                 }
                 if (pbpRightName.Length > 0 && System.IO.File.Exists(cDataBase.getPath(pbpRightName)))
                 {
-                    if (cDataBase.getPath(pbpRightName).EndsWith("svg"))
+                    if (cDataBase.getPath(pbpRightName).ToLower().EndsWith(".svg"))
                     {
-                        MessageBox.Show("'.svg'-images are not supported!");
-                        Application.Exit();
+                        if (shown == false)
+                        {
+                            shown = true;
+                            MessageBox.Show("'.svg'-graphics can't be displayed by OSD, searching for '.png' graphics instead.", "svg-graphics",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        PNGPath = cDataBase.getPNGPath(cDataBase.getPath(pbpRightName));
+                        if (File.Exists(PNGPath))
+                        {
+                            Image pixmap = Image.FromFile(PNGPath);
+                            pbpRight = pixmap.Size;
+                            pixmap.Dispose();
+                        }
+                        //Application.Exit();
                     }
 
                     else
@@ -184,10 +248,22 @@ namespace OpenSkinDesigner.Structures
 
                 if (pbpBottomLeftName.Length > 0 && System.IO.File.Exists(cDataBase.getPath(pbpBottomLeftName)))
                 {
-                    if (cDataBase.getPath(pbpBottomLeftName).EndsWith("svg"))
+                    if (cDataBase.getPath(pbpBottomLeftName).ToLower().EndsWith(".svg"))
                     {
-                        MessageBox.Show("'.svg'-images are not supported!");
-                        Application.Exit();
+                        if (shown == false)
+                        {
+                            shown = true;
+                            MessageBox.Show("'.svg'-graphics can't be displayed by OSD, searching for '.png' graphics instead.", "svg-graphics",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        PNGPath = cDataBase.getPNGPath(cDataBase.getPath(pbpBottomLeftName));
+                        if (File.Exists(PNGPath))
+                        {
+                            Image pixmap = Image.FromFile(PNGPath);
+                            pbpBottomLeft = pixmap.Size;
+                            pixmap.Dispose();
+                        }
+                        //Application.Exit();
                     }
                     else
                     {
@@ -199,11 +275,23 @@ namespace OpenSkinDesigner.Structures
                 }
                 if (pbpBottomName.Length > 0 && System.IO.File.Exists(cDataBase.getPath(pbpBottomName)))
                 {
-                    if (cDataBase.getPath(pbpBottomName).EndsWith("svg"))
+                    if (cDataBase.getPath(pbpBottomName).ToLower().EndsWith(".svg"))
                         
                     {
-                        MessageBox.Show("'.svg'-images are not supported!");
-                        Application.Exit();
+                        if (shown == false)
+                        {
+                            shown = true;
+                            MessageBox.Show("'.svg'-graphics can't be displayed by OSD, searching for '.png' graphics instead.", "svg-graphics",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        PNGPath = cDataBase.getPNGPath(cDataBase.getPath(pbpBottomName));
+                        if (File.Exists(PNGPath))
+                        {
+                            Image pixmap = Image.FromFile(PNGPath);
+                            pbpBottom = pixmap.Size;
+                            pixmap.Dispose();
+                        }
+                        // Application.Exit();
                     }
                     else
                     {
@@ -215,10 +303,25 @@ namespace OpenSkinDesigner.Structures
                 }
                 if (pbpBottomRightName.Length > 0 && System.IO.File.Exists(cDataBase.getPath(pbpBottomRightName)))
                 {
-                    if (cDataBase.getPath(pbpBottomRightName).EndsWith("svg"))
+                    if (cDataBase.getPath(pbpBottomRightName).ToLower().EndsWith(".svg"))
                     {
-                        MessageBox.Show("'.svg'-images are not supported!");
-                        Application.Exit();
+                        if (shown == false)
+                        {
+                            shown = true;
+                            MessageBox.Show("'.svg'-graphics can't be displayed by OSD, searching for '.png' graphics instead.", "svg-graphics",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        PNGPath = cDataBase.getPNGPath(cDataBase.getPath(pbpBottomRightName));
+                        if (File.Exists(PNGPath))
+                        {
+                            Image pixmap = Image.FromFile(PNGPath);
+                            pbpBottomRight = pixmap.Size;
+                            pixmap.Dispose();
+                        }
+                        //Application.Exit();
+                        
+                        
+
                     }
                     else
                     {

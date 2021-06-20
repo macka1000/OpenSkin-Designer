@@ -97,6 +97,10 @@ namespace OpenSkinDesigner.Structures
                                     ).paint(sender, e);
 			                    //painter.blit(t, ePoint(x, pos.top()), eRect(x, pos.top(), xm - x, pos.height()));
                                 x += (Int32)((sAttributeScreen)pAttr).pbpTop.Width;
+                            if ((Int32)((sAttributeScreen)pAttr).pbpTop.Width == 0) // Fix for: svg graphic without png pendant 
+                                x = xm;
+
+
 		                    }
 	                    }
 
@@ -141,7 +145,9 @@ namespace OpenSkinDesigner.Structures
                                     ).paint(sender, e);
 			                    //painter.blit(b, ePoint(x, pos.bottom()-b->size().height()), eRect(x, pos.bottom()-b->size().height(), xm - x, pos.height()));
                                 x += (Int32)((sAttributeScreen)pAttr).pbpBottom.Width;
-		                    }
+                            if ((Int32)((sAttributeScreen)pAttr).pbpBottom.Width == 0) // Fix for: svg graphic without png pendant 
+                                x = xm;
+                        }
 	                    }
 
                         Int32 y = 0;
@@ -167,7 +173,9 @@ namespace OpenSkinDesigner.Structures
                                     ).paint(sender, e);
 			                    //painter.blit(l, ePoint(pos.left(), y), eRect(pos.left(), y, pos.width(), ym - y));
                                 y += (Int32)((sAttributeScreen)pAttr).pbpLeft.Height;
-		                    }
+                            if ((Int32)((sAttributeScreen)pAttr).pbpLeft.Height == 0) // Fix for: svg graphic without png pendant 
+                                y = xm;
+                        }
 	                    }
                     	
 	                    y = 0;
@@ -194,7 +202,9 @@ namespace OpenSkinDesigner.Structures
                                     ).paint(sender, e);
 			                    //painter.blit(r, ePoint(pos.right() - r->size().width(), y), eRect(pos.right()-r->size().width(), y, r->size().width(), ym - y));
                                 y += (Int32)((sAttributeScreen)pAttr).pbpRight.Height;
-		                    }
+                            if ((Int32)((sAttributeScreen)pAttr).pbpRight.Height == 0) // Fix for: svg graphic without png pendant 
+                                y = xm;
+                        }
 	                    }
 
                         //Title
