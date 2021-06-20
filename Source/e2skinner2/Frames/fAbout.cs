@@ -207,7 +207,7 @@ namespace OpenSkinDesigner.Frames
                  "- Application will be terminated if a '.svg' graphic is used in the 'borderset's" + Environment.NewLine + Environment.NewLine +
                  "v3.2.6.0 by Humax" + Environment.NewLine +
                  "- Undo application termination if a '.svg' graphic is used in the 'borderset's" + Environment.NewLine +
-                 "- If '.svg' graphic is used in borderset's, the application searches for a corresponding '.png' graphic";
+                 "- If '.svg' graphic is used, the application searches for a corresponding '.png' graphic";
 
         }
 
